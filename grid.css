@@ -1,0 +1,31 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+select {
+    margin: 20px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 10px; /* Space between items */
+    padding: 20px;
+}
+
+.project {
+    background-color: gray;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}
