@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const filterSelect = document.getElementById('tag-filter');
-    const projects = document.querySelectorAll('.project');
+    const projects = document.querySelectorAll('.project-link');
 
     filterSelect.addEventListener('change', function() {
         const filterValue = filterSelect.value;

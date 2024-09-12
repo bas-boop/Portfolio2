@@ -28,10 +28,15 @@ h1 {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px; /* Space between projects */
     padding: 0 50px;
+    /* align-items: center; */
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
 }
 
 /*Style for project cards */
 .project {
+    display: none;
     background-color: #2c2c3a; /* Dark grey background for project boxes */
     padding: 20px;
     border-radius: 10px;
@@ -42,8 +47,11 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Add some hover effect */
 }
 
-.project.hidden {
+.hidden {
     display: none;
+    max-width: 0px;
+    max-height: 0px;
+    position: absolute;
 }
 
 .project:hover {
