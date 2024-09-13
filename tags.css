@@ -1,0 +1,83 @@
+/* Filter section styling */
+.filter {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    justify-content: center; /* Center content horizontally */
+    margin-bottom: 20px;
+    gap: 10px; /* Space between the label and the dropdown */
+}
+
+.filter label {
+    font-size: 16px;
+    color: #fff; /* White text to match dark theme */
+    margin-right: 10px; /* Space between the label and the dropdown */
+    font-weight: bold; /* Make the label stand out */
+}
+
+/* Styling for the tags */
+.tags {
+    margin-top: 10px;
+}
+
+/* Base styling for all tags */
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+    color: #fff; /* White text for contrast */
+    background-color: #4d4d4d;
+}
+
+.tag:hover{
+    background-color: #696969;
+}
+
+/* Engine-specific tags (Purple) */
+.tag-engine {
+    background-color: #4c3a62; /* Dark purple for engines */
+}
+
+.tag-engine:hover {
+    background-color: #7e5ba5; /* Lighter purple on hover */
+}
+
+/* Language-specific tags (Blue) */
+.tag-lang {
+    background-color: #3a647a; /* Dark blue for programming languages */
+}
+
+.tag-lang:hover {
+    background-color: #5ba1c1; /* Lighter blue on hover */
+}
+
+#tag-filter {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #4c3a62; /* Dark purple border */
+    border-radius: 5px;
+    background-color: #2c2c2c; /* Dark background */
+    color: #fff; /* White text */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dropdown arrow */
+#tag-filter option {
+    background-color: #2c2c2c;
+    color: #fff;
+}
+
+/* Change background color and border on focus */
+#tag-filter:focus {
+    background-color: #3a3a3a; /* Slightly lighter dark background */
+    border-color: #7e5ba5; /* Lighter purple border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Style the dropdown arrow */
+#tag-filter::-ms-value {
+    color: #fff; /* Text color for older browsers */
+}

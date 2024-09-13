@@ -1,0 +1,44 @@
+.code-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content at the top */
+    gap: 40px; /* Add space between code and text */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Allow elements to wrap on small screens */
+}
+
+.code {
+    flex: 1;
+    max-width: 600px; /* Set a max-width for the code block */
+}
+
+.description {
+    flex: 1;
+    max-width: 500px;
+    color: #ddd; /* Ensure the text color matches the theme */
+    font-size: 16px;
+}
+
+.description h2 {
+    color: #a68ab7; /* Light purple for the title */
+    margin-bottom: 10px;
+}
+
+.description p {
+    line-height: 1.6;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+    .code-container {
+        flex-direction: column; /* Stack elements vertically */
+        gap: 20px; /* Reduce gap between elements */
+    }
+
+    .code,
+    .description {
+        max-width: 100%; /* Make elements take full width */
+    }
+}
