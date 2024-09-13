@@ -1,44 +1,104 @@
-.code-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align content at the top */
-    gap: 40px; /* Add space between code and text */
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap; /* Allow elements to wrap on small screens */
-}
+/* projectpage.css */
 
-.code {
-    flex: 1;
-    max-width: 600px; /* Set a max-width for the code block */
-}
-
-.description {
-    flex: 1;
-    max-width: 500px;
-    color: #ddd; /* Ensure the text color matches the theme */
-    font-size: 16px;
-}
-
-.description h2 {
-    color: #a68ab7; /* Light purple for the title */
+h2 {
+    color: #a68ab7;
     margin-bottom: 10px;
 }
 
-.description p {
+p {
     line-height: 1.6;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.code-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex: 1;
+    color: #ddd;
+    font-size: 16px;
+}
+
+.code {
+    max-width: 600px;
+}
+
+.description {
+    max-width: 500px;
+}
+
+.description-double {
+    max-width: 950px;
+}
+
+/* Unified image container */
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Variant width styles for images */
+.image-container img {
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Width classes for images inside their container */
+.width-40 img {
+    max-width: 40%;
+}
+
+.width-50 img {
+    max-width: 50%;
+}
+
+.width-60 img {
+    max-width: 60%;
+}
+
+.width-75 img {
+    max-width: 75%;
+}
+
+.width-100 img {
+    max-width: 100%;
+}
+
+/* Caption styling */
+.image-container figcaption {
+    color: #a68ab7; /* Matches the light purple title color */
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 14px;
 }
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
     .code-container {
-        flex-direction: column; /* Stack elements vertically */
-        gap: 20px; /* Reduce gap between elements */
+        flex-direction: column;
+        gap: 20px;
     }
 
-    .code,
-    .description {
-        max-width: 100%; /* Make elements take full width */
+    .flex-item {
+        max-width: 100%;
     }
 }

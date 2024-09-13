@@ -1,0 +1,40 @@
+/* navbar.css */
+
+/* Navbar styling */
+.navbar {
+    background-color: #2c2c3a;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
+    margin-bottom: 30px; /* Space below the navbar */
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between navigation items */
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff; /* White text color */
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.nav-links a:hover {
+    color: #a68ab7; /* Light purple on hover */
+}
+
+/* Mobile responsive for smaller screens */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

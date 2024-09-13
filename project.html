@@ -16,8 +16,8 @@
 
     <div class="code-container">
         <div class="description">
-            <h2>Set data to UI</h2>
-            <p>bla bla</p>
+            <h2>Set Data to UI</h2>
+            <p>This code snippet demonstrates how to update various UI elements with weather data. It takes in a <highlight-text>WeatherResponse</highlight-text> object and sets the text of different UI components based on the weather data received. The method updates temperature, cloud coverage, wind speed, degree, humidity, pressure, and visibility in the user interface.</p>
         </div>
 
         <div class="code">
@@ -38,19 +38,29 @@
     visibility.text = V + weatherData.visibility + M;
 }</code></pre>
         </div>
+
+        <figure class="image-container flex-item width-75">
+            <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
+            <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
+        </figure>
+
+        <figure class="image-container flex-item width-100">
+            <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+            <figcaption>Figure 2: Dash Ability Diagram</figcaption>
+        </figure>
     </div>
 
-    <div class="code-container">
-    <div class="description">
-        <h2>API Key Loading Function</h2>
-        <p>This code demonstrates how to load an API key from a configuration file. It reads a JSON file located in the <highlight-text>streamingAssetsPath</highlight-text>, extracts the <highlight-text>openWeatherMapApiKey</highlight-text>, and returns it. If the file is not found, an error is logged to the console.</p>
     </div>
 
-    </div>
+    <div class="container">
+        <div class="description-double">
+            <h2>API Key Loading Function</h2>
+            <p>This code demonstrates how to load an API key from a configuration file. It reads a JSON file located in the <highlight-text>streamingAssetsPath</highlight-text>, extracts the <highlight-text>openWeatherMapApiKey</highlight-text>, and returns it. If the file is not found, an error is logged to the console.</p>
+        </div>
 
-    <div class="code-container">
-        <div class="code">
-            <pre><code class="language-cs" style="max-width: 960px;">public static string LoadApiKey()
+        <div class="code-container">
+            <div class="code">
+                <pre><code class="language-cs" style="max-width: 960px;">public static string LoadApiKey()
 {
     string path = Path.Combine(Application.streamingAssetsPath, "Config.json");
     
@@ -64,15 +74,14 @@
     Debug.LogError("Configuration file not found.");
     return null;
 }</code></pre>
-        </div>
+            </div>
 
-                <div class="code">
-            <pre><code class="language-json" style="max-width: 960px;">{
+            <div class="code">
+                <pre><code class="language-json" style="max-width: 960px;">{
   "openWeatherMapApiKey": "Your_API_key"
 }</code></pre>
+            </div>
         </div>
-
-        
     </div>
 
     <footer>

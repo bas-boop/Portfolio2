@@ -1,0 +1,94 @@
+/* about.css */
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space between text blocks and image */
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+}
+
+.text-blocks {
+    flex: 1;
+    max-width: 60%; /* Adjust this as needed to fit your design */
+}
+
+section {
+    background-color: #2c2c3a; /* Dark grey background for sections */
+    color: #ddd; /* Light grey text */
+    padding: 20px;
+    margin-bottom: 0;
+    margin-left: 15%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+section h2 {
+    font-size: 24px;
+    color: #d6b3ff; /* Soft purple for section titles */
+    margin-bottom: 10px;
+}
+
+section p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+a.link {
+    color: #c092f5; /* Lighter blue for better visibility */
+}
+
+a.link:hover {
+    color: #884eca; /* Even lighter blue on hover */
+}
+
+.profile-photo {
+    width: 500px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: round corners of the photo */
+    margin-left: 20px; /* Space between text and image */
+    margin-right: 5%; /* Space between text and image */
+    margin-bottom: 0;
+}
+
+/* Media query for screens narrower than 768px */
+@media (max-width: 1200px) {
+    section{
+        margin-left: 0%;
+    }
+
+    .main-content {
+        flex-direction: column; /* Stack text blocks and image vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .text-blocks {
+        max-width: 100%; /* Allow text blocks to take full width */
+        margin-bottom: 20px; /* Add margin below text blocks */
+    }
+
+    .profile-photo {
+        width: 80%; /* Adjust image width for smaller screens */
+        margin-left: 0; /* Remove left margin */
+    }
+}
+
+/* Media query for screens narrower than 480px */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px; /* Reduce font size for small screens */
+    }
+
+    section h2 {
+        font-size: 20px; /* Reduce font size for section titles */
+    }
+
+    section p {
+        font-size: 14px; /* Reduce font size for section text */
+    }
+}
