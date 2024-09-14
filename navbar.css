@@ -1,40 +1,100 @@
-/* navbar.css */
-
 /* Navbar styling */
 .navbar {
     background-color: #2c2c3a;
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds shadow for depth */
-    margin-bottom: 30px; /* Space below the navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
 }
 
+/* Navbar links */
 .nav-links {
     list-style-type: none;
     display: flex;
-    justify-content: center;
-    gap: 30px; /* Space between navigation items */
+    justify-content: center; /* Center all the navigation items */
+    gap: 30px; /* Space between links */
+    align-items: center; /* Vertically center links */
 }
 
 .nav-links li {
     display: inline-block;
 }
 
+/* General link styles */
 .nav-links a {
     text-decoration: none;
-    color: #fff; /* White text color */
+    color: #fff;
     font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s ease; /* Smooth hover effect */
+    transition: color 0.3s ease;
+    text-align: center; /* Keep text center-aligned */
+    display: block; /* Full block for better layout control */
 }
 
 .nav-links a:hover {
-    color: #a68ab7; /* Light purple on hover */
+    color: #a68ab7;
+}
+
+/* Dropdown styling */
+.nav-links .dropdown {
+    position: relative;
+    display: inline-block;
+    text-align: center; /* Center the dropdown title */
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Horizontally center the dropdown */
+    background-color: #2c2c3a;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    min-width: 275px;
+    z-index: 1;
+}
+
+/* Individual dropdown links */
+.dropdown-content li {
+    display: block;
+    padding: 10px 20px;
+}
+
+.dropdown-content li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+}
+
+.dropdown-content li a:hover {
+    background-color: #696969;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* Mobile responsive for smaller screens */
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column;
+        align-items: center; /* Center the items vertically */
         gap: 15px;
+    }
+
+    /* Dropdown content for mobile */
+    .dropdown-content {
+        left: 0;
+        right: 0;
+        transform: none; /* No need to center horizontally */
+        width: 100%; /* Full width on small screens */
+        position: relative; /* Relative to avoid navbar flow disruption */
+    }
+
+    /* Ensure dropdown works on mobile */
+    .dropdown:hover .dropdown-content {
+        display: block;
     }
 }

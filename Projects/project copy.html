@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bas de Reus</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/navbar.css">
+    <link rel="stylesheet" href="projectpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Visualizer</h1>
+    </header>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="code-container">
+        <div class="description">
+            <h2>Set Data to UI</h2>
+            <p>This code snippet demonstrates how to update various UI elements with weather data. It takes in a <highlight-text>WeatherResponse</highlight-text> object and sets the text of different UI components based on the weather data received. The method updates temperature, cloud coverage, wind speed, degree, humidity, pressure, and visibility in the user interface.</p>
+        </div>
+
+        <div class="code">
+            <pre><code class="language-cs" style="max-width: 960px;">private void UpdateUiWithData(WeatherResponse weatherData)
+{
+    if (weatherData.weather is { Length: > 0 })
+    {
+        main.text = weatherData.name + ": " + weatherData.weather[0].main;
+        description.text = weatherData.weather[0].description;
+    }
+
+    temp.text = weatherData.main.temp + C;
+    cloud.text = CC + weatherData.clouds.all + P;
+    speed.text = WS + weatherData.wind.speed + METERS_PER_SECONDS;
+    degree.text = D + weatherData.wind.deg + DEGREE_SYMBOL;
+    humidity.text = HD + weatherData.main.humidity + P;
+    pressure.text = PR + weatherData.main.pressure + H;
+    visibility.text = V + weatherData.visibility + M;
+}</code></pre>
+        </div>
+
+        <figure class="image-container flex-item width-75">
+            <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
+            <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
+        </figure>
+
+        <figure class="image-container flex-item width-100">
+            <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+            <figcaption>Figure 2: Dash Ability Diagram</figcaption>
+        </figure>
+    </div>
+
+    </div>
+
+    <div class="container">
+        <div class="description-double">
+            <h2>API Key Loading Function</h2>
+            <p>This code demonstrates how to load an API key from a configuration file. It reads a JSON file located in the <highlight-text>streamingAssetsPath</highlight-text>, extracts the <highlight-text>openWeatherMapApiKey</highlight-text>, and returns it. If the file is not found, an error is logged to the console.</p>
+        </div>
+
+        <div class="code-container">
+            <div class="code">
+                <pre><code class="language-cs" style="max-width: 960px;">public static string LoadApiKey()
+{
+    string path = Path.Combine(Application.streamingAssetsPath, "Config.json");
+    
+    if (File.Exists(path))
+    {
+        string json = File.ReadAllText(path);
+        ApiConfig config = JsonUtility.FromJson<ApiConfig>(json);
+        return config.openWeatherMapApiKey;
+    }
+    
+    Debug.LogError("Configuration file not found.");
+    return null;
+}</code></pre>
+            </div>
+
+            <div class="code">
+                <pre><code class="language-json" style="max-width: 960px;">{
+  "openWeatherMapApiKey": "Your_API_key"
+}</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Bas de Reus</p>
+    </footer>
+
+    <script src="/FetchNavbar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

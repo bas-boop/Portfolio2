@@ -157,4 +157,12 @@
     .highlight-container img {
         max-width: 300px; /* Adjust as needed */
     }
+
+    .highlight-info h2 {
+        font-size: 1.4em;
+    }
+    
+    .highlight-info p {
+        font-size: 0.8em;
+    }
 }
