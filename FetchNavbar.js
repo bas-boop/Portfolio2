@@ -1,4 +1,8 @@
-fetch('navbar.html')  // Use relative path to the current directory
+// Determine if the current page is in the 'Projects' folder
+const pathToNavbar = window.location.pathname.includes('/Projects/') ? '../navbar.html' : 'navbar.html';
+
+// Load the navbar from the appropriate path
+fetch(pathToNavbar)
     .then(response => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
