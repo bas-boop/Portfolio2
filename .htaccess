@@ -1,0 +1,20 @@
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+# custom 404 website
+ErrorDocument 404 /404.html
+
+# remove `.html` of every page
+RewriteEngine on 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+# Add an expires header for images
+<FilesMatch "\.(jpg|jpeg|png|gif|ico)$">
+    ExpiresDefault "access plus 1 year"
+</FilesMatch>
+
+# Add an expires header for CSS and JS
+<FilesMatch "\.(css|js)$">
+    ExpiresDefault "access plus 1 month"
+</FilesMatch>
