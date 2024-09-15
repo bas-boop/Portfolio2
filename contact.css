@@ -1,0 +1,40 @@
+/* Contact page styles */
+.contact-section {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-list p {
+    color: #a68ab7; /* Same light purple as the header */
+}
+
+.contact-list li {
+    margin-bottom: 15px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-list i {
+    margin-right: 10px;
+    color: #a68ab7; /* Same light purple as the header */
+}
+
+.contact-list a {
+    color: #a68ab7; /* Light purple for links */
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+}

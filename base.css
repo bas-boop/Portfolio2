@@ -39,6 +39,14 @@ footer {
     color: #777; /* Darker grey for footer text */
 }
 
+footer a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    color: #777; /* Same light purple as the header */
+}
+
 /* Styling for inline code blocks inside backticks */
 highlight-text {
     background-color: #2d2d2d; /* Darker background */
