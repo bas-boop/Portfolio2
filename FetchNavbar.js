@@ -1,6 +1,10 @@
-// Load the navbar from the external file
-fetch('/navbar.html')  // Using absolute path to fetch the navbar from root
-    .then(response => response.text())
+fetch('navbar.html')  // Use relative path to the current directory
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
     .then(data => {
         document.getElementById('navbar-placeholder').innerHTML = data;
     })
