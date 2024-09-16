@@ -91,14 +91,41 @@ p {
     font-size: 14px;
 }
 
+pre code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
+    .image-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
     .code-container {
         flex-direction: column;
         gap: 20px;
+        padding: 10px;
+    }
+
+    .code {
+        max-width: 100%;
     }
 
     .flex-item {
         max-width: 100%;
     }
+
+    .description, .description-double {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        width: 100%;
+    }
 }
+

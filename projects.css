@@ -154,8 +154,14 @@
         grid-template-columns: 1fr; /* 1 column */
     }
 
+    .highlight-container {
+        flex-direction: column; /* Stack the image on top of the text */
+        align-items: center; /* Center the content */
+    }
+
     .highlight-container img {
-        max-width: 300px; /* Adjust as needed */
+        max-width: 100%; /* Allow image to take full width */
+        margin-bottom: 20px; /* Add some spacing between image and text */
     }
 
     .highlight-info h2 {
