@@ -1,0 +1,62 @@
+/* Under Construction Page Styles */
+.construction-container {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+h1 {
+    font-size: 60px;
+    color: #a68ab7; /* Light purple header */
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    color: #ddd;
+    margin-bottom: 40px;
+}
+
+/* Progress bar style */
+.progress-bar {
+    width: 60%;
+    height: 30px;
+    background-color: #2c2c3a;
+    border-radius: 15px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+    border: 2px solid #4c3a62;
+}
+
+.progress-fill {
+    width: 50%;
+    height: 100%;
+    background-color: #a68ab7;
+    animation: progress-animation 2s infinite ease-in-out;
+}
+
+@keyframes progress-animation {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 0%; }
+}
+
+/* Links styling */
+.links {
+    margin-top: 30px;
+}
+
+.links a {
+    color: #c092f5;
+    text-decoration: none;
+}
+
+.links a:hover {
+    color: #884eca;
+    text-decoration: underline;
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 14px;
+    color: #777;
+}

@@ -20,9 +20,23 @@
 
     <div class="code-container">
         <div class="description">
+            <h2>Project infomartion</h2>
+            <p>A weather visualizer with some game elements. By using a weather API. Big bla bla you see here. The weather could be nice..... or not.</p>
+        </div>  
+    </div>
+
+    <hr>
+
+    <div class="code-container">
+        <div class="description">
             <h2>Set Data to UI</h2>
             <p>This code snippet demonstrates how to update various UI elements with weather data. It takes in a <highlight-text>WeatherResponse</highlight-text> object and sets the text of different UI components based on the weather data received. The method updates temperature, cloud coverage, wind speed, degree, humidity, pressure, and visibility in the user interface.</p>
         </div>
+
+        <!-- <figure class="flex-item width-75">
+            <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
+            <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
+        </figure> -->
 
         <div class="code">
             <pre><code class="language-cs" style="max-width: 960px;">private void UpdateUiWithData(WeatherResponse weatherData)
@@ -42,19 +56,21 @@
     visibility.text = V + weatherData.visibility + M;
 }</code></pre>
         </div>
-
-        <figure class="image-container flex-item width-75">
-            <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
-            <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
-        </figure>
-
-        <figure class="image-container flex-item width-100">
-            <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
-            <figcaption>Figure 2: Dash Ability Diagram</figcaption>
-        </figure>
+        
+        <div class="image-grid">
+            <figure class="image-container flex-item width-100">
+                <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
+                <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
+            </figure>
+            
+            <figure class="image-container flex-item width-100">
+                <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+                <figcaption>Figure 2: Dash Ability Diagram</figcaption>
+            </figure>
+        </div>
     </div>
 
-    </div>
+    <hr>
 
     <div class="container">
         <div class="description-double">
@@ -66,7 +82,10 @@
             <div class="code">
                 <pre><code class="language-cs" style="max-width: 960px;">public static string LoadApiKey()
 {
-    string path = Path.Combine(Application.streamingAssetsPath, "Config.json");
+    string path = Path.Combine(
+        Application.streamingAssetsPath, 
+        "Config.json"
+    );
     
     if (File.Exists(path))
     {
@@ -84,6 +103,28 @@
                 <pre><code class="language-json" style="max-width: 960px;">{
   "openWeatherMapApiKey": "Your_API_key"
 }</code></pre>
+            </div>
+
+            <div class="image-grid">
+                <figure class="image-container">
+                    <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+                    <figcaption>Figure 3: Example image, too lazy to get a new one :D</figcaption>
+                </figure>
+            
+                <figure class="image-container">
+                    <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+                    <figcaption>Figure 3: Example image, too lazy to get a new one :D</figcaption>
+                </figure>
+            
+                <figure class="image-container">
+                    <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+                    <figcaption>Figure 3: Example image, too lazy to get a new one :D</figcaption>
+                </figure>
+            
+                <figure class="image-container">
+                    <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+                    <figcaption>Figure 3: Example image, too lazy to get a new one :D</figcaption>
+                </figure>
             </div>
         </div>
     </div>

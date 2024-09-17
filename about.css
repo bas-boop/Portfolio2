@@ -47,6 +47,13 @@ a.link:hover {
     color: #884eca; /* Even lighter blue on hover */
 }
 
+.image-content {
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align the items */
+}
+
 .profile-photo {
     width: 500px; /* Adjust width as needed */
     height: auto; /* Maintain aspect ratio */
@@ -54,6 +61,12 @@ a.link:hover {
     margin-left: 20px; /* Space between text and image */
     margin-right: 5%; /* Space between text and image */
     margin-bottom: 0;
+}
+.profile-photo-stage {
+    width: 500px; /* Smaller second image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: round corners */
+    margin-top: 10px; /* Space between the two images */
 }
 
 /* Media query for screens narrower than 768px */
@@ -65,16 +78,25 @@ a.link:hover {
     .main-content {
         flex-direction: column; /* Stack text blocks and image vertically */
         align-items: center; /* Center align items */
+        padding: 0;
+        margin: 0;
     }
 
     .text-blocks {
         max-width: 100%; /* Allow text blocks to take full width */
         margin-bottom: 20px; /* Add margin below text blocks */
     }
+    
+    .image-content{
+        width: 90%;
+        margin-right: 0;
+    }
 
-    .profile-photo {
-        width: 80%; /* Adjust image width for smaller screens */
-        margin-left: 0; /* Remove left margin */
+    .profile-photo, .profile-photo-stage {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
     }
 }
 

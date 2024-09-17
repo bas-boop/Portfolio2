@@ -24,7 +24,6 @@
             <p>This code snippet demonstrates how to update various UI elements with weather data. It takes in a <highlight-text>WeatherResponse</highlight-text> object and sets the text of different UI components based on the weather data received. The method updates temperature, cloud coverage, wind speed, degree, humidity, pressure, and visibility in the user interface.</p>
         </div>
 
-        <!-- will not shrink when narrow screen -->
         <div class="code">
             <pre><code class="language-cs" style="max-width: 960px;">private void UpdateUiWithData(WeatherResponse weatherData)
 {
@@ -44,15 +43,17 @@
 }</code></pre>
         </div>
 
-        <figure class="image-container flex-item width-75">
-            <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
-            <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
-        </figure>
-
-        <figure class="image-container flex-item width-100">
-            <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
-            <figcaption>Figure 2: Dash Ability Diagram</figcaption>
-        </figure>
+        <div class="image-grid">
+            <figure class="image-container flex-item width-100">
+                <img src="Platypus/UML Pick-up System.jpeg" alt="UML Diagram for Pick-up System">
+                <figcaption>Figure 1: UML Diagram for Pick-up System</figcaption>
+            </figure>
+            
+            <figure class="image-container flex-item width-100">
+                <img src="Platypus/PlayerStateManager-Inspector.jpg" alt="Dash Ability Diagram">
+                <figcaption>Figure 2: Dash Ability Diagram</figcaption>
+            </figure>
+        </div>
     </div>
 
     </div>
@@ -64,11 +65,13 @@
         </div>
 
         <div class="code-container">
-            <!-- will not shrink when narrow screen -->
             <div class="code">
                 <pre><code class="language-cs" style="max-width: 960px;">public static string LoadApiKey()
 {
-    string path = Path.Combine(Application.streamingAssetsPath, "Config.json");
+    string path = Path.Combine(
+        Application.streamingAssetsPath, 
+        "Config.json"
+    );
     
     if (File.Exists(path))
     {

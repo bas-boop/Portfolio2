@@ -50,17 +50,44 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex: none; /* Prevent shrinking */
+    width: 100%; /* Ensure full width */
     margin-top: 20px;
     text-align: center;
 }
 
-/* Variant width styles for images */
+/* Container for multiple images */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap; /* Enable wrapping */
+    gap: 20px; /* Space between images */
+    justify-content: center; /* Center images */
+}
+
+/* Each image will take 48% width (2 per row with small margin) */
+.image-grid .image-container {
+    flex: 1 1 calc(50% - 20px); /* 50% width minus gap, ensures 2 per row */
+    max-width: calc(50% - 20px);
+    box-sizing: border-box; /* Ensure padding/margin don't affect the size */
+}
+
 .image-container img {
     height: auto;
     border: 2px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 100%;
+    width: 100%;
 }
+
+/* Caption styling */
+.image-container figcaption {
+    color: #a68ab7; /* Matches the light purple title color */
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 14px;
+}
+
 
 /* Width classes for images inside their container */
 .width-40 img {
@@ -92,8 +119,18 @@ p {
 }
 
 pre code {
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    white-space: pre-wrap;  /* Wraps the code within the container */
+    word-wrap: break-word;  /* Breaks long words or strings if necessary */
+    overflow-wrap: break-word; /* Ensures long words/paths are broken if they overflow */
+}
+
+/* General styling for hr */
+hr {
+    border: none;
+    height: 2px;
+    background-color: #4c3a62; /* Dark purple color matching theme */
+    margin: 0;
+    opacity: 0; /* Hidden by default */
 }
 
 /* Responsive behavior for smaller screens */
@@ -127,5 +164,18 @@ pre code {
         max-width: 100%;
         width: 100%;
     }
-}
 
+    .image-grid .image-container {
+        flex: 1 1 100%; /* Full width on small screens */
+        max-width: 100%;
+    }
+
+    hr {
+        opacity: 1;
+        background: linear-gradient(to right, #a68ab7, #4c3a62); /* Gradient color */
+        height: 3px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+        margin: 30px 0; /* Add space around the hr */
+    }
+}

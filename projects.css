@@ -43,10 +43,13 @@
 
 /* Style the project images */
 .project img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Full width of the container */
+    height: auto; /* Auto height to keep aspect ratio */
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+    object-fit: cover; /* Ensure the image fills the container while maintaining its aspect ratio */
     border-radius: 15px;
     border: 3px solid #4c3a62; /* Add purple border around images */
+    background-color: #fff;
 }
 
 .project h2 {
@@ -90,6 +93,8 @@
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+    aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
+    object-fit: cover;
 }
 
 .highlight-info {
