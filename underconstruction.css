@@ -31,12 +31,13 @@ p {
     width: 50%;
     height: 100%;
     background-color: #a68ab7;
-    animation: progress-animation 2s infinite ease-in-out;
+    animation: progress-animation 5s infinite ease-in-out;
 }
 
 @keyframes progress-animation {
     0% { width: 0%; }
-    50% { width: 70%; }
+    40% { width: 80%; }
+    75% { width: 99%; }
     100% { width: 0%; }
 }
 
