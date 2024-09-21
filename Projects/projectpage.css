@@ -29,7 +29,7 @@ p {
 
 .description {
     flex: 1 1 60%;
-    max-width: 60%;
+    max-width: 45%;
     color: #ddd;
     font-size: 16px;
 }
@@ -97,6 +97,18 @@ p {
 }
 
 /* Image Containers */
+
+/* 
+
+
+
+hover zoom img
+
+
+
+
+*/
+
 .image-container {
     display: flex;
     flex-direction: column;
@@ -201,27 +213,32 @@ hr {
 
 .link-list li {
     align-items: center;
-    gap: 8px;
     font-size: 16px;
     background-color: transparent; /* Initial background color */
-    padding: 15px 20px; /* More space around the text */
+    padding: 0; /* Remove padding from the li and apply it to the a */
     border-radius: 12px; /* Rounded corners */
     transition: background-color 0.4s ease, transform 0.4s ease; /* Smooth transitions */
 }
 
 .link-list li:hover {
-    background-color: rgba(58, 100, 122, 0.2); /* Example background color with opacity */
     transform: scale(1.05); /* Slight zoom-in on hover */
 }
 
 .link-list a {
+    display: flex; /* Make the anchor fill the space */
+    align-items: center;
+    gap: 8px;
+    padding: 15px 20px; /* Add padding to the anchor instead of the li */
+    border-radius: 12px; /* Apply the same rounded corners */
     text-decoration: none;
     color: #ddd;
-    transition: color 0.3s ease;
+    background-color: transparent;
+    transition: background-color 0.4s ease, color 0.3s ease; /* Smooth background and color transition */
 }
 
 .link-list a:hover {
-    color: #a68ab7;
+    background-color: rgba(58, 100, 122, 0.2); /* Background color on hover */
+    color: #a68ab7; /* Text color on hover */
 }
 
 .link-list i {
@@ -233,7 +250,6 @@ hr {
 .link-list a:hover i {
     color: #7e5ba5;
 }
-
 
 
 /* Media Queries */

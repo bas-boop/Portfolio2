@@ -22,6 +22,7 @@
     text-align: center;
     max-width: 400px;
     margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .project:hover {
@@ -153,6 +154,12 @@
 }
 
 /* Responsive design for smaller screens */
+@media (min-width: 2000px) {
+    .project-container {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* for wide screens make it unlimted */
+    }
+}
+
 @media (max-width: 1200px) {
     .project-container {
         grid-template-columns: repeat(2, 1fr); /* 2 columns */
