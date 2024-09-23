@@ -97,18 +97,6 @@ p {
 }
 
 /* Image Containers */
-
-/* 
-
-
-
-hover zoom img
-
-
-
-
-*/
-
 .image-container {
     display: flex;
     flex-direction: column;
@@ -121,14 +109,15 @@ hover zoom img
 
 .image-grid {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;  /* Allows wrapping if there isn't enough space */
     gap: 20px;
     justify-content: center;
 }
 
 .image-grid .image-container {
-    flex: 1 1 calc(50% - 20px);
-    max-width: calc(50% - 20px);
+    flex: 1 1 auto;   /* Allow flexibility to grow or shrink */
+    /* max-width: none; */
+    max-width: calc(50% - 20px);  /* Allows up to two images per row */
     box-sizing: border-box;
 }
 
@@ -137,16 +126,15 @@ hover zoom img
     border: 2px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 100%;
-    width: 100%;
+    /* max-width: 100%; */
+    /* width: 100%; */
+    transition: transform 0.3s ease; /* Add transition for smooth effect */
 }
 
-/* Image Caption */
-.image-container figcaption {
-    color: #a68ab7;
-    margin-top: 10px;
-    font-style: italic;
-    font-size: 14px;
+.image-container img:hover {
+    transform: scale(1.2); /* Scale up on hover */
+    z-index: 10; /* Bring to front */
+    position: relative; /* Set position to allow z-index to work */
 }
 
 /* Image Width Classes */
@@ -168,6 +156,30 @@ hover zoom img
 
 .width-100 img {
     max-width: 100%;
+}
+
+.width-110 img {
+    max-width: 110%;
+}
+
+.width-120 img {
+    max-width: 120%;
+}
+
+.width-130 img {
+    max-width: 130%;
+}
+
+.width-140 img {
+    max-width: 140%;
+}
+
+/* Image Caption */
+.image-container figcaption {
+    color: #a68ab7;
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 14px;
 }
 
 /* Code Block */
