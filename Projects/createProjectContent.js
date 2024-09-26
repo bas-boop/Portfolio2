@@ -1,7 +1,7 @@
 // Renders the project header with the project title
 function renderHeader(project) {
     document.getElementById('project-header').innerHTML = `
-        <h1>${project.name}</h1>
+        <h1>${safeGet(project.name)}</h1>
     `;
 }
 
@@ -9,19 +9,19 @@ function renderHeader(project) {
 function renderProjectInfo(project) {
     const detailsHtml = project.details.map(detail => `
         <div class="detail-item">
-            <i class="${detail.icon}"></i>
+            ${createIcon(detail.icon)}
             <span><strong>${detail.label}: </strong>${detail.value}</span>
         </div>`).join('');
 
-    const linksHtml = project.links.map(link => `
-        <li><a href="${link.url}" target="_blank"><i class="${link.icon}"></i> ${link.name}</a></li>
-    `).join('');
+    const linksHtml = project.links?.length ? project.links.map(link => `
+        <li><a href="${link.url}" target="_blank">${createIcon(link.icon)} ${link.name}</a></li>
+    `).join('') : '';
 
     document.getElementById('project-info').innerHTML = `
         <div class="code-container">
             <div class="description">
                 <h2>Project Information</h2>
-                <p>${project.description}</p>
+                <p>${safeGet(project.description)}</p>
             </div>
             <div class="project-details">${detailsHtml}</div>
             <ul class="link-list">${linksHtml}</ul>
@@ -29,48 +29,51 @@ function renderProjectInfo(project) {
     `;
 }
 
-// Helper function to render the image grid if images are provided
-function renderImageGrid(images) {
-    return `
-        <div class="image-grid">
-            ${images.map(image => `
-                <figure class="image-container flex-item width-${image.size}">
-                    <img src="${image.src}" alt="${image.alt}">
-                    <figcaption>${image.caption}</figcaption>
-                </figure>
-            `).join('')}
-        </div>
-    `;
+function renderElement(element) {
+    const sizeClass = `grid-item width-${element.size}`;
+    if (element.type === 'code') {
+        return `<div class="code"><pre><code class="language-${element.language}">${element.code}</code></pre></div>`;
+    } else if (element.type === 'image') {
+        return `<figure class="image-container width-${element.size}">
+                    <img src="${element.src}" alt="${element.alt}" loading="lazy">
+                    <figcaption>${element.caption}</figcaption>
+                </figure>        `;
+    } else if (element.type === 'text') {
+        return `<div class="description"><p>${element.content}</p></div>`;
+    } else if (element.type === 'empty') {
+        return '';
+    }
+    return 'Something broke during generating this element!!!';
 }
 
-// Helper function to render the code snippets
-function renderCodeSnippets(codes) {
-    return codes.map(codeSnippet => `
-        <div class="code">
-            <pre><code class="language-${codeSnippet.language}">${codeSnippet.code}</code></pre>
-        </div>
-    `).join('');
-}
-
-// Renders the project features, with support for multiple images and code snippets
+// Renders the project features with mixed code and images
 function renderProjectFeatures(project) {
-    const featureHtml = project.features.map(feature => `
-        <hr>
-        <div class="code-container">
-            <div class="description">
-                <h2>${feature.title}</h2>
-                <p>${feature.description}</p>
+    const featureHtml = project.features.map(feature => {
+        // Set the wide class for each feature based on its individual property
+        const w = feature.wide ? "wide" : "";  // Check the wide property for the current feature
+        
+        return `
+            <hr>
+            <div class="code-container">
+                <div class="description${w}">  <!-- Add the wide class if applicable -->
+                    <h2>${feature.title}</h2>
+                    <p>${feature.description}</p>
+                </div>
+                ${feature.elements.map(renderElement).join('')}
             </div>
-            <figure class="image-container flex-item width-40">
-                <img src="${feature.image}" alt="${feature.alt}">
-                <figcaption>${feature.caption}</figcaption>
-            </figure>
-            ${renderCodeSnippets(feature.codeSnippets)}
-            ${feature.images ? renderImageGrid(feature.images) : ''}
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
+    // Update the inner HTML of the project-features container
     document.getElementById('project-features').innerHTML = featureHtml;
+}
+
+function safeGet(value, fallback = 'Not Available') {
+    return value ? value : fallback;
+}
+
+function createIcon(iconClass) {
+    return `<i class="${iconClass}"></i>`;
 }
 
 // Initialize the project page by rendering all sections

@@ -18,11 +18,11 @@ p {
 
 .code-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;  /* Center the entire code container */
     align-items: flex-start;
     gap: 40px;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     flex-wrap: wrap;
 }
@@ -30,6 +30,13 @@ p {
 .description {
     flex: 1 1 60%;
     max-width: 45%;
+    color: #ddd;
+    font-size: 16px;
+}
+
+.descriptionwide {
+    flex: 1 1 60%;
+    max-width: 70%;
     color: #ddd;
     font-size: 16px;
 }
@@ -89,7 +96,7 @@ p {
 }
 
 .detail-item:hover i {
-    transform: rotate(15deg);
+    transform: rotate(-10deg);
 }
 
 .detail-item span {
@@ -97,46 +104,51 @@ p {
 }
 
 /* Image Containers */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Flexible columns based on available space */
+    gap: 20px;
+    margin-top: 20px;
+    justify-items: center; /* Center align each grid item */
+}
+
+/* Image Containers */
+.image-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
 .image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: none;
-    width: 100%;
-    margin-top: 20px;
     text-align: center;
-}
-
-.image-grid {
-    display: flex;
-    flex-wrap: wrap;  /* Allows wrapping if there isn't enough space */
-    gap: 20px;
-    justify-content: center;
-}
-
-.image-grid .image-container {
-    flex: 1 1 auto;   /* Allow flexibility to grow or shrink */
-    /* max-width: none; */
-    max-width: calc(50% - 20px);  /* Allows up to two images per row */
-    box-sizing: border-box;
+    grid-column: 1;
+    max-width: 600px;
+    min-width: 100px;
 }
 
 .image-container img {
+    /* width: 100%; */
+    max-width: 100%; /* Make sure the image scales within the container */
     height: auto;
     border: 2px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* max-width: 100%; */
-    /* width: 100%; */
-    transition: transform 0.3s ease; /* Add transition for smooth effect */
+    transition: transform 0.3s ease;
 }
 
 .image-container img:hover {
-    transform: scale(1.2); /* Scale up on hover */
-    z-index: 10; /* Bring to front */
-    position: relative; /* Set position to allow z-index to work */
+    transform: scale(1.1); /* Slightly zoom in on hover */
 }
 
+.image-container figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    color: #a68ab7;
+    font-style: italic;
+}
 /* Image Width Classes */
 .width-40 img {
     max-width: 40%;

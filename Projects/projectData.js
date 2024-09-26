@@ -9,6 +9,7 @@ const project = {
         { icon: "fas fa-code", label: "Language", value: "C++" },
         { icon: "fas fa-arrow-trend-up", label: "Workflow", value: "Waterfall" },
         { icon: "fas fa-user", label: "Team Size", value: "Solo" },
+        { icon: "fa-solid fa-user-plus", label: "Role", value: "Lead developer & Scurm master" },
         { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" }
     ],
     links: [
@@ -16,39 +17,52 @@ const project = {
         { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/board-link" },
         { icon: "fas fa-gamepad", name: "Play on Itch.io", url: "https://itch.io/game-link" },
         { icon: "fab fa-steam", name: "Steam", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://youtube.com/trailer-video" }
+        { icon: "fab fa-artstation", name: "Artstation", url: "https://artstation.com/portfolio-link" },
+        { icon: "fas fa-globe", name: "Customer Website", url: "https://portfolio-website.com" },
+        { icon: "fas fa-briefcase", name: "Internship at XYZ", url: "https://steamcommunity.com/app/game-id" },
+        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" }
     ],
     features: [
         {
             title: "Getting Component",
             description: "In this section, we delve into the process of retrieving components in Unity...",
-            image: "maybe",
-            alt: "Stand alone image showcasing component retrieval",
-            caption: "Figure 1: A visual representation of how component retrieval is implemented in Unity.",
-            codeSnippets: [
-                {
-                    language: "cs",
-            code: `private MonoBehaviour something;
-            
-private void Update() {
-    something = GetComponent<MonoBehaviour>();
-}
-
-private void LateUpdate() {
-    if (something == null)
+            wide: false,
+            elements: [
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private MonoBehaviour something;
+                    
+    private void Update() {
         something = GetComponent<MonoBehaviour>();
-}`
+    }
+    
+    private void LateUpdate() {
+        if (something == null)
+            something = GetComponent<MonoBehaviour>();
+    }`
                 },
-                {
-                    language: "json",
+                { 
+                    type: "image", 
+                    src: "Platypus/UML_Pick-up_System.jpeg", 
+                    size: "100", 
+                    alt: "UML Diagram", 
+                    caption: "Figure 1: UML Diagram" 
+                },
+                { 
+                    type: "image", 
+                    src: "Platypus/PlayerStateManager-Inspector.jpg", 
+                    size: "100", 
+                    alt: "Dash Ability Diagram", 
+                    caption: "Figure 2: Dash Ability" 
+                },
+                { 
+                    type: "code", 
+                    language: "json", 
                     code: `{
-  "openWeatherMapApiKey": "Your_API_key"
-}`
+      "openWeatherMapApiKey": "Your_API_key"
+    }`
                 }
-            ],
-            images: [
-                { src: "Platypus/UML_Pick-up_System.jpeg", size: "100", alt: "UML Diagram", caption: "Figure 1: UML Diagram" },
-                { src: "Platypus/PlayerStateManager-Inspector.jpg", size: "100", alt: "Dash Ability Diagram", caption: "Figure 2: Dash Ability" }
             ]
         }
     ]
