@@ -166,6 +166,14 @@ p {
     max-width: 75%;
 }
 
+.width-80 img {
+    max-width: 80%;
+}
+
+.width-90 img {
+    max-width: 90%;
+}
+
 .width-100 img {
     max-width: 100%;
 }

@@ -43,7 +43,7 @@ const projects = [
         image: "Covers/Starfall.jpg",
         description: "2.5D Metroidvania Couch Co-op based on the cartoons of 80's Sci-Fi.",
         tags: ["engine", "unity", "csharp"],
-        href: "/Projects/StarFall.html"
+        href: "/Projects/OperationStarfall"
     },
     {
         title: "Smoll Knight + Horse",
@@ -57,7 +57,7 @@ const projects = [
         image: "Covers/Kara-oke.png",
         description: "A VR karaoke game commissioned for AVROTROS, this was made during my internship at XR-Lab!",
         tags: ["engine", "unity", "csharp", "xr", "internship"],
-        href: "underconstruction"
+        href: "/Projects/Kara-oke"
     },
     {
         title: "The Lost Reel",
