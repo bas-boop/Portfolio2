@@ -1,24 +1,40 @@
 // Function to render filter options
 function renderFilterOptions() {
-    const filterSelect = document.getElementById("tag-filter");
-    filterOptions.forEach(option => {
-        const opt = document.createElement("option");
-        opt.value = option.value;
-        opt.textContent = option.label;
-        filterSelect.appendChild(opt);
-    });
+  const filterSelect = document.getElementById("tag-filter");
+
+  // Add default "all" option
+  const allOption = document.createElement("option");
+  allOption.value = "all";
+  allOption.textContent = "Show All";
+  filterSelect.appendChild(allOption);
+
+  // Add the "Exclude nah" option
+  const excludeNahOption = document.createElement("option");
+  excludeNahOption.value = "exclude-nah";
+  excludeNahOption.textContent = "Exclude 'Under Construction'";
+  filterSelect.appendChild(excludeNahOption);
+
+  // Add other filter options
+  filterOptions.forEach(option => {
+      const opt = document.createElement("option");
+      opt.value = option.value;
+      opt.textContent = option.label;
+      filterSelect.appendChild(opt);
+  });
 }
+
   
 // Arrays for language and engine tags
 const languageTags = ["csharp", "cpp", "htmlcssjs"];
 const engineTags = ["unity", "unreal", "godot"];
-const hiddenTags = ["engine", "lang"];
+const hiddenTags = ["engine", "lang", "nah"];
 
 // Mapping for display-friendly versions of certain tags
 const tagDisplayNames = {
   "csharp": "C#",
   "cpp": "C++",
-  "xr": "XR" // Ensure XR is fully capitalized
+  "xr": "XR", // Ensure XR is fully capitalized
+  "nah": "Under Construction"
 };
 
 // Function to determine the appropriate class for a tag
@@ -53,21 +69,31 @@ function renderProjects(filter = "all") {
   projectContainer.innerHTML = ""; // Clear previous projects
 
   projects
-    .filter(project => filter === "all" || project.tags.includes(filter))
+    .filter(project => {
+      const hasNahTag = project.tags.includes("nah");
+
+      if (filter === "exclude-nah") {
+        return !hasNahTag;
+      }
+
+      return filter === "all" || project.tags.includes(filter);
+    })
     .forEach(project => {
       const projectElement = document.createElement("a");
       projectElement.href = project.href;
       projectElement.classList.add("project-link");
       projectElement.setAttribute("data-tags", project.tags.join(" "));
 
+      const imgClass = project.tags.includes("nah") ? "blur-image" : "";
+
       projectElement.innerHTML = `
         <div class="project">
-          <img src="${project.image}" alt="${project.title}">
+          <img src="${project.image}" alt="${project.title}" class="${imgClass}">
           <h2>${project.title}</h2>
           <p>${project.description}</p>
           <div class="tags">
             ${project.tags
-              .filter(tag => !hiddenTags.includes(tag)) // Exclude "engine" and "lang" from being displayed
+              .filter(tag => !hiddenTags.includes(tag))
               .map(
                 tag => `<span class="tag ${getTagClass(tag)}">${getTagDisplayName(tag)}</span>`
               )

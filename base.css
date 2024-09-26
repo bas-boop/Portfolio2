@@ -47,6 +47,10 @@ footer a {
     color: #777; /* Same light purple as the header */
 }
 
+.blur-image {
+    filter: blur(2.5px) saturate(0.25);
+}
+
 /* Styling for inline code blocks inside backticks */
 highlight-text {
     background-color: #2d2d2d; /* Darker background */

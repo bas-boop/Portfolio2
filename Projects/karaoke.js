@@ -441,7 +441,7 @@ public void SetPlayer(int characterIndex)
         },
         {
             title: "Music Selector",
-            description: "A feature that I stared, gave to someone else and got it back right before the deadline. The music system, the core of a karaoke game. The reason way I gave it to another develerop, he was making a live lyrics board for the player on stage.",
+            description: "A feature that I stared, gave to Daniel, the lead developer, and got it back right before the deadline. The music system, the core of a karaoke game. The reason way I gave it to another develerop, he was making a live lyrics board for the player on stage.",
             wide: false,
             elements: [
                 { 

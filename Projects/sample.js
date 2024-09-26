@@ -9,8 +9,8 @@ const project = {
         { icon: "fas fa-code", label: "Language", value: "C++" },
         { icon: "fas fa-arrow-trend-up", label: "Workflow", value: "Waterfall" },
         { icon: "fas fa-user", label: "Team Size", value: "Solo" },
-        { icon: "fa-solid fa-user-plus", label: "Role", value: "Lead developer & Scurm master" },
-        { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" }
+        { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" },
+        { icon: "fa-solid fa-user-plus", label: "Role", value: "Lead developer & Scurm master" }
     ],
     links: [
         { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/repository-link" },
