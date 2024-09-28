@@ -35,9 +35,11 @@ function renderElement(element) {
         return `<div class="code"><pre><code class="language-${element.language}">${element.code}</code></pre></div>`;
     } else if (element.type === 'image') {
         return `<figure class="image-container width-${element.size}">
-                    <img src="${element.src}" alt="${element.alt}" loading="lazy">
+                    <a href="${element.src}" target="_blank">
+                        <img src="${element.src}" alt="${element.alt}" loading="lazy">
+                    </a>
                     <figcaption>${element.caption}</figcaption>
-                </figure>        `;
+                </figure>`;
     } else if (element.type === 'text') {
         return `<div class="description"><p>${element.content}</p></div>`;
     } else if (element.type === 'empty') {

@@ -9,10 +9,12 @@ function renderFilterOptions() {
   filterSelect.appendChild(allOption);
 
   // Add the "Exclude nah" option
-  const excludeNahOption = document.createElement("option");
-  excludeNahOption.value = "exclude-nah";
-  excludeNahOption.textContent = "Exclude 'Under Construction'";
-  filterSelect.appendChild(excludeNahOption);
+  if (window.location.pathname === "/" || window.location.pathname.includes("index")) {
+    const excludeNahOption = document.createElement("option");
+    excludeNahOption.value = "exclude-nah";
+    excludeNahOption.textContent = "Exclude 'Under Construction'";
+    filterSelect.appendChild(excludeNahOption);
+  }
 
   // Add other filter options
   filterOptions.forEach(option => {
@@ -33,6 +35,7 @@ const hiddenTags = ["engine", "lang", "nah"];
 const tagDisplayNames = {
   "csharp": "C#",
   "cpp": "C++",
+  "htmlcssjs": "HTML CSS JS",
   "xr": "XR", // Ensure XR is fully capitalized
   "nah": "Under Construction"
 };
@@ -81,6 +84,10 @@ function renderProjects(filter = "all") {
     .forEach(project => {
       const projectElement = document.createElement("a");
       projectElement.href = project.href;
+
+      if(project.blankTarget)
+        projectElement.target = "_blank";
+      
       projectElement.classList.add("project-link");
       projectElement.setAttribute("data-tags", project.tags.join(" "));
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bas de Reus - Miscellaneous Projects</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="tags.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Miscellaneous Projects</h1>
+    </header>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="intro">
+        <p class="intro-text">Here are some smaller and experimental projects. These are not as large as my main ones on the home page, but still worth exploring. Feel free to check them out, as they link to external sites such as GitHub repos or itch.io pages.<br>Most of them are gamejams, perhaps there is a good reason behind that? Hint: duration.</p>
+    </section>
+
+    <section class="filter">
+        <label for="tag-filter">Filter by:</label>
+        <select id="tag-filter"></select>
+    </section>
+    
+    <section class="portfolio">
+        <div class="project-container" id="project-container"></div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="HtmlFetcher.js"></script>
+    <script src="TagFilter.js"></script>
+    <script src="SmallProjectsData.js"></script>
+    <script src="Projects.js"></script>
+</body>
+</html>

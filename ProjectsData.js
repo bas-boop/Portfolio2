@@ -65,13 +65,13 @@ const projects = [
         tags: ["engine", "unity", "csharp", "gamejam", "nah"],
         href: "underconstruction"
     },
-    {
-        title: "Tic tac toe",
-        image: "Covers/Tictactoe.png",
-        description: "A console app where you can play tic-tac-toe with somelse or with the computer.",
-        tags: ["lang", "cpp", "console", "nah"],
-        href: "underconstruction"
-    },
+    // {
+    //     title: "Tic tac toe",
+    //     image: "Covers/Tictactoe.png",
+    //     description: "A console app where you can play tic-tac-toe with somelse or with the computer.",
+    //     tags: ["lang", "cpp", "console", "nah"],
+    //     href: "underconstruction"
+    // },
     {
         title: "AR Gpal",
         image: "Covers/Gpal.png",
@@ -94,12 +94,11 @@ const projects = [
         tags: ["lang", "cpp", "internship", "nah"],
         href: "underconstruction"
     },
-    {
-        title: "Inner thoughts",
-        image: "Covers/Inner_thoughts.png",
-        description: "It is a 2D pixel rogue-like, destroying all the eyes that have infiltrated your mind.",
-        tags: ["engine", "unity", "csharp", "gamejam", "nah"],
-        href: "underconstruction"
-    }
+    // {
+    //     title: "Inner thoughts",
+    //     image: "Covers/Inner_thoughts.png",
+    //     description: "It is a 2D pixel rogue-like, destroying all the eyes that have infiltrated your mind.",
+    //     tags: ["engine", "unity", "csharp", "gamejam", "nah"],
+    //     href: "underconstruction"
+    // }
 ];
-  

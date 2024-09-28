@@ -48,7 +48,15 @@ footer a {
 }
 
 .blur-image {
-    filter: blur(2.5px) saturate(0.25);
+    filter: blur(10px) saturate(0.5);
+}
+
+.intro-text {
+    text-align: center;
+    margin: 20px auto 50px;
+    max-width: 800px;
+    font-size: 18px;
+    color: #ccc;
 }
 
 /* Styling for inline code blocks inside backticks */

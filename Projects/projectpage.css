@@ -130,7 +130,6 @@ p {
 }
 
 .image-container img {
-    /* width: 100%; */
     max-width: 100%; /* Make sure the image scales within the container */
     height: auto;
     border: 2px solid #ddd;
@@ -331,6 +330,11 @@ hr {
     .description, .description-double {
         max-width: 100%;
         padding: 0 20px;
+    }
+
+    .descriptionwide {
+       /* width: 100%; /* Full width of parent */
+        max-width: 100%; /* Ensures it doesn’t exceed the parent’s width */
     }
 
     .description, .project-details {
