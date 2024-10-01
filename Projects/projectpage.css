@@ -153,6 +153,10 @@ p {
     max-width: 40%;
 }
 
+.width-45 img {
+    max-width: 45%;
+}
+
 .width-50 img {
     max-width: 50%;
 }
@@ -211,8 +215,8 @@ pre code {
 /* Horizontal Rule */
 hr {
     border: none;
-    height: 2px;
     background-color: #4c3a62;
+    height: 0;
     margin: 0;
     opacity: 0;
 }

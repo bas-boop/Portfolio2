@@ -1,26 +1,16 @@
 const project = {
-    name: "Dynamic Project",
-    description: "This project is a dynamiclly added html page. Used as a template for all other projects. Made for speeding up the creating process of project pages. As a developer I should make everything as lazy as possible.",
+    name: "InControl",
+    description: "InControl is a simulation company that specializes in logistics and pedestrian simulations. During my time there, I contributed to both simulation software by fixing bugs and developing new features. This experience allowed me to learn three new programming languages: C++, Delphi (Pascal), and their custom language, 4DScript.<br><br>4DScript is a mathematical language integrated into the simulation software. I dedicated significant effort to working with 4DScript, focusing on both technical and visual aspects to enhance the overall functionality and user experience of the simulations.",
     details: [
-        { icon: "fas fa-calendar-alt", label: "Year", value: "2020" },
-        { icon: "fas fa-calendar-week", label: "Duration", value: "4 years" },
-        { icon: "fas fa-microchip", label: "Engine", value: "Unity" },
-        { icon: "fas fa-cogs", label: "Framework", value: "SFML" },
+        { icon: "fas fa-calendar-alt", label: "Year", value: "2023-2024" },
+        { icon: "fas fa-calendar-week", label: "Internship Duration", value: "<br>6 months" },
+        { icon: "fas fa-cogs", label: "Framework", value: "VCL" },
         { icon: "fas fa-code", label: "Language", value: "C++" },
         { icon: "fas fa-arrow-trend-up", label: "Workflow", value: "Waterfall" },
-        { icon: "fas fa-user", label: "Team Size", value: "Solo" },
-        { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" },
-        { icon: "fa-solid fa-user-plus", label: "Role", value: "Lead developer & Scurm master" }
+        { icon: "fa-solid fa-user-plus", label: "Role", value: "Engine programmer, focus pedstrain" }
     ],
     links: [
-        { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/repository-link" },
-        { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/board-link" },
-        { icon: "fas fa-gamepad", name: "Play on Itch.io", url: "https://itch.io/game-link" },
-        { icon: "fab fa-steam", name: "Steam", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-artstation", name: "Artstation", url: "https://artstation.com/portfolio-link" },
-        { icon: "fas fa-globe", name: "Customer Website", url: "https://portfolio-website.com" },
-        { icon: "fas fa-briefcase", name: "Internship at XYZ", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" }
+        { icon: "fas fa-briefcase", name: "Internship at InControl", url: "https://www.incontrolsim.com/" }
     ],
     features: [
         {

@@ -8,10 +8,15 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e2e; /* Dark background with a hint of purple */
-    color: #ddd; /* Light grey text for readability */
+    background-color: #1e1e2e; /* Dark background */
+    color: #ddd;
     padding: 20px;
-}
+
+    /* Polka dots pattern */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 20%);
+    background-size: 100px 100px;
+    background-blend-mode: overlay;
+}  
 
 /* Adjust header for dark mode */
 header {
@@ -47,8 +52,8 @@ footer a {
     color: #777; /* Same light purple as the header */
 }
 
-.blur-image {
-    filter: blur(10px) saturate(0.5);
+.blur-image, .project img.blur-image {
+    filter: blur(2px) saturate(0);
 }
 
 .intro-text {

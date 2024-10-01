@@ -50,7 +50,11 @@
     object-fit: cover; /* Ensure the image fills the container while maintaining its aspect ratio */
     border-radius: 15px;
     border: 3px solid #4c3a62; /* Add purple border around images */
-    background-color: #fff;
+    background-color: #fff;   
+}
+
+.project img, .highlight-container img {
+    filter: blur(0px) saturate(1.15);
 }
 
 .project h2 {

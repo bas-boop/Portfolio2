@@ -1,26 +1,20 @@
 const project = {
-    name: "Dynamic Project",
-    description: "This project is a dynamiclly added html page. Used as a template for all other projects. Made for speeding up the creating process of project pages. As a developer I should make everything as lazy as possible.",
+    name: "The Lost Reel",
+    description: "The lost reel is a 3D horror game, where you are being hunted by an un-human like creature. Even though you are being hunted, you try to find and collect the lost film reel.<br><br>This was made for the 'Do you WANNA Jam?! 2023' game jam. With the theme 'FREEZE'. There are 80 submisson in this jam. We enden above average of all submissons, and top 26 with the music.",
     details: [
-        { icon: "fas fa-calendar-alt", label: "Year", value: "2020" },
-        { icon: "fas fa-calendar-week", label: "Duration", value: "4 years" },
+        { icon: "fas fa-calendar-alt", label: "Year", value: "2023" },
+        { icon: "fas fa-calendar-week", label: "Duration", value: "9 days" },
         { icon: "fas fa-microchip", label: "Engine", value: "Unity" },
-        { icon: "fas fa-cogs", label: "Framework", value: "SFML" },
-        { icon: "fas fa-code", label: "Language", value: "C++" },
+        { icon: "fas fa-code", label: "Language", value: "C#" },
         { icon: "fas fa-arrow-trend-up", label: "Workflow", value: "Waterfall" },
-        { icon: "fas fa-user", label: "Team Size", value: "Solo" },
-        { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" },
-        { icon: "fa-solid fa-user-plus", label: "Role", value: "Lead developer & Scurm master" }
+        { icon: "fas fa-users", label: "Team Size", value: "<br>3 devs,<br>1.5 artists,<br>1.5 musician" },
+        { icon: "fa-solid fa-user-plus", label: "Role", value: "Project lead & game developer" }
     ],
     links: [
-        { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/repository-link" },
-        { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/board-link" },
-        { icon: "fas fa-gamepad", name: "Play on Itch.io", url: "https://itch.io/game-link" },
-        { icon: "fab fa-steam", name: "Steam", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-artstation", name: "Artstation", url: "https://artstation.com/portfolio-link" },
-        { icon: "fas fa-globe", name: "Customer Website", url: "https://portfolio-website.com" },
-        { icon: "fas fa-briefcase", name: "Internship at XYZ", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" }
+        { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/Team-Swamp/The-Lost-Reel" },
+        { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/b/j48dopXq/wanna-jam-2023" },
+        { icon: "fas fa-gamepad", name: "Play on Itch.io", url: "https://baz-geluk9.itch.io/the-lost-reel" },
+        { icon: "fab fa-youtube", name: "Watch Gameplay", url: "https://www.youtube.com/watch?v=IlcJqZII0XE&ab_channel=Fumiko" }
     ],
     features: [
         {

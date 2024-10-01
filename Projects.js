@@ -33,6 +33,8 @@ const hiddenTags = ["engine", "lang", "nah"];
 
 // Mapping for display-friendly versions of certain tags
 const tagDisplayNames = {
+  "3d": "3D",
+  "2d": "2D",
   "csharp": "C#",
   "cpp": "C++",
   "htmlcssjs": "HTML CSS JS",
@@ -48,6 +50,10 @@ function getTagClass(tag) {
     return "tag-engine"; // Game engine tag
   } else if (tag === "new") {
     return "tag-new"; // New project tag
+  }else if (tag === "3d") {
+    return "tag-3d"; // New project tag
+  }else if (tag === "2d") {
+    return "tag-2d"; // New project tag
   } else {
     return "tag"; // Default tag class
   }

@@ -1,26 +1,16 @@
 const project = {
-    name: "Dynamic Project",
-    description: "This project is a dynamiclly added html page. Used as a template for all other projects. Made for speeding up the creating process of project pages. As a developer I should make everything as lazy as possible.",
+    name: "FPS Manager",
+    description: "FpsManager is a simple console application designed to automatically adjust the refresh rate (Hz) of your main screen based on the number of screens connected to your system. This tool is particularly useful for users who frequently switch between using a laptop screen as their primary display and connecting to external monitors.<br><br>Why did I create this? I developed FpsManager after purchasing a new laptop this summer, which features a higher refresh rate than my primary screen at home. The purpose of the tool is to save energy and prolong the lifespan of the laptop by dynamically adjusting the refresh rate depending on the screen setup.",
     details: [
-        { icon: "fas fa-calendar-alt", label: "Year", value: "2020" },
-        { icon: "fas fa-calendar-week", label: "Duration", value: "4 years" },
+        { icon: "fas fa-calendar-alt", label: "Year", value: "2024" },
+        { icon: "fas fa-calendar-week", label: "Duration", value: "1 work week" },
         { icon: "fas fa-microchip", label: "Engine", value: "Unity" },
-        { icon: "fas fa-cogs", label: "Framework", value: "SFML" },
-        { icon: "fas fa-code", label: "Language", value: "C++" },
+        { icon: "fas fa-code", label: "Language", value: "C#" },
         { icon: "fas fa-arrow-trend-up", label: "Workflow", value: "Waterfall" },
-        { icon: "fas fa-user", label: "Team Size", value: "Solo" },
-        { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" },
-        { icon: "fa-solid fa-user-plus", label: "Role", value: "Lead developer & Scurm master" }
+        { icon: "fas fa-user", label: "Team Size", value: "Solo" }
     ],
     links: [
-        { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/repository-link" },
-        { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/board-link" },
-        { icon: "fas fa-gamepad", name: "Play on Itch.io", url: "https://itch.io/game-link" },
-        { icon: "fab fa-steam", name: "Steam", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-artstation", name: "Artstation", url: "https://artstation.com/portfolio-link" },
-        { icon: "fas fa-globe", name: "Customer Website", url: "https://portfolio-website.com" },
-        { icon: "fas fa-briefcase", name: "Internship at XYZ", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" }
+        { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/bas-boop/FpsManager" }
     ],
     features: [
         {

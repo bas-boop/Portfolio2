@@ -31,22 +31,29 @@ function renderProjectInfo(project) {
 
 function renderElement(element) {
     const sizeClass = `grid-item width-${element.size}`;
+    let oneElementOneRow = '';
+
+        if (element.breakRow) {
+            oneElementOneRow = `style="flex-basis: 100%; max-width: 100%;"`;
+        }
+
     if (element.type === 'code') {
-        return `<div class="code"><pre><code class="language-${element.language}">${element.code}</code></pre></div>`;
-    } else if (element.type === 'image') {
-        return `<figure class="image-container width-${element.size}">
+        return `<div class="code" ${oneElementOneRow}><pre><code class="language-${element.language}">${element.code}</code></pre></div>`;
+    } else if (element.type === 'image') {    
+        return `<figure class="image-container width-${element.size}" ${oneElementOneRow}>
                     <a href="${element.src}" target="_blank">
                         <img src="${element.src}" alt="${element.alt}" loading="lazy">
                     </a>
                     <figcaption>${element.caption}</figcaption>
                 </figure>`;
     } else if (element.type === 'text') {
-        return `<div class="description"><p>${element.content}</p></div>`;
+        return `<div class="description" ${oneElementOneRow}><p>${element.content}</p></div>`;
     } else if (element.type === 'empty') {
         return '';
     }
     return 'Something broke during generating this element!!!';
 }
+
 
 // Renders the project features with mixed code and images
 function renderProjectFeatures(project) {

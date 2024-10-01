@@ -34,19 +34,24 @@
     background-color: #4d4d4d;
 }
 
-/* Engine-specific tags (Purple) */
 .tag-engine {
     background-color: #4c3a62; /* Dark purple for engines */
 }
 
-/* Language-specific tags (Blue) */
 .tag-lang {
     background-color: #3a647a; /* Dark blue for programming languages */
 }
 
-/* New tag with gradient */
 .tag-new {
     background-image: linear-gradient(45deg, #00ff62, #0072ff);
+}
+
+.tag-2d {
+    background-image: linear-gradient(45deg, #ff7e5f, #feb47b); /* Sunset orange to soft peach */
+}
+
+.tag-3d {
+    background-image: linear-gradient(45deg, #ff512f, #dd2476); /* Vibrant coral red to magenta */
 }
 
 /* Styling for the select dropdown */

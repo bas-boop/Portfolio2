@@ -118,7 +118,7 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
                     src: "Kara-oké/InputWindow.png",
                     size: "100", 
                     alt: "Input map",
-                    caption: "Figure 9: Input map of the VR inputs."
+                    caption: "Figure 1: Input map of the VR inputs."
                 }
             ]
         },
@@ -132,21 +132,21 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
                     src: "Kara-oké/GreenLamp.png",
                     size: "75", 
                     alt: "Green lamp",
-                    caption: "Figure 6: Focus on 1 lamp, green variation."
+                    caption: "Figure 2: Focus on 1 lamp, green variation."
                 },
                 { 
                     type: "image", 
                     src: "Kara-oké/Lamps.png",
                     size: "100", 
                     alt: "Lamps",
-                    caption: "Figure 7: Testing out the lamps."
+                    caption: "Figure 3: Testing out the lamps."
                 },                
                 { 
                     type: "image", 
                     src: "Kara-oké/StageLamps.png",
                     size: "90", 
                     alt: "Stage lamps",
-                    caption: "Figure 8: Showing lamps on the stage, during the night."
+                    caption: "Figure 4: Showing lamps on the stage, during the night."
                 }
             ]
         },
@@ -160,14 +160,14 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
                     src: "Kara-oké/RandomEvents.gif",
                     size: "100", 
                     alt: "Random events",
-                    caption: "Figure 1: Showcase of the random evetns system turning on and off diffrent effects."
+                    caption: "Figure 5: Showcase of the random evetns system turning on and off diffrent effects."
                 },
                 { 
                     type: "image", 
                     src: "Kara-oké/UmlSpecialEffects.jpeg",
                     size: "75", 
                     alt: "UML special effects",
-                    caption: "Figure 2: UML of the random evetns system."
+                    caption: "Figure 6: UML of the random evetns system."
                 },
                 { 
                     type: "code", 
@@ -369,7 +369,7 @@ private IEnumerator Turning()
                     src: "Kara-oké/CharacterSelection.gif",
                     size: "100", 
                     alt: "Character selection",
-                    caption: "Figure 3: The player selecting a character model to represent themselves."
+                    caption: "Figure 7: The player selecting a character model to represent themselves."
                 },
                 { 
                     type: "code", 
@@ -435,7 +435,7 @@ public void SetPlayer(int characterIndex)
                     src: "Kara-oké/VR-rig-with-character.gif",
                     size: "100", 
                     alt: "VR rig",
-                    caption: "Figure 4: A demonstration of the player moving with the selected character model in VR."
+                    caption: "Figure 8: A demonstration of the player moving with the selected character model in VR."
                 }
             ]
         },
@@ -461,7 +461,7 @@ public class SongInfo : ScriptableObject
                     src: "Kara-oké/SongInfo.png",
                     size: "80", 
                     alt: "SongInfo example",
-                    caption: "Figure 5: A SongInfo ScriptableObject instance."
+                    caption: "Figure 9: A SongInfo ScriptableObject instance."
                 },
                 { 
                     type: "code", 
