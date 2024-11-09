@@ -1,6 +1,7 @@
 const project = {
     name: "FPS Manager",
     description: "FpsManager is a simple console application designed to automatically adjust the refresh rate (Hz) of your main screen based on the number of screens connected to your system. This tool is particularly useful for users who frequently switch between using a laptop screen as their primary display and connecting to external monitors.<br><br>Why did I create this? I developed FpsManager after purchasing a new laptop this summer, which features a higher refresh rate than my primary screen at home. The purpose of the tool is to save energy and prolong the lifespan of the laptop by dynamically adjusting the refresh rate depending on the screen setup.",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2024" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "1 work week" },

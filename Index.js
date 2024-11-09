@@ -19,11 +19,13 @@ document.addEventListener('keydown', function(event) {
     if (event.key === konamiCode[konamiIndex]) {
         konamiIndex++;
         if (konamiIndex === konamiCode.length) {
-            alert('Achievement True Gamer Unlocked!');
             konamiIndex = 0;
+            
+            alert('Achievement True Gamer Unlocked!');
+            return;
 
-            // would be fun
-            // document.body.classList.toggle('retro-theme');
+            alert('Look out for your eyes!');
+            document.body.classList.toggle('retro-theme');
         }
     } else {
         konamiIndex = 0;

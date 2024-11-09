@@ -218,7 +218,12 @@ hr {
     background-color: #4c3a62;
     height: 0;
     margin: 0;
-    opacity: 0;
+    opacity: 1;
+    background: linear-gradient(to right, #a68ab7, #4c3a62);
+    height: 3px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    margin: 30px 0;
 }
 
 /* Project Links */
@@ -286,6 +291,92 @@ hr {
     color: #7e5ba5;
 }
 
+/* Container for the image slider and caption */
+.imageSlider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Make the container responsive */
+    max-width: 500px; /* Optional max width */
+    margin-bottom: 20px; /* Add space below the slider and caption */
+}
+
+/* Image Slider */
+.imageSlider {
+    position: relative;
+    width: 100%; /* Full width responsiveness */
+    max-width: 500px; /* Maintain a max width */
+    height: 500px; /* Fixed height or adjust as needed */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Caption styling */
+.imageSlider-caption {
+    margin-top: 103%;
+    font-size: 14px;
+    color: #a68ab7;
+    text-align: center;
+    font-style: italic;
+}
+
+.imageSlider-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+    border-radius: inherit;
+}
+
+.imageSlider-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.img-wrapper-overlay {
+    clip-path: inset(0 50% 0 0); /* Show only left half of the right image initially */
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; /* Start the slider in the middle */
+    width: 4px;
+    background-color: rgb(76, 58, 98); /* Dark purple */
+    cursor: ew-resize;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: inherit;
+}
+
+.handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(76, 58, 98, 0.7); /* Slightly transparent light purple */
+    border-radius: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.85); /* Light shadow for better visibility */
+}
+
+.drag-indicator {
+    color: #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    user-select: none;
+}
 
 /* Media Queries */
 @media (max-width: 1150px) {
@@ -382,6 +473,19 @@ hr {
 
     .project-links {
         text-align: center;
+    }
+
+    .imageSlider {
+        max-width: 100%; /* Full width on smaller screens */
+        height: auto; /* Adjust height for responsiveness */
+    }
+
+    .imageSlider-wrapper img {
+        object-fit: contain;
+    }
+
+    .imageSlider-caption {
+        margin-top: 110%;
     }
 }
 

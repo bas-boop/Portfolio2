@@ -1,8 +1,6 @@
 const filterOptions = [
-    // { value: "new", label: "New" },
     { value: "3d", label: "3D" },
     { value: "2d", label: "2D" },
-    // { value: "engine", label: "Engine" },
     { value: "lang", label: "Pure code (with framework)" },
     { value: "unity", label: "Unity" },
     // { value: "unreal", label: "Unreal" },
@@ -13,8 +11,6 @@ const filterOptions = [
     // { value: "xr", label: "XR" },
     { value: "console", label: "Console" },
     { value: "mobile", label: "Mobile" },
-    // { value: "algorithm", label: "Algorithm" },
-    // { value: "internship", label: "Internship" },
     { value: "gamejam", label: "Game Jam" }
 ];
   
@@ -37,7 +33,7 @@ const projects = [
     },
     {
         title: "Ice Bites",
-        image: "https://media.licdn.com/dms/image/v2/D4E22AQG4Mb1P4MvmEQ/feedshare-shrink_1280/feedshare-shrink_1280/0/1710542400717?e=1730332800&v=beta&t=nonoucmuwMz1YrtiFzq6yk-a1y9ZUYNOuUGAOPk1m3E",
+        image: "https://raw.githubusercontent.com/Team-Swamp/IceBites/refs/heads/develop/Assets/Sprites/T_GameIcon.png",
         description: "A game about a point and click penguin restaurant. Cook dishes and serve them to the customers. Cook dishes by combining 2 ingredients on the cutting table.",
         tags: ["3d", "engine", "unity", "csharp", "mobile"],
         blankTarget: true,
@@ -90,5 +86,13 @@ const projects = [
         tags: ["3d", "engine", "unity", "csharp", "gamejam"],
         blankTarget: true,
         href: "https://github.com/Team-Swamp/BlacksmithSimulator"
+    },
+    {
+        title: "Vormen vs Formen",
+        image: "https://m.gjcdn.net/game-screenshot/1200/12724325-euc6ynez-v4.webp",
+        description: "My first working solo project. Made in 10 weeks of time, with a relection at the end. A simple tower defence game.",
+        tags: ["2d", "engine", "unity", "csharp"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/VormenVsFormen"
     }
 ];

@@ -1,6 +1,7 @@
 const project = {
     name: "Dynamic Project",
     description: "This project is a dynamiclly added html page. Used as a template for all other projects. Made for speeding up the creating process of project pages. As a developer I should make everything as lazy as possible.",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2020" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "4 years" },
@@ -41,6 +42,13 @@ private void LateUpdate() {
     if (something == null)
         something = GetComponent<MonoBehaviour>();
 }`,
+                    breakRow: false
+                },
+                {
+                    type: "imageSlider",
+                    leftImage: "CapturegraafsmeerMedia/PhotobookWindow.png",
+                    rightImage: "CapturegraafsmeerMedia/PhotobookWindowInactive.png",
+                    caption: "Figure X: How Unity looks before creating a new page.",
                     breakRow: false
                 },
                 { 

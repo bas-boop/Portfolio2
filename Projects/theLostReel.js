@@ -1,6 +1,7 @@
 const project = {
     name: "The Lost Reel",
     description: "The lost reel is a 3D horror game, where you are being hunted by an un-human like creature. Even though you are being hunted, you try to find and collect the lost film reel.<br><br>This was made for the 'Do you WANNA Jam?! 2023' game jam. With the theme 'FREEZE'. There are 80 submisson in this jam. We enden above average of all submissons, and top 26 with the music.",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2023" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "9 days" },

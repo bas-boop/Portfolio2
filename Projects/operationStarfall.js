@@ -1,6 +1,7 @@
 const project = {
     name: "Operation Starfall",
     description: "A 2.5D Metroidvania Couch Co-op based on 80's Sci-Fi cartoons. The game is built by students in a rotating team, under the guidance of 2 leads and teachers. The game revolves around momentum and features a unique Force System for movement.<br><br>Each quater year you as a student can be slected for this project, up to 4 quaters. This makes it posible to be here for 1 year or 10 weeks. At the time I was here the group of people working on this changed alot, so it would be around 30. But looking at the whole team would be 125+ people.<br><br>There are no github repository or trello link because it is a commercial game.",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2022-2023" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "10 months" },
@@ -15,13 +16,23 @@ const project = {
     ],
     features: [
         {
+            title: "Scrum Master Experience",
+            description: "Served as Scrum Master for multiple sprints, including sprint retrospectives and managing tasks on Trello. I was responsible for facilitating sprint planning, poker, retrospectives, and ensuring tasks were properly organized on Trello. Working in this role taught me a lot about agile project management in a team environment.",
+            wide: false,
+            elements: [
+                { 
+                    type: "empty"
+                }
+            ]
+        },
+        {
             title: "Force System",
             description: "This game features its own Force System, similar to Unity's Rigidbody but customized for enhanced momentum-based mechanics. I expanded this Force System to handle better <highlight-text>collision detection</highlight-text>, preventing players and drones from getting stuck in walls by ensuring they are placed next to or on top of obstacles. I also implemented various features such as ledge grabbing and deceleration to improve player movement.",
             wide: false,
             elements: [
                 { 
                     type: "image", 
-                    src: "StarFall/VisualSheet-Forcesystem-Postion-small.png",
+                    src: "OperationStarfallMedia/VisualSheet-Forcesystem-Postion-small.png",
                     size: "60", 
                     alt: "Visual sheet",
                     caption: "Figure 1: SetPosition function visual.",
@@ -120,14 +131,14 @@ private RaycastHit? GetClosestHit(Vector3 desiredDirection, GameObject currentCo
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/Setposition-drone-before.gif",
+                    src: "OperationStarfallMedia/Setposition-drone-before.gif",
                     size: "100", 
                     alt: "Drone in wall",
                     caption: "Figure 2: Drone getting stuck in wall by player sword attack.",
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/Setposition-drone-after.gif",
+                    src: "OperationStarfallMedia/Setposition-drone-after.gif",
                     size: "100", 
                     alt: "Drone not in wall",
                     caption: "Figure 3: Drone bouncing off the wall after players sword attack."
@@ -147,7 +158,7 @@ closestEnemy.transform.position = newEnemyPosition;`
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `var enemyForceBody = closestEnemy.GetComponent<ForceBody>;
+                    code: `var enemyForceBody = closestEnemy.GetComponent<ForceBody>();
 enemyForceBody.ClearForces();
 playerPosition = transform.position;
 
@@ -194,14 +205,14 @@ private void SetActivation(bool isPickedUp) => visual.SetActive(!isPickedUp);`
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/pick-up.gif",
+                    src: "OperationStarfallMedia/pick-up.gif",
                     size: "100", 
                     alt: "Picking up pickups",
                     caption: "Figure 4: Picking up the pick-ups, skipping one to show the chain."
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/PS-chain-incpector.png",
+                    src: "OperationStarfallMedia/PS-chain-incpector.png",
                     size: "100", 
                     alt: "Inspector view chains",
                     caption: "Figure 5: Inspector view of the pickup chains, red and blue boxes are 2 sperate chains."
@@ -245,14 +256,14 @@ private bool AddOrderd(targetPickup)
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/PS-UML.png",
+                    src: "OperationStarfallMedia/PS-UML.png",
                     size: "100", 
                     alt: "UML Diagram of Pick-Up System",
                     caption: "Figure 6: UML diagram of the pickup system."
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/PS-structuur.png",
+                    src: "OperationStarfallMedia/PS-structuur.png",
                     size: "100", 
                     alt: "Chain flow pickup system",
                     caption: "Figure 7: Chain flow of the pickup system."
@@ -266,14 +277,14 @@ private bool AddOrderd(targetPickup)
             elements: [
                 { 
                     type: "image", 
-                    src: "StarFall/YesMomentumJump.gif",
+                    src: "OperationStarfallMedia/YesMomentumJump.gif",
                     size: "100", 
                     alt: "Player jumping while moveing",
                     caption: "Figure 8: The player jumping while moveing left and right smoothly."
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/Deceleration.gif", 
+                    src: "OperationStarfallMedia/Deceleration.gif", 
                     size: "100", 
                     alt: "Player stoping with walking",
                     caption: "Figure 9: The player stoping with walking and decelerating by sliding."
@@ -361,20 +372,10 @@ public static void MovementSettings operator *(MovementSettings targetSettings, 
                 },
                 { 
                     type: "image", 
-                    src: "StarFall/Release.gif", 
+                    src: "OperationStarfallMedia/Release.gif", 
                     size: "100", 
                     alt: "Player releasing the ledge",
                     caption: "Figure 10: The player releasing from a ledge and smoothly adjusting position after detaching."
-                }
-            ]
-        },
-        {
-            title: "Scrum Master Experience",
-            description: "Served as Scrum Master for multiple sprints, including sprint retrospectives and managing tasks on Trello. I was responsible for facilitating sprint planning, poker, retrospectives, and ensuring tasks were properly organized on Trello. Working in this role taught me a lot about agile project management in a team environment.",
-            wide: false,
-            elements: [
-                { 
-                    type: "empty"
                 }
             ]
         },

@@ -27,8 +27,8 @@ function renderFilterOptions() {
 
   
 // Arrays for language and engine tags
-const languageTags = ["csharp", "cpp", "htmlcssjs"];
-const engineTags = ["unity", "unreal", "godot"];
+const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs"];
+const engineTags = ["unity", "unity6", "unreal", "godot"];
 const hiddenTags = ["engine", "lang", "nah"];
 
 // Mapping for display-friendly versions of certain tags
@@ -37,8 +37,10 @@ const tagDisplayNames = {
   "2d": "2D",
   "csharp": "C#",
   "cpp": "C++",
+  "unity6": "Unity 6",
+  "gdscript": "GDscript",
   "htmlcssjs": "HTML CSS JS",
-  "xr": "XR", // Ensure XR is fully capitalized
+  "xr": "XR",
   "nah": "Under Construction"
 };
 
@@ -84,6 +86,11 @@ function renderProjects(filter = "all") {
       if (filter === "exclude-nah") {
         return !hasNahTag;
       }
+      
+      // Adjust filter for Unity and Unity 6 tags
+      if (filter === "unity" || filter === "unity6") {
+        return project.tags.includes("unity") || project.tags.includes("unity6");
+      }
 
       return filter === "all" || project.tags.includes(filter);
     })
@@ -97,7 +104,8 @@ function renderProjects(filter = "all") {
       projectElement.classList.add("project-link");
       projectElement.setAttribute("data-tags", project.tags.join(" "));
 
-      const imgClass = project.tags.includes("nah") ? "blur-image" : "";
+      // const imgClass = project.tags.includes("nah") ? "blur-image" : "";
+      const imgClass = project.tags.includes("nah") ? "" : "";
 
       projectElement.innerHTML = `
         <div class="project">

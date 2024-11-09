@@ -1,0 +1,96 @@
+/* Quick Menu Styling */
+.quick-menu {
+    background-color: #2d2d3a; /* Dark background matching the theme */
+    padding: 1em;
+    border-radius: 8px;
+    margin: 0 auto 20px; /* Center horizontally with auto margins */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    border: 1px solid #4c3a62; /* Purple border to match the theme */
+    max-width: 40%; /* Set a max-width for the menu */
+    display: flex; /* Use Flexbox to align items */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items within the menu */
+}
+
+.quick-menu h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #a68ab7; /* Header in light purple to match other headings */
+    font-size: 20px; /* Adjusted size to match your text */
+    text-align: center; /* Center text alignment */
+}
+
+.quick-menu ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.quick-menu ul li {
+    margin-bottom: 10px;
+}
+
+.quick-menu ul li a {
+    text-decoration: none;
+    color: #ddd; /* Light color for text */
+    font-weight: bold;
+    font-size: 16px; /* Adjusted font size */
+    background-color: transparent; /* No background */
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.quick-menu ul li a:hover {
+    background-color: rgba(58, 100, 122, 0.2); /* Subtle purple hover effect */
+    color: #a68ab7; /* Text turns purple on hover */
+}
+
+/* Style for Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    display: none; /* Initially hidden */
+    background-color: #4c3a62; /* Dark purple background */
+    color: #ddd; /* Light text color */
+    border: 2px solid #a68ab7; /* Border color matching theme */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays on top */
+    transition: background-color 0.3s ease, border 0.3s ease; /* Smooth transition */
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Slide up effect */
+    animation: none; /* Reset animation */
+}
+
+.back-to-top.show {
+    display: block; /* Show the button */
+    animation: fadeInUp 0.5s forwards; /* Animate when shown */
+}
+
+.back-to-top:hover {
+    background-color: #7e5ba5; /* Slightly lighter purple on hover */
+    border-color: #a68ab7; /* Consistent border color */
+}
+
+/* Optional: Adjust the font to match */
+.back-to-top {
+    font-family: Arial, sans-serif; /* Matches your body font */
+}
+
+/* Keyframes for fade in up effect */
+@keyframes fadeInUp {
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* Move to original position */
+    }
+}
+
+@media (max-width: 768px) {
+    .quick-menu{
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

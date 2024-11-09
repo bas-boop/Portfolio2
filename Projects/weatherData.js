@@ -1,6 +1,7 @@
 const project = {
     name: "Weather Visualizer",
     description: "A weather visualizer with some game elements...",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2024" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "4 weeks" },

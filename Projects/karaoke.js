@@ -1,6 +1,7 @@
 const project = {
     name: "Kara-oké",
     description: "A VR karaoke game commissioned for <highlight-text>AVROTROS</highlight-text>, this was made during my internship at XR-Lab! During this project I took on the roles of game developer and scrum master.<br><br>The intention is to translate the TV show <highlight-text>Beste Zangers</highlight-text> into a VR mulitplayer game. A big learning moment with this project was, create features with mulitplayer in mind AND take a week to discuss everything for the game with the team.<br><br>There is no git repository available as it is in a private mode due to the companies.",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2023" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "2 months" },
@@ -15,7 +16,7 @@ const project = {
         // wait until video upload
         // { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" },
         { icon: "fas fa-globe", name: "Customer Website", url: "https://www.avrotros.nl" },
-        { icon: "fas fa-globe", name: "Lead developer: Daniel Nijkamp", url: "https://danielnijkamp.xyz/Info/Kara-Oke.html" }
+        // { icon: "fas fa-globe", name: "Lead developer: Daniel Nijkamp", url: "https://danielnijkamp.xyz/Info/Kara-Oke.html" }
     ],
     features: [
         {
@@ -67,8 +68,9 @@ const project = {
                     language: "cs", 
                     code: `private void OnDestroy() => RemoveListeners();
 
-/// summary
+/// <summary>
 /// Remove every listeners, for performance.
+/// </summary>
 public void RemoveListeners()
 {
     _playerControlsActions["IndexFinger"].performed -= Index;
@@ -115,7 +117,7 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
                 },
                 { 
                     type: "image", 
-                    src: "Kara-oké/InputWindow.png",
+                    src: "Kara-okéMedia/InputWindow.png",
                     size: "100", 
                     alt: "Input map",
                     caption: "Figure 1: Input map of the VR inputs."
@@ -129,21 +131,21 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
             elements: [
                 { 
                     type: "image", 
-                    src: "Kara-oké/GreenLamp.png",
+                    src: "Kara-okéMedia/GreenLamp.png",
                     size: "75", 
                     alt: "Green lamp",
                     caption: "Figure 2: Focus on 1 lamp, green variation."
                 },
                 { 
                     type: "image", 
-                    src: "Kara-oké/Lamps.png",
+                    src: "Kara-okéMedia/Lamps.png",
                     size: "100", 
                     alt: "Lamps",
                     caption: "Figure 3: Testing out the lamps."
                 },                
                 { 
                     type: "image", 
-                    src: "Kara-oké/StageLamps.png",
+                    src: "Kara-okéMedia/StageLamps.png",
                     size: "90", 
                     alt: "Stage lamps",
                     caption: "Figure 4: Showing lamps on the stage, during the night."
@@ -157,14 +159,14 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
             elements: [
                 { 
                     type: "image", 
-                    src: "Kara-oké/RandomEvents.gif",
+                    src: "Kara-okéMedia/RandomEvents.gif",
                     size: "100", 
                     alt: "Random events",
                     caption: "Figure 5: Showcase of the random evetns system turning on and off diffrent effects."
                 },
                 { 
                     type: "image", 
-                    src: "Kara-oké/UmlSpecialEffects.jpeg",
+                    src: "Kara-okéMedia/UmlSpecialEffects.jpeg",
                     size: "75", 
                     alt: "UML special effects",
                     caption: "Figure 6: UML of the random evetns system."
@@ -172,8 +174,9 @@ private void SelectUI(InputAction.CallbackContext context) => _mainMenuUI.SolveB
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `/// summary
+                    code: `/// <summary>
 /// Start one of the events at random.
+/// </summary>
 public void StartAnyEvent()
 {
     var randomNumber = Random.Range(0, 6);
@@ -239,8 +242,9 @@ private void ActivateRandomLamp()
                         { 
                     type: "code", 
                     language: "cs", 
-                    code: `/// summary
+                    code: `/// <summary>
 /// Toggle every smokemachine.
+/// </summary>
 public void StartEventSmoke()
 {
     foreach (var smokeMachine in _smokeMachines)
@@ -249,8 +253,9 @@ public void StartEventSmoke()
     }
 }
 
-/// summary
+/// <summary>
 /// Toggle every firework.
+/// </summary>
 public void StartEventFirework()
 {
     foreach (var firework in _fireworks)
@@ -259,8 +264,9 @@ public void StartEventFirework()
     }
 }
 
-/// summary
+/// <summary>
 /// Toggle every confettie.
+/// </summary>
 public void StartEventConfettie()
 {
     foreach (var confettie in _confettis)
@@ -290,8 +296,9 @@ private void SetNewTimer()
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `/// summary
+                    code: `/// <summary>
 /// This turns the particles off when they are on and vice versa.
+/// </summary>
 public void ToggleParticles()
 {
     if(_isPlayingParticles) StopParticles();
@@ -321,8 +328,9 @@ private void StopParticles()
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `/// summary
+                    code: `/// <summary>
 /// Stats turning of the lamp. If lamp is turnded then it goes back to starting point.
+/// </summary>
 public void StartTurning()
 {
     if (_isTurning) return;
@@ -366,7 +374,7 @@ private IEnumerator Turning()
             elements: [
                 { 
                     type: "image", 
-                    src: "Kara-oké/CharacterSelection.gif",
+                    src: "Kara-okéMedia/CharacterSelection.gif",
                     size: "100", 
                     alt: "Character selection",
                     caption: "Figure 7: The player selecting a character model to represent themselves."
@@ -374,16 +382,19 @@ private IEnumerator Turning()
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `/// summary
+                    code: `/// <summary>
 /// Go to the next character in the list.
+/// </summary>
 public void NextPlayer()
 {
     _currentIndex = (_currentIndex + 1) % _characters.Length;
 
     ApplyPlayer(_currentIndex);
 }
-/// summary
+
+/// <summary>
 /// Go to the Previous character in the list.
+/// </summary>
 public void PreviousPlayer()
 {
     _currentIndex--;
@@ -395,9 +406,10 @@ public void PreviousPlayer()
     ApplyPlayer(_currentIndex);
 }
 
-/// summary
+/// <summary>
 /// Set a specfic character in the list.
-/// param name="characterIndex" Number of specfic character /param
+/// </summary>
+/// <param name="characterIndex">Number of specfic character</param>
 public void SetPlayer(int characterIndex)
 {
     if (characterIndex > _characters.Length || characterIndex < 0)
@@ -432,7 +444,7 @@ public void SetPlayer(int characterIndex)
                 },
                 { 
                     type: "image", 
-                    src: "Kara-oké/VR-rig-with-character.gif",
+                    src: "Kara-okéMedia/VR-rig-with-character.gif",
                     size: "100", 
                     alt: "VR rig",
                     caption: "Figure 8: A demonstration of the player moving with the selected character model in VR."
@@ -458,7 +470,7 @@ public class SongInfo : ScriptableObject
                 },
                 { 
                     type: "image", 
-                    src: "Kara-oké/SongInfo.png",
+                    src: "Kara-okéMedia/SongInfo.png",
                     size: "80", 
                     alt: "SongInfo example",
                     caption: "Figure 9: A SongInfo ScriptableObject instance."
@@ -504,8 +516,9 @@ public void SetSongToPlay(bool increaseSongCount)
                     language: "cs", 
                     code: `// What it turned into
                     
-/// summary
+/// <summary>
 /// Starts the current song and starts all the lyricboards in the scene
+/// </summary>
 public void StartSong()
 {
     var length = _lyricBoards.Length;
@@ -609,9 +622,10 @@ private IEnumerator OnWin()
     transform.Rotate(0, _turnSpeed * Time.deltaTime, 0);
 }
 
-/// summary
+/// <summary>
 /// Sets to allows to turn this UI element. And turns it on.
-/// param name="value" Whether to spin or not. /param
+/// </summary>
+/// <param name="value">Whether to spin or not.</param>
 public void EnableWinScreen(bool value)
 {
     gameObject.SetActive(value);
@@ -633,14 +647,14 @@ private IEnumerator DelaySpin(bool value)
             elements: [
                 { 
                     type: "image", 
-                    src: "Kara-oké/AVROTROS certificate.jpeg", 
+                    src: "Kara-okéMedia/AVROTROS certificate.jpeg", 
                     size: "100", 
                     alt: "Certificate", 
                     caption: "Figure 10: Certificate form AVROTROS" 
                 },
                 { 
                     type: "image", 
-                    src: "Kara-oké/KrabHasTheMoon.jpeg", 
+                    src: "Kara-okéMedia/KrabHasTheMoon.jpeg", 
                     size: "100", 
                     alt: "Moon crab", 
                     caption: "Figure 11: Crab that holds the moon." 
