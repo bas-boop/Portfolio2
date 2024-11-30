@@ -54,6 +54,10 @@
     background-image: linear-gradient(45deg, #ff512f, #dd2476); /* Vibrant coral red to magenta */
 }
 
+.tag-play {
+    background-image: linear-gradient(45deg, #00c853, #ffd600); /* Bright green to vibrant yellow */
+}
+
 /* Styling for the select dropdown */
 #tag-filter {
     width: 215px;

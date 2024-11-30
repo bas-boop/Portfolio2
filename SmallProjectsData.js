@@ -1,4 +1,5 @@
 const filterOptions = [
+    { value: "new", label: "New" },
     { value: "3d", label: "3D" },
     { value: "2d", label: "2D" },
     { value: "lang", label: "Pure code (with framework)" },
@@ -19,15 +20,31 @@ const projects = [
         title: "This website you are on now.",
         image: "Covers/Portifolo.png",
         description: "My portifolo website, second version.",
-        tags: ["2d", "lang", "htmlcssjs"],
+        tags: ["new", "2d", "lang", "htmlcssjs"],
         blankTarget: true,
         href: "https://github.com/bas-boop/Portfolio2"
+    },
+    {
+        title: "Smoll Knight + Horse",
+        image: "Covers/SKPH.jpg",
+        description: "A bachelor admission game. With a medieval setting to play Jousting.",
+        tags: ["2d", "engine", "unity", "csharp"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/Smoll_Knight_plus_Horse"
+    },
+    {
+        title: "FPS Manager",
+        image: "Covers/FPS.png",
+        description: "Console app that adjusts your screen's refresh rate based on connected displays.",
+        tags: ["new", "2d", "lang", "csharp", "console"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/FpsManager"     
     },
     {
         title: "Macroplastics",
         image: "Covers/Schilpad.png",
         description: "This was a 6 hour game jam at HKU made with 4 people, a developer, designer and 2 artists and a small group of musicians. Move turtle and kill brain via shooting the canon.",
-        tags: ["2d", "engine", "unity", "csharp", "gamejam"],
+        tags: ["new", "2d", "engine", "unity", "csharp", "gamejam"],
         blankTarget: true,
         href: "https://baz-geluk9.itch.io/schildpad"
     },
@@ -46,6 +63,14 @@ const projects = [
         tags: ["2d", "lang", "cpp", "console"],
         blankTarget: true,
         href: "https://github.com/bas-boop/tictactoe"
+    },
+    {
+        title: "The Lost Reel",
+        image: "Covers/TheLostReel.png",
+        description: "This is a horro game made for the gamejam 'Wanna Jam? 2023'. Monster AI with a statemachine.",
+        tags: ["3d", "engine", "unity", "csharp", "gamejam"],
+        blankTarget: true,
+        href: "https://github.com/Team-Swamp/The-Lost-Reel"
     },
     {
         title: "Mecco the Chameleon",

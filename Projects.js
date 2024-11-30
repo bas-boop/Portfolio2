@@ -33,6 +33,7 @@ const hiddenTags = ["engine", "lang", "nah"];
 
 // Mapping for display-friendly versions of certain tags
 const tagDisplayNames = {
+  "play": "Play now",
   "3d": "3D",
   "2d": "2D",
   "csharp": "C#",
@@ -56,7 +57,9 @@ function getTagClass(tag) {
     return "tag-3d"; // New project tag
   }else if (tag === "2d") {
     return "tag-2d"; // New project tag
-  } else {
+  } else if (tag === "play")
+    return "tag-play"
+  else {
     return "tag"; // Default tag class
   }
 }
@@ -98,7 +101,7 @@ function renderProjects(filter = "all") {
       const projectElement = document.createElement("a");
       projectElement.href = project.href;
 
-      if(project.blankTarget)
+      if (project.blankTarget)
         projectElement.target = "_blank";
       
       projectElement.classList.add("project-link");

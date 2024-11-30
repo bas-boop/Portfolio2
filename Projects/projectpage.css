@@ -127,6 +127,7 @@ p {
     grid-column: 1;
     max-width: 600px;
     min-width: 100px;
+    width: auto; /* Allow it to grow with the scaling class */
 }
 
 .image-container img {
@@ -197,6 +198,14 @@ p {
     max-width: 140%;
 }
 
+.width-150 img {
+    max-width: 150%;
+}
+
+.width-200 img {
+    max-width: 200%;
+}
+
 /* Image Caption */
 .image-container figcaption {
     color: #a68ab7;
@@ -210,20 +219,6 @@ pre code {
     white-space: pre-wrap;
     word-wrap: break-word;
     overflow-wrap: break-word;
-}
-
-/* Horizontal Rule */
-hr {
-    border: none;
-    background-color: #4c3a62;
-    height: 0;
-    margin: 0;
-    opacity: 1;
-    background: linear-gradient(to right, #a68ab7, #4c3a62);
-    height: 3px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-    margin: 30px 0;
 }
 
 /* Project Links */
@@ -377,6 +372,46 @@ hr {
     font-weight: bold;
     user-select: none;
 }
+
+.copy-link {
+    margin-left: 10px;
+    color: #a68ab7;
+    cursor: pointer;
+    font-size: 18px;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+.feature-header {
+    position: relative; /* For positioning the icon */
+    display: inline-block; /* So the icon aligns properly */
+    cursor: pointer;
+}
+
+.copy-icon {
+    margin-left: 8px;
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Transparent */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth visibility change */
+}
+
+.feature-header:hover .copy-icon, /* Show on header hover */
+.copy-icon:hover { /* Ensure icon stays visible on its hover */
+    visibility: visible;
+    opacity: 1;
+}
+
+.copy-icon i {
+    color: #a68ab7; /* Match header color */
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.copy-icon i:hover {
+    color: #7e5ba5; /* Change color on hover */
+}
+
+
 
 /* Media Queries */
 @media (max-width: 1150px) {

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bas de Reus - Godot</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="Projects/projectpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+    .imageSlider {
+        position: relative;
+        width: 500px;
+        height: 500px;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Optional: add depth */
+    }
+    
+    .imageSlider-wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        user-select: none; /* Prevent text/image selection */
+        border-radius: inherit;
+    }
+    
+    .imageSlider-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none; /* Ensure images can't be selected */
+        border-radius: inherit;
+    }
+    
+    .imageSlider-wrapper-overlay {
+        clip-path: inset(0 50% 0 0); /* Show only left half of the right image initially */
+    }
+    
+    .slider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: rgb(76, 58, 98); /* Dark purple from your palette */
+        cursor: ew-resize;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: inherit;
+    }
+    
+    .handle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(76, 58, 98, 0.7); /* Slightly transparent light purple */
+        border-radius: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.85); /* Light shadow for better visibility */
+    }
+    
+    .drag-indicator {
+        color: #ddd; /* Light grey text, matching your site's color */
+        font-size: 16px;
+        font-weight: bold;
+        user-select: none; /* Prevent text selection */
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Godot</h1>
+    </header>
+
+    <div id="navbar-placeholder"></div>
+
+    <div class="code-container">
+        <h1>Var</h1>
+        <div class="code">
+            Godot
+            <pre><code style="max-width: 960px;">var number = 5
+var text = "Hello"</code></pre>
+        </div>
+
+        <div class="code">
+            C#
+            <pre><code class="language-cs" style="max-width: 960px;">int number = 5;
+string text = "Hello";</code></pre>
+        </div>
+    </div>
+
+    <div class="code-container">
+        <h1>Kopje</h1>
+        <div class="code">
+            Godot
+            <pre><code style="max-width: 960px;">GDscript</code></pre>
+        </div>
+
+        <div class="code">
+            C#
+            <pre><code class="language-cs" style="max-width: 960px;">C#</code></pre>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="img-wrapper">
+            <img src="Covers/Starfall.jpg" class="img img-right" alt="Left Image">
+        </div>
+        <div class="img-wrapper img-wrapper-overlay">
+            <img src="Covers/SKPH.jpg" class="img img-left" alt="Right Image">
+        </div>
+        <div class="slider">
+            <div class="handle">
+                <span class="drag-indicator">← →</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="img-wrapper">
+            <img src="Projects/CapturegraafsmeerMedia/PhotobookWindowInactive.png" class="img img-right" alt="Left Image">
+        </div>
+        <div class="img-wrapper img-wrapper-overlay">
+            <img src="Projects/CapturegraafsmeerMedia/PhotobookWindow.png" class="img img-left" alt="Right Image">
+        </div>
+        <div class="slider">
+            <div class="handle">
+                <span class="drag-indicator">← →</span>
+            </div>
+        </div>
+    </div>    
+
+    <div id="footer-placeholder"></div>
+
+    <script src="HtmlFetcher.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script>
+        // Get all containers
+        const containers = document.querySelectorAll('.container');
+    
+        containers.forEach(container => {
+            const slider = container.querySelector('.slider');
+            const imgOverlay = container.querySelector('.img-wrapper-overlay');
+            
+            let isDragging = false;
+    
+            // Add event listeners specific to each container
+            container.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                moveSlider(e, container, slider, imgOverlay);
+            });
+    
+            window.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    moveSlider(e, container, slider, imgOverlay);
+                }
+            });
+    
+            window.addEventListener('mouseup', function() {
+                isDragging = false;
+            });
+    
+            function moveSlider(e, container, slider, imgOverlay) {
+                const rect = container.getBoundingClientRect();
+                let posX = e.clientX - rect.left;
+    
+                // Constrain the slider within the bounds of the container
+                if (posX < 0) posX = 0;
+                if (posX > rect.width) posX = rect.width;
+    
+                // Update the slider position
+                slider.style.left = posX + 'px';
+    
+                // Calculate the percentage of the slider's position relative to the container's width
+                const percentage = (posX / rect.width) * 100;
+    
+                // Update the right image's clip path (left image remains unchanged)
+                imgOverlay.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+            }
+        });
+    </script>
+</body>
+</html>

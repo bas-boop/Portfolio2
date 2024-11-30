@@ -1,0 +1,114 @@
+.intro-text {
+    text-align: center;
+    margin: 20px auto 0px;
+    max-width: 800px;
+    font-size: 18px;
+    color: #ccc;
+}
+
+.features-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    background-color: #2d2d3a;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    flex-direction: row;
+}
+
+.feature-list li:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+
+.feature-list li img {
+    width: 390px;
+    height: 390px;
+    margin: 0 20px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.feature-list li h3 {
+    font-size: 20px;
+    color: #f8f8f2;
+    margin-bottom: 8px;
+}
+
+.feature-list li p {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.feature-list li .feature-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #7e5ba5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.feature-list li .feature-btn:hover {
+    background-color: #a68ab7;
+}
+
+@media (max-width: 768px) {
+    .features-section {
+        padding: 15px;
+    }
+
+    .feature-list li {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .feature-list li:nth-child(odd) {
+        flex-direction: column;
+    }
+
+    .feature-list li img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+    }
+
+    .feature-list li h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .feature-list li p {
+        font-size: 14px;
+    }
+
+    .feature-list li .feature-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+}

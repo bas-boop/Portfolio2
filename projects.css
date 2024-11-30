@@ -53,8 +53,12 @@
     background-color: #fff;   
 }
 
-.project img, .highlight-container img {
-    filter: blur(0px) saturate(1.075) drop-shadow(3px 3px 5px black) ;
+.project img {
+    filter: saturate(1.075) drop-shadow(3px 3px 5px black);
+}
+
+.highlight-container img{
+    filter: saturate(1.075)
 }
 
 .project h2 {
@@ -162,6 +166,62 @@
     background-color: #3a647a; /* Dark blue for programming languages */
 }
 
+.highlight-project h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: #a68ab7;
+}
+
+.highlight-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.highlight-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.highlight-container {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(76, 58, 98, 0.7);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+
 /* Responsive design for smaller screens */
 @media (min-width: 2000px) {
     .project-container {
@@ -181,7 +241,12 @@
 
 @media (max-width: 768px) {
     .project-container {
-        grid-template-columns: 1fr; /* 1 column */
+        padding: 0;
+        grid-template-columns: repeat(2, 1fr); /* 1 column */
+    }
+
+    .project{
+        height: 420px;
     }
 
     .highlight-container {

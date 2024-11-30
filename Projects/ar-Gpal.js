@@ -1,7 +1,7 @@
 const project = {
     name: "AR Gpal",
     description: "An educational AR project for the <highlight-text>Hololens 2</highlight-text>, this was made during my internship at XR-Lab! We were commissioned to translate <highlight-text>GPal's existing app/webapp</highlight-text> into an AR environment. We have this for GPal's customer, the Amsterdam Ambulance Service.<br><br>We took the idea from their instruction videos and changed the interaction to digital buttons that hang around the incubator. You can also control everything via voice commands so that you can use the <highlight-text>application hands-free</highlight-text>.<br><br>There is no git repository available as it is in a private mode due to the companies.",
-    hasQuickMenu: true,
+    hasQuickMenu: false,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2023" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "2 months" },

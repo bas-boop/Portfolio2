@@ -153,7 +153,7 @@ const project = {
                 },
                 {
                     type: "text", 
-                    content: "In Figure 8, we see the Registry Editor and an example password, `save?`. The answer to storing it securely is no—it’s not safe as-is. I searched for a solution and discovered a method called <highlight-text>obfuscation</highlight-text>, which shifts letters around in a string. This approach seemed perfect for my needs.<br><br>However, I added my own twist, as a simple shift, like adding +1 to each letter, would be too easy to decode. While I can’t share the exact method for security reasons, I can say it involves a lot of math to ensure the result is highly secure.",
+                    content: "In Figure 7, we see the Registry Editor and an example password, `save?`. The answer to storing it securely is no—it’s not safe as-is. I searched for a solution and discovered a method called <highlight-text>obfuscation</highlight-text>, which shifts letters around in a string. This approach seemed perfect for my needs.<br><br>However, I added my own twist, as a simple shift, like adding +1 to each letter, would be too easy to decode. While I can’t share the exact method for security reasons, I can say it involves a lot of math to ensure the result is highly secure.",
                     breakRow: false
                 },
                 { 
@@ -166,7 +166,6 @@ const project = {
                 },
             ]
         },
-        ,
         {
             title: "Post Mortem",
             description: "My internship at InControl, a simulation company specializing in logistics and pedestrian simulations, was an invaluable learning experience. Over the course of my time there, I worked on two major projects within their simulation software. My tasks included fixing bugs, developing new features, and exploring the technical depths of both logistics and pedestrian simulation.",

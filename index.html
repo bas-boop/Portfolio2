@@ -29,27 +29,67 @@
     <div id="navbar-placeholder"></div>
 
     <section class="highlight-project">
-        <a href="/Projects/CaptureGraafsmeer" class="highlight-container">
-            <img src="Covers/CaptureGraafsmeer.png" alt="Highlight Project">
-            <div class="highlight-info">
-                <h2>Capture Graafsmeer</h2>
-                <p>Unity GPS mobile game made during MBO exam. Made for the City of Amsterdam, explore the city with a photobook.</p>
-                <div class="tags">
-                    <span class="tag tag-new">New</span>
-                    <span class="tag tag-3d">3D</span>
-                    <span class="tag tag-engine">Unity</span>
-                    <span class="tag tag-lang">C#</span>
-                    <span class="tag">Mobile</span>
-                </div>
+        <h2>Highlighted projects:</h2>
+
+        <div class="highlight-slider">
+            <button class="slider-arrow left-arrow" aria-label="Previous Project">&lt;</button>
+            
+            <div class="highlight-slides">
+                <a href="/Projects/CaptureGraafsmeer" class="highlight-container">
+                    <img src="Covers/CaptureGraafsmeer.png" alt="Capture Graafsmeer">
+                    <div class="highlight-info">
+                        <h2>Capture Graafsmeer</h2>
+                        <p>Unity GPS mobile game made during MBO exam. Made for the City of Amsterdam, explore the city with a photobook.</p>
+                        <div class="tags">
+                            <span class="tag tag-play">Play now</span>
+                            <span class="tag tag-3d">3D</span>
+                            <span class="tag tag-engine">Unity</span>
+                            <span class="tag tag-lang">C#</span>
+                            <span class="tag">Mobile</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/Projects/Platypus" class="highlight-container">
+                    <img src="Covers/Platypus.png" alt="Platypus">
+                    <div class="highlight-info">
+                        <h2>Platypus</h2>
+                        <p>This is a passion project of mine. A platformer with interesting movement options.</p>
+                        <div class="tags">
+                            <span class="tag tag-2d">2D</span>
+                            <span class="tag tag-engine">Unity</span>
+                            <span class="tag tag-lang">C#</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/Projects/Kara-oke" class="highlight-container">
+                    <img src="Covers/Kara-oke.png" alt="Kara-oke">
+                    <div class="highlight-info">
+                        <h2>Kara-oké</h2>
+                        <p>A VR karaoke game commissioned for AVROTROS, this was made during my internship at XR-Lab!</p>
+                        <div class="tags">
+                            <span class="tag tag-3d">3D</span>
+                            <span class="tag tag-engine">Unity</span>
+                            <span class="tag tag-lang">C#</span>
+                            <span class="tag">XR</span>
+                            <span class="tag">Internship</span>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
-    </section>
+
+            <button class="slider-arrow right-arrow" aria-label="Next Project">&gt;</button>
+        </div>
+    </section>    
 
     <section class="filter">
         <label for="tag-filter">Filter by:</label>
         <select id="tag-filter"></select>
     </section>
-    
+
+    <hr>
+
     <section class="portfolio">
         <div class="project-container" id="project-container"></div>
     </section>

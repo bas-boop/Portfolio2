@@ -1,6 +1,7 @@
 const project = {
     name: "Capture Graafsmaar",
-    description: "Capture Graafsmaar is a location-based AR-ish mobile game for Android, developed during my MBO exams for the client Amsterdam government.<br><br>I contributed significantly to this project as the lead developer. I answered questions from both artists and developers and implemented a total of 13 features, including 10 gameplay features and 3 development features. I worked extensively on UI developing and focused on various mobile-specific functionalities. Additionally, I conducted multiple playtesting sessions with users and ensured that the documentation was consistently updated.<br><br>This project allowed me to demonstrate my development and planning skills. In the post-mortem, I reflected not only on the project's strengths and weaknesses but also shared my strong opinions about the client and the handling of the exams by the school: Media College Amsterdam.",
+    description: "Capture Graafsmaar is a location-based AR-ish mobile game for Android, developed during my MBO exams for the client City of Amsterdam.<br><br>I contributed significantly to this project as the lead developer. I answered questions from both artists and developers and implemented a total of 13 features, including 10 gameplay features and 3 development features. I worked extensively on UI developing and focused on various mobile-specific functionalities. Additionally, I conducted multiple playtesting sessions with users and ensured that the documentation was consistently updated.<br><br>This project allowed me to demonstrate my development and planning skills. In the post-mortem, I reflected not only on the project's strengths and weaknesses but also shared my strong opinions about the client and the handling of the exams by the school: Media College Amsterdam.",
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2024" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "9 weeks" },
@@ -22,26 +23,13 @@ const project = {
             title: "Photobook Custom Window",
             description: "Why did I create a custom window for the photobook? Simple — I wanted to streamline the process of adding new pages and connecting them with interactable elements. Previously, this involved multiple manual steps: copying a template page, adding it to the photobook class, including the interactable’s icon (a circular image), writing text for the interactable, linking it to the correct page, positioning it using GEO location, placing a 3D model on the interactable, and testing for any errors during the process.<br><br>After developing the custom window, the workflow became much more efficient. Now, all I need to do is fill in the necessary data (text, icon, and position) and press the 'Create' button. This has made the process significantly faster and easier for other developers or even artists to use.",
             wide: false,
+            hasQuickMenu: true,
             elements: [
-                { 
-                    type: "image", 
-                    src: "Capturegraafsmeer/PhotobookWindow.png", 
-                    size: "100", 
-                    alt: "PhotobookWindow",
-                    caption: "Figure X: PhotobookWindow",
-                    breakRow: false
-                },
-                { 
-                    type: "image", 
-                    src: "Capturegraafsmeer/PhotobookWindowInactive.png", 
-                    size: "80", 
-                    alt: "PhotobookWindow",
-                    caption: "Figure X: PhotobookWindow",
-                    breakRow: false
-                },
                 {
-                    type: "text", 
-                    content: "This custom window is currently the only one I’ve built for any Unity project. It did come with an odd behavior — when switching to a different window, all the text and fields would disappear. Despite investigating the issue, I couldn’t pinpoint the cause, so I decided to create a basic version with just the essential fields and data.<br><br>I tried fixing this using the repaint window functionality, but that didn’t work out. Ultimately, I left it as is because the primary focus was to build a working game without major issues.",
+                    type: "imageSlider",
+                    leftImage: "CapturegraafsmeerMedia/PhotobookWindow.png",
+                    rightImage: "CapturegraafsmeerMedia/PhotobookWindowInactive.png",
+                    caption: "Figure 1: Photobook window, active and inactive.",
                     breakRow: false
                 },
                 { 
@@ -68,38 +56,38 @@ const project = {
 }`,
                     breakRow: false
                 },
-                { 
-                    type: "image", 
-                    src: "Capturegraafsmeer/BeforeMakePage.png", 
-                    size: "100", 
-                    alt: "PhotobookWindow",
-                    caption: "Figure X: PhotobookWindow",
+                {
+                    type: "text", 
+                    content: "This custom window is currently the only one I’ve built for any Unity project. It did come with an odd behavior — when switching to a different window, all the text and fields would disappear. Despite investigating the issue, I couldn’t pinpoint the cause, so I decided to create a basic version with just the essential fields and data.<br><br>I tried fixing this using the repaint window functionality, but that didn’t work out. Ultimately, I left it as is because the primary focus was to build a working game without major issues.",
                     breakRow: false
                 },
                 { 
                     type: "image", 
-                    src: "Capturegraafsmeer/AfterMakePage.png", 
+                    src: "CapturegraafsmeerMedia/BeforeMakePage.png", 
                     size: "100", 
-                    alt: "PhotobookWindow",
-                    caption: "Figure X: PhotobookWindow",
+                    alt: "Before making",
+                    caption: "Figure 2: How Unity looks before creating a new page. (click on the image)",
+                    breakRow: false
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/AfterMakePage.png", 
+                    size: "100", 
+                    alt: "After making",
+                    caption: "Figure 3: How Unity looks after creating a new page. (click on the image)",
                     breakRow: false
                 },
                 {
-                    type: "text", 
-                    content: "<highlight-text>How do you use the photobook window?</highlight-text> In Figure X, you can see how to use the photobook window. First, fill in the required data and press the 'Make new page!' button. This action generates three things: a new page in the photobook UI game object, a new photo interactable at the bottom of the hierarchy window, and a scriptable object containing all the data.<br><br>Some connections are made automatically, but two links need to be done manually by the developer: the interactable must be linked to the photobook page, and the page must be added to the photobook’s list of pages. Once these steps are completed, the photobook is fully functional with the new page.<br><br>Why not fully automated? While I could have fully automated the process, I opted for more control. Instead of spawning one game object at a time, I generate all the necessary game objects at once.",
+                    type: "text",
+                    content: "<highlight-text>How do you use the photobook window?</highlight-text> In Figure 4, you can see how to use the photobook window. First, fill in the required data and press the 'Make new page!' button. This action generates three things: a new page in the photobook UI game object, a new photo interactable at the bottom of the hierarchy window, and a scriptable object containing all the data.<br><br>Some connections are made automatically, but two links need to be done manually by the developer: the interactable must be linked to the photobook page, and the page must be added to the photobook’s list of pages. Once these steps are completed, the photobook is fully functional with the new page.<br><br>Why not fully automated? While I could have fully automated the process, I opted for more control. Instead of spawning one game object at a time, I generate all the necessary game objects at once.",
                     breakRow: false
                 },
                 { 
                     type: "image", 
-                    src: "Capturegraafsmeer/NumberdMakePage.png", 
-                    size: "50", 
-                    alt: "PhotobookWindow",
-                    caption: "Figure X: PhotobookWindow",
-                    breakRow: true
-                },
-                {
-                    type: "text", 
-                    content: "With the MenuItem function atribute it has a place to be found. The bar at top, with the file, edit, assets ect. There it can be found.",
+                    src: "CapturegraafsmeerMedia/NumberdMakePage.png", 
+                    size: "100", 
+                    alt: "Highlight new object",
+                    caption: "Figure 4: A highlight to the new objects and refrences.",
                     breakRow: false
                 },
                 { 
@@ -111,6 +99,11 @@ public static void ShowWindow()
     PhotoBookWindow window = GetWindow<PhotoBookWindow>();
     window.Show();
 }`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "With the MenuItem function atribute it has a place to be found. The bar at top, with the file, edit, assets ect. There it can be found, in this case it's under <highlight-text>Codename-BDLMTW</highlight-text>, the name of the project before it had a name.",
                     breakRow: false
                 },
                 { 
@@ -343,12 +336,164 @@ private static bool IsValidFileName(string fileName)
         },
         {
             title: "Photobook",
-            description: "Bla bla",
+            description: "The photobook is the way to see the progress of walking the route and learning about the Amsterdam area of Watergraafsmeer. The photobook has many pages of each site seeing, but they are locked at first. To unlock it you need to take a photo of it. It an easy to use photobook, 2 buttons on the side to browse the book and a close button. Your photo of the site at the top and under it information about it.",
             wide: false,
             elements: [
                 { 
-                    type: "empty"
-                }
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/Photobook.gif", 
+                    size: "75", 
+                    alt: "Capture Graafsmeer Icon",
+                    caption: "Figure 5: Browsing through the photobook.",
+                    breakRow: true
+                },
+                {
+                    type: "text", 
+                    content: "There are 3 compentents to achieve this system. A page holder, photobook, and the pages. Page holder is an abstraction of an object that can show multiple panels or pages, this was done for the development speed of the introcution panel.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// Check if the buttons should be visibility or not
+/// </summary>
+/// <param name="length">The length of the list that is getting checked for the next button.</param>
+protected void CheckButtonsUsability(int length)
+{
+    if (p_currentIndex == 0)
+        p_previousButton.SetActive(false);
+
+    if(p_currentIndex == length)
+        p_nextButton.SetActive(false);
+}
+
+/// <summary>
+/// Set the current item to display.
+/// </summary>
+/// <param name="isIncreasing">Is the current item the next or previous?</param>
+protected abstract void SetCurrentItem(bool ?isIncreasing);`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// Set the next item to display, so also check the buttons visibility
+/// </summary>
+/// <param name="length">The length of the list that is getting checked for the next button.</param>
+protected void SetNextItem(int length)
+{
+    if(length == p_currentIndex)
+        return;
+
+    if(p_currentIndex == length - 2)
+        p_nextButton.SetActive(false);
+    
+    if(!p_previousButton.activeSelf)
+        p_previousButton.SetActive(true);
+}
+
+/// <summary>
+/// Set the previous item to display, so also check the buttons visibility. Plus decreases p_currentIndex.
+/// </summary>
+protected void SetPreviousItem()
+{
+    if(p_currentIndex == 0)
+        return;
+
+    if (p_currentIndex - 2 == -1)
+        p_previousButton.SetActive(false);
+    
+    if(!p_nextButton.activeSelf)
+        p_nextButton.SetActive(true);
+    
+    p_currentIndex--;
+}`,
+                    breakRow: true
+                },
+                {
+                    type: "text", 
+                    content: "First we set up the photobook before using it.<br><br>Step 1 is looking at the save system if there are already photos made. If so, we will set the interactable to visted and turn the pages one in the photobook.<br><br>Step 2 is checking if the side buttons should been shown. Why is that? If were at the first page we hide the button to go left trough the book, because there is no page on the left. This is the same for the last page and the button for right.<br><br>Step 3 is showing the current page. This would be the first page when first time opening it. Or the last opened page if the book has been opened ealier.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void Awake()
+{
+    int l = pages.Length;
+    
+    for (int i = l - 1; i >= 0; i--)
+    {
+        if (Saver.Instance.PhotoAmountMade >= i)
+            pages[i].GetPhotoInteractable.IsVisited = true;
+    }
+    
+    gameObject.SetActive(false);
+}
+
+private void OnEnable() => SetupPhotoBook();
+
+private void SetupPhotoBook()
+{
+    CheckButtonsUsability(pages.Length);
+    ViewPages();
+}
+
+private void ViewPages()
+{
+    foreach (var page in pages)
+    {
+        page.ForceClose();
+    }
+    
+    pages[p_currentIndex].ForceOpen();
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `int a = 1;`,
+                    breakRow: false
+                },
             ]
         },
         {
@@ -363,11 +508,142 @@ private static bool IsValidFileName(string fileName)
         },
         {
             title: "Photo Taking",
-            description: "Bla bla + zoom",
-            wide: false,
+            description: "To fill the photobook, users interact with points of interest to take photos. A confirmation panel appears, showing a preview and an interactive render. After confirming, a camera interface with a zoom slider and a photo capture button becomes available. The process is simple and user-friendly.",
+            wide: true,
             elements: [
                 { 
-                    type: "empty"
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/PhotoTaking.gif", 
+                    size: "50", 
+                    alt: "Capture Graafsmeer Icon",
+                    caption: "Figure X: Taking a photo.",
+                    breakRow: false
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/Zoom.gif", 
+                    size: "50", 
+                    alt: "Capture Graafsmeer Icon",
+                    caption: "Figure X: Zoom feature in action.",
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "When a photo is taken, the raw image is captured and saved. Camera usage is stopped once the process completes. Errors are handled with informative messages, and other systems such as saving and photo interaction updates are triggered accordingly.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void FindCamera()
+{
+    WebCamDevice[] devices = WebCamTexture.devices;
+
+    if (devices.Length <= 0)
+        throw new Exception(NO_CAMERA_ERROR);
+    
+    CameraTexture = new WebCamTexture(devices[0].name);
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// Captures the current frame and applies it to the photo image.
+/// </summary>
+public void TakePhoto()
+{
+    if (!CameraTexture.isPlaying)
+        throw new Exception(CAMERA_NOT_ACTIVE_ERROR);
+    
+    if (_currentInteractable == null)
+        throw new Exception(NO_PHOTO_INTERACTABLE_ERROR);
+    
+    _currentPhoto = CaptureFrame(CameraTexture);
+
+    if (!_currentInteractable.SaveTexture(_currentPhoto))
+        throw new Exception(UNABLE_TO_SAVE_PHOTO_ERROR + _currentInteractable.name);
+    
+    _currentInteractable.IsVisited = true;
+    Saver.Instance.PhotoAmountMade++;
+    lastPhoto.texture = _currentInteractable.GetTexture();
+    
+    onPhotoTaken?.Invoke();
+    
+    if (_currentInteractable.ShouldHighlightButton)
+        onHighlightButton?.Invoke();
+    
+    OnDisable();
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private Texture2D CaptureFrame(WebCamTexture liveTexture)
+{
+    Rect cameraUvRect = liveCamera.uvRect;
+    
+    int x = Mathf.FloorToInt(cameraUvRect.x * liveTexture.width);
+    int y = Mathf.FloorToInt(cameraUvRect.y * liveTexture.height);
+    int width = Mathf.FloorToInt(cameraUvRect.width * liveTexture.width);
+    int height = Mathf.FloorToInt(cameraUvRect.height * liveTexture.height);
+    
+    Texture2D currentTexture = new Texture2D(width, height);
+    Color[] pixels = liveTexture.GetPixels(x, y, width, height);
+    
+    currentTexture.SetPixels(pixels);
+    currentTexture.Apply();
+    
+    return currentTexture;
+}`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "When the zoom slider is adjusted, the zoom level is updated by modifying a rectangular area. This same logic is applied during the photo-taking process.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// Set the zoom amount of the camera
+/// </summary>
+/// <param name="zoomTarget">Target zoom value</param>
+public void Zoom(float zoomTarget)
+{
+    float width = 1f / zoomTarget;
+    float height = 1f / zoomTarget;
+    Rect uvRect = new Rect((1f - width) / 2f, (1f - height) / 2f, width, height);
+    
+    liveCamera.uvRect = uvRect;
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private const int ASK_PERMISSION_DELAY = 6;
+private const string CAMERA_PERMISSION = Permission.Camera;
+
+protected virtual void Start() => Invoke(nameof(AskPermission), ASK_PERMISSION_DELAY);
+
+/// <summary>
+/// Will ask the device camera, will be used inherited classes
+/// </summary>
+public void AskPermission()
+{
+    if (!Permission.HasUserAuthorizedPermission(CAMERA_PERMISSION))
+        Permission.RequestUserPermission(CAMERA_PERMISSION);
+}`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "On game start up we ask for the camera permisson of th Android phone. If this is not accept we will ask permisson when clicking on a interactbale object. This in done via the Unity Android namespace.",
+                    breakRow: false
                 }
             ]
         },
@@ -423,150 +699,135 @@ private static bool IsValidFileName(string fileName)
         },          
         {
             title: "Save System",
-            description: "Bla bla",
-            wide: false,
-            elements: [
-                { 
-                    type: "empty"
-                }
-            ]
-        },
-        {
-            title: "Enum Extensions",
-            "description": "Under the hood, enums are essentially lists of numbers, allowing you to pass these numeric values to a variable. While these numbers can be easily modified, you may need to associate an enum with a string or a vector. <br><br>To address this, I created custom <highlight-text>Attributes</highlight-text> that store additional data for each enum constant. Simply call the enum constant to retrieve its associated value—whether it’s a string, vector, or another type—and you’re good to go.",
+            description: "While playing, unexpected events like a phone call might occur, causing you to close the game and lose progress. To prevent this, I implemented a save system that tracks three key aspects: the current waypoint on the route highlighter, the color of the route highlighter, and the number of photos saved in the photobook. This ensures that your progress is preserved even if the game is interrupted.",
             wide: false,
             elements: [
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `public enum Fruit
+                    code: `public int PhotoAmountMade
 {
-    [StringValue("Sweet Apple")]
-    Apple,
+    get => _photoAmountMade;
     
-    [StringValue("Ripe Banana")]
-    Banana,
-    
-    [StringValue("Juicy Orange")]
-    Orange,
-    
-    [StringValue("Fresh Mango")]
-    Mango,
-    
-    [StringValue("Grapes")]
-    Grape
-}`,
-                    breakRow: false
-                },
-                {
-                    type: "code", 
-                    language: "cs", 
-                    code: `public sealed class StringValue : Attribute
-{
-    public string Value { get; }
-
-    public StringValue(string value) => Value = value;
-}`,
-                    breakRow: false
-                },
-                {
-                    type: "code", 
-                    language: "cs", 
-                    code: `/// summary
-/// Get the string of an enum type.
-/// param name="value" The enum that you want the string from. /param
-/// returns The StringValue, if not existing returns empty string. /returns
-public static string GetString(this Enum value)
-{
-    Type type = value.GetType();
-    FieldInfo fieldInfo = type.GetField(value.ToString());
-    StringValue attribute = (StringValue) Attribute.GetCustomAttribute(fieldInfo, typeof(StringValue));
-
-    return attribute?.Value ?? string.Empty;
-}`,
-                    breakRow: false
-                },
-                {
-                    type: "code", 
-                    language: "cs", 
-                    code: `public void LogFruit()
-{
-    string fruitString = myFruit.GetString();
-    Debug.Log($"The selected fruit is: {fruitString}");
-}`,
-                    breakRow: false
-                },
-                {
-                    type: "text", 
-                    "content": "With this extension logic in mind, why stop there? I wanted to implement a function that returns a random enum constant. I frequently used this feature in the practice exam for the cooking game. The reasons for not incorporating it in this project can be found in the post-mortem.",
-                    breakRow: false
-                },
-                {
-                    type: "code", 
-                    language: "cs", 
-                    code: `/// summary
-/// Retrieves a random enum value of the specified type.
-/// typeparam name="T" The enum type. /typeparam
-/// returns A random enum value of type T. /returns
-public static T GetRandomEnumValue<T>()
-{
-    Array enumValues = Enum.GetValues(typeof(T));
-    Random random = new Random();
-    return (T)enumValues.GetValue(random.Next(enumValues.Length));
-}`,
-                    breakRow: false
-                },
-                {
-                    type: "code", 
-                    language: "cs", 
-                    code: `private void FillOrder()
-{
-    int lenght = dishToOrder.Orders.Length;
-    for (int i = 0; i < lenght; i++)
+    set
     {
-        if (dishToOrder.Orders[i] == Dish.NONE)
-            dishToOrder.Orders[i] = EnumExtensions.GetRandomEnumValue<Dish>();   
+        if (value == _photoAmountMade) 
+            return;
+        
+        _photoAmountMade = value;
+        PlayerPrefs.SetInt(PHOTO_KEY, _photoAmountMade);
+        PlayerPrefs.Save();
     }
 }`,
                     breakRow: false
                 },
-            ]
-        },
-        {
-            title: "Vector Extensions",
-            description: "Bla bla",
-            wide: false,
-            elements: [
                 { 
-                    type: "empty"
-                }
-            ]
-        },
-        {
-            title: "Scene Switcher",
-            description: "Bla bla",
-            wide: false,
-            elements: [
+                    type: "code", 
+                    language: "cs", 
+                    code: `protected override void Awake()
+{
+    base.Awake();
+    
+    if (PlayerPrefs.HasKey(PHOTO_KEY))
+        _photoAmountMade = PlayerPrefs.GetInt(PHOTO_KEY);
+    
+    if (PlayerPrefs.HasKey(ROUTE_KEY))
+        _checkpointsPassed = PlayerPrefs.GetInt(ROUTE_KEY);
+    
+    if (PlayerPrefs.HasKey(ROUTE_COLOR))
+        _routeColorIndex = PlayerPrefs.GetInt(ROUTE_COLOR);
+
+    if (PlayerPrefs.HasKey(ROUTE_WIDTH))
+    {
+        _routeWidth = PlayerPrefs.GetFloat(ROUTE_WIDTH);
+        
+        if (_routeWidth == 0)
+            _routeWidth = 1;
+    }
+}`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "When the game scene is loaded, the saved data is retrieved and applied to the relevant systems. For example, the photobook checks how many photos have been saved and activates the corresponding pages if their indices are less than or equal to the saved count.",
+                    breakRow: false
+                },
                 { 
-                    type: "empty"
-                }
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void Awake()
+{
+    int l = pages.Length;
+    
+    for (int i = l - 1; i >= 0; i--)
+    {
+        if (Saver.Instance.PhotoAmountMade >= i)
+            pages[i].GetPhotoInteractable.IsVisited = true;
+    }
+    
+    gameObject.SetActive(false);
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/Delete.png", 
+                    size: "75", 
+                    alt: "Delete data panel",
+                    caption: "Figure X: Delete data panel",
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "There is also an option to reset all progress, which is hidden within the introduction panel. This allows players to replay the game after deleting all previous data.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// This will reset the progress of the route and photos made
+/// </summary>
+public void ResetData()
+{
+    PhotoAmountMade = 0;
+    CheckpointsPassed = 0;
+    RouteColorIndex = 0;
+    RouteWidth = 1f;
+}`,
+                    breakRow: false
+                },
             ]
         },
+        // Maybe better for a diffrent project that use this better
+        // {
+        //     title: "Scene Switcher",
+        //     description: "Bla bla",
+        //     wide: false,
+        //     elements: [
+        //         { 
+        //             type: "empty"
+        //         }
+        //     ]
+        // },
         {
             title: "Lead Developer Experience",
-            description: "Test for looks.<br>A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work.",
+            description: "I cooked with code!",
             wide: true,
             elements: [
-                {
-                    type: "text", 
-                    content: "A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work.",
-                    breakRow: false
+                { 
+                    type: "empty"
                 },
-                {
-                    type: "text", 
-                    content: "A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij.",
-                    breakRow: false
-                },
+                // {
+                //     type: "text", 
+                //     content: "A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work.",
+                //     breakRow: false
+                // },
+                // {
+                //     type: "text", 
+                //     content: "A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij.",
+                //     breakRow: false
+                // },
             ]
         },
         {

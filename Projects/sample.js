@@ -8,6 +8,7 @@ const project = {
         { icon: "fas fa-microchip", label: "Engine", value: "Unity" },
         { icon: "fas fa-cogs", label: "Framework", value: "SFML" },
         { icon: "fas fa-code", label: "Language", value: "C++" },
+        { icon: "fas fa-tools", label: "Creative Tools", value: "Blender" },
         { icon: "fas fa-arrow-trend-up", label: "Workflow", value: "Waterfall" },
         { icon: "fas fa-user", label: "Team Size", value: "Solo" },
         { icon: "fas fa-users", label: "Team Size", value: "2 devs, 4 artists, 1 design" },

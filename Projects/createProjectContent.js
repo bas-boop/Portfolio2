@@ -70,6 +70,8 @@ function renderQuickMenu(project) {
 }
 
 function escapeHtml(code) {
+    // \n needs to be replaced with \\n in the code block provided
+
     return code
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
@@ -118,7 +120,7 @@ function renderElement(element) {
     } else if (element.type === 'empty') {
         return '';
     }
-    return 'Something broke during generating this element!!!';
+    return '<div style="color:red;">Something broke during generating this element!!!</div>';
 }
 
 // Renders the project features with mixed code and images
@@ -130,7 +132,12 @@ function renderProjectFeatures(project) {
             <hr>
             <div class="code-container" id="${featureId}">
                 <div class="description${w}">
-                    <h2>${feature.title}</h2>
+                    <h2 class="feature-header" id="${featureId}">
+                        ${feature.title}
+                        <span class="copy-icon" title="Copy link to this section">
+                            <i class="fas fa-link"></i>
+                        </span>
+                    </h2>
                     <p>${feature.description}</p>
                 </div>
                 ${feature.elements.map(renderElement).join('')}
@@ -155,8 +162,27 @@ renderProjectInfo(project);
 renderProjectFeatures(project);
 renderQuickMenu(project);
 
+function copyFeatureLink(featureId) {
+    const url = `${window.location.origin}${window.location.pathname}#${featureId}`;
+    navigator.clipboard.writeText(url)
+        .then()
+        .catch(() => alert("Failed to copy link."));
+}
 
-
+// Add click event listener for the copy icon
+document.addEventListener('click', (event) => {
+    const target = event.target;
+    
+    if (target.closest('.copy-icon')) {
+        const header = target.closest('.feature-header');
+        if (header) {
+            const link = `${window.location.origin}${window.location.pathname}#${header.id}`;
+            navigator.clipboard.writeText(link).then().catch((err) => {
+                console.error('Failed to copy link: ', err);
+            });
+        }
+    }
+});
 
 
 // Show/Hide the "Back to Top" button based on scroll position

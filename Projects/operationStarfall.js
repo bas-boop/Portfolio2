@@ -177,7 +177,7 @@ enemyForceBody.SetPosition(newEnemyPosition, desireDirection);`
         },
         {
             title: "Pick-Up System",
-            description: "Rebuilt the pick-up system with <highlight-text>SRP</highlight-text> (Single Responsibility Principle), introducing chains and ordered pickups. We reworked the existing pick-up system to add more features and structure. Pickups can now be chained in specific sequences, and events can trigger upon collecting all pickups in a scene or its chain.",
+            description: "Rebuilt the pick-up system with <highlight-text>SRP</highlight-text> (Single Responsibility Principle), introducing chains and ordered pickups. We reworked the existing pick-up system to add more features and structure. Pickups can now be chained in specific sequences, and events can trigger upon collecting all pickups in a scene or its chain.<br><br>With this feature, another developer and I practiced <highlight-text>pair programming</highlight-text>. We worked together on one machine and took turns writing the code. If one of us had an idea, we would <highlight-text>discuss it in depth</highlight-text> to see if it would work and if there might be a better way. This was a great way to collaborate on a feature, and both of us learned from each other.",
             wide: false,
             elements: [
                 { 

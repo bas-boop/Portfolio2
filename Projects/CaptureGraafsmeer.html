@@ -4,10 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <meta name="description" content="Bas de Reus - Game Developer, showcasing Capture Graafsmeer project.">
+    <meta name="keywords" content="Bas de Reus, Game Developer, Unity, C#, C++, HTML/CSS/JS">
+    <meta name="author" content="Bas de Reus">
+    
     <title>Bas de Reus: Capture Graafsmeer</title>
+    
+    <link rel="stylesheet" href="../underconstruction.css">
     <link rel="stylesheet" href="../base.css">
     <link rel="stylesheet" href="../navbar.css">
     <link rel="stylesheet" href="projectpage.css">
+    <link rel="stylesheet" href="QuickMenu.css">
     <link rel="stylesheet" href="PlayTest.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -15,8 +23,14 @@
 <body>
     <header id="project-header"></header>
     <div id="navbar-placeholder"></div>
+    <div class="construction-container">
+        <h1>🚧 Under Construction 🚧</h1>
+        <p>Sorry for the inconvenience, but this page is currently being built. Not everything is done!</p>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
     <div id="project-info"></div>
-
     <hr>
     <section id="playtesting">
         <div class="section-header">
@@ -32,7 +46,7 @@
             </div>
 
             <div class="imported-stuff">
-                <h4 id="imported-stuff">Imported Stuff</h4>
+                <h4 id="imported-stuff">Important Stuff</h4>
                 <ul>
                     <li>Tests conducted in Dutch with local testers.</li>
                     <li>Audio quality impacted by background noise from the test location.</li>
@@ -79,7 +93,8 @@
             <p><br>Overall, the user testing process provided valuable insights that will inform the refinement and development of the game, with the ultimate goal of delivering a more engaging and seamless experience for players.</p>
           </div>
     </section>
-    
+    <button id="back-to-top" class="back-to-top" onclick="scrollToTop()">↑ Back to Top</button>
+    <div id="quick-menu"></div>
     <div id="project-features"></div>
     <div id="footer-placeholder"></div>
 

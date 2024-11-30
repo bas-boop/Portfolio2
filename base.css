@@ -69,6 +69,20 @@ footer p{
     color: #ccc;
 }
 
+/* Horizontal Rule */
+hr {
+    border: none;
+    background-color: #4c3a62;
+    height: 0;
+    margin: 0;
+    opacity: 1;
+    background: linear-gradient(to right, #a68ab7, #4c3a62);
+    height: 3px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    margin: 30px 0;
+}
+
 /* Styling for inline code blocks inside backticks */
 highlight-text {
     background-color: #2d2d2d;

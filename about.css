@@ -18,13 +18,16 @@ h1 {
 }
 
 section {
-    background-color: #2c2c3a; /* Dark grey background for sections */
     color: #ddd; /* Light grey text */
     padding: 20px;
     margin-bottom: 0;
     margin-left: 15%;
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+.background-section{
+    background-color: #2c2c3a; /* Dark grey background for sections */
 }
 
 section h2 {
@@ -68,6 +71,133 @@ a.link:hover {
     border-radius: 10px; /* Optional: round corners */
     margin-top: 10px; /* Space between the two images */
 }
+
+/* Container for the entire timeline */
+.timeline {
+    margin: 30px 0;
+    /* background-color: #2c2c3a; */
+    padding: 20px;
+    padding-left: 250px;
+    border-radius: 10px;
+    position: relative; /* Set position relative so the line can be positioned inside it */
+}
+
+/* Styling for the header of the timeline */
+.timeline h2 {
+    color: #d6b3ff;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* The timeline container which holds all the events and the line */
+.timeline-container {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px; /* Ensures some padding on the right as well */
+}
+
+/* Styling for the year label */
+.timeline-year {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.timeline-year h2 {
+    font-size: 28px;
+    color: #c092f5;
+    z-index: 1;
+}
+
+/* Individual event items in the timeline */
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Add a vertical line for each timeline item */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 10px; /* Align with the main line */
+    top: 20px; /* Start below the dot */
+    bottom: -15px; /* Extend down to the next dot */
+    width: 2px; /* Width of the line */
+    background-color: #c092f5; /* Line color */
+    z-index: 0; /* Ensure it's behind the content but above the main line */
+}
+
+/* Dot style for each event */
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #c092f5; /* Dot color */
+    border-radius: 50%; /* Make the dot round */
+    position: absolute;
+    left: 0; /* Align dot to the left of the line */
+    top: 0; /* Place dot on top of the line */
+    z-index: 1; /* Ensure dots are above the line */
+}
+
+/* Content box for each event */
+.timeline-content {
+    background-color: #2c2c3a;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 70%;
+    margin-left: 40px; /* Add space to the left of content */
+    transition: background-color 0.5s ease;
+}
+
+.timeline-content:hover {
+    background-color: #3b3b4b;
+}
+
+/* Title styling inside the event content */
+.timeline-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #c092f5;
+}
+
+/* Paragraph styling inside the event content */
+.timeline-content p {
+    font-size: 16px;
+    color: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Links inside the timeline content */
+.timeline-content a {
+    color: #c092f5;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.timeline-content a:hover {
+    color: #884eca;
+}
+
+/* Responsive Design for Timeline */
+@media (max-width: 768px) {
+    .timeline {
+        padding: 0px 0px;
+    }
+
+    .timeline-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .timeline-item {
+        padding-left: 20px;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+    }
+}
+
 
 /* Media query for screens narrower than 768px */
 @media (max-width: 1200px) {
