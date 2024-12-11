@@ -3,8 +3,8 @@ const filterOptions = [
     { value: "play", label: "Play now" },
     { value: "3d", label: "3D" },
     { value: "2d", label: "2D" },
-    { value: "lang", label: "Pure code (with framework)" },
-    { value: "unity", label: "Unity" },
+    // { value: "lang", label: "Pure code (with framework)" },
+    // { value: "unity", label: "Unity" },
     // { value: "unreal", label: "Unreal" },
     // { value: "godot", label: "Godot" },
     { value: "csharp", label: "C#" },
@@ -12,7 +12,9 @@ const filterOptions = [
     // { value: "gdscript", label: "GDscript" },
     // { value: "htmlcssjs", label: "HTML/CSS/JS" }
 ];
-  
+
+const highlightIndices = [0, 2, 4];
+
 const projects = [
 // // jaar 1 blok 2 HKU
 //     {

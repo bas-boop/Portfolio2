@@ -21,6 +21,13 @@ const features = [
         external: false
     },
     {
+        title: "Abstract Statemachine",
+        description: "To provide precise control and depth for both the player and enemies, I developed a state machine. By making it abstract, I ensured the base state machine and core state logic could be reused across multiple entities.",
+        image: "/Projects/PlatypusMedia/Platypus_Player_Concept.png",
+        link: "/Projects/Platypus#Abstract-StateMachine",
+        external: false
+    },
+    {
         title: "AR Shader",
         description: "A custom shader created for augmented reality applications. It ensures that any black pixels in the engine are rendered as transparent on the AR device, improving the visual experience.",
         image: "/Projects/GPalMedia/ShaderGraph.jpg",

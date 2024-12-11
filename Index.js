@@ -32,51 +32,67 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-const slides = document.querySelector('.highlight-slides');
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
-const slideContainers = document.querySelectorAll('.highlight-container');
-let currentSlide = 0;
-let autoCycle;
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelector('.highlight-slides');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    let slideContainers = document.querySelectorAll('.highlight-container'); // Select containers dynamically
+    let currentSlide = 0;
+    let autoCycle;
 
-const updateSlidePosition = () => {
-    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-};
+    const updateSlideContainers = () => {
+        slideContainers = document.querySelectorAll('.highlight-container'); // Refresh the list dynamically
+    };
 
-const nextSlide = () => {
-    currentSlide = (currentSlide + 1) % slideContainers.length;
-    updateSlidePosition();
-};
+    const updateSlidePosition = () => {
+        slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    };
 
-const prevSlide = () => {
-    currentSlide = (currentSlide - 1 + slideContainers.length) % slideContainers.length;
-    updateSlidePosition();
-};
+    const nextSlide = () => {
+        if (slideContainers.length > 0) {
+            currentSlide = (currentSlide + 1) % slideContainers.length;
+            updateSlidePosition();
+        }
+    };
 
-const startAutoCycle = () => {
-    autoCycle = setInterval(nextSlide, 3500); // Change every 3.5 seconds
-};
+    const prevSlide = () => {
+        if (slideContainers.length > 0) {
+            currentSlide = (currentSlide - 1 + slideContainers.length) % slideContainers.length;
+            updateSlidePosition();
+        }
+    };
 
-const stopAutoCycle = () => {
-    clearInterval(autoCycle);
-};
+    const startAutoCycle = () => {
+        stopAutoCycle(); // Prevent multiple intervals
+        autoCycle = setInterval(nextSlide, 3500); // Change every 3.5 seconds
+    };
 
-// Arrow button event listeners
-rightArrow.addEventListener('click', () => {
-    stopAutoCycle();
-    nextSlide();
+    const stopAutoCycle = () => {
+        clearInterval(autoCycle);
+    };
+
+    // Arrow button event listeners
+    rightArrow.addEventListener('click', () => {
+        console.log("right");
+        stopAutoCycle();
+        updateSlideContainers(); // Refresh slideContainers in case of dynamic changes
+        nextSlide();
+        startAutoCycle();
+    });
+
+    leftArrow.addEventListener('click', () => {
+        console.log("left");
+        stopAutoCycle();
+        updateSlideContainers(); // Refresh slideContainers in case of dynamic changes
+        prevSlide();
+        startAutoCycle();
+    });
+
+    // Pause cycling on hover
+    slides.addEventListener('mouseenter', stopAutoCycle);
+    slides.addEventListener('mouseleave', startAutoCycle);
+
+    // Start the automatic cycling
+    updateSlideContainers(); // Initialize the slideContainers properly
     startAutoCycle();
 });
-
-leftArrow.addEventListener('click', () => {
-    stopAutoCycle();
-    prevSlide();
-    startAutoCycle();
-});
-
-// Pause cycling on hover
-slides.addEventListener('mouseenter', stopAutoCycle);
-slides.addEventListener('mouseleave', startAutoCycle);
-
-// Start the automatic cycling
-startAutoCycle();

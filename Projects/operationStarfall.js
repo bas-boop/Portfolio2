@@ -27,7 +27,7 @@ const project = {
         },
         {
             title: "Force System",
-            description: "This game features its own Force System, similar to Unity's Rigidbody but customized for enhanced momentum-based mechanics. I expanded this Force System to handle better <highlight-text>collision detection</highlight-text>, preventing players and drones from getting stuck in walls by ensuring they are placed next to or on top of obstacles. I also implemented various features such as ledge grabbing and deceleration to improve player movement.",
+            description: "This game features its own Force System, similar to Unity's Rigidbody but customized for enhanced momentum-based mechanics. I expanded this Force System to handle better <highlight-text>collision detection</highlight-text>, preventing players and drones from getting stuck in walls by ensuring they are placed next to or on top of obstacles. You could add a pervert direction the gameobject should be placed to.",
             wide: false,
             elements: [
                 { 

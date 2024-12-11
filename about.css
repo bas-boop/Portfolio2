@@ -51,10 +51,15 @@ a.link:hover {
 }
 
 .image-content {
+    max-width: 27%;
     margin-right: 5%;
     display: flex;
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center align the items */
+}
+
+.image-content p{
+    text-align: center;
 }
 
 .profile-photo {
@@ -70,6 +75,42 @@ a.link:hover {
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px; /* Optional: round corners */
     margin-top: 10px; /* Space between the two images */
+}
+
+/* Styling for buttons */
+button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #884eca; /* Purple background */
+    border: none;
+    padding: 10px 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #a16ee0; /* Slightly lighter purple */
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0); /* Reset lift on click */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for text enhancements */
+.text-highlight {
+    font-size: 18px;
+    color: #c092f5; /* Light purple for emphasis */
+    background-color: rgba(136, 78, 202, 0.1); /* Subtle purple background */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-weight: bold;
 }
 
 /* Container for the entire timeline */
@@ -180,6 +221,11 @@ a.link:hover {
 
 /* Responsive Design for Timeline */
 @media (max-width: 768px) {
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
     .timeline {
         padding: 0px 0px;
     }
@@ -218,6 +264,7 @@ a.link:hover {
     }
     
     .image-content{
+        max-width: 100%;
         width: 90%;
         margin-right: 0;
     }

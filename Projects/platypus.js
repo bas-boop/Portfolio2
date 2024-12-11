@@ -382,6 +382,7 @@ private GroundState _currentState;
                     leftImage: "PlatypusMedia/ShaderShowCase1.png",
                     rightImage: "PlatypusMedia/ShaderShowCase2.png",
                     caption: "Figure 7: Outline shader on the player, with 2 configurations.",
+                    size: "",
                     breakRow: false
                 },
                 { 
@@ -522,6 +523,7 @@ public class NoSlideWallsGenerator : MonoBehaviour
                     leftImage: "PlatypusMedia/ShaderShowCase1.png",
                     rightImage: "PlatypusMedia/ShaderShowCase2.png",
                     caption: "Figure 7 again: Outline shader on the player, with 2 configurations.",
+                    size: "",
                     breakRow: false
                 },
                 {

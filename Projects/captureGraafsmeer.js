@@ -1,6 +1,6 @@
 const project = {
     name: "Capture Graafsmaar",
-    description: "Capture Graafsmaar is a location-based AR-ish mobile game for Android, developed during my MBO exams for the client City of Amsterdam.<br><br>I contributed significantly to this project as the lead developer. I answered questions from both artists and developers and implemented a total of 13 features, including 10 gameplay features and 3 development features. I worked extensively on UI developing and focused on various mobile-specific functionalities. Additionally, I conducted multiple playtesting sessions with users and ensured that the documentation was consistently updated.<br><br>This project allowed me to demonstrate my development and planning skills. In the post-mortem, I reflected not only on the project's strengths and weaknesses but also shared my strong opinions about the client and the handling of the exams by the school: Media College Amsterdam.",
+    description: "Capture Graafsmaar is a location-based AR-ish mobile game for Android, developed during my MBO exams for the client City of Amsterdam.<br><br>I contributed significantly to this project as the lead developer. I answered questions from both artists and developers and <highlight-text>implemented a total of 12 features</highlight-text>, including 9 gameplay features and 3 development features. I worked extensively on UI developing and focused on various mobile-specific functionalities. Additionally, I conducted multiple playtesting sessions with users and ensured that the documentation was consistently updated.<br><br>This project allowed me to demonstrate my development and planning skills. In the post-mortem, I reflected not only on the project's strengths and weaknesses but also shared my strong opinions about the client and the handling of the exams by the school: Media College Amsterdam.",
     hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2024" },
@@ -30,6 +30,7 @@ const project = {
                     leftImage: "CapturegraafsmeerMedia/PhotobookWindow.png",
                     rightImage: "CapturegraafsmeerMedia/PhotobookWindowInactive.png",
                     caption: "Figure 1: Photobook window, active and inactive.",
+                    size: "",
                     breakRow: false
                 },
                 { 
@@ -455,43 +456,65 @@ private void ViewPages()
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `int a = 1;`,
+                    code: `/// <summary>
+/// Set the title, photo and info text of this page
+/// </summary>
+public void SetProperties()
+{
+    photo.texture = interactable.GetTexture();
+    info.text = interactable.GetInfo();
+    pointOfInterestRender.texture = data.Render;
+}
+    
+/// <summary>
+/// Set the PhotoData to a new data set.
+/// </summary>
+/// <param name="target">The target data</param>
+public void SetData(PhotoData target) => data = target;`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "The pages themself have data to hold, this can eb set and applied to there properties and gameobjects.<br><br>To animate the pages I use an animationcurve to have it like a book page flip. This works both when going to the left or right. There are also 2 functions that force open or close the page when needed.",
                     breakRow: false
                 },
                 { 
                     type: "code", 
                     language: "cs", 
-                    code: `int a = 1;`,
-                    breakRow: false
-                },
-                { 
-                    type: "code", 
-                    language: "cs", 
-                    code: `int a = 1;`,
-                    breakRow: false
-                },
-                { 
-                    type: "code", 
-                    language: "cs", 
-                    code: `int a = 1;`,
-                    breakRow: false
-                },
-                { 
-                    type: "code", 
-                    language: "cs", 
-                    code: `int a = 1;`,
-                    breakRow: false
-                },
-                { 
-                    type: "code", 
-                    language: "cs", 
-                    code: `int a = 1;`,
-                    breakRow: false
-                },
-                { 
-                    type: "code", 
-                    language: "cs", 
-                    code: `int a = 1;`,
+                    code: `/// <summary>
+/// Closes this page, without questions
+/// </summary>
+public void ForceClose() => _rect.localScale = _closed;
+
+/// <summary>
+/// Opens this page, without questions
+/// </summary>
+public void ForceOpen() => _rect.localScale = Vector3.one;
+
+/// <summary>
+/// Calls the animation fot the page, if it's open it will close, otherwise it will go form close to open
+/// </summary>
+/// <param name="isOpening">Is the page open or not</param>
+public void AnimatePage(bool isOpening)
+    => StartCoroutine(((IScalable) this).AnimateScale(isOpening ? _closed : Vector3.one));
+
+IEnumerator IScalable.AnimateScale(Vector3 targetScale)
+{
+    Vector3 initialScale = _rect.localScale;
+    float elapsedTime = 0f;
+
+    while (elapsedTime < animationDuration)
+    {
+        elapsedTime += Time.deltaTime;
+        float timeLeft = Mathf.Clamp01(elapsedTime / animationDuration);
+        float curveValue = animationCurve.Evaluate(timeLeft);
+        _rect.localScale = Vector3.Lerp(initialScale, targetScale, curveValue);
+        
+        yield return null;
+    }
+
+    _rect.localScale = targetScale;
+}`,
                     breakRow: false
                 },
             ]
@@ -503,7 +526,7 @@ private void ViewPages()
             elements: [
                 { 
                     type: "empty"
-                }
+                }                
             ]
         },
         {
@@ -649,12 +672,225 @@ public void AskPermission()
         },
         {
             title: "Geo Location",
-            description: "Bla bla",
-            wide: false,
+            description: "To explore the area of Watergraafsmeer in Amsterdam, we need a mobile-friendly solution. One option could be to create a movement system controlled via the user interface. But why not use your real location instead? By utilizing the phone’s real-world coordinates, we can integrate them directly into the game. This approach is perfect for the older workers in the city of Amsterdam. It’s automated, easy to use, and allows them to focus solely on the gameplay.",
+            wide: true,
             elements: [
                 { 
-                    type: "empty"
-                }
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/GeoLocationOverview.png", 
+                    size: "100", 
+                    alt: "Image",
+                    caption: "Figure X: An overview of all objects placed with geo location.",
+                    breakRow: true
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/GeoLocationStart.png", 
+                    size: "100", 
+                    alt: "Image",
+                    caption: "Figure X: All object before the game starts.",
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "When using the <highlight-text>CoordinatesTransform</highlight-text> class, at the start of the game, each game object will be placed in its real-life position, as shown in Figure X. Simply provide the latitude and longitude of the object, and it will be positioned accordingly. This is achieved through a formula that converts coordinates into meters, accounting for the curvature of the Earth. Details on how this process works will be explained later.",
+                    breakRow: false
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/Darwin.png", 
+                    size: "80", 
+                    alt: "Image",
+                    caption: "Figure X: An example CoordinatesTransform placed at there correct location.",
+                    breakRow: true
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `public enum CoordinatesTransformType
+{
+    STATIC,
+    STATIC_DEBUG,
+    PLAYER,
+    PLAYER_DEBUG
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/GeoInspector.png", 
+                    size: "100", 
+                    alt: "Image",
+                    caption: "Figure X: CoordinatesTransform inspector view.",
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "The CoordinatesTransform class <highlight-text>offers four different modes:</highlight-text> static mode, player mode, static debug mode, and player debug mode.<br><br>Static mode is the simplest. It places objects based on their coordinates, but this placement happens only once. Player mode functions similarly, but it continuously updates the position of objects at regular intervals.<br><br>Static debug mode is designed for development purposes. It allows developers to verify object placements, and any changes made in the engine are instantly reflected in the game. Player debug mode builds upon static debug mode by introducing checks for specific player requirements that are not handled by the static version.",
+                    breakRow: false
+                },
+                { 
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/GeoLocation.gif", 
+                    size: "100", 
+                    alt: "Image",
+                    caption: "Figure X: Showcasing the player debug mode of the CoordinatesTransform.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void Awake()
+{
+    if (type is CoordinatesTransformType.PLAYER or CoordinatesTransformType.PLAYER_DEBUG)
+        _player = GetComponent<LocationUpdater>();
+}`,
+                    breakRow: true
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// A test version of the status for the location. This should be removed when we have player model.
+/// </summary>
+private void Update()
+{
+    sprite.color = Input.location.status switch
+    {
+        LocationServiceStatus.Running => colors[0],
+        LocationServiceStatus.Failed => colors[1],
+        LocationServiceStatus.Initializing => colors[2],
+        LocationServiceStatus.Stopped => colors[3],
+        _ => throw new ArgumentOutOfRangeException()
+    };
+}
+
+/// <summary>
+/// Get the live location of the player.
+/// </summary>
+/// <returns>Returns a Vector2 with latitude & longitude</returns>
+public Vector2 GetLiveLocation()
+{
+    if (!Input.location.isEnabledByUser)
+        return Vector2.zero;
+    
+    LocationInfo location = Input.location.lastData;
+    return new Vector2(location.latitude, location.longitude);
+}`,
+                    breakRow: false
+                },                
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// Ask for the location of the device form its inheritance
+/// and will place the CoordinatesTransform once to the correct location
+/// </summary>
+protected override void Start()
+{
+    base.Start();
+    
+    if (type == CoordinatesTransformType.STATIC)
+        UpdateLocation(null);
+}
+
+private void Update()
+{
+    if(_isReactive
+        || type is CoordinatesTransformType.STATIC)
+        return;
+
+    switch (type)
+    {
+        case CoordinatesTransformType.PLAYER:
+            UpdateLocation(_player.GetLiveLocation());
+            break;
+        case CoordinatesTransformType.PLAYER_DEBUG:
+        case CoordinatesTransformType.STATIC_DEBUG:
+            UpdateLocation(null);
+            break;
+        default:
+            UpdateLocation(null);
+            Debug.LogWarning($"Default was triggered in {gameObject.name}.");
+            break;
+    }
+}`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "To create an accurate location-based system, I used the following formula to convert coordinates into meters while accounting for the curvature of the Earth: <math xmlns=\"http://www.w3.org/1998/Math/MathML\"><mo>(</mo><mi>latitude</mi><mo>and</mo><mi>longitude</mi><mo>&#x00D7;</mo> <!-- Multiplication sign --><mfrac><mi>&#x03C0;</mi> <!-- pi --><mn>180</mn></mfrac><mo>)</mo><mo>&#x00D7;</mo> <!-- Multiplication sign --><mi>Earth&#x2019;s&#x00A0;radius</mi><mo>,</mo></math> the radius of earth is 6378137 meters. Next to this we can see how we write this in C#.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void UpdateLocation(Vector2 ?pos)
+{
+    Vector2 targetPosition = pos ?? coordinates;
+    targetPosition.Subtract(origin);
+    (double latitude, double longitude) = ConvertToMeters(targetPosition.x, -targetPosition.y);
+    Vector3 finalTargetPosition = new Vector3((float) latitude, 0, (float) longitude);
+    
+    if (_isReactive)
+        return;
+    
+    StartCoroutine(LerpPosition(finalTargetPosition));
+}
+
+private (double, double) ConvertToMeters(double latitude, double longitude)
+{
+    double latitudeInMeters = latitude * Math.PI / HALF_CIRCLE * EARTH_RADIUS;
+    double longitudeInMeters = longitude * Math.PI / HALF_CIRCLE * EARTH_RADIUS;
+    
+    return (latitudeInMeters, longitudeInMeters);
+}`,
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `/// <summary>
+/// Display every serialized variable, headers and space.
+/// </summary>
+public override void OnInspectorGUI()
+{
+    serializedObject.Update();
+
+    DrawScriptField();
+    
+    EditorGUILayout.LabelField(SETTINGS_HEADER, EditorStyles.boldLabel);
+    EditorGUILayout.PropertyField(_cords);
+    EditorGUILayout.PropertyField(_type);
+
+    if (ShouldShowPlayerSettings())
+    {
+        EditorGUILayout.LabelField(PLAYER_SETTINGS_HEADER, EditorStyles.boldLabel);
+        EditorGUILayout.PropertyField(_lerp);
+        EditorGUILayout.PropertyField(_update);
+    }
+    
+    serializedObject.ApplyModifiedProperties();
+}
+
+private bool ShouldShowPlayerSettings()
+    => targets.Select(t => new SerializedObject(t)).Select(obj
+    => obj.FindProperty(TYPE)).Any(typeProp => typeProp.enumValueIndex is 2 or 3);`,
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "Lastly, for the geo-location system, I will demonstrate how I created two different versions of the class to be displayed in the inspector. By using the <highlight-text>CustomEditor</highlight-text> class attribute, I can control how the GUI is rendered for the specific class. This allows me to hide or show settings that are only relevant for the player or player debug mode within the CoordinatesTransform class.<br><br>The reason for this approach is the size of the development team. By customizing the inspector, I can reduce confusion for team members who might encounter settings that have no effect in certain modes, such as static mode. For example, settings meant for player modes would be hidden when static mode is enabled, keeping the interface clean and intuitive.",
+                    breakRow: false
+                },
+                {
+                    type: "imageSlider",
+                    leftImage: "CapturegraafsmeerMedia/GeoInspector2.png",
+                    rightImage: "CapturegraafsmeerMedia/GeoInspector.png",
+                    caption: "Figure X: The 2 inspector views of the CoordinatesTransform, for the static mode and the other for a player mode.",
+                    size: "-1",
+                    breakRow: false
+                },
             ]
         },
         {
@@ -668,18 +904,8 @@ public void AskPermission()
             ]
         },
         {
-            title: "Animated Buttons",
-            description: "Bla bla",
-            wide: false,
-            elements: [
-                { 
-                    type: "empty"
-                }
-            ]
-        },
-        {
-            title: "Flashing Buttons",
-            description: "Bla bla",
+            title: "Interactive Buttons",
+            description: "Buttons are animated and flash.",
             wide: false,
             elements: [
                 { 
@@ -689,12 +915,76 @@ public void AskPermission()
         },
         {
             title: "Culling",
-            description: "Bla bla",
+            description: "Mobile phones generally have limited performance capabilities, and running a simple 3D Unity game can quickly drain the battery. To address this, we decided to optimize visual performance by implementing culling techniques. Specifically, we use a combination of <highlight-text>frustum culling & occlusion culling</highlight-text>. This was made with pair programming, a great way to work on this, with the technical artist.",
             wide: false,
             elements: [
                 { 
-                    type: "empty"
-                }
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/Culling.gif", 
+                    size: "100", 
+                    alt: "Culling gif",
+                    caption: "Figure X: Objects behing other and objects outside the camera view will not be shown.",
+                    breakRow: true
+                },
+                {
+                    type: "text", 
+                    content: "Frustum culling is a technique used in computer graphics to improve rendering performance by excluding objects that are outside the camera's view frustum—a pyramid-shaped region extending from the camera's perspective. This ensures that only objects within the camera's field of view are processed for rendering, minimizing unnecessary calculations for objects not visible to the player.",
+                    breakRow: false
+                },
+                {
+                    type: "text", 
+                    content: "Occlusion culling further enhances performance by preventing rendering operations for GameObjects that are hidden behind other objects. In Unity, this is achieved using precomputed data generated during the baking process, which determines visibility at runtime. By excluding objects that do not contribute to the scene's visibility, occlusion culling significantly reduces rendering overhead.",
+                    breakRow: false
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void UpdateCullAbles()
+{
+    Plane[] planes = GeometryUtility.CalculateFrustumPlanes(_this);
+    int length = _cullAbleObjects.Length;
+    
+    for (int i = 0; i < length; i++)
+    {
+        bool isVisible = GeometryUtility.TestPlanesAABB(planes, _cachedRenderers[i].bounds);
+        
+        OcclusionCulling(ref isVisible, i);
+        
+        _cullAbleObjects[i].SetActive(isVisible);
+    }
+}
+
+private void OcclusionCulling(ref bool isVisible, int i)
+{
+    if (!isVisible) 
+        return;
+    
+    Vector3 direction = _cullAbleObjects[i].transform.position - _this.transform.position;
+    float distance = direction.magnitude;
+    RaycastHit hit;
+        
+    if (Physics.Raycast(_this.transform.position, direction, out hit, distance)
+        && hit.transform != _cullAbleObjects[i].transform)
+        isVisible = false;
+}`,
+                    breakRow: true
+                },
+                { 
+                    type: "code", 
+                    language: "cs", 
+                    code: `private void InitCullingObjects()
+{
+    _cullAbleObjects = GameObject.FindGameObjectsWithTag(CULL_ABLE_TAG);
+    _cachedRenderers = new Renderer[_cullAbleObjects.Length];
+    int length = _cullAbleObjects.Length;
+    
+    for (int i = 0; i < length; i++)
+    {
+        _cachedRenderers[i] = _cullAbleObjects[i].GetComponent<Renderer>();
+    }
+}`,
+                    breakRow: false
+                },
             ]
         },          
         {
@@ -799,37 +1089,6 @@ public void ResetData()
                 },
             ]
         },
-        // Maybe better for a diffrent project that use this better
-        // {
-        //     title: "Scene Switcher",
-        //     description: "Bla bla",
-        //     wide: false,
-        //     elements: [
-        //         { 
-        //             type: "empty"
-        //         }
-        //     ]
-        // },
-        {
-            title: "Lead Developer Experience",
-            description: "I cooked with code!",
-            wide: true,
-            elements: [
-                { 
-                    type: "empty"
-                },
-                // {
-                //     type: "text", 
-                //     content: "A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work.",
-                //     breakRow: false
-                // },
-                // {
-                //     type: "text", 
-                //     content: "A big thank you to Alex Kentie and Berend Weij, whose guidance was invaluable throughout the project. Their mentorship made this experience transformative and set a strong foundation for my future work. A big thank you to Alex Kentie and Berend Weij.",
-                //     breakRow: false
-                // },
-            ]
-        },
         {
             title: "Post Mortem",
             description: "Reflection",
@@ -846,7 +1105,7 @@ public void ResetData()
                 },
                 {
                     type: "text", 
-                    content: "More bla bla",
+                    content: "More bla bla and Lead Developer Experience",
                     breakRow: false
                 },
                 { 

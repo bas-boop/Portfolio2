@@ -50,6 +50,7 @@ private void LateUpdate() {
                     leftImage: "CapturegraafsmeerMedia/PhotobookWindow.png",
                     rightImage: "CapturegraafsmeerMedia/PhotobookWindowInactive.png",
                     caption: "Figure X: How Unity looks before creating a new page.",
+                    size: "",
                     breakRow: false
                 },
                 { 

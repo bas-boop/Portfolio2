@@ -101,12 +101,12 @@ function renderElement(element) {
         return `<div class="description" ${oneElementOneRow}><p>${element.content}</p></div>`;
     }
     else if (element.type === 'imageSlider') {
-        return `<div class="imageSlider-container">
-                    <div class="imageSlider" ${oneElementOneRow}>
-                        <div class="imageSlider-wrapper img-left">
+        return `<div class="imageSlider-container${element.size}">
+                    <div class="imageSlider${element.size}" ${oneElementOneRow}>
+                        <div class="imageSlider-wrapper${element.size} img-left">
                             <img src="${element.rightImage}" alt="Left Image">
                         </div>
-                        <div class="imageSlider-wrapper img-right img-wrapper-overlay">
+                        <div class="imageSlider-wrapper${element.size} img-right img-wrapper-overlay">
                             <img src="${element.leftImage}" alt="Right Image">
                         </div>
                         <div class="slider">
@@ -114,7 +114,7 @@ function renderElement(element) {
                                 <span class="drag-indicator">← →</span>
                             </div>
                         </div>
-                        <figcaption class="imageSlider-caption">${element.caption}</figcaption>
+                        <figcaption class="imageSlider-caption${element.size}">${element.caption}</figcaption>
                     </div>
                 </div>`;
     } else if (element.type === 'empty') {
@@ -211,8 +211,7 @@ function scrollToTop() {
     }
 }
 
-
-const sliders = document.querySelectorAll('.imageSlider');
+const sliders = document.querySelectorAll('.imageSlider, .imageSlider-1');
 
 sliders.forEach(sliderContainer => {
     const slider = sliderContainer.querySelector('.slider');
