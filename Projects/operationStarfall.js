@@ -1,6 +1,6 @@
 const project = {
     name: "Operation Starfall",
-    description: "A 2.5D Metroidvania Couch Co-op based on 80's Sci-Fi cartoons. The game is built by students in a rotating team, under the guidance of 2 leads and teachers. The game revolves around momentum and features a unique Force System for movement.<br><br>Each quater year you as a student can be slected for this project, up to 4 quaters. This makes it posible to be here for 1 year or 10 weeks. At the time I was here the group of people working on this changed alot, so it would be around 30. But looking at the whole team would be 125+ people.<br><br>There are no github repository or trello link because it is a commercial game.",
+    description: "A 2.5D Metroidvania Couch Co-op based on 80's Sci-Fi cartoons. The game is built by students in a rotating team, under the guidance of 2 leads and teachers. The game revolves around momentum and features a unique Force System for movement.<br><br>Each quater year you as a student can be slected for this project, up to 4 quaters. This makes it <highlight-text>posible to be here for 1 year</highlight-text> or 10 weeks. At the time I was here the group of people working on this changed alot, so it would be around 30. But looking at the whole team would be 125+ people.<br><br><highlight-text>Neon Orignis</highlight-text> is a Hybrid learning environment (HLO). A fusion of school and real work, similar to internship. Here students get the chance to make quality. HLO stand for the dutch translation: Hybride leeromgeving.<br><br>There are no github repository or trello link because it is a commercial game.",
     hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2022-2023" },
@@ -27,7 +27,7 @@ const project = {
         },
         {
             title: "Force System",
-            description: "This game features its own Force System, similar to Unity's Rigidbody but customized for enhanced momentum-based mechanics. I expanded this Force System to handle better <highlight-text>collision detection</highlight-text>, preventing players and drones from getting stuck in walls by ensuring they are placed next to or on top of obstacles. You could add a pervert direction the gameobject should be placed to.",
+            description: "This game features its own <custom-tooltip tooltip=\"This force system has many improvements over Unity's Rigidbody. For example there is a Force variable that has many attributes, like speed, direction, wave direction, residual force and many more.\">Force System</custom-tooltip>, similar to Unity's Rigidbody but customized for enhanced momentum-based mechanics. I expanded this Force System to handle better <highlight-text>collision detection</highlight-text>, preventing players and drones from getting stuck in walls by ensuring they are placed next to or on top of obstacles. You could add a pervert direction the gameobject should be placed to, for example on top, to the left or right.",
             wide: false,
             elements: [
                 { 

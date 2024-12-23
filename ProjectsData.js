@@ -13,7 +13,9 @@ const filterOptions = [
     // { value: "htmlcssjs", label: "HTML/CSS/JS" }
 ];
 
-const highlightIndices = [0, 2, 4];
+// when catch space trash page is done
+// const highlightIndices = [0, 2, 4];
+const highlightIndices = [0, 3, 4];
 
 const projects = [
 // // jaar 1 blok 2 HKU
@@ -73,13 +75,6 @@ const projects = [
         description: "2.5D Metroidvania Couch Co-op based on the cartoons of 80's Sci-Fi.",
         tags: ["3d", "2d", "engine", "unity", "csharp"],
         href: "/Projects/OperationStarfall"
-    },
-    {
-        title: "Kat-astrofe",
-        image: "Covers/Kat-astrofe.png",
-        description: "Make a protest safer and friendlier by disarming and destroying weapons that other cats have brought.",
-        tags: ["new", "play", "2d", "engine", "unity", "csharp", "nah"],
-        href: "underconstruction"
     },
     {
         title: "AR Gpal",

@@ -89,7 +89,51 @@ highlight-text {
     padding: 2px 6px;
     border-radius: 4px;
     font-family: monospace;
-    color: #f8f8f2;
+    font-weight: bold;
+    color: white;
+}
+
+custom-tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+custom-tooltip .tooltip-box {
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4c3a62;
+    color: #ddd;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: normal;
+    font-size: 14px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.2s;
+    max-width: 300px;
+    min-width: 300px;
+}
+
+custom-tooltip .tooltip-box::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #4c3a62 transparent;
+}
+
+custom-tooltip:hover .tooltip-box {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Custom scrollbar for WebKit browsers (Chrome, Safari, Edge) */

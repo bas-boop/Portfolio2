@@ -41,6 +41,13 @@ const projects = [
         href: "https://github.com/bas-boop/FpsManager"     
     },
     {
+        title: "Kat-astrofe",
+        image: "Covers/Kat-astrofe.png",
+        description: "Make a protest safer and friendlier by disarming and destroying weapons that other cats have brought.",
+        tags: ["new", "2d", "engine", "unity", "csharp"],
+        href: "https://github.com/bas-boop/ProjectIgnite"
+    },
+    {
         title: "Macroplastics",
         image: "Covers/Schilpad.png",
         description: "This was a 6 hour game jam at HKU made with 4 people, a developer, designer and 2 artists and a small group of musicians. Move turtle and kill brain via shooting the canon.",

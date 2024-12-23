@@ -16,7 +16,7 @@ const project = {
     features: [
         {
             title: "Agent predict route",
-            description: "A coworker using the pedestrian simulation software asked for <highlight-text>functionality to check if an agent’s planned path crosses a specific action area or vertex ID</highlight-text>. In response, I created a feature to handle this. Now, you can trigger different events based on the agent’s route.<br><br>This works similarly to a standard delegate event. Simply attach your function to this event, and it will be called if the agent’s path crosses the specified area or vertex ID. Vertex ID is a point of crossing where the lines of the model are the the furthest away form the wall.",
+            description: "A coworker using the pedestrian simulation software asked for <highlight-text>functionality to check if an agent’s planned path crosses a specific action area or vertex ID</highlight-text>. In response, I created a feature to handle this. Now, you can trigger different events based on the agent’s route.<br><br>This works similarly to a standard <custom-tooltip tooltip=\"In C#, a delegate event allows a class to notify subscribers when something happens, using a delegate to reference and invoke their methods.\">delegate event</custom-tooltip>. Simply attach your function to this event, and it will be called if the agent’s path crosses the specified area or vertex ID. Vertex ID is a point of crossing where the lines of the model are the the furthest away form the wall.",
             wide: true,
             elements: [
                 
@@ -94,7 +94,7 @@ const project = {
         },
         {
             title: "Channel box size",
-            description: "Many customers found the channel box size too small, so we received numerous requests to make it larger. I took it a step further by making it a customizable option in the settings. There are now five size options to choose from, allowing everyone to select the size that works best for them.<br><br><highlight-text>Why make it bigger?</highlight-text> The green circles are used to connect to other boxes and provide information about the objects they are coming from or going to via 4DScript.",
+            description: "Many customers found the <custom-tooltip tooltip=\"A channel box is the yellow box with green cricles in figure 3.\">channel box</custom-tooltip> size too small, so we received numerous requests to make it larger. I took it a step further by making it a customizable option in the settings. There are now five size options to choose from, allowing everyone to select the size that works best for them.<br><br><highlight-text>Why make it bigger?</highlight-text> The green circles are used to connect to other boxes and provide information about the objects they are coming from or going to via 4DScript.",
             wide: false,
             elements: [
                 { 
@@ -132,7 +132,7 @@ const project = {
         },
         {
             title: "Internet safety",
-            description: "In the simulation softwares, you can add your internet settings, which are saved on the computer. However, using the <highlight-text>Registry Editor</highlight-text>, these settings can be found and viewed. If someone has access to your PC, they could easily locate this information and potentially misuse it. That’s why I needed to ensure it’s stored in a way that is not human-readable.",
+            description: "In the simulation softwares, you can add your internet settings, which are saved on the computer. However, using the <custom-tooltip tooltip=\"The Registry Editor is a powerful tool used to view and modify the system registry. The registry is a database that stores low-level settings for Windows and for applications that opt to use it.\">Registry Editor</custom-tooltip>, these settings can be found and viewed. If someone has access to your PC, they could easily locate this information and potentially misuse it. That’s why I needed to ensure it’s stored in a way that is not human-readable.",
             wide: false,
             elements: [
                 { 

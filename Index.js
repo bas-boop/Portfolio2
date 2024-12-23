@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Arrow button event listeners
     rightArrow.addEventListener('click', () => {
-        console.log("right");
         stopAutoCycle();
         updateSlideContainers(); // Refresh slideContainers in case of dynamic changes
         nextSlide();
@@ -81,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     leftArrow.addEventListener('click', () => {
-        console.log("left");
         stopAutoCycle();
         updateSlideContainers(); // Refresh slideContainers in case of dynamic changes
         prevSlide();

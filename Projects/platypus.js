@@ -1,3 +1,5 @@
+{/* <custom-tooltip tooltip=\"Yes\">bla bla</custom-tooltip> */}
+
 const project = {
     name: "Platypus",
     description: "Platypus is a passion project of mine—a <highlight-text>platformer featuring innovative movement options</highlight-text>. At my own pace, I developed several in-depth features, including a state machine, a pickup system with delivery functionality, a ground checker, and various smaller components for the game loop. Originally created for my portfolio in 2022, this project showcases my skills and ambitions.<br><br>Throughout the development process, I engaged heavily in programming as well as art creation. I have a particular fondness for pixel art, and I’m pleased with how the player character turned out, complete with amusing animations. Additionally, I experimented with integrating shaders using the <highlight-text>Universal Render Pipeline</highlight-text> (URP), such as an outline shader for the entities.",
@@ -132,7 +134,7 @@ public void SwitchStateEvent(int enumValue) => SwitchState((PlayerState)enumValu
                 },
                 {
                     type: "text", 
-                    content: "A state machine needs states to switch between. I want each state to have four common features: <highlight-text>Enter, Exit, Update, and FixedUpdate</highlight-text>. This setup gives me full control over each entity’s state.<br><br>Since it’s an abstract state machine, I applied the same principle to the states themselves. The <highlight-text>BaseState</highlight-text> class serves as the foundation, from which we can create specific state classes, like <highlight-text>PlayerBaseState</highlight-text>. This class uses a <highlight-text>RequireComponent</highlight-text> attribute to ensure it only works with the player’s state machine, enforcing that only the correct state machine type is applied.",
+                    content: "A state machine needs states to switch between. I want each state to have four common features: <highlight-text>Enter, Exit, Update, and FixedUpdate</highlight-text>. This setup gives me full control over each entity’s state.<br><br>Since it’s an abstract state machine, I applied the same principle to the states themselves. The <highlight-text>BaseState</highlight-text> class serves as the foundation, from which we can create specific state classes, like <highlight-text>PlayerBaseState</highlight-text>. This class uses a <custom-tooltip tooltip=\"RequireComponent is an class attribute that addes the given compentent. This component couldn't be removed until this one is.\">RequireComponent</custom-tooltip> attribute to ensure it only works with the player’s state machine, enforcing that only the correct state machine type is applied.",
                     breakRow: false
                 },
                 { 
