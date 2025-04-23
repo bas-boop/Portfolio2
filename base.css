@@ -8,15 +8,16 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #1e1e2e;
     color: #ddd;
     padding: 20px;
-
-    background-image: radial-gradient(circle, rgba(166, 138, 183, 0.3) 8%, transparent 40%);
-    background-size: 400px 400px;
-    background-position: center;
-    background-blend-mode: overlay;
-} 
+    
+    background:
+    /* change the colors here, bit brighter then 1e1e2e*/
+        linear-gradient(to right, #232336 1px, transparent 1px),
+        linear-gradient(to bottom, #232336 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-color: #1e1e2e;
+}
 
 /* Adjust header for dark mode */
 header {
@@ -201,4 +202,3 @@ body.retro-theme ::-webkit-scrollbar-thumb:hover {
 body.retro-theme ::-webkit-scrollbar-track {
     background: #cfd7d9; /* light grayish-blue */
 }
-

@@ -156,7 +156,10 @@ function renderHighlightProjects() {
 document.addEventListener("DOMContentLoaded", () => {
   renderFilterOptions();
   renderProjects(); // Default: show all projects
-  renderHighlightProjects();
+  
+  if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+    renderHighlightProjects();
+  }
 
   // Event listener for filter changes
   document.getElementById("tag-filter").addEventListener("change", function () {

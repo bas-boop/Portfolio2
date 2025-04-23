@@ -272,8 +272,8 @@ pre code {
 }
 
 .link-list a:hover {
-    background-color: rgba(58, 100, 122, 0.2); /* Background color on hover */
-    color: #a68ab7; /* Text color on hover */
+    background-color: #2d2d3a;
+    color: #7e5ba5; /* Text color on hover */
 }
 
 .link-list i {

@@ -25,6 +25,14 @@ const projects = [
         href: "https://github.com/bas-boop/Portfolio2"
     },
     {
+        title: "Catch Space Trash",
+        image: "Covers/CatchSpaceTrash.png",
+        description: "Save the mother ship by shooting space trash or crashing into it with your small spacecraft.",
+        tags: ["new", "2d", "engine", "unity", "csharp"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/CathSpaceTrash"
+    },
+    {
         title: "Smoll Knight + Horse",
         image: "Covers/SKPH.jpg",
         description: "A bachelor admission game. With a medieval setting to play Jousting.",
@@ -36,7 +44,7 @@ const projects = [
         title: "FPS Manager",
         image: "Covers/FPS.png",
         description: "Console app that adjusts your screen's refresh rate based on connected displays.",
-        tags: ["new", "2d", "lang", "csharp", "console"],
+        tags: ["2d", "lang", "csharp", "console"],
         blankTarget: true,
         href: "https://github.com/bas-boop/FpsManager"     
     },
@@ -45,13 +53,14 @@ const projects = [
         image: "Covers/Kat-astrofe.png",
         description: "Make a protest safer and friendlier by disarming and destroying weapons that other cats have brought.",
         tags: ["new", "2d", "engine", "unity", "csharp"],
+        blankTarget: true,
         href: "https://github.com/bas-boop/ProjectIgnite"
     },
     {
         title: "Macroplastics",
         image: "Covers/Schilpad.png",
         description: "This was a 6 hour game jam at HKU made with 4 people, a developer, designer and 2 artists and a small group of musicians. Move turtle and kill brain via shooting the canon.",
-        tags: ["new", "2d", "engine", "unity", "csharp", "gamejam"],
+        tags: ["2d", "engine", "unity", "csharp", "gamejam"],
         blankTarget: true,
         href: "https://baz-geluk9.itch.io/schildpad"
     },

@@ -94,3 +94,40 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlideContainers(); // Initialize the slideContainers properly
     startAutoCycle();
 });
+
+const tools = [
+    { name: "Unity", icon: "unity", experience: "5+ years", useGh: true },
+    { name: "C#", icon: "csharp", experience: "5+ years", useGh: false },
+    // { name: "Unreal", icon: "unrealengine", experience: "0.5 years", useGh: true },
+    { name: "C++", icon: "cplusplus", experience: "2+ years", useGh: true },
+    // { name: "Godot", icon: "godotengine", experience: "0.5 years", useGh: true },
+    { name: "Git", icon: "git", experience: "5+ years", useGh: true },
+    { name: "VS Code", icon: "visualstudiocode", experience: "3+ years", useGh: false },
+    { name: "Visual Studio", icon: "visualstudio", experience: "4 years", useGh: false },
+    { name: "Rider", icon: "rider", experience: "4+ years", useGh: true },
+    { name: "Trello", icon: "trello", experience: "5+ years", useGh: true },
+    { name: "Miro", icon: "miro", experience: "2 years", useGh: true },
+    { name: "Notion", icon: "notion", experience: "1+ year", useGh: true },
+    { name: "Blender", icon: "blender", experience: "0.5 years", useGh: true },
+    { name: "Krita", icon: "krita", experience: "0.5 years", useGh: true },
+  ];
+  
+  const container = document.getElementById("toolList");
+  
+  tools.forEach(tool => {
+    const div = document.createElement("div");
+    div.className = "tool";
+  
+    const iconURL = tool.useGh
+      ? `https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/${tool.icon}.svg`
+      : `https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/${tool.icon}.svg`;
+  
+    div.innerHTML = `
+      <img src="${iconURL}" alt="${tool.name}" />
+      <p>${tool.experience}</p>
+    `;
+  
+    container.appendChild(div);
+  });
+  
+  

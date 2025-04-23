@@ -13,24 +13,31 @@ const filterOptions = [
     // { value: "htmlcssjs", label: "HTML/CSS/JS" }
 ];
 
-// when catch space trash page is done
-// const highlightIndices = [0, 2, 4];
 const highlightIndices = [0, 3, 4];
 
 const projects = [
-// // jaar 1 blok 2 HKU
-//     {
-//         title: "Project Inside-out",
-//         image: "https://images.pathe-thuis.nl/35961_1920x1080.jpg",
-//         description: "A solo project",
-//         tags: ["new", "unity6", "nah"],
-//         href: "underconstruction"
-//     },
+    // project template
     // {
-    //     title: "SFML game",
-    //     image: "https://miro.medium.com/v2/resize:fit:1400/1*g1ervSjZsKF070oCIpx6Vw.png",
-    //     description: "C++ game made with SFML framework",
-    //     tags: ["new", "2d", "lang", "cpp", "nah"],
+    //     title: "Project",
+    //     image: "Covers/Ximage.png",
+    //     description: "Game",
+    //     tags: ["unity6", "nah"],
+    //     href: "underconstruction"
+    // },
+
+    // project to add:
+    // {
+    //     title: "2D Splines",
+    //     image: "Covers/Ximage.png",
+    //     description: "Game",
+    //     tags: ["2d", "engine", "unity6", "csharp", "nah"],
+    //     href: "underconstruction"
+    // },
+    // {
+    //     title: "Project Imagine",
+    //     image: "Covers/MeineLiebeGestalt.png",
+    //     description: "Berlin",
+    //     tags: ["new", "play", "3d", "engine", "unity6", "csharp", "nah"],
     //     href: "underconstruction"
     // },
 
@@ -47,13 +54,6 @@ const projects = [
         description: "Unity project perfect maze generator with customizable algorithms.",
         tags: ["play", "2d", "engine", "unity", "csharp", "algorithm"],
         href: "/Projects/MazeGenerator"
-    },
-    {
-        title: "Catch Space Trash",
-        image: "Covers/CatchSpaceTrash.png",
-        description: "Save the mother ship by shooting space trash or crashing into it with your small spacecraft.",
-        tags: ["new", "play", "2d", "engine", "unity", "csharp", "nah"],
-        href: "underconstruction"
     },
     {
         title: "Platypus",

@@ -51,14 +51,11 @@
     border-radius: 15px;
     border: 3px solid #4c3a62; /* Add purple border around images */
     background-color: #fff;   
-}
-
-.project img {
     filter: saturate(1.075) drop-shadow(3px 3px 5px black);
 }
 
 .highlight-container img{
-    filter: saturate(1.075)
+    filter: saturate(1.075);
 }
 
 .project h2 {
