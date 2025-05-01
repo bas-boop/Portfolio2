@@ -1,4 +1,4 @@
-const filterOptions = [
+const filterOptions2 = [
     { value: "new", label: "New" },
     { value: "3d", label: "3D" },
     { value: "2d", label: "2D" },
@@ -15,7 +15,7 @@ const filterOptions = [
     { value: "gamejam", label: "Game Jam" }
 ];
   
-const projects = [
+const smallProjects = [
     {
         title: "This website you are on now.",
         image: "Covers/Portifolo.png",

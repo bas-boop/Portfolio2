@@ -3,7 +3,7 @@ const hours = now.getHours();
 const greeting = document.querySelector('header h1');
 
 if (hours < 6) {
-    greeting.textContent = 'Good Night! You should probably be sleeping... welcom to the portfolio of Bas de Reus.';
+    greeting.textContent = 'Good Night! You should probably be sleeping... welcome to the portfolio of Bas de Reus.';
 } else if (hours < 12) {
     greeting.textContent = 'Good Morning! Welcome to the portfolio of Bas de Reus.';
 } else if (hours < 18) {
@@ -124,6 +124,7 @@ const tools = [
   
     div.innerHTML = `
       <img src="${iconURL}" alt="${tool.name}" />
+      <h2>${tool.name}</h2>
       <p>${tool.experience}</p>
     `;
   

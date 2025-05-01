@@ -4,23 +4,28 @@
         <li><a href="/">Home</a></li>
         <li><a href="/about">About Me</a></li>
         <li><a href="/contact">Contact</a></li>
-        <!-- <li><a href="/play-games">Play my Games</a></li> -->
 
         <li class="dropdown">
-            <a href="#">Projects</a>
-            <ul class="dropdown-content">
-                <li><a href="../Miscellaneous">Miscellaneous projects</a></li>
-                <li><a href="../Projects/CaptureGraafsmeer">Capture Graafsmeer</a></li>
-                <li><a href="../Projects/MazeGenerator">Maze Generator</a></li>
-                <li><a href="../underconstruction">Catch Space Trash</a></li>
-                <li><a href="../Projects/Platypus">Platypus</a></li>
-                <li><a href="../Projects/OperationStarfall">Operation Starfall</a></li>
-                <li><a href="../underconstruction">Kat-astrofe</a></li>
-                <li><a href="../Projects/Kara-oke">Kara-oké</a></li>
-                <li><a href="../Projects/AR-Gpal">AR Gpal</a></li>
-                <li><a href="../Projects/InControl">InControl</a></li>
+            <a href="../Miscellaneous">Projects</a>
+            <ul class="dropdown-content" id="projects-dropdown">
+                <!-- Projects will be inserted here automatically -->
             </ul>
         </li>
+
         <li><a href="/favoriteFeatures">Favorite Features</a></li>
     </ul>
 </nav>
+
+<script>
+    const projectsDropdown = document.getElementById("projects-dropdown");
+    if (projectsDropdown && typeof projects !== 'undefined') {
+        projects.forEach(project => {
+            const li = document.createElement("li");
+            const a = document.createElement("a");
+            a.href = project.href;
+            a.textContent = project.title;
+            li.appendChild(a);
+            projectsDropdown.appendChild(li);            
+        });
+    }
+</script>

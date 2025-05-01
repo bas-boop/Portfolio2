@@ -6,51 +6,63 @@
     font-size: 28px;
     color: #a68ab7;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .tool-container {
     display: grid;
     grid-template-columns: repeat(4, minmax(1px, 1fr));
-    gap: 20px;
+    gap: 16px;
     justify-items: center;
     max-width: 700px;
     margin: 0 auto;
+    padding: 0 10px;
 }
 
 .tool {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
-    text-align: center;
+    width: 100%;
+    max-width: 100px;
     background: rgba(255, 255, 255, 0.05);
-    padding: 10px;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    padding: 8px;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
 }
 
 .tool img {
-    width: 48px;
-    height: 48px;
+    width: 36px;
+    height: 36px;
     background: white;
-    border-radius: 8px;
-    padding: 6px;
+    border-radius: 6px;
+    padding: 4px;
     margin-bottom: 6px;
 }
 
+.tool h2 {
+    font-size: 13px;
+    margin: 4px 0 2px;
+    color: #d6b3ff;
+}
+
 .tool p {
-    font-size: 14px;
+    font-size: 11px;
     color: #ccc;
-    transition: color 0.3s ease;
+    margin: 0;
+    line-height: 1.2;
 }
 
 .tool:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .tool:hover p {
-    color: #a68ab7;
+    color: #d6b3ff;
+}
+
+.tool:hover h2 {
+    color: #7e5ba5;
 }
 
 @media (max-width: 600px) {

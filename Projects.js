@@ -1,3 +1,12 @@
+let activeProjects = projects;
+let activeFilterOptions = filterOptions;
+
+if (window.location.pathname.toLowerCase().includes("miscellaneous")) {
+  activeProjects = smallProjects;
+  activeFilterOptions = filterOptions2;
+  console.log("Used seconde version");
+}
+
 // Helper function to create an HTML element with attributes and text content
 function createElement(tag, attributes = {}, textContent = "") {
   const element = document.createElement(tag);
@@ -57,10 +66,10 @@ function renderFilterOptions() {
 
   const options = [
     { value: "all", label: "Show All" },
-    ...(projects.some(project => project.tags.includes("nah"))
+    ...(activeProjects.some(project => project.tags.includes("nah"))
       ? [{ value: "exclude-nah", label: "Exclude 'Under Construction'" }]
       : []),
-    ...filterOptions.map(option => ({ value: option.value, label: option.label }))
+    ...activeFilterOptions.map(option => ({ value: option.value, label: option.label }))
   ];
 
   options.forEach(option => {
@@ -74,7 +83,7 @@ function renderProjects(filter = "all") {
   const projectContainer = document.getElementById("project-container");
   projectContainer.innerHTML = ""; // Clear previous projects
 
-  projects
+  activeProjects
     .filter(project => {
       if (filter === "exclude-nah") return !project.tags.includes("nah");
       if (["unity", "unity6"].includes(filter)) {
@@ -144,7 +153,7 @@ function renderHighlightProjects() {
   highlightContainer.innerHTML = ""; // Clear existing content
 
   highlightIndices
-    .map(index => projects[index])
+    .map(index => activeProjects[index])
     .filter(Boolean) // Ignore invalid indices
     .forEach(project => {
       const highlightProject = createHighlightProject(project);

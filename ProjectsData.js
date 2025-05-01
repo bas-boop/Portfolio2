@@ -13,7 +13,7 @@ const filterOptions = [
     // { value: "htmlcssjs", label: "HTML/CSS/JS" }
 ];
 
-const highlightIndices = [0, 3, 4];
+const highlightIndices = [0, 2, 3];
 
 const projects = [
     // project template
@@ -91,3 +91,4 @@ const projects = [
         href: "/Projects/InControl"
     }
 ];
+
