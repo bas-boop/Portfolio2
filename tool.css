@@ -57,14 +57,6 @@
     transform: scale(1.1);
 }
 
-.tool:hover p {
-    color: #d6b3ff;
-}
-
-.tool:hover h2 {
-    color: #7e5ba5;
-}
-
 @media (max-width: 600px) {
     .tool-container {
       grid-template-columns: repeat(2, 1fr);

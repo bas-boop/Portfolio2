@@ -14,7 +14,7 @@ const project = {
     links: [
         { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/Team-Swamp/CaptureGraafsmeer" },
         { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/b/9nVWXrSX/examen-trello" },
-        { icon: "fas fa-gamepad", name: "Download for Android", url: "https://github.com/Team-Swamp/CaptureGraafsmeer/releases/tag/4.0" },
+        { icon: "fas fa-gamepad", name: "Download for Android", url: "https://github.com/Team-Swamp/CaptureGraafsmeer/releases/" },
         { icon: "fas fa-globe", name: "Customer Website", url: "https://www.amsterdam.nl/" },
         { icon: "fab fa-youtube", name: "Watch Gameplay", url: "https://www.youtube.com/watch?v=tSfMB9JWZ2Q&ab_channel=LisavBoven" }
     ],
@@ -475,7 +475,7 @@ public void SetData(PhotoData target) => data = target;`,
                 },
                 {
                     type: "text", 
-                    content: "The pages themself have data to hold, this can eb set and applied to there properties and gameobjects.<br><br>To animate the pages I use an animationcurve to have it like a book page flip. This works both when going to the left or right. There are also 2 functions that force open or close the page when needed.",
+                    content: "The pages themself have data to hold, this can be set and applied to there properties and gameobjects.<br><br>To animate the pages I use an animationcurve to have it like a book page flip. This works both when going to the left or right. There are also 2 functions that force open or close the page when needed.",
                     breakRow: false
                 },
                 { 
@@ -539,7 +539,7 @@ IEnumerator IScalable.AnimateScale(Vector3 targetScale)
                     src: "CapturegraafsmeerMedia/PhotoTaking.gif", 
                     size: "50", 
                     alt: "Capture Graafsmeer Icon",
-                    caption: "Figure X: Taking a photo.",
+                    caption: "Figure X: Taking a photo. (early development)",
                     breakRow: false
                 },
                 { 

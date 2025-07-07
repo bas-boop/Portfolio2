@@ -25,10 +25,18 @@ const smallProjects = [
         href: "https://github.com/bas-boop/Portfolio2"
     },
     {
+        title: "Meine Liebe Gestalt",
+        image: "Covers/MeineLiebeGestalt.png",
+        description: "It's a psychological horror game based on our experience in Berlin. The story explores the city's haunting atmosphere.",
+        tags: ["new", "3d", "engine", "unity6", "csharp"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/ProjectImagine"
+    },
+    {
         title: "Catch Space Trash",
         image: "Covers/CatchSpaceTrash.png",
         description: "Save the mother ship by shooting space trash or crashing into it with your small spacecraft.",
-        tags: ["new", "2d", "engine", "unity", "csharp"],
+        tags: ["2d", "engine", "unity", "csharp"],
         blankTarget: true,
         href: "https://github.com/bas-boop/CathSpaceTrash"
     },
@@ -52,7 +60,7 @@ const smallProjects = [
         title: "Kat-astrofe",
         image: "Covers/Kat-astrofe.png",
         description: "Make a protest safer and friendlier by disarming and destroying weapons that other cats have brought.",
-        tags: ["new", "2d", "engine", "unity", "csharp"],
+        tags: ["2d", "engine", "unity", "csharp"],
         blankTarget: true,
         href: "https://github.com/bas-boop/ProjectIgnite"
     },

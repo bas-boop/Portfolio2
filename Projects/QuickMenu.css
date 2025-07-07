@@ -41,7 +41,7 @@
 }
 
 .quick-menu ul li a:hover {
-    background-color: rgba(58, 100, 122, 0.2); /* Subtle purple hover effect */
+    background-color: #4f4f65; /* Subtle purple hover effect */
     color: #a68ab7; /* Text turns purple on hover */
 }
 

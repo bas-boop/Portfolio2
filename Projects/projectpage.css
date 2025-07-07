@@ -447,8 +447,6 @@ pre code {
     color: #7e5ba5; /* Change color on hover */
 }
 
-
-
 /* Media Queries */
 @media (max-width: 1150px) {
     .description {

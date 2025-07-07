@@ -126,15 +126,15 @@ function renderElement(element) {
 // Renders the project features with mixed code and images
 function renderProjectFeatures(project) {
     const featureHtml = project.features.map((feature) => {
-        const w = feature.wide ? "wide" : ""; // Check the wide property for the current feature
-        const featureId = formatFeatureTitle(feature.title); // Format feature title for ID
+        const w = feature.wide ? "wide" : "";
+        const featureId = formatFeatureTitle(feature.title);
         return `
             <hr>
             <div class="code-container" id="${featureId}">
                 <div class="description${w}">
                     <h2 class="feature-header" id="${featureId}">
                         ${feature.title}
-                        <span class="copy-icon" title="Copy link to this section">
+                        <span class="copy-icon" data-feature-id="${featureId}" title="Copy link to this section">
                             <i class="fas fa-link"></i>
                         </span>
                     </h2>
@@ -146,6 +146,14 @@ function renderProjectFeatures(project) {
     }).join('');
 
     document.getElementById('project-features').innerHTML = featureHtml;
+
+    // Attach event listeners to all copy icons
+    document.querySelectorAll('.copy-icon').forEach(icon => {
+        icon.addEventListener('click', () => {
+            const featureId = icon.getAttribute('data-feature-id');
+            copyFeatureLink(featureId, icon);
+        });
+    });
 }
 
 function safeGet(value, fallback = 'Not Available') {
@@ -162,10 +170,19 @@ renderProjectInfo(project);
 renderProjectFeatures(project);
 renderQuickMenu(project);
 
-function copyFeatureLink(featureId) {
+function copyFeatureLink(featureId, iconElement) {
     const url = `${window.location.origin}${window.location.pathname}#${featureId}`;
     navigator.clipboard.writeText(url)
-        .then()
+        .then(() => {
+            const originalIcon = iconElement.innerHTML;
+            iconElement.innerHTML = '<i class="fas fa-check"></i>';
+            iconElement.title = "Link copied!";
+
+            setTimeout(() => {
+                iconElement.innerHTML = originalIcon;
+                iconElement.title = "Copy link to this section";
+            }, 1500);
+        })
         .catch(() => alert("Failed to copy link."));
 }
 

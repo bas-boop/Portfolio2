@@ -12,7 +12,7 @@ const facts = [
     "Bas is a man with a love for if statements.",
     "Bas likes to spontaneously start demon rituals while listening to K-Pop",
     "I've always had an obsession with bread, but it's different bread every time.",
-    "Bas had white hair 4 years ago, he looked like Kaneki from Tokyo Ghoul.",
+    "Bas had white hair 5 years ago, he looked like Kaneki from Tokyo Ghoul.",
     "Bassie is dol op chocomelk.",
     "That for some reason everyone knows you.",
     "Big K-pop fan, because of the sound and not the lyrics.",
@@ -167,7 +167,7 @@ const timelineData = [
     //       links: [
     //         // Add URL when available
     //       ]
-    //     }
+    //     },
     //   ]
     // }
   ]; 

@@ -22,7 +22,8 @@ const project = {
         { icon: "fab fa-artstation", name: "Artstation", url: "https://artstation.com/portfolio-link" },
         { icon: "fas fa-globe", name: "Customer Website", url: "https://portfolio-website.com" },
         { icon: "fas fa-briefcase", name: "Internship at XYZ", url: "https://steamcommunity.com/app/game-id" },
-        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" }
+        { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" },
+        { icon: "fas fa-comments-dollar", name: "Marketing", url: "https://bsky.app/profile/codename-c.bsky.social" }
     ],
     features: [
         {

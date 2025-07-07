@@ -52,6 +52,10 @@ footer a {
     color: #777;
 }
 
+footer a:hover {
+    color: #c1c1c1;
+}
+
 footer p{
     text-align: center;
     font-size: 14px;
@@ -98,8 +102,12 @@ custom-tooltip {
     position: relative;
     display: inline-block;
     cursor: pointer;
-    color: white;
+    color: #a68ab7;
     font-weight: bold;
+}
+
+custom-tooltip p{
+    color: #a68ab7;
 }
 
 custom-tooltip .tooltip-box {
