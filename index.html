@@ -17,6 +17,7 @@
     <title>Bas de Reus</title>
 
     <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="FavoriteFeaturesIndex.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="projects.css">
     <link rel="stylesheet" href="tags.css">
@@ -30,10 +31,11 @@
 
     <div id="navbar-placeholder"></div>
 
-    <section class="highlight-project">
+    <!-- <section class="highlight-project">
         <h2>Highlighted projects:</h2>
 
         <div class="highlight-slider">
+    <div class="highlight-slider">
             <button class="slider-arrow left-arrow" aria-label="Previous Project">&lt;</button>
             
             <div class="highlight-slides"></div>
@@ -41,11 +43,23 @@
             <button class="slider-arrow right-arrow" aria-label="Next Project">&gt;</button>
         </div>
     </section>
+
+    <hr> -->
+
+    <section class="features-section">
+        <h2 class="tool-header">Highlighted Features</h2>
+        <p class="intro-text">
+            Here’s a collection of my highlighted features that I’ve designed, developed, and implemented across various projects. 
+            Some link to other websites, which will open in a new tab.
+        </p>
+
+        <ul class="feature-list" id="feature-list"></ul>
+    </section>
     
     <hr>
 
     <section class="filter">
-        <label for="tag-filter">Filter by:</label>
+        <label for="tag-filter">Filter projects by:</label>
         <select id="tag-filter"></select>
     </section>
 
@@ -63,6 +77,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="TagFilter.js"></script>
+    <script src="favoriteFeatures.js"></script>
     <script src="ProjectsData.js"></script>
     <script src="Projects.js"></script>
     <script src="Index.js"></script>

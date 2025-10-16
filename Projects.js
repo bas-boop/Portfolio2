@@ -24,6 +24,7 @@ const hiddenTags = ["engine", "lang", "nah"];
 const tagDisplayNames = {
   "play": "Play now",
   "3d": "3D",
+  "25d": "2.5D",
   "2d": "2D",
   "csharp": "C#",
   "cpp": "C++",
@@ -39,6 +40,7 @@ function getTagClass(tag) {
   const tagClasses = {
     "new": "tag-new",
     "3d": "tag-3d",
+    "25d": "tag-25d",
     "2d": "tag-2d",
     "play": "tag-play"
   };

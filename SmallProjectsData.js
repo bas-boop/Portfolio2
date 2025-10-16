@@ -25,6 +25,14 @@ const smallProjects = [
         href: "https://github.com/bas-boop/Portfolio2"
     },
     {
+        title: "Plantbug",
+        image: "https://img.itch.zone/aW1nLzIyMjMxNzY1LnBuZw==/315x250%23c/SOMfqg.png",
+        description: "A small platformer game with wall climing and shooting, for a theme of `Not what you expected`",
+        tags: ["new", "2d", "engine", "unity6", "csharp", "gamejam"],
+        blankTarget: true,
+        href: "https://baz-geluk9.itch.io/plantbug"
+    },
+    {
         title: "Meine Liebe Gestalt",
         image: "Covers/MeineLiebeGestalt.png",
         description: "It's a psychological horror game based on our experience in Berlin. The story explores the city's haunting atmosphere.",

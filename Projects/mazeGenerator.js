@@ -12,7 +12,7 @@ const project = {
     ],
     links: [
         { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/bas-boop/Unity-maze-gen" },
-        { icon: "fas fa-gamepad", name: "Download application", url: "https://github.com/bas-boop/Unity-maze-gen/releases/" },
+        { icon: "fas fa-gamepad", name: "Download application", url: "https://baz-geluk9.itch.io/mazegenerator" },
         { icon: "fas fa-globe", name: "Possible Internship", url: "https://www.d-tt.nl/" }
     ],
     features: [
