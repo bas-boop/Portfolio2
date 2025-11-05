@@ -12,7 +12,8 @@ const project = {
         { icon: "fa-solid fa-user-plus", label: "My Role", value: "Developer & Scrum Master" }
     ],
     links: [
-        { icon: "fas fa-globe", name: "Neon Origins website", url: "https://www.neonorigins.com" }
+        { icon: "fas fa-globe", name: "Neon Origins website", url: "https://www.neonorigins.com" },
+        { icon: "fab fa-linkedin", name: "Neon Origins quote repost", url: "https://www.linkedin.com/posts/bas-de-reus_neon-origins-hybride-leeromgeving-activity-7083030030116646912-22bI?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyXW_QBYnnhUpYqZHkEpCUWg_gEMk7DUus" },
     ],
     features: [
         {

@@ -16,7 +16,8 @@ const project = {
         { icon: "fas fa-tasks", name: "Tasks Board", url: "https://trello.com/b/9nVWXrSX/examen-trello" },
         { icon: "fas fa-gamepad", name: "Download for Android", url: "https://github.com/Team-Swamp/CaptureGraafsmeer/releases/" },
         { icon: "fas fa-globe", name: "Customer Website", url: "https://www.amsterdam.nl/" },
-        { icon: "fab fa-youtube", name: "Watch Gameplay", url: "https://www.youtube.com/watch?v=tSfMB9JWZ2Q&ab_channel=LisavBoven" }
+        { icon: "fab fa-youtube", name: "Watch Gameplay", url: "https://www.youtube.com/watch?v=tSfMB9JWZ2Q&ab_channel=LisavBoven" },
+        { icon: "fab fa-linkedin", name: "Linkedin post", url: "https://www.linkedin.com/posts/bas-de-reus_ik-deel-graag-het-project-capturegraafsmeer-activity-7199864946589847552-gLXH?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyXW_QBYnnhUpYqZHkEpCUWg_gEMk7DUus" },
     ],
     features: [
         {
@@ -519,16 +520,16 @@ IEnumerator IScalable.AnimateScale(Vector3 targetScale)
                 },
             ]
         },
-        {
-            title: "Interactable",
-            description: "Bla bla",
-            wide: false,
-            elements: [
-                { 
-                    type: "empty"
-                }                
-            ]
-        },
+        // {
+        //     title: "Interactable",
+        //     description: "Bla bla",
+        //     wide: false,
+        //     elements: [
+        //         { 
+        //             type: "empty"
+        //         }                
+        //     ]
+        // },
         {
             title: "Photo Taking",
             description: "To fill the photobook, users interact with points of interest to take photos. A confirmation panel appears, showing a preview and an interactive render. After confirming, a camera interface with a zoom slider and a photo capture button becomes available. The process is simple and user-friendly.",
@@ -893,26 +894,26 @@ private bool ShouldShowPlayerSettings()
                 },
             ]
         },
-        {
-            title: "Introduction",
-            description: "Bla bla",
-            wide: false,
-            elements: [
-                { 
-                    type: "empty"
-                }
-            ]
-        },
-        {
-            title: "Interactive Buttons",
-            description: "Buttons are animated and flash.",
-            wide: false,
-            elements: [
-                { 
-                    type: "empty"
-                }
-            ]
-        },
+        // {
+        //     title: "Introduction",
+        //     description: "Bla bla",
+        //     wide: false,
+        //     elements: [
+        //         { 
+        //             type: "empty"
+        //         }
+        //     ]
+        // },
+        // {
+        //     title: "Interactive Buttons",
+        //     description: "Buttons are animated and flash.",
+        //     wide: false,
+        //     elements: [
+        //         { 
+        //             type: "empty"
+        //         }
+        //     ]
+        // },
         {
             title: "Culling",
             description: "Mobile phones generally have limited performance capabilities, and running a simple 3D Unity game can quickly drain the battery. To address this, we decided to optimize visual performance by implementing culling techniques. Specifically, we use a combination of <highlight-text>frustum culling & occlusion culling</highlight-text>. This was made with pair programming, a great way to work on this, with the technical artist.",
@@ -1091,23 +1092,9 @@ public void ResetData()
         },
         {
             title: "Post Mortem",
-            description: "Reflection",
+            description: "Post mortem will be added later.",
             wide: true,
             elements: [
-                { 
-                    type: "empty"
-                },
-                { 
-                    type: "code", 
-                    language: "cs", 
-                    code: `int a = 1;`,
-                    breakRow: false
-                },
-                {
-                    type: "text", 
-                    content: "More bla bla and Lead Developer Experience",
-                    breakRow: false
-                },
                 { 
                     type: "image", 
                     src: "../Covers/CaptureGraafsmeer.png", 

@@ -16,7 +16,7 @@ const project = {
         // wait until video upload
         // { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" },
         { icon: "fas fa-globe", name: "Customer Website", url: "https://www.avrotros.nl" },
-        // { icon: "fas fa-globe", name: "Lead developer: Daniel Nijkamp", url: "https://danielnijkamp.xyz/Info/Kara-Oke.html" }
+        { icon: "fab fa-linkedin", name: "Certificate post", url: "https://www.linkedin.com/posts/bas-de-reus_development-game-vr-activity-7052538556451319808-NHJN?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyXW_QBYnnhUpYqZHkEpCUWg_gEMk7DUus" },
     ],
     features: [
         {
@@ -239,7 +239,7 @@ private void ActivateRandomLamp()
                     type: "text", 
                     content: "To simulate the AI randomly pressing buttons, we trigger random effects. The system can activate or deactivate all lamps, smoke machines, fireworks, or confetti cannons, or target a single effect."
                 },
-                        { 
+                { 
                     type: "code", 
                     language: "cs", 
                     code: `/// <summary>

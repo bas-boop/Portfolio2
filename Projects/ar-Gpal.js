@@ -1,7 +1,7 @@
 const project = {
     name: "AR Gpal",
     description: "An educational AR project for the <highlight-text>Hololens 2</highlight-text>, this was made during my internship at XR-Lab! We were commissioned to translate <highlight-text>GPal's existing app/webapp</highlight-text> into an AR environment. We have this for GPal's customer, the Amsterdam Ambulance Service.<br><br>We took the idea from their instruction videos and changed the interaction to digital buttons that hang around the incubator. You can also control everything via voice commands so that you can use the <highlight-text>application hands-free</highlight-text>.<br><br>There is no git repository available as it is in a private mode due to the companies.",
-    hasQuickMenu: false,
+    hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2023" },
         { icon: "fas fa-calendar-week", label: "Duration", value: "2 months" },
@@ -14,7 +14,11 @@ const project = {
     links: [
         { icon: "fab fa-youtube", name: "Watch Trailer", url: "https://www.youtube.com/watch?v=9oh3qHHUoJQ" },
         { icon: "fas fa-globe", name: "Customer Website", url: "https://gpal.nl/" },
-        { icon: "fas fa-briefcase", name: "Internship at XR-Lab", url: "https://www.xr-lab.nl/portfolio/items/gpal-2023" }
+        { icon: "fas fa-briefcase", name: "Internship at XR-Lab", url: "https://www.xr-lab.nl/portfolio/items/gpal-2023" },
+        { icon: "fab fa-linkedin", name: "Project delivery", url: "https://www.linkedin.com/posts/bas-de-reus_augmentedreality-ar-vr-activity-7076572241005568001-Rm0l/?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyXW_QBYnnhUpYqZHkEpCUWg_gEMk7DUus" },
+        { icon: "fab fa-linkedin", name: "MBO Opening post", url: "https://www.linkedin.com/posts/bas-de-reus_xr-hololens-mbo-activity-7107302399190413312-Glsz/" },
+        { icon: "fab fa-linkedin", name: "XR-Lab quote repost", url: "https://www.linkedin.com/posts/bas-de-reus_xr-innovation-showcases-activity-7143914470950531072-soVu/" },
+        { icon: "fab fa-linkedin", name: "Video repost", url: "https://www.linkedin.com/posts/bas-de-reus_aftermovie-xr-innovation-showcases-bekijk-activity-7144137402851196928-Rram/" },
     ],
     features: [
         {

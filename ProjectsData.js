@@ -29,33 +29,16 @@ const projects = [
     //     href: "underconstruction"
     // },
 
-    // {
-    //     title: "Shuttlecrane",
-    //     image: "https://media.discordapp.net/attachments/1412442338722320475/1421943592888438905/Screenshot_2025-09-28_213349.png?ex=68eff7aa&is=68eea62a&hm=e043218b564f35f54586a96439bdbc72d2a083de814bdc51cc5cc1ecb433f894&=&format=webp&quality=lossless&width=849&height=471",
-    //     description: "Co-op gyro mobile arcadestick item delevery game.",
-    //     tags: ["new", "3d", "engine", "unity6", "csharp", "mobile"],
-    //     blankTarget: false,
-    //     href: "/Projects/Codename-C"
-    // },
-    {
-        title: "Codename-C",
-        image: "Covers/Codename-C.png",
-        description: "A released narritive OS & platformer game about overthrowing a corrupt regime.",
-        tags: ["play", "new", "2d", "engine", "unity6", "csharp"],
-        blankTarget: false,
-        href: "/Projects/Codename-C"
-    },
-
     // project to add:
-    // {
-    //     title: "2D Splines",
-    //     image: "Covers/2dSplines.png",
-    //     description: "I created my own system for 2D splines. Unity's built-in solution only supports 3D splines.",
-    //     tags: ["new", "2d", "engine", "unity6", "csharp", "nah"],
-    //     blankTarget: false,
-    //     href: "/Projects/2DSplines"
-    // },
-
+    {
+        title: "ShuttleFrog",
+        image: "Covers/ShuttleFrog.png",
+        description: "Co-op gyro mobile arcadestick item delevery game.",
+        tags: ["play", "new", "3d", "engine", "unity6", "csharp", "mobile"],
+        blankTarget: true,
+        //href: "/Projects/ShuttleFrog"
+        href: "https://github.com/bas-boop/Shuttlecrane"
+    },
     {
         title: "Capture Graafsmaar",
         image: "Covers/CaptureGraafsmeer.png",
@@ -63,6 +46,24 @@ const projects = [
         tags: ["play", "3d", "engine", "unity", "csharp", "tooling", "mobile"],
         blankTarget: false,
         href: "/Projects/CaptureGraafsmeer"
+    },
+    // project to add:
+    {
+        title: "Unity as a framework",
+        image: "Covers/UnityAsFramework.png",
+        description: "I explored how to make my own game systems, without relying on Unity's built-in game architecture.",
+        tags: ["play", "new", "2d", "engine", "csharp"],
+        blankTarget: true,
+        //href: "/Projects/UnityFramework"
+        href: "https://github.com/bas-boop/IntegratedGameplaySystem/"
+    },
+    {
+        title: "Codename-C",
+        image: "Covers/Codename-C.png",
+        description: "A released narritive OS & platformer game about overthrowing a corrupt regime.",
+        tags: ["play", "new", "2d", "engine", "unity6", "csharp"],
+        blankTarget: false,
+        href: "/Projects/Codename-C"
     },
     {
         title: "Kara-oké",

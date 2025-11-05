@@ -44,25 +44,35 @@ const features = [
         external: false,
         tags: ["unity", "csharp", "Tooling", "Editor"]
     },
-    {
-        title: "Unity as a framework",
-        description: "Using Unity as a framework, only for grahphics & physics. I explored how to make my own game systems, without relying on Unity's built-in game architecture, a pure code approach.",
-        descriptionShort: "Using Unity as a framework, only for grahphics & physics.",
-        image: "/Covers/UnityAsFramework.png",
-        link: "https://github.com/bas-boop/IntegratedGameplaySystem/tree/main/Assets/Scripts/GameSystem",
-        showOnIndex: true,
-        external: false,
-        tags: ["unity", "csharp", "Design patterns"]
-    },
+    // {
+    //     title: "Unity as a framework",
+    //     description: "Using Unity as a framework, only for grahphics & physics. I explored how to make my own game systems, without relying on Unity's built-in game architecture, a pure code approach.",
+    //     descriptionShort: "I explored how to make my own game systems, without relying on Unity's built-in game architecture, a pure code approach.",
+    //     image: "/Covers/UnityAsFramework.png",
+    //     link: "https://github.com/bas-boop/IntegratedGameplaySystem/tree/main/Assets/Scripts/GameSystem",
+    //     showOnIndex: true,
+    //     external: true,
+    //     tags: ["csharp", "Design patterns"]
+    // },
     {
         title: "Performance",
         description: "Optimized the maze generation process by utilizing advanced data types available in C#. These improvements significantly boost performance, making the system more efficient, responsive, and larger.",
         descriptionShort: "Optimized the maze generation process with advanced C# data types, making the system faster and larger.",
         image: "/Projects/MazeGenMedia/StackOverflow.png",
-        link: "/Projects/MazeGenerator#Performance",
+        link: "/Projects/MazeGenerator#Performace",
         showOnIndex: true,
         external: false,
         tags: ["unity", "csharp", "Algorithm"]
+    },
+    {
+        title: "2D Splines",
+        description: "I created my own system for 2D splines. Unity's built-in solution only supports 3D splines.",
+        descriptionShort: "I created my own system for 2D splines. Unity's built-in solution only supports 3D splines.",
+        image: "Covers/2dSplines.png",
+        link: "https://github.com/bas-boop/ModuleGitgud/tree/main/Scripts/Framework/Splines",
+        showOnIndex: true,
+        external: true,
+        tags: ["unity6", "csharp", "Tooling", "Editor"]
     },
     {
         title: "Force System",

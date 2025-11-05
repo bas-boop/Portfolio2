@@ -1,8 +1,8 @@
 const facts = [
-    "The only game I'm competitively good at is 'Bloons TD Battles 2'.",
-    "I have participated in 10 game jams.",
+    "The only game I'm competitively extremely good at is 'Bloons TD Battles 2'.",
+    "I have participated in 11 game jams.",
     "I was part of each season of 'Smash NL Ultimate League (aka SNUL)'.",
-    "My most played game is 'Animal Crossing: New Horizons' with a playtime of over 320 hours.",
+    "In the game Bongo Cat I have already 500+ hours.",
     "On Discord calls, I'm almost always eating.",
     "I have done research with someone else that Delphi cannot count.",
     "Discussions about code are very fun, especially exploring how deep the topic goes.",
@@ -12,13 +12,14 @@ const facts = [
     "Bas is a man with a love for if statements.",
     "Bas likes to spontaneously start demon rituals while listening to K-Pop",
     "I've always had an obsession with bread, but it's different bread every time.",
-    "Bas had white hair 5 years ago, he looked like Kaneki from Tokyo Ghoul.",
+    "Bas had white hair in 2020, he looked like Kaneki from Tokyo Ghoul.",
     "Bassie is dol op chocomelk.",
     "That for some reason everyone knows you.",
     "Big K-pop fan, because of the sound and not the lyrics.",
     "Bas begint al de punten die hij wil maken met: KEIJK LAISTER",
     "For someone who types a lot, bas makes a lot of typos.",
     "Coffee or tea?",
+    "If your name is Ryan, I'm a psychic",
     // "",
 ];
 

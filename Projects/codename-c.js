@@ -14,7 +14,8 @@ const project = {
         { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/bas-boop/Codename-C" },
         { icon: "fas fa-gamepad", name: "Play on Itch.io", url: "https://baz-geluk9.itch.io/codename-c" },
         //{ icon: "fab fa-youtube", name: "Watch Trailer", url: "https://company-website.com" },
-        { icon: "fas fa-comments-dollar", name: "Marketing", url: "https://bsky.app/profile/codename-c.bsky.social" }
+        { icon: "fas fa-comments-dollar", name: "Marketing", url: "https://bsky.app/profile/codename-c.bsky.social" },
+        { icon: "fab fa-linkedin", name: "Linkedin post", url: "https://www.linkedin.com/posts/bas-de-reus_codename-c-activity-7342875514677698560-_x1J?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyXW_QBYnnhUpYqZHkEpCUWg_gEMk7DUus" },
     ],
     features: [
         {
