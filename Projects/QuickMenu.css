@@ -75,6 +75,37 @@
     border-color: #a68ab7; /* Consistent border color */
 }
 
+/* Retro theme styling */
+body.retro-theme .quick-menu {
+    background-color: #f5deb3;
+    border-color: #d4a574;
+    box-shadow: 0 4px 8px rgba(212, 165, 116, 0.2);
+}
+
+body.retro-theme .quick-menu h3 {
+    color: #d4881e;
+}
+
+body.retro-theme .quick-menu ul li a {
+    color: #333344;
+}
+
+body.retro-theme .quick-menu ul li a:hover {
+    background-color: #f3eac2;
+    color: #d4881e;
+}
+
+body.retro-theme .back-to-top {
+    background-color: #d4881e;
+    color: #fff;
+    border-color: #d4a574;
+}
+
+body.retro-theme .back-to-top:hover {
+    background-color: #e89b3c;
+    border-color: #d4881e;
+}
+
 /* Optional: Adjust the font to match */
 .back-to-top {
     font-family: Arial, sans-serif; /* Matches your body font */

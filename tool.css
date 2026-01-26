@@ -3,7 +3,7 @@
 }
 
 .tool-header {
-    font-size: 28px;
+    font-size: 36px;
     color: #a68ab7;
     text-align: center;
     margin-bottom: 40px;
@@ -55,6 +55,23 @@
 
 .tool:hover {
     transform: scale(1.1);
+}
+
+/* Retro theme color overrides */
+body.retro-theme .tool-header {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+body.retro-theme .tool {
+    background: #e6d5bd;
+}
+
+body.retro-theme .tool h2 {
+    color: #d4a574; /* replace #d6b3ff soft purple */
+}
+
+body.retro-theme .tool p {
+    color: #333344;
 }
 
 @media (max-width: 600px) {

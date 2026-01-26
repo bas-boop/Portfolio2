@@ -35,11 +35,11 @@ const features = [
     //     tags: []
     // },
     {
-        title: "Photobook Custom Window",
+        title: "Photobook QoL Tool",
         description: "This is my first custom Unity window, designed to simplify the process of creating new photobook pages. It provides an intuitive interface for developers, making the process faster and more efficient.",
         descriptionShort: "This is my first custom Unity window, designed to simplify the process of creating new photobook pages.",
         image: "/Projects/CapturegraafsmeerMedia/PhotobookWindow.png",
-        link: "Projects/CaptureGraafsmeer#Photobook-Custom-Window",
+        link: "Projects/CaptureGraafsmeer#Photobook-QoL-Tool",
         showOnIndex: true,
         external: false,
         tags: ["unity", "csharp", "Tooling", "Editor"]
@@ -58,7 +58,7 @@ const features = [
         title: "Performance",
         description: "Optimized the maze generation process by utilizing advanced data types available in C#. These improvements significantly boost performance, making the system more efficient, responsive, and larger.",
         descriptionShort: "Optimized the maze generation process with advanced C# data types, making the system faster and larger.",
-        image: "/Projects/MazeGenMedia/StackOverflow.png",
+        image: "/Projects/MazeGenMedia/Profiler.png",
         link: "/Projects/MazeGenerator#Performace",
         showOnIndex: true,
         external: false,
@@ -142,10 +142,8 @@ function generateFeatureList() {
         console.error('Could not find feature-list element');
         return;
     }
-    console.log('Found feature list container:', featureListContainer);
     
     const isIndexPage = window.location.pathname === '/' || window.location.pathname.endsWith('index.html');
-    console.log('Features array:', features);
 
     // Filter features based on showOnIndex property when on index page
     const featuresToShow = isIndexPage ? features.filter(feature => feature.showOnIndex) : features;
@@ -155,20 +153,30 @@ function generateFeatureList() {
         const targetAttribute = feature.external ? 'target="_blank"' : '';
         const descriptionToUse = isIndexPage ? feature.descriptionShort : feature.description;
 
-        console.log('Creating feature:', feature.title);
-        featureItem.innerHTML = `
-            <img src="${feature.image}" alt="${feature.title}">
-            <div>
-                <h3>${feature.title}</h3>
-                <p>${descriptionToUse}</p>
-                <a href="${feature.link}" ${targetAttribute} class="feature-btn">View Feature
-                    <span class="copy-icon" title="Copy link to this section">
-                        <i class="fas fa-link"></i>
-                    </span>
+        if (isIndexPage) {
+            featureItem.innerHTML = `
+                <a href="${feature.link}" ${targetAttribute}>
+                    <img src="${feature.image}" alt="${feature.title}">
+                    <div>
+                        <h3>${feature.title}</h3>
+                        <p>${descriptionToUse}</p>
+                    </div>
                 </a>
-            </div>
-        `;
-        console.log('Created feature element:', featureItem);
+            `;
+        } else {
+            featureItem.innerHTML = `
+                <img src="${feature.image}" alt="${feature.title}">
+                <div>
+                    <h3>${feature.title}</h3>
+                    <p>${descriptionToUse}</p>
+                    <a href="${feature.link}" ${targetAttribute} class="feature-btn">View Feature
+                        <span class="copy-icon" title="Copy link to this section">
+                            <i class="fas fa-link"></i>
+                        </span>
+                    </a>
+                </div>
+            `;
+        }
 
         // Append feature tags using project-style function
         const featureDiv = featureItem.querySelector("div");
@@ -212,6 +220,5 @@ function renderFeatureTags(tags) {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, generating feature list');
     generateFeatureList();
 });

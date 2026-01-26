@@ -153,7 +153,7 @@ const project = {
                 },
                 {
                     type: "text", 
-                    content: "In Figure 7, we see the Registry Editor and an example password, `save?`. The answer to storing it securely is no—it’s not safe as-is. I searched for a solution and discovered a method called <highlight-text>obfuscation</highlight-text>, which shifts letters around in a string. This approach seemed perfect for my needs.<br><br>However, I added my own twist, as a simple shift, like adding +1 to each letter, would be too easy to decode. While I can’t share the exact method for security reasons, I can say it involves a lot of math to ensure the result is highly secure.",
+                    content: "In Figure 7, we see the Registry Editor and an example password, `save?`. The answer to storing it securely is no, it’s not safe as-is. I searched for a solution and discovered a method called <highlight-text>obfuscation</highlight-text>, which shifts letters around in a string. This approach seemed perfect for my needs.<br><br>However, I added my own twist, as a simple shift, like adding +1 to each letter, would be too easy to decode. While I can’t share the exact method for security reasons, I can say it involves a lot of math to ensure the result is highly secure.",
                     breakRow: false
                 },
                 { 
@@ -178,7 +178,7 @@ const project = {
                 },
                 {
                     type: "text", 
-                    content: "Additionally, working with languages outside my comfort zone—particularly languages with different syntax and structures than C#—was a valuable challenge. Each language required adapting to different paradigms, which taught me to approach programming from new angles and gave me a deeper understanding of how languages function beneath the surface.",
+                    content: "Additionally, working with languages outside my comfort zone, particularly languages with different syntax and structures than C#, was a valuable challenge. Each language required adapting to different paradigms, which taught me to approach programming from new angles and gave me a deeper understanding of how languages function beneath the surface.",
                     breakRow: false
                 },
             ]

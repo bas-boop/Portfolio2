@@ -23,12 +23,69 @@
     max-width: 400px;
     min-height: 460px;
     margin: 0 auto;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+
+/* Retro theme project background */
+body.retro-theme .project {
+    background-color: #e6d5bd;
+    color: #333344;
+}
+
+/* Highlighted project card styling */
+.project-highlight {
+    background: linear-gradient(45deg, #2c2c3a, #363636);
+    border: 2px solid #ffd700;
+    box-shadow: 0 16px 32px rgba(255, 215, 0, 0.15);
+}
+
+.project-highlight img {
+    border-color: #ffd700 !important;
+    box-shadow: 0 8px 16px rgba(255, 215, 0, 0.2);
+}
+
+.project-highlight h2 {
+    color: #ffd700 !important;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.project-highlight:hover {
+    border-color: #ffe44d;
+    box-shadow: 0 16px 32px rgba(255, 215, 0, 0.25);
+    transform: translateY(-12px);
+}
+
+/* Retro theme highlighted project */
+body.retro-theme .project-highlight {
+    background: linear-gradient(45deg, #f5deb3, #f3eac2);
+    border-color: #c0c0c0;
+    box-shadow: 0 16px 32px rgba(192, 192, 192, 0.15);
+}
+
+body.retro-theme .project-highlight img {
+    border-color: #c0c0c0 !important;
+    box-shadow: 0 8px 16px rgba(192, 192, 192, 0.2);
+}
+
+body.retro-theme .project-highlight h2 {
+    color: #c0c0c0 !important;
+    text-shadow: 0 0 8px rgba(192, 192, 192, 0.3);
 }
 
 .project:hover {
     transform: translateY(-10px); /* Slight hover effect */
     box-shadow: 0 16px 16px rgba(0, 0, 0, 0.3); /* Add more shadow on hover */
+}
+
+/* Override hover effect for highlighted projects */
+.project.project-highlight:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(255, 215, 0, 0.25) !important;
+}
+
+/* Retro theme highlighted project hover shadow */
+body.retro-theme .project.project-highlight:hover {
+    box-shadow: 0 16px 32px rgba(192, 192, 192, 0.25) !important;
 }
 
 /* Ensure project links are styled correctly */
@@ -55,6 +112,11 @@
     filter: saturate(1.075) drop-shadow(3px 3px 5px black);
 }
 
+/* Retro theme image border color */
+body.retro-theme .project img {
+    border: 3px solid #d4881e; /* replace #4c3a62 dark purple with burnt orange */
+}
+
 .highlight-container img{
     filter: saturate(1.075);
 }
@@ -63,6 +125,11 @@
     font-size: 20px;
     margin: 15px 0;
     color: #d6b3ff; /* Soft purple for project titles */
+}
+
+/* Retro theme project title */
+body.retro-theme .project h2 {
+    color: #d4881e; /* burnt orange for project titles */
 }
 
 .project p {
@@ -94,19 +161,20 @@
 
 /* Apply animation to the highlight project */
 .highlight-project {
-    background-color: #1e1e1e; /* Dark background for the highlight section */
+    background-color: rgba(30, 30, 30, 0.95); /* Slightly transparent dark background */
     padding: 20px;
     margin-bottom: 30px;
     position: relative; /* Position relative for pseudo-element */
     overflow: hidden; /* Ensure content doesn't overflow */
-    animation: swipeIn 1s ease-out; /* Apply swipe-in animation */
-    opacity: 0; /* Start invisible to handle fade-in effect */
     animation: swipeIn 1s ease-out forwards; /* Keep final state after animation */
     transition: box-shadow 0.75s ease;
+    border: 2px solid #ffd700; /* Gold border */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); /* Subtle yellow glow */
 }
 
 .highlight-project:hover {
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.3); /* Add more shadow on hover */
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.4); /* Enhanced yellow glow on hover */
+    border-color: #ffe44d; /* Lighter gold on hover */
 }
 
 .highlight-container {
@@ -125,6 +193,28 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
     aspect-ratio: 4 / 3; /* Maintain 4:3 aspect ratio */
     object-fit: cover;
+}
+
+/* Special highlight styling for featured projects */
+.highlight-special img {
+    border: 3px solid #ffd700; /* Gold border */
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); /* Yellow glow */
+}
+
+.highlight-special .highlight-info h2 {
+    color: #ffd700 !important; /* Golden yellow for titles */
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3); /* Subtle glow effect */
+}
+
+.highlight-container.highlight-special {
+    background: linear-gradient(45deg, rgba(30, 30, 30, 0.95), rgba(45, 45, 30, 0.95)); /* Slight yellow tint */
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.highlight-container.highlight-special:hover {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+    border-color: #ffe44d;
 }
 
 .highlight-info {
@@ -167,7 +257,8 @@
 .highlight-project h2{
     text-align: center;
     margin-bottom: 20px;
-    color: #a68ab7;
+    color: #ffd700; /* Golden yellow for titles */
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.3); /* Subtle glow effect */
 }
 
 .highlight-slider {
@@ -240,7 +331,7 @@
 @media (max-width: 768px) {
     .project-container {
         padding: 0;
-        grid-template-columns: repeat(2, 1fr); /* 1 column */
+        grid-template-columns: repeat(1, 1fr); /* 1 column */
     }
 
     .project{

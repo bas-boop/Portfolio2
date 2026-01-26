@@ -38,3 +38,16 @@
 .contact-list a:hover {
     text-decoration: underline;
 }
+
+/* Retro theme color overrides */
+body.retro-theme .contact-list p {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+body.retro-theme .contact-list i {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+body.retro-theme .contact-list a {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}

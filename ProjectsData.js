@@ -5,11 +5,12 @@ const filterOptions = [
     { value: "25d", label: "2.5D" },
     { value: "2d", label: "2D" },
     // { value: "lang", label: "Pure code (with framework)" },
-    // { value: "unity", label: "Unity" },
-    // { value: "unreal", label: "Unreal" },
+    { value: "unity", label: "Unity" },
+    { value: "unreal", label: "Unreal" },
     // { value: "godot", label: "Godot" },
     { value: "csharp", label: "C#" },
     { value: "cpp", label: "C++" },
+    { value: "blueprint", label: "Blueprint" },
     // { value: "gdscript", label: "GDscript" },
     // { value: "htmlcssjs", label: "HTML/CSS/JS" }
 ];
@@ -29,15 +30,26 @@ const projects = [
     //     href: "underconstruction"
     // },
 
+    {
+        title: "SparkleBlast",
+        image: "Covers/Sparkeblast.png",
+        description: "Magical girl boomer shooter.",
+        tags: ["new", "3d", "engine", "unreal", "cpp", "blueprint", "nah"],
+        blankTarget: false,
+        href: "projects/Sparkleblast",
+        //href: "underconstruction"
+    },
     // project to add:
     {
         title: "ShuttleFrog",
         image: "Covers/ShuttleFrog.png",
         description: "Co-op gyro mobile arcadestick item delevery game.",
-        tags: ["play", "new", "3d", "engine", "unity6", "csharp", "mobile"],
-        blankTarget: true,
-        //href: "/Projects/ShuttleFrog"
-        href: "https://github.com/bas-boop/Shuttlecrane"
+        tags: ["new", "3d", "engine", "unity6", "csharp", "mobile"],
+        blankTarget: false,
+        highlight: true,
+        href: "/Projects/ShuttleFrog",
+        //href: "underconstruction",
+        gitHub: "https://github.com/bas-boop/ShuttleFrog"
     },
     {
         title: "Capture Graafsmaar",
@@ -52,10 +64,9 @@ const projects = [
         title: "Unity as a framework",
         image: "Covers/UnityAsFramework.png",
         description: "I explored how to make my own game systems, without relying on Unity's built-in game architecture.",
-        tags: ["play", "new", "2d", "engine", "csharp"],
-        blankTarget: true,
-        //href: "/Projects/UnityFramework"
-        href: "https://github.com/bas-boop/IntegratedGameplaySystem/"
+        tags: ["play", "new", "2d", "engine", "csharp", "desgin patterns"],
+        blankTarget: false,
+        href: "/Projects/UnityAsFramework",
     },
     {
         title: "Codename-C",
@@ -85,7 +96,7 @@ const projects = [
         title: "Platypus",
         image: "Covers/Platypus.png",
         description: "This is a passion project of mine. A platformer with interesting movement options.",
-        tags: ["2d", "engine", "unity", "csharp"],
+        tags: ["2d", "engine", "unity", "csharp", "desgin patterns"],
         blankTarget: false,
         href: "/Projects/Platypus"
     },
@@ -93,7 +104,7 @@ const projects = [
         title: "Operation Starfall",
         image: "Covers/Starfall.jpg",
         description: "2.5D Metroidvania Couch Co-op based on the cartoons of 80's Sci-Fi.",
-        tags: ["25d", "engine", "unity", "csharp"],
+        tags: ["25d", "engine", "unity", "csharp", "desgin patterns"],
         blankTarget: false,
         href: "/Projects/OperationStarfall"
     },
@@ -112,6 +123,6 @@ const projects = [
         tags: ["25d", "lang", "cpp", "internship"],
         blankTarget: false,
         href: "/Projects/InControl"
-    }
+    },
 ];
 

@@ -1,6 +1,6 @@
 const project = {
     name: "Codename-C",
-    description: "This is a released game about <highlight-text>trying to overthrow a corrupt regime</highlight-text>—by using their own documents against them. Through an old video game, you discover a glitch that unlocks access to classified government files. But there’s a catch: as a teenager, you only have one hour per day to play.<br><br>The project began from a fascination with <highlight-text>time appreciation</highlight-text>—how can a game make you value the time you spend in it?",
+    description: "This is a released game about <highlight-text>trying to overthrow a corrupt regime</highlight-text> by using their own documents against them. Through an old video game, you discover a glitch that unlocks access to classified government files. But there’s a catch: as a teenager, you only have one hour per day to play.<br><br>The project began from a fascination with <highlight-text>time appreciation</highlight-text>, how can a game make you value the time you spend in it?",
     hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2025" },
@@ -41,7 +41,7 @@ const project = {
                 },
                 {
                     type: "text",
-                    content: "To support the campaign, I released a small downloadable demo on Itch.io. It contained a limited slice of the game’s world, with <highlight-text>five documents hidden across a fictional OS</highlight-text>.<br><br>The demo itself spanned only two in-game days, while the social media story told the <highlight-text>full five-day experience</highlight-text>. I also included a built-in feedback button to encourage interaction and gather early impressions.<br><br>This allowed players to <highlight-text>step into the mystery themselves</highlight-text>—not just follow it from the outside.",
+                    content: "To support the campaign, I released a small downloadable demo on Itch.io. It contained a limited slice of the game’s world, with <highlight-text>five documents hidden across a fictional OS</highlight-text>.<br><br>The demo itself spanned only two in-game days, while the social media story told the <highlight-text>full five-day experience</highlight-text>. I also included a built-in feedback button to encourage interaction and gather early impressions.<br><br>This allowed players to <highlight-text>step into the mystery themselves</highlight-text>, not just follow it from the outside.",
                     breakRow: false
                 },
                 {
@@ -61,7 +61,7 @@ const project = {
         },
         {
             title: "Designing concepts",
-            description: "It began with an attempt to explore the concept of appreciating time. I’d tried something similar before, but it didn’t work out—the game just wasn’t fun. You’d perform an action, wait, then repeat. It felt dull and uninspired.<br><br>This time, I started by asking: <highlight-text>how can time itself become a meaningful part of gameplay?</highlight-text><br><br>Maybe time could be treated as a resource. Imagine a city builder where your limited real-world playtime also determines how much you can build. Or perhaps a rogue-like, where every move costs a chunk of time, forcing strategic decisions. What if levels were time-locked—one minute per level, and you can only accomplish what that minute allows? Choose your actions wisely: what to do, what to skip.<br><br>Now that idea feels like it’s going somewhere.",
+            description: "It began with an attempt to explore the concept of appreciating time. I’d tried something similar before, but it didn’t work out, the game just wasn’t fun. You’d perform an action, wait, then repeat. It felt dull and uninspired.<br><br>This time, I started by asking: <highlight-text>how can time itself become a meaningful part of gameplay?</highlight-text><br><br>Maybe time could be treated as a resource. Imagine a city builder where your limited real-world playtime also determines how much you can build. Or perhaps a rogue-like, where every move costs a chunk of time, forcing strategic decisions. What if levels were time-locked, one minute per level, and you can only accomplish what that minute allows? Choose your actions wisely: what to do, what to skip.<br><br>Now that idea feels like it’s going somewhere.",
             wide: false,
             elements: [
                 { 
@@ -116,7 +116,7 @@ const project = {
                 },
                 {
                     type: "text",
-                    content: "To check whether the user’s input is correct, we first verify if a randomized pin exists. If it does, and the guess matches, the document unlocks. Otherwise, we fall back to a default pin (e.g., <code>1111</code>)—primarily used for testing during development.",
+                    content: "To check whether the user’s input is correct, we first verify if a randomized pin exists. If it does, and the guess matches, the document unlocks. Otherwise, we fall back to a default pin (e.g., <code>1111</code>), primarily used for testing during development.",
                     breakRow: false
                 },
                 {
@@ -158,12 +158,12 @@ private void Start()
         // },
         {
             title: "Platformer",
-            description: "To unlock the government documents, I wanted to introduce some kind of backdoor—maybe a glitch or a suspicious link? Then the idea hit: what if there was a <highlight-text>hidden mini-game</highlight-text> that granted access? A <highlight-text>glitched objective</highlight-text> at the end of a level would fit perfectly, especially in a platformer. So I decided to create a simple platformer with two doors—one that progresses to the next level, and another <highlight-text>'glitch' door</highlight-text> that unlocks the government files.",
+            description: "To unlock the government documents, I wanted to introduce some kind of backdoor, maybe a glitch or a suspicious link? Then the idea hit: what if there was a <highlight-text>hidden mini-game</highlight-text> that granted access? A <highlight-text>glitched objective</highlight-text> at the end of a level would fit perfectly, especially in a platformer. So I decided to create a simple platformer with two doors, one that progresses to the next level, and another <highlight-text>'glitch' door</highlight-text> that unlocks the government files.",
             wide: false,
             elements: [
                 {
                     type: "text",
-                    content: "The platformer is intentionally small, so I thought—why not make it a challenge? I set a goal to <highlight-text>build the entire game in under two hours</highlight-text>. The player, coins, and doors were easy enough to implement, but <highlight-text>level design and visuals</highlight-text> took more time than expected.<br><br>Due to a few movement bugs, I wasn’t able to complete everything within the time limit. I later fixed these issues in newer versions. If you compare version 0.5 to 0.7, you’ll notice the differences caused by those bugs and how little else has changed since then.",
+                    content: "The platformer is intentionally small, so I thought, why not make it a challenge? I set a goal to <highlight-text>build the entire game in under two hours</highlight-text>. The player, coins, and doors were easy enough to implement, but <highlight-text>level design and visuals</highlight-text> took more time than expected.<br><br>Due to a few movement bugs, I wasn’t able to complete everything within the time limit. I later fixed these issues in newer versions. If you compare version 0.5 to 0.7, you’ll notice the differences caused by those bugs and how little else has changed since then.",
                     breakRow: false
                 },              
                 {
@@ -235,7 +235,7 @@ private void AddListeners()
             elements: [
                 {
                     type: "text", 
-                    content: "Marketing turned out to be the most fun part. It’s a little different from writing code or creating art, and that change made it enjoyable.<br><br>I definitely want to do this again for future projects—maybe with higher production value than just text and screenshots.",
+                    content: "Marketing turned out to be the most fun part. It’s a little different from writing code or creating art, and that change made it enjoyable.<br><br>I definitely want to do this again for future projects, maybe with higher production value than just text and screenshots.",
                     breakRow: false
                 },
                 {

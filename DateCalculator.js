@@ -14,12 +14,26 @@ function calculateYears(startDate) {
 
 // Set birthdate to March 31, 2004
 const birthDate = '2004-03-31';
-document.getElementById('age').textContent = calculateYears(birthDate);
+const ageElement = document.getElementById('age');
+if (ageElement) {
+    ageElement.textContent = calculateYears(birthDate);
+}
 
 // Set experience start date to Otktober 10 2019
 const experienceStartDate = '2019-10-13';
-document.getElementById('experience').textContent = calculateYears(experienceStartDate);
+const experienceYears = calculateYears(experienceStartDate);
+const experienceElement = document.getElementById('experience');
+if (experienceElement) {
+    experienceElement.textContent = experienceYears;
+}
+const heroExperienceElement = document.getElementById('hero-experience');
+if (heroExperienceElement) {
+    heroExperienceElement.textContent = experienceYears;
+}
 
 // start of HKU September 9 2024
 const hkuStartDate = '2024-09-02';
-document.getElementById('hku').textContent = calculateYears(hkuStartDate) + 1;
+const hkuElement = document.getElementById('hku');
+if (hkuElement) {
+    hkuElement.textContent = calculateYears(hkuStartDate) + 1;
+}

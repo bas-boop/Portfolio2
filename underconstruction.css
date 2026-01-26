@@ -56,3 +56,26 @@
     text-decoration: underline;
 }
 
+/* Retro theme color overrides */
+body.retro-theme .construction-container h1 {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+body.retro-theme .progress-bar {
+    border-color: #d4881e; /* replace #4c3a62 dark purple */
+}
+
+body.retro-theme .progress-fill {
+    background-color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+body.retro-theme .links a {
+    color: #d4a574; /* replace #c092f5 lighter blue */
+}
+
+body.retro-theme .links a:hover {
+    color: #d4881e; /* replace #884eca even lighter blue on hover */
+}
+
+
+

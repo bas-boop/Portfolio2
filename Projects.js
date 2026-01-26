@@ -1,10 +1,10 @@
 let activeProjects = projects;
 let activeFilterOptions = filterOptions;
 
-if (window.location.pathname.toLowerCase().includes("miscellaneous")) {
-  activeProjects = smallProjects;
-  activeFilterOptions = filterOptions2;
-  console.log("Used seconde version");
+const isMiscellaneous = window.location.pathname.toLowerCase().includes("project");
+
+if (isMiscellaneous) {
+  console.log("Rendering both main and small projects on miscellaneous page");
 }
 
 // Helper function to create an HTML element with attributes and text content
@@ -16,7 +16,7 @@ function createElement(tag, attributes = {}, textContent = "") {
 }
 
 // Arrays for language and engine tags
-const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs"];
+const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs", "blueprint"];
 const engineTags = ["unity", "unity6", "unreal", "godot"];
 const hiddenTags = ["engine", "lang", "nah"];
 
@@ -62,16 +62,18 @@ function getTagDisplayName(tag) {
 }
 
 // Function to render filter options dynamically
-function renderFilterOptions() {
-  const filterSelect = document.getElementById("tag-filter");
+function renderFilterOptions(filterId, projectsArray, filterOptionsArray) {
+  const filterSelect = document.getElementById(filterId);
+  if (!filterSelect) return; // Element doesn't exist
+  
   filterSelect.innerHTML = ""; // Clear previous options
 
   const options = [
     { value: "all", label: "Show All" },
-    ...(activeProjects.some(project => project.tags.includes("nah"))
+    ...(projectsArray.some(project => project.tags.includes("nah"))
       ? [{ value: "exclude-nah", label: "Exclude 'Under Construction'" }]
       : []),
-    ...activeFilterOptions.map(option => ({ value: option.value, label: option.label }))
+    ...filterOptionsArray.map(option => ({ value: option.value, label: option.label }))
   ];
 
   options.forEach(option => {
@@ -81,21 +83,23 @@ function renderFilterOptions() {
 }
 
 // Function to render project cards with the correct tags
-function renderProjects(filter = "all") {
-  const projectContainer = document.getElementById("project-container");
+function renderProjects(filter = "all", containerId, projectsArray) {
+  const projectContainer = document.getElementById(containerId);
+  if (!projectContainer) return; // Element doesn't exist
+  
   projectContainer.innerHTML = ""; // Clear previous projects
 
-  activeProjects
+  projectsArray
     .filter(project => {
       if (filter === "exclude-nah") return !project.tags.includes("nah");
-      if (["unity", "unity6"].includes(filter)) {
+      if (filter === "unity") {
         return ["unity", "unity6"].some(tag => project.tags.includes(tag));
       }
       return filter === "all" || project.tags.includes(filter);
     })
     .forEach(project => {
       const projectElement = createElement("a", {
-        href: project.href,
+        href: project.gitHub ? `${project.href}?github=${encodeURIComponent(project.gitHub)}` : project.href,
         class: "project-link",
         "data-tags": project.tags.join(" ")
       });
@@ -105,8 +109,9 @@ function renderProjects(filter = "all") {
       // const imgClass = project.tags.includes("nah") ? "blur-image" : "";
       const imgClass = project.tags.includes("nah") ? "" : "";
 
+      const highlightClass = project.highlight ? 'project project-highlight' : 'project';
       projectElement.innerHTML = `
-        <div class="project">
+        <div class="${highlightClass}">
           <img src="${project.image}" alt="${project.title}" class="${imgClass}">
           <h2>${project.title}</h2>
           <p>${project.description}</p>
@@ -123,7 +128,10 @@ function renderProjects(filter = "all") {
 
 // Function to create a highlight project card
 function createHighlightProject(project) {
-  const anchor = createElement("a", { href: project.href, class: "highlight-container" });
+  const anchor = createElement("a", { 
+    href: project.gitHub ? `${project.href}?github=${encodeURIComponent(project.gitHub)}` : project.href,
+    class: `highlight-container${project.highlight ? ' highlight-special' : ''}`
+  });
 
   // Image
   const img = createElement("img", { src: project.image, alt: project.title });
@@ -155,7 +163,7 @@ function renderHighlightProjects() {
   highlightContainer.innerHTML = ""; // Clear existing content
 
   highlightIndices
-    .map(index => activeProjects[index])
+    .map(index => projects[index])
     .filter(Boolean) // Ignore invalid indices
     .forEach(project => {
       const highlightProject = createHighlightProject(project);
@@ -165,15 +173,41 @@ function renderHighlightProjects() {
 
 // Initial rendering of filter options and projects
 document.addEventListener("DOMContentLoaded", () => {
-  renderFilterOptions();
-  renderProjects(); // Default: show all projects
-  
-  if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
-    renderHighlightProjects();
+  if (isMiscellaneous) {
+    // On miscellaneous page, render both main and small projects
+    // Note: TagFilter.js handles populating the filter options
+    renderProjects("all", "project-container", projects);
+    renderProjects("all", "project-container-small", smallProjects);
+    
+    // Event listeners for both filters
+    const mainFilter = document.getElementById("tag-filter");
+    const smallFilter = document.getElementById("tag-filter-small");
+    
+    if (mainFilter) {
+      mainFilter.addEventListener("change", function () {
+        renderProjects(this.value, "project-container", projects);
+      });
+    }
+    
+    if (smallFilter) {
+      smallFilter.addEventListener("change", function () {
+        renderProjects(this.value, "project-container-small", smallProjects);
+      });
+    }
+  } else {
+    // Regular page - single filter and container
+    renderFilterOptions("tag-filter", projects, filterOptions);
+    renderProjects("all", "project-container", projects);
+    
+    const filterSelect = document.getElementById("tag-filter");
+    if (filterSelect) {
+      filterSelect.addEventListener("change", function () {
+        renderProjects(this.value, "project-container", projects);
+      });
+    }
+    
+    if (window.location.pathname.endsWith("index.html") || window.location.pathname === "/") {
+      renderHighlightProjects();
+    }
   }
-
-  // Event listener for filter changes
-  document.getElementById("tag-filter").addEventListener("change", function () {
-    renderProjects(this.value);
-  });
 });

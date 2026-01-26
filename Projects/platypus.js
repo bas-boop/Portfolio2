@@ -2,7 +2,7 @@
 
 const project = {
     name: "Platypus",
-    description: "Platypus is a passion project of mine—a <highlight-text>platformer featuring innovative movement options</highlight-text>. At my own pace, I developed several in-depth features, including a state machine, a pickup system with delivery functionality, a ground checker, and various smaller components for the game loop. Originally created for my portfolio in 2022, this project showcases my skills and ambitions.<br><br>Throughout the development process, I engaged heavily in programming as well as art creation. I have a particular fondness for pixel art, and I’m pleased with how the player character turned out, complete with amusing animations. Additionally, I experimented with integrating shaders using the <highlight-text>Universal Render Pipeline</highlight-text> (URP), such as an outline shader for the entities.",
+    description: "Platypus was a passion project of mine, a <highlight-text>platformer featuring innovative movement options</highlight-text>. At my own pace, I developed several in-depth features, including a state machine, a pickup system with delivery functionality, a ground checker, and various smaller components for the game loop. Originally created for my portfolio in 2022, this project showcases my skills and ambitions.<br><br>Throughout the development process, I engaged heavily in programming as well as art creation. I have a particular fondness for pixel art, and I’m pleased with how the player character turned out, complete with amusing animations. Additionally, I experimented with integrating shaders using the <highlight-text>Universal Render Pipeline</highlight-text> (URP), such as an outline shader for the entities.",
     hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2022-2023" },
@@ -405,7 +405,7 @@ private GroundState _currentState;
                 },
                 {
                     type: "text", 
-                    content: "The shader uses sub-shaders, which function like reusable code blocks with parameters—an approach known as DRY (Don’t Repeat Yourself). Instead of writing the same code four/eight times, each sub-shader handles a specific direction for the outline. Simply specify the direction the sub-shader should apply, and it’s ready to go.",
+                    content: "The shader uses sub-shaders, which function like reusable code blocks with parameters, an approach known as DRY (Don’t Repeat Yourself). Instead of writing the same code four/eight times, each sub-shader handles a specific direction for the outline. Simply specify the direction the sub-shader should apply, and it’s ready to go.",
                     breakRow: false
                 },
             ]

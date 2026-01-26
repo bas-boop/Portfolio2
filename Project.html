@@ -10,7 +10,7 @@
     <meta name="keywords" content="Bas de Reus, Game Developer, Unity, C#, C++, HTML/CSS/JS">
     <meta name="author" content="Bas de Reus">
 
-    <title>Bas de Reus - Miscellaneous Projects</title>
+    <title>Bas de Reus - Projects</title>
 
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="navbar.css">
@@ -20,24 +20,33 @@
 </head>
 <body>
     <header>
-        <h1>Miscellaneous Projects</h1>
+        <h1>Projects</h1>
     </header>
 
     <div id="navbar-placeholder"></div>
-
-    <section class="intro">
-        <p class="intro-text">Here are some smaller, older, and experimental projects. These are not as large as my main ones on the home page, but still worth exploring. Feel free to check them out, as they link to external sites such as GitHub repos or itch.io pages.<br>Most of them are gamejams, perhaps there is a good reason behind that? Hint: duration.</p>
-    </section>
-
+    
     <section class="filter">
-        <label for="tag-filter">Filter by:</label>
+        <label for="tag-filter">Filter projects by:</label>
         <select id="tag-filter"></select>
     </section>
 
-    <hr>
-    
     <section class="portfolio">
         <div class="project-container" id="project-container"></div>
+    </section>
+
+    <hr>
+
+    <section class="intro">
+        <p class="intro-text">Below you'll find my smaller, older, and experimental projects. These are not as large as my main ones above, but still worth exploring. Feel free to check them out, as they link to external sites such as GitHub repos or itch.io pages.</p>
+    </section>
+
+    <section class="filter">
+        <label for="tag-filter-small">Filter by:</label>
+        <select id="tag-filter-small"></select>
+    </section>
+
+    <section class="portfolio">
+        <div class="project-container" id="project-container-small"></div>
     </section>
 
     <div id="footer-placeholder"></div>
@@ -45,6 +54,7 @@
     <script src="ProjectsData.js"></script>
     <script src="SmallProjectsData.js"></script>
     <script src="Projects.js"></script>
+    <script src="theme-toggle.js"></script>
     <script src="HtmlFetcher.js"></script>
     <script src="TagFilter.js"></script>
 </body>

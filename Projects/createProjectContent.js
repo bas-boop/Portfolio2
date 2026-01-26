@@ -92,9 +92,7 @@ function renderElement(element) {
         return `<div class="code" ${oneElementOneRow}><pre><code class="language-${element.language}">${escapedCode}</code></pre></div>`;
     } else if (element.type === 'image') {    
         return `<figure class="image-container width-${element.size}" ${oneElementOneRow}>
-                    <a href="${element.src}" target="_blank">
-                        <img src="${element.src}" alt="${element.alt}" loading="lazy">
-                    </a>
+                    <img src="${element.src}" alt="${element.alt}" loading="lazy" class="fullscreen-image" style="cursor: pointer;">
                     <figcaption>${element.caption}</figcaption>
                 </figure>`;
     } else if (element.type === 'text') {
@@ -117,6 +115,14 @@ function renderElement(element) {
                         <figcaption class="imageSlider-caption${element.size}">${element.caption}</figcaption>
                     </div>
                 </div>`;
+    } else if (element.type === 'blueprint') {
+        return `<figure class="blueprint-container" ${oneElementOneRow}>
+                    <img src="${element.preview}" alt="${element.name || 'Blueprint'}" loading="lazy" class="blueprint-image">
+                    <figcaption class="blueprint-caption">
+                        <strong>${element.name || 'Blueprint'}</strong>
+                        <p class="blueprint-hint"><i class="fas fa-expand"></i> Click to view fullscreen</p>
+                    </figcaption>
+                </figure>`;
     } else if (element.type === 'empty') {
         return '';
     }
@@ -198,6 +204,44 @@ document.addEventListener('click', (event) => {
                 console.error('Failed to copy link: ', err);
             });
         }
+    }
+
+    // Handle fullscreen for images (blueprints and regular images)
+    if (target.classList.contains('blueprint-image') || target.classList.contains('fullscreen-image')) {
+        const modal = document.createElement('div');
+        modal.className = 'blueprint-fullscreen-modal';
+        modal.innerHTML = `
+            <div class="blueprint-fullscreen-content">
+                <img src="${target.src}" alt="${target.alt}">
+                <button class="blueprint-close" title="Close (ESC)">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Close on button click
+        modal.querySelector('.blueprint-close').addEventListener('click', () => {
+            modal.remove();
+        });
+        
+        // Close on ESC key
+        const closeOnEsc = (e) => {
+            if (e.key === 'Escape') {
+                modal.remove();
+                document.removeEventListener('keydown', closeOnEsc);
+            }
+        };
+        document.addEventListener('keydown', closeOnEsc);
+        
+        // Close on background click
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+                document.removeEventListener('keydown', closeOnEsc);
+            }
+        });
     }
 });
 

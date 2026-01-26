@@ -6,13 +6,14 @@
         <li><a href="/contact">Contact</a></li>
 
         <li class="dropdown">
-            <a href="../Miscellaneous">Projects</a>
+            <a href="../Project">Projects</a>
             <ul class="dropdown-content" id="projects-dropdown">
                 <!-- Projects will be inserted here automatically -->
             </ul>
         </li>
 
         <li><a href="/features">Features</a></li>
+        <!-- <li class="theme-toggle-item"><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" title="Toggle theme">🌙</button></li> -->
     </ul>
 </nav>
 
@@ -28,4 +29,8 @@
             projectsDropdown.appendChild(li);            
         });
     }
+</script>
+
+<script>
+    // Theme toggle is initialized by theme-toggle.js which is loaded after the navbar
 </script>

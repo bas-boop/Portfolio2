@@ -17,7 +17,7 @@ const facts = [
     "That for some reason everyone knows you.",
     "Big K-pop fan, because of the sound and not the lyrics.",
     "Bas begint al de punten die hij wil maken met: KEIJK LAISTER",
-    "For someone who types a lot, bas makes a lot of typos.",
+    "For someone who types a lot, bas makes a lot of tyops.",
     "Coffee or tea?",
     "If your name is Ryan, I'm a psychic",
     // "",
@@ -28,8 +28,16 @@ const timelineData = [
       year: "2025",
       items: [
         {
+          title: "Dutch Game Week - showing game",
+          description: `During Dutch Game Week 2025, I had the exciting opportunity to showcase my game, ShuttleFrog, to a diverse audience. It was thrilling to see players engage with the game and provide feedback. This event allowed me to connect with fellow game developers and enthusiasts, further fueling my passion for game development.`,
+          links: [
+            { text: "LinkedIn Post", url: "https://www.linkedin.com/feed/update/urn:li:activity:7403502611678523393/" },
+            { text: "See project", url: "https://www.bas-de-reus.nl/Projects/ShuttleFrog" },
+          ]
+        },
+        {
           title: "Propaedeutic diploma",
-          description: `After completing my first year at HKU, I earned my propaedeutic diploma in Creative Media and Game Technologies. This milestone marks the foundation of my journey toward becoming a professional game developer, filled with growth, new skills, and exciting projects ahead.`,
+          description: `After completing my first year at HKU, I earned my propaedeutic diploma in Creative Media and Game Technologies. This milestone represents an important advancement in my game development journey, building upon my MBO foundation with a more artistic and design-focused approach. It opened doors to deeper research, enhanced design skills, and exciting new creative directions.`,
           links: [
             { text: "LinkedIn Post", url: "https://www.linkedin.com/feed/update/urn:li:activity:7381012141291499520/" }
           ]

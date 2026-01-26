@@ -4,6 +4,7 @@
     padding: 10px 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 30px;
+    transition: background-color 0.3s ease;
 }
 
 /* Navbar links */
@@ -19,6 +20,31 @@
     display: inline-block;
 }
 
+/* Ensure the theme toggle button is visible inside the nav links */
+.nav-links .theme-toggle {
+    color: #1e1e2e;
+    background: #a68ab7;
+    border: 1px solid rgba(0,0,0,0.15);
+    padding: 8px 12px;
+    font-size: 18px;
+    border-radius: 6px;
+    min-width: 44px;
+    text-align: center;
+}
+.nav-links .theme-toggle:hover {
+    filter: brightness(0.95);
+}
+.theme-toggle-item {
+    display: inline-block;
+}
+
+/* Retro theme variant to keep the toggle readable */
+body.retro-theme .nav-links .theme-toggle {
+    background: #ff6f61;
+    color: #333344;
+    border-color: rgba(0,0,0,0.05);
+}
+
 /* General link styles */
 .nav-links a {
     text-decoration: none;
@@ -32,6 +58,16 @@
 
 .nav-links a:hover {
     color: #a68ab7;
+}
+
+/* Retro theme color override for nav links */
+body.retro-theme .nav-links a:hover {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+/* Retro theme nav link text */
+body.retro-theme .nav-links a {
+    color: #333344;
 }
 
 /* Dropdown styling */
@@ -52,6 +88,7 @@
     padding: 10px 0;
     min-width: 275px;
     z-index: 1;
+    transition: background-color 0.3s ease;
 }
 
 /* Individual dropdown links */
@@ -65,10 +102,25 @@
     text-decoration: none;
     display: block;
     font-size: 16px;
+    transition: color 0.3s ease;
 }
 
 .dropdown-content li a:hover {
     background-color: #696969;
+}
+
+/* Retro theme dropdown content */
+body.retro-theme .dropdown-content {
+    background-color: #d4a574;
+}
+
+body.retro-theme .dropdown-content li a {
+    color: #333344;
+}
+
+body.retro-theme .dropdown-content li a:hover {
+    background-color: #c9955f;
+    color: #fff;
 }
 
 /* Show the dropdown on hover */

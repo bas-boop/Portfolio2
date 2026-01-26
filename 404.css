@@ -29,3 +29,16 @@ a:hover {
 .links {
     margin-top: 30px;
 }
+
+/* Retro theme color overrides */
+body.retro-theme h1 {
+    color: #f4a460; /* replace #a68ab7 light purple */
+}
+
+body.retro-theme a {
+    color: #d4a574; /* replace #c092f5 lighter blue */
+}
+
+body.retro-theme a:hover {
+    color: #d4881e; /* replace #884eca even lighter blue on hover */
+}

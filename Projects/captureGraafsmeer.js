@@ -21,8 +21,8 @@ const project = {
     ],
     features: [
         {
-            title: "Photobook Custom Window",
-            description: "Why did I create a custom window for the photobook? Simple — I wanted to streamline the process of adding new pages and connecting them with interactable elements. Previously, this involved multiple manual steps: copying a template page, adding it to the photobook class, including the interactable’s icon (a circular image), writing text for the interactable, linking it to the correct page, positioning it using GEO location, placing a 3D model on the interactable, and testing for any errors during the process.<br><br>After developing the custom window, the workflow became much more efficient. Now, all I need to do is fill in the necessary data (text, icon, and position) and press the 'Create' button. This has made the process significantly faster and easier for other developers or even artists to use.",
+            title: "Photobook QoL Tool",
+            description: "Why did I create a custom window for the photobook? Simple, I wanted to streamline the process of adding new pages and connecting them with interactable elements. Previously, this involved multiple manual steps: copying a template page, adding it to the photobook class, including the interactable’s icon (a circular image), writing text for the interactable, linking it to the correct page, positioning it using GEO location, placing a 3D model on the interactable, and testing for any errors during the process.<br><br>After developing the custom window, the workflow became much more efficient. Now, all I need to do is fill in the necessary data (text, icon, and position) and press the 'Create' button. This has made the process significantly faster and easier for other developers or even artists to use.",
             wide: false,
             hasQuickMenu: true,
             elements: [
@@ -60,7 +60,7 @@ const project = {
                 },
                 {
                     type: "text", 
-                    content: "This custom window is currently the only one I’ve built for any Unity project. It did come with an odd behavior — when switching to a different window, all the text and fields would disappear. Despite investigating the issue, I couldn’t pinpoint the cause, so I decided to create a basic version with just the essential fields and data.<br><br>I tried fixing this using the repaint window functionality, but that didn’t work out. Ultimately, I left it as is because the primary focus was to build a working game without major issues.",
+                    content: "This custom window is currently the only one I’ve built for any Unity project. It did come with an odd behavior, when switching to a different window, all the text and fields would disappear. Despite investigating the issue, I couldn’t pinpoint the cause, so I decided to create a basic version with just the essential fields and data.<br><br>I tried fixing this using the repaint window functionality, but that didn’t work out. Ultimately, I left it as is because the primary focus was to build a working game without major issues.",
                     breakRow: false
                 },
                 { 
@@ -540,7 +540,7 @@ IEnumerator IScalable.AnimateScale(Vector3 targetScale)
                     src: "CapturegraafsmeerMedia/PhotoTaking.gif", 
                     size: "50", 
                     alt: "Capture Graafsmeer Icon",
-                    caption: "Figure X: Taking a photo. (early development)",
+                    caption: "Figure 6: Taking a photo. (early development)",
                     breakRow: false
                 },
                 { 
@@ -548,7 +548,7 @@ IEnumerator IScalable.AnimateScale(Vector3 targetScale)
                     src: "CapturegraafsmeerMedia/Zoom.gif", 
                     size: "50", 
                     alt: "Capture Graafsmeer Icon",
-                    caption: "Figure X: Zoom feature in action.",
+                    caption: "Figure 7: Zoom feature in action.",
                     breakRow: false
                 },
                 {
@@ -681,7 +681,7 @@ public void AskPermission()
                     src: "CapturegraafsmeerMedia/GeoLocationOverview.png", 
                     size: "100", 
                     alt: "Image",
-                    caption: "Figure X: An overview of all objects placed with geo location.",
+                    caption: "Figure 8: An overview of all objects placed with geo location.",
                     breakRow: true
                 },
                 { 
@@ -689,7 +689,7 @@ public void AskPermission()
                     src: "CapturegraafsmeerMedia/GeoLocationStart.png", 
                     size: "100", 
                     alt: "Image",
-                    caption: "Figure X: All object before the game starts.",
+                    caption: "Figure 9: All object before the game starts.",
                     breakRow: false
                 },
                 {
@@ -702,7 +702,7 @@ public void AskPermission()
                     src: "CapturegraafsmeerMedia/Darwin.png", 
                     size: "80", 
                     alt: "Image",
-                    caption: "Figure X: An example CoordinatesTransform placed at there correct location.",
+                    caption: "Figure 10: An example CoordinatesTransform placed at there correct location.",
                     breakRow: true
                 },
                 { 
@@ -722,7 +722,7 @@ public void AskPermission()
                     src: "CapturegraafsmeerMedia/GeoInspector.png", 
                     size: "100", 
                     alt: "Image",
-                    caption: "Figure X: CoordinatesTransform inspector view.",
+                    caption: "Figure 11: CoordinatesTransform inspector view.",
                     breakRow: false
                 },
                 {
@@ -735,7 +735,7 @@ public void AskPermission()
                     src: "CapturegraafsmeerMedia/GeoLocation.gif", 
                     size: "100", 
                     alt: "Image",
-                    caption: "Figure X: Showcasing the player debug mode of the CoordinatesTransform.",
+                    caption: "Figure 12: Showcasing the player debug mode of the CoordinatesTransform.",
                     breakRow: false
                 },
                 { 
@@ -888,7 +888,7 @@ private bool ShouldShowPlayerSettings()
                     type: "imageSlider",
                     leftImage: "CapturegraafsmeerMedia/GeoInspector2.png",
                     rightImage: "CapturegraafsmeerMedia/GeoInspector.png",
-                    caption: "Figure X: The 2 inspector views of the CoordinatesTransform, for the static mode and the other for a player mode.",
+                    caption: "Figure 13: The 2 inspector views of the CoordinatesTransform, for the static mode and the other for a player mode.",
                     size: "-1",
                     breakRow: false
                 },
@@ -924,12 +924,12 @@ private bool ShouldShowPlayerSettings()
                     src: "CapturegraafsmeerMedia/Culling.gif", 
                     size: "100", 
                     alt: "Culling gif",
-                    caption: "Figure X: Objects behing other and objects outside the camera view will not be shown.",
+                    caption: "Figure 14: Objects behing other and objects outside the camera view will not be shown.",
                     breakRow: true
                 },
                 {
                     type: "text", 
-                    content: "Frustum culling is a technique used in computer graphics to improve rendering performance by excluding objects that are outside the camera's view frustum—a pyramid-shaped region extending from the camera's perspective. This ensures that only objects within the camera's field of view are processed for rendering, minimizing unnecessary calculations for objects not visible to the player.",
+                    content: "Frustum culling is a technique used in computer graphics to improve rendering performance by excluding objects that are outside the camera's view frustum, a pyramid-shaped region extending from the camera's perspective. This ensures that only objects within the camera's field of view are processed for rendering, minimizing unnecessary calculations for objects not visible to the player.",
                     breakRow: false
                 },
                 {
@@ -1065,7 +1065,7 @@ private void OcclusionCulling(ref bool isVisible, int i)
                     src: "CapturegraafsmeerMedia/Delete.png", 
                     size: "75", 
                     alt: "Delete data panel",
-                    caption: "Figure X: Delete data panel",
+                    caption: "Figure 15: Delete data panel",
                     breakRow: false
                 },
                 {
@@ -1092,17 +1092,27 @@ public void ResetData()
         },
         {
             title: "Post Mortem",
-            description: "Post mortem will be added later.",
+            description: "The exams was a good project, learned a lot about mobile development with Unity. Also learned a lot about working with a client and there wishes. Next to this I learend a lot about geo location systems and working with the device camera. But most important is that I have passed my examen and am now a graduated MBO game developer!",
             wide: true,
             elements: [
                 { 
-                    type: "image", 
-                    src: "../Covers/CaptureGraafsmeer.png", 
-                    size: "60", 
-                    alt: "Capture Graafsmeer Icon",
-                    caption: "Figure X: Capture Graafsmeer Icon",
+                    type: "text", 
+                    content: "Not the clients we wanted, but the client we did not deserve.<br><br>Working with the City of Amsterdam was an interesting experience. They did not have a clear vision of what they wanted and did not give any direction when we asked for it. This made the development process quite chaotic at times, as we had to make a lot of decisions on our own without much input from the client. However, this also gave us a lot of freedom to explore different ideas and approaches.<br><br>In the end, we were able to deliver a product that met the basic requirements of the client, but I believe that with more guidance and collaboration, we could have created something truly exceptional.<br><br>Overall, this project taught me the importance of clear communication and collaboration with clients, as well as the value of adaptability and creativity in game development.",
                     breakRow: false
                 },
+                {
+                    type: "text",
+                    content: "I have assembled a small team of fellow students to help me with this project. This was a great experience, as I learned a lot about teamwork and collaboration. We were able to divide the work and play to each other's strengths. This made the development process much smoother and more efficient.<br><br>Working with a team also taught me the importance of communication and coordination. We had to make sure that everyone was on the same page and that we were all working towards the same goal. This was sometimes challenging, but it was also very rewarding.<br><br>Overall, I am very grateful for the opportunity to work with a team on this project. It was a great learning experience and I believe that it has made me a better game developer.",
+                    breakRow: false
+                },
+                {
+                    type: "image", 
+                    src: "CapturegraafsmeerMedia/Team.jpg", 
+                    size: "80",
+                    alt: "The team",
+                    caption: "Figure 16: The team",
+                    breakRow: true
+                }
             ]
         }
     ]
