@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auto Theorie Oefenexamen</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#0a0f1e; --surface:#111827; --card:#1a2235; --border:#2a3a55;
+    --accent:#3b82f6; --accent2:#06b6d4; --green:#10b981; --red:#ef4444;
+    --orange:#f59e0b; --text:#e2e8f0; --muted:#94a3b8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;
+    display:flex;align-items:center;justify-content:center;padding:20px;
+    background-image:radial-gradient(ellipse at 20% 50%,rgba(59,130,246,.08) 0%,transparent 60%),
+                     radial-gradient(ellipse at 80% 20%,rgba(6,182,212,.06) 0%,transparent 50%);}
+  .container{width:100%;max-width:780px;}
+  header{text-align:center;margin-bottom:32px;}
+  header .badge{display:inline-block;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);
+    color:var(--accent2);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+    padding:5px 14px;border-radius:20px;margin-bottom:12px;}
+  header h1{font-family:'Syne',sans-serif;font-size:clamp(28px,5vw,42px);font-weight:800;line-height:1.1;
+    background:linear-gradient(135deg,#e2e8f0 0%,#94a3b8 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  header p{color:var(--muted);margin-top:8px;font-size:15px;}
+  .progress-wrap{margin-bottom:24px;}
+  .progress-info{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:8px;}
+  .progress-info span:first-child{font-weight:600;color:var(--text);}
+  .progress-bar{height:6px;background:var(--border);border-radius:99px;overflow:hidden;}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px;transition:width .4s ease;}
+  .question-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:36px;
+    margin-bottom:20px;position:relative;overflow:hidden;}
+  .question-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));}
+  .question-num{font-size:12px;font-weight:600;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+  .multi-hint{font-size:12px;color:var(--orange);font-weight:600;margin-bottom:10px;display:none;}
+  .multi-hint.show{display:block;}
+  .question-text{font-family:'Syne',sans-serif;font-size:clamp(16px,2.5vw,20px);font-weight:600;line-height:1.5;color:var(--text);}
+  .options{display:flex;flex-direction:column;gap:12px;}
+  .option{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--surface);
+    border:2px solid var(--border);border-radius:14px;cursor:pointer;transition:all .2s;
+    text-align:left;width:100%;color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.5;}
+  .option:hover:not(:disabled):not(.selected){border-color:var(--accent);background:rgba(59,130,246,.08);transform:translateX(4px);}
+  .option .letter{flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--border);
+    display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;
+    font-weight:700;font-size:13px;color:var(--muted);transition:all .2s;}
+  .option.selected{border-color:var(--accent);background:rgba(59,130,246,.12);}
+  .option.selected .letter{background:var(--accent);color:#fff;}
+  .option.correct{border-color:var(--green);background:rgba(16,185,129,.1);}
+  .option.correct .letter{background:var(--green);color:#fff;}
+  .option.wrong{border-color:var(--red);background:rgba(239,68,68,.1);}
+  .option.wrong .letter{background:var(--red);color:#fff;}
+  .option.missed{border-color:var(--green);background:rgba(16,185,129,.05);opacity:.7;}
+  .option.missed .letter{background:var(--green);color:#fff;}
+  .option:disabled{cursor:default;}
+  .explanation{margin-top:16px;padding:16px 20px;background:rgba(59,130,246,.08);
+    border:1px solid rgba(59,130,246,.25);border-radius:12px;font-size:14px;color:var(--muted);
+    line-height:1.6;display:none;}
+  .explanation.show{display:block;}
+  .explanation strong{color:var(--accent2);}
+  .btn-row{display:flex;gap:12px;margin-top:16px;}
+  .btn-confirm{flex:1;padding:16px;background:rgba(59,130,246,.15);border:2px solid var(--accent);
+    border-radius:14px;color:var(--accent);font-family:'Syne',sans-serif;font-size:16px;font-weight:700;
+    cursor:pointer;display:none;transition:all .2s;}
+  .btn-confirm.show{display:block;}
+  .btn-confirm:hover{background:rgba(59,130,246,.25);}
+  .btn-next{flex:1;padding:16px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;
+    border-radius:14px;color:#fff;font-family:'Syne',sans-serif;font-size:16px;font-weight:700;cursor:pointer;
+    display:none;transition:opacity .2s,transform .1s;letter-spacing:.5px;}
+  .btn-next.show{display:block;}
+  .btn-next:hover{opacity:.9;transform:translateY(-1px);}
+  .score-screen,.start-screen{background:var(--card);border:1px solid var(--border);border-radius:20px;
+    padding:48px 36px;text-align:center;position:relative;overflow:hidden;}
+  .score-screen{display:none;}
+  .score-screen.show{display:block;}
+  .score-screen::before,.start-screen::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));}
+  .start-screen .icon{font-size:56px;margin-bottom:20px;}
+  .start-screen h2,.score-screen h2{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;margin-bottom:12px;}
+  .start-screen p,.score-screen p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:8px;max-width:500px;margin-left:auto;margin-right:auto;}
+  .score-screen p{font-size:16px;margin-bottom:32px;}
+  .info-grid{display:flex;gap:12px;justify-content:center;margin:24px 0 32px;flex-wrap:wrap;}
+  .info-chip{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:10px 18px;font-size:14px;font-weight:500;}
+  .info-chip span{color:var(--accent2);font-weight:700;}
+  .score-circle{width:140px;height:140px;border-radius:50%;margin:0 auto 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:4px solid;}
+  .score-circle .score-num{font-family:'Syne',sans-serif;font-size:42px;font-weight:800;line-height:1;}
+  .score-circle .score-total{font-size:13px;color:var(--muted);margin-top:2px;}
+  .stats-row{display:flex;gap:16px;justify-content:center;margin-bottom:36px;flex-wrap:wrap;}
+  .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 24px;min-width:110px;}
+  .stat-box .val{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;}
+  .stat-box .lbl{font-size:12px;color:var(--muted);margin-top:2px;}
+  .btn-restart{padding:16px 40px;background:linear-gradient(135deg,var(--accent),var(--accent2));border:none;
+    border-radius:14px;color:#fff;font-family:'Syne',sans-serif;font-size:16px;font-weight:700;cursor:pointer;
+    transition:opacity .2s,transform .1s;}
+  .btn-restart:hover{opacity:.9;transform:translateY(-1px);}
+  @media(max-width:500px){.question-card,.score-screen,.start-screen{padding:24px 16px;}}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div class="badge">Rijbewijs B · 2025</div>
+    <h1>Theorie Oefenexamen</h1>
+    <p>50 willekeurige vragen uit een grote bank — elk examen anders</p>
+  </header>
+
+  <div class="start-screen" id="startScreen">
+    <div class="icon">🚗</div>
+    <h2>Klaar voor het examen?</h2>
+    <p>Elke keer 50 willekeurige vragen, ook met meerkeuze-vragen (meerdere antwoorden mogelijk) — net zoals het echte CBR-examen. Antwoordopties worden ook door elkaar geschud.</p>
+    <div class="info-grid">
+      <div class="info-chip">📝 <span>50</span> willekeurige vragen</div>
+      <div class="info-chip">☑️ Ook meerkeuze</div>
+      <div class="info-chip">✅ Directe feedback</div>
+      <div class="info-chip">🏆 Slagen bij <span>44/50</span></div>
+    </div>
+    <button class="btn-restart" onclick="startQuiz()">Start oefenexamen →</button>
+  </div>
+
+  <div id="quizScreen" style="display:none">
+    <div class="progress-wrap">
+      <div class="progress-info">
+        <span id="qLabel">Vraag 1 van 50</span>
+        <span id="scoreLabel">Score: 0</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:2%"></div></div>
+    </div>
+    <div class="question-card">
+      <div class="question-num" id="questionNum">VRAAG 01</div>
+      <div class="multi-hint" id="multiHint">☑️ Meerdere antwoorden mogelijk — selecteer alles wat van toepassing is</div>
+      <div class="question-text" id="questionText"></div>
+    </div>
+    <div class="options" id="optionsContainer"></div>
+    <div class="explanation" id="explanation"></div>
+    <div class="btn-row">
+      <button class="btn-confirm" id="btnConfirm" onclick="confirmMulti()">Bevestig antwoord</button>
+      <button class="btn-next" id="btnNext" onclick="nextQuestion()">Volgende vraag →</button>
+    </div>
+  </div>
+
+  <div class="score-screen" id="scoreScreen">
+    <div class="score-circle" id="scoreCircle">
+      <span class="score-num" id="finalScore">0</span>
+      <span class="score-total">van 50</span>
+    </div>
+    <h2 id="resultTitle">Resultaat</h2>
+    <p id="resultText"></p>
+    <div class="stats-row">
+      <div class="stat-box"><div class="val" style="color:var(--green)" id="statCorrect">0</div><div class="lbl">Goed</div></div>
+      <div class="stat-box"><div class="val" style="color:var(--red)" id="statWrong">0</div><div class="lbl">Fout</div></div>
+      <div class="stat-box"><div class="val" style="color:var(--accent)" id="statPct">0%</div><div class="lbl">Score</div></div>
+    </div>
+    <button class="btn-restart" onclick="restartQuiz()">🔄 Nieuw oefenexamen</button>
+  </div>
+</div>
+
+<script>
+// correct = number (single) or array (multi, ALL must be selected, no others)
+const allQuestions = [
+
+// ===== SNELHEID =====
+{q:"Wat is de maximumsnelheid op een autosnelweg in Nederland bij droog weer?",
+ opts:["100 km/u","120 km/u","130 km/u","140 km/u"],correct:2,
+ exp:"Op de Nederlandse autosnelweg geldt overdag <strong>130 km/u</strong>, tenzij anders aangegeven."},
+
+{q:"Wat is de maximumsnelheid buiten de bebouwde kom op een gewone weg zonder bord?",
+ opts:["80 km/u","100 km/u","120 km/u","60 km/u"],correct:0,
+ exp:"Buiten de bebouwde kom geldt <strong>100 km/u</strong> op gewone wegen zonder snelheidsbord."},
+
+{q:"Wat is de maximumsnelheid in een 30 km/u-zone?",
+ opts:["20 km/u","30 km/u","40 km/u","50 km/u"],correct:1,
+ exp:"In een <strong>30 km/u-zone</strong> geldt voor alle voertuigen 30 km/u als maximumsnelheid."},
+
+{q:"Wat is de maximumsnelheid op een autoweg (bord A3, niet autosnelweg)?",
+ opts:["80 km/u","100 km/u","120 km/u","130 km/u"],correct:1,
+ exp:"Op een <strong>autoweg</strong> (groen bord A3) geldt een maximumsnelheid van 100 km/u."},
+
+{q:"Wat is de maximumsnelheid in een erf?",
+ opts:["10 km/u","15 km/u","20 km/u","30 km/u"],correct:1,
+ exp:"In een <strong>erf</strong> geldt een maximumsnelheid van 15 km/u voor alle voertuigen."},
+
+{q:"Wat is de maximumsnelheid voor een personenauto met een aanhanger (tot 3.500 kg) op de autosnelweg?",
+ opts:["80 km/u","90 km/u","100 km/u","130 km/u"],correct:1,
+ exp:"Met een aanhanger tot 3.500 kg geldt op de autosnelweg <strong>90 km/u</strong>. Bij een aanhanger zwaarder dan 3.500 kg geldt 80 km/u."},
+
+{q:"U rijdt met 50 km/u. Hoe lang is uw reactieweg bij een reactietijd van 1 seconde?",
+ opts:["ca. 10 meter","ca. 14 meter","ca. 20 meter","ca. 28 meter"],correct:1,
+ exp:"50 km/u ≈ 13,9 m/s. Bij 1 seconde reactietijd legt u <strong>circa 14 meter</strong> af vóór u begint te remmen."},
+
+{q:"De remweg verdubbelt niet als de snelheid verdubbelt. Hoe verandert de remweg als de snelheid verdubbelt?",
+ opts:["De remweg verdubbelt","De remweg verdrievoudigt","De remweg wordt vier keer zo lang","De remweg halveert"],correct:2,
+ exp:"De remweg neemt <strong>kwadratisch toe met de snelheid</strong>: bij verdubbeling van de snelheid wordt de remweg vier keer zo lang."},
+
+{q:"Wat is de minimale constructiesnelheid die een voertuig moet kunnen halen om de autosnelweg te mogen gebruiken?",
+ opts:["40 km/u","50 km/u","60 km/u","70 km/u"],correct:2,
+ exp:"Voertuigen die niet minimaal <strong>60 km/u</strong> kunnen rijden, mogen de autosnelweg niet gebruiken."},
+
+// ===== VOORRANG & VOOR LATEN GAAN =====
+{q:"U rijdt op een gelijkwaardig kruispunt (geen borden, geen haaientanden) en wilt rechtdoor. Een auto van rechts wil ook rechtdoor. Wie heeft voorrang?",
+ opts:["U, want u rijdt rechtdoor","De auto van rechts heeft voorrang","U beiden tegelijk","Wie het snelste rijdt"],correct:1,
+ exp:"Op een gelijkwaardig kruispunt heeft <strong>verkeer van rechts altijd voorrang</strong>. De auto die van uw rechterhand komt, gaat dus voor."},
+
+{q:"U rijdt op een gelijkwaardig kruispunt en wilt rechtdoor. Een auto van links wil ook rechtdoor. Wie heeft voorrang?",
+ opts:["U heeft voorrang, want die auto komt van links","De auto van links heeft voorrang","U beiden tegelijk","Wie het minst hard rijdt"],correct:0,
+ exp:"Op een gelijkwaardig kruispunt heeft verkeer van rechts voorrang. De auto van links komt van <strong>uw linkerhand</strong>, dus <strong>u heeft voorrang</strong>."},
+
+{q:"U wilt linksaf slaan op een kruispunt. Een tegemoetkomende auto rijdt rechtdoor. Wie heeft voorrang?",
+ opts:["U, want u slaat af","De tegemoetkomende auto, want die rijdt rechtdoor","U beiden tegelijk","Degene die gebaart"],correct:1,
+ exp:"Rechtdoorrijdend verkeer op dezelfde weg heeft <strong>voorrang op afslaand verkeer</strong>. De tegenligger gaat voor."},
+
+{q:"U nadert een rotonde met haaientanden op de weg bij de inrit. U wilt de rotonde oprijden. Wie heeft voorrang?",
+ opts:["U heeft voorrang want u rijdt al","Verkeer dat al op de rotonde rijdt heeft voorrang","Rechts voor links geldt op de rotonde","Er is geen vaste regel"],correct:1,
+ exp:"Op een rotonde met haaientanden bij de inrit heeft <strong>het verkeer dat al op de rotonde rijdt voorrang</strong>. U als inrijder moet stoppen/wachten."},
+
+{q:"U rijdt op een voorrangsweg (aangegeven met gele ruit bord). Een auto wil vanuit een zijstraat het kruispunt op. Wie heeft voorrang?",
+ opts:["De auto uit de zijstraat, want die komt van rechts","U heeft voorrang, want u rijdt op de voorrangsweg","Rechts voor links bepaalt het","Wie sneller rijdt"],correct:1,
+ exp:"Op een <strong>voorrangsweg</strong> heeft u altijd voorrang op verkeer van zijwegen, ongeacht de richting."},
+
+{q:"U rijdt op de rijbaan. Links naast u loopt een fietspad. U wilt linksaf slaan. Op het fietspad rijdt een fietser rechtdoor. De auto heeft haaientanden bij het fietspad. Wie heeft voorrang?",
+ opts:["U, want u gaat linksaf","De fietser, want die rijdt rechtdoor op hetzelfde weggedeelte","U beiden tegelijk","Wie als eerste aankomt"],correct:1,
+ exp:"U slaat af en de fietser gaat rechtdoor. <strong>Rechtdoorgaand verkeer op dezelfde weg gaat voor afslaand verkeer.</strong> De fietser heeft voorrang. De haaientanden bevestigen dit."},
+
+{q:"U nadert een kruispunt en staat op een onverharde weg (zandpad). De kruisende weg is verhard (asfalt). Wie heeft voorrang?",
+ opts:["U, want u komt van rechts","Het verkeer op de verharde weg heeft altijd voorrang","Rechts voor links geldt hier gewoon","Wie het eerst aankomt"],correct:1,
+ exp:"<strong>Bestuurders op een onverharde weg moeten altijd voorrang verlenen aan bestuurders op een verharde weg</strong>, ook als die van links komen."},
+
+{q:"U rijdt op een verharde weg. Van rechts nadert een auto via een zandpad (onverharde weg). Moet u die auto voorrang geven?",
+ opts:["Ja, want die komt van rechts","Nee, u rijdt op de verharde weg en heeft voorrang","Ja, want hij rijdt rechtdoor","Alleen als hij sneller rijdt"],correct:1,
+ exp:"Bestuurders op een onverharde weg moeten altijd voorrang verlenen aan bestuurders op een verharde weg. <strong>U rijdt op de verharde weg en heeft voorrang</strong>, ook al komt die auto van rechts."},
+
+{q:"Een bus staat bij een bushalte met de richtingaanwijzer aan en wil wegrijden. Wat doet u?",
+ opts:["U heeft altijd voorrang op de bus","U laat de bus uitrijden als dat veilig mogelijk is","U claxonneert ter waarschuwing","U rijdt pas door als de bus al rijdt"],correct:1,
+ exp:"Een bus die met knipperlicht aangeeft te willen wegrijden <strong>moet u laten gaan als dat veilig kan</strong>. Dit geldt buiten de autosnelweg."},
+
+{q:"U rijdt op een weg met tramsporen. De tram nadert van achter en wil dezelfde weg vervolgen. Wat doet u?",
+ opts:["Doorrijden, de tram moet maar wachten","Zo snel mogelijk opzij gaan en de tram voorrang geven","Versnellen om voor de tram uit te blijven","Stoppen en wachten tot de tram voorbij is"],correct:1,
+ exp:"Een <strong>tram heeft altijd voorrang</strong> op overig wegverkeer. U gaat opzij en laat de tram passeren."},
+
+{q:"U wilt een kruispunt oprijden maar staat in een file. Wanneer mag u het kruispunt oprijden?",
+ opts:["Altijd als het verkeerslicht groen is","Alleen als u zeker weet dat u het kruispunt volledig kunt vrijhouden","Als u er snel genoeg doorheen kunt","Altijd, want groen betekent doorrijden"],correct:1,
+ exp:"U rijdt een kruispunt pas op als u zeker weet dat u het <strong>volledig kunt vrijhouden</strong>. Anders blokkeert u het kruisende verkeer."},
+
+{q:"Wat moet u doen als een politieagent zijn arm recht omhooghoudt?",
+ opts:["Doorrijden als het stoplicht groen is","Stoppen en wachten op aanwijzingen","Langzamer rijden en doorrijden","Rechts inhouden en doorrijden"],correct:1,
+ exp:"Een politieagent met een arm recht omhoog betekent: <strong>iedereen stopt</strong> vanuit alle richtingen. Aanwijzingen van politie gaan boven verkeerslichten."},
+
+{q:"U rijdt op een T-splitsing op de zijtak (de weg die dood loopt). U wilt de doorgaande weg oprijden. Wie heeft voorrang?",
+ opts:["U, want u rijdt al","Het verkeer op de doorgaande weg heeft voorrang","Rechts voor links bepaalt het hier","Wie het hardst rijdt"],correct:1,
+ exp:"Op een T-splitsing heeft het <strong>verkeer op de doorgaande weg altijd voorrang</strong> op verkeer dat de zijtak verlaat."},
+
+{q:"U verlaat een uitrit (parkeerplaats, garage, erf) en rijdt de openbare weg op. Wie moet u voorrang geven?",
+ opts:["Alleen auto's","Alleen fietsers en voetgangers","Al het verkeer op de openbare weg, inclusief voetgangers","Alleen gemotoriseerd verkeer"],correct:2,
+ exp:"Wie een bijzondere verrichting uitvoert (zoals een uitrit verlaten), moet <strong>al het verkeer op de openbare weg voorrang geven — ook voetgangers</strong>."},
+
+// ===== VERANTWOORDE VERKEERSDEELNAME & MILIEU =====
+{q:"Welke factoren beïnvloeden uw rijvaardigheid negatief?",
+ opts:["Vermoeidheid, alcohol en medicijnen","Goede verlichting en droog wegdek","Rustig verkeer en brede wegen","Een goed afgestelde auto"],correct:0,
+ exp:"<strong>Vermoeidheid, alcohol en medicijnen</strong> verminderen uw concentratie, reactietijd en coördinatie."},
+
+{q:"Hoe rijdt u het meest milieuvriendelijk en brandstofzuinig?",
+ opts:["Zo snel mogelijk rijden om sneller thuis te zijn","Rustig optrekken, vroeg schakelen en motor afzetten bij lang stilstaan","Altijd in de hoogste versnelling rijden","Airco continu gebruiken voor comfort"],correct:1,
+ exp:"<strong>Rustig rijgedrag, vroeg schakelen en motor afzetten</strong> bij stilstand van meer dan circa 60 seconden bespaart brandstof en verlaagt uitstoot."},
+
+{q:"Wat is het effect van te lage bandenspanning op uw auto?",
+ opts:["Geen effect op verbruik of veiligheid","Verhoogt het brandstofverbruik en vergroot de slijtage","Verlaagt het brandstofverbruik","Verbetert het rijcomfort altijd"],correct:1,
+ exp:"<strong>Te lage bandenspanning</strong> vergroot de rolweerstand: het brandstofverbruik stijgt en de bandenslijtage neemt toe."},
+
+{q:"Wat is een milieuzone?",
+ opts:["Een zone waar u gratis parkeert","Een zone die bepaalde vervuilende voertuigen verbiedt om de luchtkwaliteit te verbeteren","Een zone speciaal voor elektrische auto's","Een zone met een maximumsnelheid van 30 km/u"],correct:1,
+ exp:"In een <strong>milieuzone</strong> zijn oudere, vervuilende voertuigen verboden. Dit is bedoeld om de luchtkwaliteit in steden te verbeteren."},
+
+{q:"Wat is het effect van airconditioning op het brandstofverbruik?",
+ opts:["Geen effect","Airco verhoogt het verbruik met circa 5–20%","Airco verlaagt het verbruik","Airco heeft alleen effect bij elektrische auto's"],correct:1,
+ exp:"Airconditioning vraagt extra motorvermogen en verhoogt het brandstofverbruik met <strong>circa 5–20%</strong> afhankelijk van de situatie."},
+
+{q:"Hoe kunt u als bestuurder bijdragen aan minder geluidsoverlast in de omgeving?",
+ opts:["Altijd claxoneren bij twijfel","Rustig rijden en vroeg schakelen om het motortoerental laag te houden","Harder rijden zodat u sneller weg bent","Ramen open zodat geluiden sneller wegwaaien"],correct:1,
+ exp:"<strong>Rustig rijden en vroeg schakelen</strong> houdt het motortoerental laag, wat geluidsoverlast voor de omgeving vermindert."},
+
+{q:"Wat is het gevaar van rijden als u boos of gestrest bent?",
+ opts:["U rijdt dan voorzichtiger","U neemt meer risico, reageert agressiever en heeft minder aandacht","U rijdt sneller maar veiliger","Emoties hebben geen invloed op rijvaardigheid"],correct:1,
+ exp:"Emoties zoals boosheid of stress leiden tot <strong>agressiever rijgedrag, minder aandacht en hogere risico's</strong>."},
+
+{q:"Wat verstaat men onder 'defensief rijden'?",
+ opts:["Zo snel mogelijk rijden om gevaar te vermijden","Anticiperen op fouten van anderen, ruim afstand houden en de situatie tijdig inschatten","Altijd voorrang opeisen","Zo dicht mogelijk achter de voorganger rijden om files te voorkomen"],correct:1,
+ exp:"<strong>Defensief rijden</strong> = anticiperen op mogelijke fouten van anderen, ruim afstand houden en situaties vroeg inschatten."},
+
+{q:"U rijdt op de snelweg. Welk rijgedrag is het meest milieuvriendelijk?",
+ opts:["130 km/u om sneller klaar te zijn","Gelijkmatig rijden op circa 100 km/u","Hard accelereren en dan uitrijden","Steeds van rijstrook wisselen om de snelste lijn te zoeken"],correct:1,
+ exp:"<strong>Gelijkmatig rijden op een lagere snelheid</strong> verbruikt aanzienlijk minder brandstof. Bij 130 km/u is de luchtweerstand veel groter dan bij 100 km/u."},
+
+{q:"Wanneer is het zinvol de motor af te zetten om brandstof en uitstoot te besparen?",
+ opts:["Nooit, de motor heeft warmte nodig","Bij stilstand van meer dan circa 60 seconden","Alleen als de accu volledig opgeladen is","Alleen bij elektrische auto's relevant"],correct:1,
+ exp:"Bij stilstand langer dan <strong>circa 60 seconden</strong> verbruikt afzetten en later opstarten minder brandstof dan stationair draaien."},
+
+// ===== ONVERHARDE WEGEN =====
+{q:"U rijdt op een onverharde weg (zandpad of grindweg). Welke aanpassing maakt u ten opzichte van asfalt?",
+ opts:["Geen aanpassing nodig","U verlaagt uw snelheid en houdt meer afstand","U geeft meer gas om grip te houden","U zet de versnellingsbak op neutraal"],correct:1,
+ exp:"Op een onverharde weg is er minder grip. <strong>Verlaag uw snelheid en houd meer afstand</strong> om controle te behouden."},
+
+{q:"Hoe verschilt de remweg op een natte onverharde weg ten opzichte van droog asfalt?",
+ opts:["De remweg is korter","De remweg is gelijk","De remweg is langer","Alleen bandenspanning bepaalt het verschil"],correct:2,
+ exp:"Op een natte onverharde weg (zand, modder, grind) is er minder wrijving. De <strong>remweg is langer</strong> dan op droog asfalt."},
+
+{q:"U rijdt op een modderige onverharde weg en uw auto begint te slippen. Wat doet u?",
+ opts:["Hard remmen om snel te stoppen","Gas loslaten, stuur recht houden en rustig vertragen","Hard sturen om de auto recht te duwen","Gas geven om uit de modder te rijden"],correct:1,
+ exp:"Bij slippen op modder: <strong>gas loslaten, stuur recht houden en rustig laten uitlopen</strong>. Hard remmen of sturen maakt het slippen erger."},
+
+{q:"Waarom moet u extra voorzichtig zijn op een onverharde weg na regen?",
+ opts:["Na regen is de weg schoner en beter berijdbaar","De weg kan glad, zacht en instabiel zijn door modder en water","U heeft meer grip door het vochtige oppervlak","Er is na regen minder verkeer op onverharde wegen"],correct:1,
+ exp:"Na regen is een onverharde weg <strong>glad, zacht en instabiel</strong>. De kans op vastrijden, slippen of verzakken is aanzienlijk groter."},
+
+{q:"U rijdt op een onverharde weg en komt een fietser tegemoet op een smalle doorgang. Wat doet u?",
+ opts:["Doorrijden en de fietser laten uitwijken","Snelheid verlagen, zoveel mogelijk naar rechts rijden en de fietser ruimte geven","Claxoneren zodat de fietser weet dat u er aankomt","Stoppen en achteruitrijden"],correct:1,
+ exp:"Op een smalle onverharde weg verlaagt u uw snelheid, houdt u rechts en geeft u <strong>de fietser ruim voldoende ruimte</strong>."},
+
+// ===== PARKEREN & STILSTAAN =====
+{q:"Wat betekent een onderbroken gele streep langs de rijbaan?",
+ opts:["Parkeren verboden","Stoppen verboden","Inhalen verboden","Parkeren beperkt toegestaan"],correct:0,
+ exp:"Een <strong>onderbroken gele streep</strong> langs de rijbaan betekent parkeren verboden op dat weggedeelte."},
+
+{q:"Hoeveel meter voor een zebrapad mag u niet parkeren?",
+ opts:["3 meter","5 meter","10 meter","12 meter"],correct:1,
+ exp:"U mag niet parkeren binnen <strong>5 meter vóór</strong> een voetgangersoversteekplaats (zebrapad)."},
+
+{q:"Hoe ver van een bushaltemarkering mag u niet parkeren?",
+ opts:["10 meter","12 meter","15 meter","20 meter"],correct:2,
+ exp:"U mag niet parkeren binnen <strong>15 meter</strong> van een bushaltemarkering aan beide zijden."},
+
+{q:"Hoeveel meter voor een kruispunt mag u niet parkeren?",
+ opts:["5 meter","10 meter","12 meter","15 meter"],correct:0,
+ exp:"U mag niet parkeren binnen <strong>5 meter</strong> van een kruispunt."},
+
+{q:"U wilt parkeren op een helling. De helling is steiler dan 3%. Wat bent u verplicht te doen?",
+ opts:["Niets extra, de handrem is altijd voldoende","De wielen blokkeren of het stuur naar de stoeprand keren","Alleen de handrem gebruiken","De motor laten draaien"],correct:1,
+ exp:"Bij een helling steiler dan 3% bent u verplicht de wielen te blokkeren of <strong>het stuur naar de stoeprand te keren</strong> (wielklem of stoeprand als rem)."},
+
+// ===== VERLICHTING =====
+{q:"Wanneer bent u verplicht dimlichten te voeren?",
+ opts:["Alleen 's nachts bij duisternis","Bij schemering, slecht zicht door mist/regen/sneeuw en 's nachts","Alleen buiten de bebouwde kom","Alleen als het volledig donker is"],correct:1,
+ exp:"Dimlichten zijn verplicht bij <strong>schemering, slecht zicht</strong> (mist, regen, sneeuw) <strong>en 's nachts</strong>."},
+
+{q:"Wanneer mag u mistachterlichten gebruiken?",
+ opts:["Altijd bij regen","Uitsluitend bij zichtbaarheid onder de 50 meter door mist, sneeuw of regen","Bij duisternis buiten de bebouwde kom","Als u stilstaat op de vluchtstrook"],correct:1,
+ exp:"Mistachterlichten mag u <strong>uitsluitend gebruiken bij zichtbaarheid onder de 50 meter</strong> door mist, sneeuw of regen."},
+
+{q:"U rijdt 's avonds achter een voertuig. Wanneer zet u uw groot licht uit?",
+ opts:["Nooit, groot licht is altijd toegestaan","Zodra een tegenligger of het voertuig voor u verblind wordt","Na 23:00 uur altijd","Alleen in de bebouwde kom"],correct:1,
+ exp:"U dimt zodra <strong>een tegenligger of een voertuig vóór u verblind wordt</strong> door uw groot licht."},
+
+// ===== BORDEN & MARKERINGEN =====
+{q:"Welk bord geeft een maximumsnelheid aan?",
+ opts:["Rond bord met rode rand en een getal","Blauw vierkant bord met een getal","Driehoekig bord met rode rand","Gele ruit bord"],correct:0,
+ exp:"Een <strong>rond bord met rode rand en een getal</strong> is een gebodsbord dat de maximumsnelheid aangeeft."},
+
+{q:"Wat betekent een gele ruit op een bord of op de weg?",
+ opts:["Schoolzone","U rijdt op een voorrangsweg","Gevaarlijke bocht","Inhaalverbod"],correct:1,
+ exp:"De <strong>gele ruit</strong> geeft aan dat u op een voorrangsweg rijdt. Verkeer van zijwegen moet u voorrang geven."},
+
+{q:"Wat is de betekenis van een doorgetrokken witte streep op de rijbaan?",
+ opts:["Inhalen verboden","Parkeren verboden","U mag de streep niet overschrijden of berijden","Rijrichtingen scheiden"],correct:2,
+ exp:"Een <strong>doorgetrokken witte streep</strong> mag u niet overschrijden of berijden, behalve in een noodsituatie."},
+
+{q:"U ziet een rode driehoek met een uitroepteken op een bord. Wat betekent dit?",
+ opts:["Verbod om verder te rijden","Algemeen waarschuwingsbord: let op gevaar verderop","Maximumsnelheid 30 km/u","Einde van alle geboden en verboden"],correct:1,
+ exp:"Een <strong>rode driehoek met uitroepteken</strong> is een algemeen waarschuwingsbord voor een niet nader omschreven gevaar verderop."},
+
+{q:"Welke kleur heeft de kentekenplaat van een personenauto in Nederland?",
+ opts:["Wit","Blauw","Geel","Groen"],correct:2,
+ exp:"<strong>Personenauto's</strong> in Nederland hebben een <strong>gele kentekenplaat</strong> met zwarte letters en cijfers en een blauw EU-vak aan de linkerzijde."},
+
+{q:"Welke kleur heeft de kentekenplaat van een snorfiets (max. 25 km/u)?",
+ opts:["Geel","Blauw","Groen","Wit"],correct:1,
+ exp:"Een <strong>snorfiets</strong> (maximaal 25 km/u, klasse B) heeft een <strong>blauwe kentekenplaat</strong>. Een bromfiets (max. 45 km/u) heeft een gele plaat zonder blauw EU-vak."},
+
+// ===== RIJGEDRAG =====
+{q:"Op de autosnelweg: wanneer mag u de linkerrijstrook gebruiken?",
+ opts:["Altijd, het is de snelle rijstrook","Alleen om in te halen","Als de rechterstrook te druk is","Altijd tijdens de spits"],correct:1,
+ exp:"Op de autosnelweg geldt <strong>rechts rijden, links inhalen</strong>. De linkerstrook is uitsluitend voor inhalen."},
+
+{q:"Wanneer mag u de claxon gebruiken?",
+ opts:["Om andere bestuurders te groeten","Uitsluitend om gevaar te waarschuwen","Om langzame auto's te laten optrekken","Om uw voorrang te bevestigen"],correct:1,
+ exp:"De claxon mag <strong>uitsluitend worden gebruikt om gevaar te waarschuwen</strong>. Ander gebruik is verboden."},
+
+{q:"U nadert een zebrapad. Een voetganger staat op het punt over te steken. Wat doet u?",
+ opts:["Rij langzaam door en geef de voetganger een teken","Stop voor het zebrapad en laat de voetganger oversteken","Geef een claxonsignaal als waarschuwing","Rij door als de voetganger nog niet op de rijbaan staat"],correct:1,
+ exp:"U <strong>stopt voor het zebrapad</strong> en wacht tot de voetganger veilig is overgestoken. Voetgangers op een zebrapad hebben altijd voorrang."},
+
+{q:"Hoe ver van een spoorwegovergang (overweg) mag u niet inhalen?",
+ opts:["30 meter","50 meter","75 meter","100 meter"],correct:0,
+ exp:"Binnen <strong>30 meter</strong> van een overweg is inhalen verboden."},
+
+{q:"Mag u op de autosnelweg aan de rechterkant inhalen?",
+ opts:["Ja, als er voldoende ruimte is","Nee, rechts inhalen is altijd verboden op de autosnelweg","Ja, als de andere bestuurder langzamer rijdt","Ja, maar alleen in een file"],correct:1,
+ exp:"Op de <strong>autosnelweg is rechts inhalen altijd verboden</strong>. U haalt uitsluitend in via de linkerrijstrook."},
+
+{q:"U staat in een file op de snelweg en er is een calamiteit vooraan. Hoe vormt u een reddingsgang?",
+ opts:["Alle rijstroken schuiven naar het midden","Linker rijstrook naar links, rechter rijstrook(en) naar rechts","Iedereen stopt en wacht","Via de vluchtstrook rijden"],correct:1,
+ exp:"Voor een reddingsgang rijdt de <strong>linker rijstrook naar links</strong> en rijden <strong>de rechter rijstrook(en) naar rechts</strong>, zodat hulpvoertuigen erdoor kunnen."},
+
+{q:"U hoort een ambulance met zwaailicht en sirene naderen. Wat doet u?",
+ opts:["Versnellen om ruimte te maken","Zo snel en veilig mogelijk aan de kant gaan en ruimte bieden","Stoppen midden op de rijbaan","Gewoon doorrijden, de ambulance rijdt er wel omheen"],correct:1,
+ exp:"Bij een <strong>hulpverleningsvoertuig met zwaailicht en sirene</strong> gaat u zo snel en veilig mogelijk aan de kant."},
+
+{q:"Waar staat u het veiligste als u pech heeft op de autosnelweg?",
+ opts:["In de auto met de gordel vast","Achter de vangrail of zo ver mogelijk van de rijbaan","Naast de auto op de vluchtstrook","Vóór de auto als waarschuwing voor anderen"],correct:1,
+ exp:"Verlaat de auto en ga <strong>achter de vangrail of ver van de rijbaan</strong>. Verblijf nooit in of naast een stilstaande auto op de vluchtstrook."},
+
+// ===== TECHNIEK & VEILIGHEID =====
+{q:"Wat is aquaplaning en hoe voorkomt u het?",
+ opts:["Slippen door gladheid; strooi zand","De banden drijven op een waterfilm; verlaag snelheid en houd banden op de juiste spanning","Opspattend water op de voorruit; gebruik ruitenwissers","Slipgevaar bij ijzel; gebruik 4WD"],correct:1,
+ exp:"<strong>Aquaplaning</strong> = de banden drijven op een waterfilm en verliezen grip. Verlaag uw snelheid en houd banden op de juiste spanning."},
+
+{q:"Hoe remt u correct met een auto uitgerust met ABS (antiblokkeerremsysteem)?",
+ opts:["Pompen op de rem zodat de wielen niet blokkeren","Rem stevig indrukken en vasthouden; het ABS regelt de rest","Zo zacht remmen dat de wielen nooit blokkeren","Eerst koppeling intrappen, dan remmen"],correct:1,
+ exp:"Met <strong>ABS</strong> remt u door de rem <strong>stevig in te drukken en vast te houden</strong>. ABS voorkomt blokkering automatisch, zodat u kunt blijven sturen."},
+
+{q:"Wat is de boete voor het niet dragen van een gordel als bestuurder?",
+ opts:["Een waarschuwing","€190","Inname van het rijbewijs","Punten op het rijbewijs"],correct:1,
+ exp:"Het niet dragen van een gordel wordt bestraft met een boete van <strong>€190</strong>."},
+
+{q:"Wat is de wettelijk minimale profieldiepte voor autobanden?",
+ opts:["1,0 mm","1,6 mm","2,0 mm","2,5 mm"],correct:1,
+ exp:"De wettelijk minimale profieldiepte voor personenautobanden is <strong>1,6 mm</strong>."},
+
+{q:"Wat is de juiste reactie als u tijdens het rijden een klapband krijgt?",
+ opts:["Direct hard remmen om snel te stoppen","Stuur recht houden, gas loslaten en rustig vertragen","Gas geven om de auto te stabiliseren","Direct scherp sturen naar de vluchtstrook"],correct:1,
+ exp:"Bij een klapband: <strong>stuur recht houden, gas loslaten en rustig vertragen</strong>. Hard remmen of sturen maakt het gevaarlijker."},
+
+// ===== ALCOHOL & DRUGS =====
+{q:"Wat is het maximale toegestane alcoholpromillage voor een bestuurder met 5 jaar of meer rijervaring?",
+ opts:["0,2 promille","0,5 promille","0,8 promille","1,0 promille"],correct:1,
+ exp:"Voor bestuurders met 5 jaar of meer rijervaring geldt een limiet van <strong>0,5 promille</strong>."},
+
+{q:"Wat is het maximale toegestane alcoholpromillage voor een beginnend bestuurder (rijbewijs korter dan 5 jaar)?",
+ opts:["0,0 promille","0,2 promille","0,5 promille","0,8 promille"],correct:1,
+ exp:"Voor beginnende bestuurders (rijbewijs korter dan 5 jaar) geldt een limiet van <strong>0,2 promille</strong>."},
+
+{q:"Mag u rijden als u medicijnen gebruikt die uw rijvaardigheid beïnvloeden?",
+ opts:["Ja, als u voorzichtig rijdt","Ja, als het etiket geen rijverbod vermeldt","Nee, u mag niet rijden als uw rijvaardigheid aangetast is","Alleen met een doktersbriefje"],correct:2,
+ exp:"Als medicijnen uw rijvaardigheid beïnvloeden, <strong>mag u niet rijden</strong>. Controleer altijd het geneesmiddelenetiket op het symbool 'niet deelnemen aan het verkeer'."},
+
+// ===== RIJBEWIJS =====
+{q:"Wat is de minimumleeftijd om zelfstandig te rijden met een rijbewijs B?",
+ opts:["16 jaar","17 jaar","18 jaar","21 jaar"],correct:2,
+ exp:"Voor zelfstandig rijden met rijbewijs B geldt een minimumleeftijd van <strong>18 jaar</strong>."},
+
+{q:"Hoe lang is een positief theorie-examenresultaat geldig?",
+ opts:["1 jaar","1,5 jaar (18 maanden)","2 jaar","3 jaar"],correct:1,
+ exp:"Een positief theorie-examenresultaat is <strong>18 maanden (1,5 jaar)</strong> geldig."},
+
+// ===== MEERKEUZE =====
+{q:"Welke situaties verlengen uw remweg? (meerdere antwoorden mogelijk)",
+ opts:["Hogere rijsnelheid","Natte of gladde weg","Banden met goed profiel op de juiste spanning","Zware belading van de auto"],
+ correct:[0,1,3],
+ exp:"<strong>Hogere snelheid, natte/gladde weg en zware belading</strong> verlengen de remweg. Goede banden op de juiste spanning verkorten de remweg juist."},
+
+{q:"Welke handelingen zijn verboden in een tunnel? (meerdere antwoorden mogelijk)",
+ opts:["Keren (omdraaien)","Achteruitrijden","Langzamer rijden dan het overige verkeer","Inhalen (tenzij borden dit toestaan)"],
+ correct:[0,1,3],
+ exp:"In een tunnel mag u <strong>niet keren, niet achteruitrijden en niet inhalen</strong> tenzij borden dit toestaan. Langzamer rijden is niet verboden."},
+
+{q:"Welke voertuigen mogen de autosnelweg NIET gebruiken? (meerdere antwoorden mogelijk)",
+ opts:["Bromfietsen","Voetgangers","Tractoren","Personenauto's"],
+ correct:[0,1,2],
+ exp:"<strong>Bromfietsen, voetgangers en tractoren</strong> mogen de autosnelweg niet gebruiken. Personenauto's wel."},
+
+{q:"Welke maatregelen verlagen het brandstofverbruik? (meerdere antwoorden mogelijk)",
+ opts:["Vroeg opschakelen naar een hogere versnelling","Hoge rijsnelheid aanhouden","Banden op de juiste spanning houden","Motor afzetten bij langdurig stilstaan (>60 sec)"],
+ correct:[0,2,3],
+ exp:"<strong>Vroeg schakelen, banden op spanning houden en motor afzetten</strong> bij langdurig stilstaan verlagen het verbruik. Hoge snelheid verhoogt het verbruik juist."},
+
+{q:"Welke situaties zijn extra gevaarlijk op een onverharde weg? (meerdere antwoorden mogelijk)",
+ opts:["Regen waardoor de weg modderig en glad wordt","Droog en warm weer","Kuilen, losliggend grind of zand","Beperkt zicht door stofwolken achter voertuigen"],
+ correct:[0,2,3],
+ exp:"Op een onverharde weg zijn <strong>regen (modder/gladheid), kuilen/losliggend grind en stofwolken</strong> extra gevaarlijk. Droog en warm weer is minder problematisch."},
+
+{q:"Wanneer bent u verplicht voorrang te verlenen aan voetgangers? (meerdere antwoorden mogelijk)",
+ opts:["Op een voetgangersoversteekplaats (zebrapad)","Als u een uitrit verlaat","Als voetgangers midden op de rijbaan lopen zonder zebrapad","Als u afslaat en voetgangers de zijstraat oversteken die u inrijdt"],
+ correct:[0,1,3],
+ exp:"U verleent voorrang aan voetgangers <strong>op een zebrapad, bij het verlaten van een uitrit</strong> en <strong>als u afslaat en voetgangers de zijstraat oversteken</strong>. Voetgangers die zomaar midden op de rijbaan lopen zonder oversteekplaats hebben geen formeel recht van doorgang."},
+
+{q:"Welke factoren verhogen het risico op aquaplaning? (meerdere antwoorden mogelijk)",
+ opts:["Hoge rijsnelheid","Te lage bandenspanning","Ingesleten bandenprofiel (minder dan 1,6 mm)","Droog wegdek"],
+ correct:[0,1,2],
+ exp:"<strong>Hoge snelheid, te lage bandenspanning en ingesleten profiel</strong> verhogen het risico op aquaplaning. Op droog wegdek kan aquaplaning niet optreden."},
+
+{q:"Wat controleert u minimaal vóór vertrek? (meerdere antwoorden mogelijk)",
+ opts:["Bandenspanning en profieldiepte","Oliepeil","Verlichting (voor- en achterlichten)","Uw favoriete muziek en navigatie"],
+ correct:[0,1,2],
+ exp:"Vóór vertrek controleert u minimaal: <strong>bandenspanning en profiel, oliepeil, en werking van voor- en achterlichten</strong>."},
+
+
+// ===== EXTRA VARIATIES: SNELHEID =====
+{q:"U rijdt op een autosnelweg. Er staat een bord met '100'. Welke maximumsnelheid geldt?",
+ opts:["U mag 130 rijden want dat is de standaard snelwegsnelheid","100 km/u, want het bord gaat boven de standaardsnelheid","120 km/u als het droog is","Alleen 's nachts 100 km/u"],correct:1,
+ exp:"Een <strong>snelheidsbord gaat altijd boven de standaard maximumsnelheid</strong>. Als het bord 100 aangeeft, mag u maximaal 100 km/u rijden."},
+
+{q:"U rijdt op een weg buiten de bebouwde kom en passeert een bord 'einde 60'. Er staat geen ander bord. Welke maximumsnelheid geldt nu?",
+ opts:["60 km/u, want dat was het laatste bord","80 km/u","100 km/u, de standaard buiten bebouwde kom","130 km/u"],correct:1,
+ exp:"Na het bord 'einde 60' vervalt de beperking en geldt de <strong>standaard maximumsnelheid van 100 km/u</strong> buiten de bebouwde kom."},
+
+{q:"Op welke weg geldt een maximumsnelheid van 50 km/u als er geen bord staat?",
+ opts:["Buiten de bebouwde kom","Op een autosnelweg","Binnen de bebouwde kom","Op een autoweg"],correct:2,
+ exp:"Binnen de <strong>bebouwde kom</strong> geldt een standaard maximumsnelheid van <strong>50 km/u</strong> als er geen ander bord staat."},
+
+{q:"U rijdt met 100 km/u. Uw reactietijd is 1 seconde. Hoe ver rijdt u in die seconde?",
+ opts:["ca. 20 meter","ca. 28 meter","ca. 36 meter","ca. 50 meter"],correct:1,
+ exp:"100 km/u ≈ 27,8 m/s. Bij 1 seconde reactietijd legt u <strong>circa 28 meter</strong> af voordat u begint te remmen."},
+
+{q:"Wat is de maximumsnelheid voor een bromfiets (gele plaat, max. 45 km/u) op de rijbaan?",
+ opts:["25 km/u","30 km/u","45 km/u","50 km/u"],correct:2,
+ exp:"Een bromfiets (gele kentekenplaat, klasse A) mag op de rijbaan maximaal <strong>45 km/u</strong> rijden."},
+
+{q:"U rijdt op een autosnelweg en het begint hard te regenen. U rijdt 130 km/u. Wat moet u doen?",
+ opts:["130 km/u is de max, dus u mag dit blijven rijden","U past uw snelheid aan de weersomstandigheden aan","U rijdt alleen langzamer als er een regenbordje staat","U zet alarmlichten aan en rijdt gewoon door"],correct:1,
+ exp:"De maximumsnelheid is een <strong>bovengrens</strong>. U bent altijd verplicht uw snelheid aan te passen aan de <strong>weersomstandigheden en het zicht</strong>."},
+
+{q:"Wat is de maximumsnelheid voor een personenauto binnen de bebouwde kom, tenzij anders aangegeven?",
+ opts:["30 km/u","50 km/u","60 km/u","70 km/u"],correct:1,
+ exp:"Binnen de bebouwde kom geldt een standaard maximumsnelheid van <strong>50 km/u</strong>."},
+
+// ===== EXTRA VARIATIES: VOORRANG =====
+{q:"U rijdt rechtdoor op een gelijkwaardig kruispunt. Van rechts nadert een fietser. Wie heeft voorrang?",
+ opts:["U, want u rijdt op de rijbaan","De fietser, want die komt van rechts","U beiden tegelijk","Wie het hardst rijdt"],correct:1,
+ exp:"Op een gelijkwaardig kruispunt geldt <strong>rechts heeft voorrang</strong>. De fietser van rechts gaat voor, ook als u op de rijbaan rijdt."},
+
+{q:"U staat voor een rood verkeerslicht dat op groen springt. Er loopt nog een voetganger over het zebrapad. Wat doet u?",
+ opts:["Optrekken, want het licht is groen","Wachten tot de voetganger veilig is overgestoken","Claxoneren zodat de voetganger sneller oversteekt","Langzaam optrekken terwijl de voetganger doorloopt"],correct:1,
+ exp:"Groen licht geeft u toestemming om te rijden, maar u moet altijd <strong>voetgangers op een zebrapad laten oversteken</strong>, ook bij groen licht."},
+
+{q:"U wilt rechtsaf slaan. Op de rijbaan waarop u afslaat rijdt een fietser in dezelfde richting rechtdoor. Wie heeft voorrang?",
+ opts:["U, want u slaat rechtsaf op uw eigen rijbaan","De fietser, want u slaat af en de fietser rijdt rechtdoor","U beiden rijden gelijk","Wie het eerst aankomt"],correct:1,
+ exp:"Als u rechtsaf slaat, snijdt u het pad van een rechtdoorrijdende fietser. <strong>Rechtdoorgaand verkeer heeft voorrang op afslaand verkeer.</strong>"},
+
+{q:"U rijdt op een weg met twee rijstroken in dezelfde richting. De rechterstrook sluit op. Wanneer voegt u in?",
+ opts:["Zo vroeg mogelijk oversteken naar links","Op het laatste moment invoegen (ritsprincipe)","U heeft geen invoegplicht, de linkerrijstrook moet wachten","Alleen als er een bord staat"],correct:1,
+ exp:"Bij een rijstrookversmalling geldt het <strong>ritsprincipe</strong>: u rijdt zo ver mogelijk door op uw strook en voegt dan beurtelings in."},
+
+{q:"U rijdt op een weg en naast u rijdt een tram. U wilt rechtsaf, maar de tram gaat ook rechtdoor. Wie heeft voorrang?",
+ opts:["U, want u slaat rechtsaf","De tram, want die heeft altijd voorrang","U beiden tegelijk","Wie het eerste aangeeft te gaan"],correct:1,
+ exp:"Een <strong>tram heeft altijd voorrang</strong> op overig wegverkeer. U wacht tot de tram voorbij is."},
+
+{q:"U nadert een overweg. De slagbomen zijn omlaag. Wat doet u?",
+ opts:["Snel erdoorheen rijden als u de trein nog niet ziet","Stoppen voor de slagboom en wachten tot ze omhooggaan","Claxoneren en wachten","Omrijden via een andere route"],correct:1,
+ exp:"Bij neergelaten slagbomen <strong>stopt u en wacht u</strong> tot de slagbomen omhoog zijn en u veilig kunt passeren."},
+
+{q:"Een politieagent staat op het kruispunt en steekt zijn arm zijwaarts uit in uw rijrichting. Wat mag u doen?",
+ opts:["U moet stoppen","U mag doorrijden","U mag langzaam doorrijden","U moet uitwijken naar rechts"],correct:1,
+ exp:"Een arm <strong>zijwaarts richting uw rijrichting</strong> betekent dat verkeer in die richting <strong>mag doorrijden</strong>. Dit staat gelijk aan groen licht."},
+
+{q:"U rijdt op een voorrangsweg en wilt linksaf slaan. Tegemoetkomend verkeer rijdt rechtdoor op dezelfde weg. Wie heeft voorrang?",
+ opts:["U, want u rijdt op de voorrangsweg","Het tegemoetkomende verkeer, want dat rijdt rechtdoor","U beiden tegelijk","Rechts voor links geldt hier"],correct:1,
+ exp:"Het voorrangsrecht op een voorrangsweg geldt ten opzichte van <strong>zijwegen</strong>, niet ten opzichte van tegemoetkomend verkeer op dezelfde weg. Rechtdoorgaand tegemoetkomend verkeer heeft voorrang."},
+
+{q:"U verlaat een uitrit en rijdt de openbare weg op. Wie moet u voorrang geven?",
+ opts:["Alleen auto's","Alleen fietsers en voetgangers","Al het verkeer op de openbare weg, inclusief voetgangers","Alleen gemotoriseerd verkeer"],correct:2,
+ exp:"Wie een uitrit verlaat voert een <strong>bijzondere verrichting</strong> uit en moet voorrang geven aan <strong>al het verkeer op de openbare weg, inclusief voetgangers</strong>."},
+
+// ===== EXTRA VARIATIES: MILIEU & VERANTWOORD =====
+{q:"U rijdt op de snelweg en heeft al 2 uur gereden. U voelt u wat slaperig. Wat is de beste actie?",
+ opts:["Raampje open en doorgaan","Koffie drinken en dan nog 1 uur doorrijden","Zo snel mogelijk stoppen op een parkeerplaats en rusten","Radio harder zetten"],correct:2,
+ exp:"Bij slaperigheid is <strong>stoppen en rusten de enige veilige optie</strong>. Koffie en frisse lucht verbergen de vermoeidheid tijdelijk maar lossen het niet op."},
+
+{q:"Wat is het effect van het meenemen van onnodige bagage op het brandstofverbruik?",
+ opts:["Geen effect","Extra gewicht verhoogt het verbruik","Extra gewicht verlaagt het verbruik door betere wegligging","Alleen van invloed bij elektrische auto's"],correct:1,
+ exp:"<strong>Extra gewicht</strong> in de auto verhoogt het brandstofverbruik. Verwijder onnodige spullen als u ze niet nodig heeft."},
+
+{q:"Wat is het voordeel van anticiperend rijden (vroeg kijken en rustig vertragen)?",
+ opts:["U rijdt sneller","U bespaart brandstof en vermindert slijtage aan remmen","U heeft voorrang op andere weggebruikers","U hoeft minder op te letten"],correct:1,
+ exp:"<strong>Anticiperend rijden</strong> (vroeg kijken, gas loslaten en geleidelijk vertragen) bespaart brandstof en vermindert slijtage aan remmen en koppeling."},
+
+{q:"Wat is de invloed van een dakdrager of dakkoffer op het brandstofverbruik, ook als die leeg is?",
+ opts:["Geen invloed als hij leeg is","Vergroot de luchtweerstand en verhoogt daardoor het verbruik","Verlaagt het verbruik door betere aerodynamica","Alleen invloed bij snelheden boven 130 km/u"],correct:1,
+ exp:"Een dakdrager of -koffer <strong>vergroot de luchtweerstand</strong>, ook als die leeg is. Verwijder hem als u hem niet gebruikt."},
+
+{q:"Wat is 'spookrijden' en waarom is het zo gevaarlijk?",
+ opts:["Te langzaam rijden op de snelweg","Rijden in de verkeerde rijrichting op een weg met gescheiden rijbanen","Rijden zonder verlichting 's nachts","Rijden onder invloed van alcohol"],correct:1,
+ exp:"<strong>Spookrijden</strong> is rijden in de verkeerde richting op een weg met gescheiden rijbanen. Extreem gevaarlijk door de hoge sluitingssnelheid bij een frontale botsing."},
+
+{q:"U ziet voor u een auto plotseling hard remmen. U rijdt 80 km/u. Wat doet u als eerste?",
+ opts:["Direct sturen naar de vluchtstrook","Zo hard mogelijk remmen","Gas loslaten en beginnen te remmen terwijl u de situatie inschat","Claxoneren zodat de auto voor u weet dat u er aankomt"],correct:2,
+ exp:"<strong>Gas loslaten en beginnen te remmen</strong> terwijl u de situatie beoordeelt. Hard sturen zonder te kijken is gevaarlijk — u wil eerst weten waarheen u kunt uitwijken."},
+
+// ===== EXTRA VARIATIES: ONVERHARDE WEG =====
+{q:"U rijdt op een onverharde weg met een natte, modderige bocht voor u. Wat is de juiste handeling?",
+ opts:["Snelheid verhogen zodat u de bocht sneller door bent","Snelheid verlagen vóór de bocht en rustig doorrijden","In de bocht remmen voor maximale controle","Gas geven in de bocht om grip te houden"],correct:1,
+ exp:"Op een natte onverharde weg is weinig grip. <strong>Verlaag uw snelheid vóór de bocht</strong> en neem hem rustig. Remmen in de bocht vergroot het risico op slippen."},
+
+{q:"Op een onverharde weg rijdt u achter een voertuig dat veel stof opwerpt. Wat doet u?",
+ opts:["Dichter achter het voertuig rijden om in het kielzog te zitten","Meer afstand houden want uw zicht is beperkt door het stof","Inhalen zodat u voor het stof uit bent","Niets, stof is een onvermijdelijk ongemak"],correct:1,
+ exp:"Stofwolken beperken uw zicht sterk op een onverharde weg. <strong>Houd meer afstand</strong> zodat u tijdig kunt reageren op gevaren."},
+
+// ===== EXTRA VARIATIES: PARKEREN =====
+{q:"U wilt parkeren voor de inrit van een woning. Mag dat?",
+ opts:["Ja, als u er maar kort staat","Nee, voor een inrit parkeren is altijd verboden","Alleen als de bewoner het goed vindt","Alleen 's nachts"],correct:1,
+ exp:"<strong>Voor een inrit parkeren is altijd verboden</strong>, ook als er geen bord staat. U blokkeert de in- en uitrit."},
+
+{q:"Op welke afstand van een brandkraan mag u niet parkeren?",
+ opts:["1 meter","2 meter","5 meter","10 meter"],correct:0,
+ exp:"U mag niet parkeren binnen <strong>1 meter</strong> van een brandkraan, zodat de brandweer er altijd bij kan."},
+
+// ===== EXTRA VARIATIES: VERLICHTING =====
+{q:"U rijdt op een goed verlichte stadsweg 's nachts. Welke verlichting voert u?",
+ opts:["Geen verlichting nodig want de weg is verlicht","Dimlichten, verlichting is bij nacht altijd verplicht","Groot licht voor maximaal zicht","Stadslichten (parkeerlichten) zijn voldoende"],correct:1,
+ exp:"Bij nacht bent u verplicht <strong>dimlichten</strong> te voeren, ook op verlichte wegen. Parkeerlichten alleen zijn onvoldoende."},
+
+{q:"U rijdt in dichte mist met mistlampen aan. Wanneer zet u ze uit?",
+ opts:["Als u de snelweg opgaat","Zodra de zichtbaarheid meer dan 50 meter bedraagt","Pas als het volledig droog is","U mag ze altijd aan laten"],correct:1,
+ exp:"Mistlampen gebruikt u <strong>alleen bij zichtbaarheid onder de 50 meter</strong>. Zodra die meer dan 50 meter bedraagt, zet u ze uit om anderen niet te verblinden."},
+
+// ===== EXTRA VARIATIES: TECHNIEK =====
+{q:"Uw auto heeft geen ABS. U remt hard en de wielen blokkeren. Wat doet u?",
+ opts:["Harder drukken op de rem","Snel lossen en daarna ritmisch pompen op de rem","De koppeling intrappen en loslaten","Blijven remmen en sturen"],correct:1,
+ exp:"Zonder ABS bij blokkerende wielen: <strong>rem lossen en daarna ritmisch pompen</strong> zodat de wielen grip houden en u kunt sturen."},
+
+{q:"Waarvoor dient de gevarendriehoek en op welke afstand plaatst u hem op een snelweg?",
+ opts:["Als parkeermarkering; 10 meter","Als waarschuwing voor naderend verkeer; minimaal 100 meter","Als teken dat u defect rijdt; 30 meter","Als verkeersteken; 200 meter"],correct:1,
+ exp:"De gevarendriehoek waarschuwt naderend verkeer voor uw stilstaand voertuig. Op de snelweg plaatst u hem minimaal <strong>100 meter</strong> achter uw auto."},
+
+{q:"U rijdt op de snelweg en uw bandenspanning is te laag. Welk gevaar loopt u?",
+ opts:["Geen gevaar, de auto rijdt iets zachter","Verhoogde kans op een blow-out door warmteopbouw in de band","Betere grip in bochten door breder contactvlak","Lager brandstofverbruik"],correct:1,
+ exp:"Te lage bandenspanning bij hoge snelheid veroorzaakt sterke <strong>warmteopbouw in de band</strong>, wat kan leiden tot een blow-out (plotselinge klapband)."},
+
+// ===== EXTRA VARIATIES: RIJSTROOK & SNELWEG =====
+{q:"U rijdt op een driestrooks snelweg op de middelste rijstrook. De rechterstrook is vrij. Wat doet u?",
+ opts:["U mag op de middelste rijstrook blijven","U moet naar de rechterrijstrook gaan","U mag links inhalen vanuit de middelste strook","U hoeft niets te doen"],correct:1,
+ exp:"Op de snelweg rijdt u <strong>zo ver rechts als mogelijk</strong>. Als de rechterrijstrook vrij is, moet u daarnaar toe."},
+
+{q:"U heeft net ingehaald op de snelweg. Wanneer gaat u terug naar rechts?",
+ opts:["Als u er zin in heeft","Zodra u veilig terug kunt en de rechterbaan vrij is","Pas na 200 meter","Alleen als er een langzame auto achter u rijdt"],correct:1,
+ exp:"Na het inhalen gaat u <strong>zo snel als veilig mogelijk terug naar rechts</strong>. Links rijden zonder in te halen is verboden."},
+
+{q:"U staat met pech op de vluchtstrook van een snelweg. Op welke minimale afstand plaatst u de gevarendriehoek?",
+ opts:["10 meter","30 meter","100 meter","200 meter"],correct:2,
+ exp:"Op de autosnelweg plaatst u de gevarendriehoek op minimaal <strong>100 meter</strong> achter uw voertuig."},
+
+// ===== EXTRA MEERKEUZE =====
+{q:"Welke omstandigheden vereisen dat u uw snelheid aanpast, ook als u onder de maximumsnelheid rijdt? (meerdere antwoorden mogelijk)",
+ opts:["Mist of slecht zicht","Droog zomerweer overdag op een rechte weg","Gladheid door regen of ijs","Drukke kruispunten of veel voetgangers"],
+ correct:[0,2,3],
+ exp:"U past uw snelheid aan bij <strong>slecht zicht, gladheid en drukke situaties met kwetsbare weggebruikers</strong>. Bij droog zomerweer op een rustige rechte weg is aanpassing niet verplicht."},
+
+{q:"Welke gedragingen zijn verboden of gevaarlijk bij het rijden? (meerdere antwoorden mogelijk)",
+ opts:["Handmatig bellen met een mobiele telefoon","Navigatie bedienen terwijl u rijdt","Muziek luisteren via de autoradio","Eten of drinken waardoor uw aandacht wordt afgeleid"],
+ correct:[0,1,3],
+ exp:"<strong>Handmatig bellen, navigatie bedienen</strong> en <strong>eten/drinken met verminderde aandacht</strong> zijn verboden of gevaarlijk. Muziek luisteren via autoradio is toegestaan."},
+
+{q:"Welke situaties zijn gevaarlijk bij het inhalen op een tweebaansweg? (meerdere antwoorden mogelijk)",
+ opts:["Onvoldoende zicht op tegemoetkomend verkeer","Droog weer met goed zicht en ruim wegdek","Een inhaalverbodsbord","Wegversmalling of bocht vooruit"],
+ correct:[0,2,3],
+ exp:"Inhalen is gevaarlijk bij <strong>onvoldoende zicht, een inhaalverbod en een wegversmalling of bocht</strong> vooruit. Droog weer met goed zicht is juist een gunstige omstandigheid."},
+
+{q:"Welke acties onderneemt u bij een verkeersongeval met alleen materiële schade? (meerdere antwoorden mogelijk)",
+ opts:["Gegevens uitwisselen met de andere betrokkene","Doorrijden als de schade klein lijkt","Schade documenteren met foto's","Altijd de politie bellen, ook bij kleine schade"],
+ correct:[0,2],
+ exp:"Bij materiële schade <strong>wisselt u gegevens uit</strong> en <strong>documenteert u de schade</strong>. De politie hoeft bij alleen materiële schade niet per se gebeld te worden, maar gegevens uitwisselen is verplicht."},
+
+// ===== NIEUWE VRAGEN — ONTBREKENDE ONDERWERPEN =====
+// Klaar om toe te voegen aan allQuestions[]
+
+// ===== VERKEERSLICHTEN =====
+{q:"Wat betekent een geel (oranje) verkeerslicht?",
+ opts:["Doorrijden, want groen komt eraan","Stoppen; alleen doorrijden als stoppen redelijkerwijs niet meer mogelijk is","Altijd doorrijden als u al rijdt","Langzamer rijden en doorrijden"],correct:1,
+ exp:"Geel licht betekent <strong>stoppen</strong>. Alleen als u het licht zo dicht genaderd bent dat stoppen redelijkerwijs niet meer mogelijk is, mag u doorrijden. Gas geven om het licht nog te halen is een overtreding."},
+
+{q:"Het verkeerslicht voor u is buiten werking (donker, geen lichten). Welke regel geldt?",
+ opts:["U mag altijd doorrijden, want er is geen rood licht","U rijdt door alsof het groen is","De normale verkeersregels gelden, zoals rechts voor links","U stopt altijd en wacht op een agent"],correct:2,
+ exp:"Als een verkeerslicht buiten werking is, gelden de <strong>normale verkeersregels</strong>, zoals rechts voor links. Er is geen rood licht, maar ook geen groen — u rijdt niet automatisch vrij."},
+
+{q:"U nadert een kruispunt met een knipperend geel licht. Wat betekent dit?",
+ opts:["Het verkeerslicht staat op geel en u moet stoppen","Gevaarlijk punt: voorzichtigheid geboden, u mag doorrijden","U moet voorrang verlenen aan verkeer van rechts","Het verkeerslicht is defect en u mag niet doorrijden"],correct:1,
+ exp:"Een <strong>knipperend geel licht</strong> betekent: gevaarlijk punt, voorzichtigheid geboden. U mag doorrijden maar moet extra alert zijn op kruisend verkeer."},
+
+{q:"U slaat linksaf op een kruispunt met groen licht. Er komt een tegenligger aan die ook groen heeft en rechtdoor rijdt. Wie heeft voorrang?",
+ opts:["U, want u bent al begonnen met afslaan","De tegenligger, want die rijdt rechtdoor","U beiden rijden gelijk, wie het eerste aankomt gaat voor","Groen geeft u beiden voorrang, dus u rijdt tegelijk"],correct:1,
+ exp:"Ook bij groen licht moet u bij linksaf slaan <strong>tegemoetkomend verkeer dat rechtdoor rijdt voor laten gaan</strong>. Groen geeft toestemming om te rijden, maar heft de voorrangsregels niet op."},
+
+// ===== BIJZONDERE MANOEUVRES =====
+{q:"U wilt keren op de openbare weg. Aan wie moet u voorrang geven?",
+ opts:["Niemand, u bent al op de weg","Al het overige verkeer, want keren is een bijzondere manoeuvre","Alleen tegemoetkomend verkeer","Alleen verkeer van rechts"],correct:1,
+ exp:"Keren is een <strong>bijzondere manoeuvre</strong>. U moet <strong>al het overige verkeer voorrang geven</strong>, ongeacht de richting waaruit het komt."},
+
+{q:"U rijdt achteruit een parkeervak uit op een parkeerterrein. Een auto rijdt langs. Wie heeft voorrang?",
+ opts:["U, want u was al bezig met achteruitrijden","De passerende auto, want achteruitrijden is een bijzondere manoeuvre","U beiden tegelijk, want u bent allebei op het parkeerterrein","Rechts voor links bepaalt het hier"],correct:1,
+ exp:"<strong>Achteruitrijden is een bijzondere manoeuvre</strong>. U moet altijd al het overige verkeer voorrang geven, ook op een parkeerterrein."},
+
+{q:"U wilt vanuit een invoegstrook de snelweg oprijden. Wie heeft voorrang?",
+ opts:["U, want u voegt in van rechts","Het verkeer op de doorgaande rijbaan heeft voorrang","U mag gelijktijdig invoegen met het doorgaande verkeer","Invoegen geldt als voorrangsrecht"],correct:1,
+ exp:"Bij het invoegen voert u een <strong>bijzondere manoeuvre</strong> uit. U moet altijd <strong>voorrang verlenen aan het verkeer op de doorgaande rijbaan</strong> en geeft richting aan."},
+
+{q:"Twee auto's rijden tegelijk achteruit en botsen. Wie is aansprakelijk?",
+ opts:["De auto die het hardst reed","De auto die van links achteruitreed","Beide bestuurders zijn aansprakelijk, want beiden voeren een bijzondere manoeuvre uit","Niemand, het is overmacht"],correct:2,
+ exp:"Als <strong>twee bestuurders tegelijk een bijzondere manoeuvre uitvoeren</strong>, zijn er geen onderlinge voorrangsregels. Bij een botsing zijn <strong>beide partijen aansprakelijk</strong>, doorgaans 50/50."},
+
+// ===== GLADHEID & WINTERRIJDEN =====
+{q:"Zijn winterbanden verplicht in Nederland?",
+ opts:["Ja, altijd van november tot maart","Ja, maar alleen bij sneeuw en ijzel","Nee, winterbanden zijn in Nederland niet wettelijk verplicht","Ja, op snelwegen altijd in de winter"],correct:2,
+ exp:"<strong>Winterbanden zijn in Nederland niet wettelijk verplicht.</strong> U mag het hele jaar met zomerbanden rijden, mits de profieldiepte minimaal 1,6 mm is. Bij winterse omstandigheden zijn winterbanden wel sterk aanbevolen voor de veiligheid."},
+
+{q:"U rijdt op een gladde weg en uw auto begint te slippen. Wat doet u?",
+ opts:["Hard remmen om zo snel mogelijk te stoppen","Gas loslaten, rustig sturen naar de gewenste richting en niet hard remmen","Koppeling intrappen en hard sturen","Gas geven zodat de aandrijving grip geeft"],correct:1,
+ exp:"Bij slippen op gladheid: <strong>gas loslaten, rustig bijsturen in de gewenste rijrichting</strong> en niet hard remmen of sturen. Plotselinge bewegingen maken het slippen erger."},
+
+{q:"Bij welke temperatuur worden zomerbanden gevaarlijk minder grip en is overstappen op winterbanden verstandig?",
+ opts:["Onder de 0 graden Celsius","Onder de 4 graden Celsius","Onder de 7 graden Celsius","Onder de 10 graden Celsius"],correct:2,
+ exp:"Het rubber van zomerbanden wordt bij <strong>temperaturen onder de 7°C harder</strong>, waardoor de grip significant afneemt. Winterbanden blijven bij lage temperaturen soepel en bieden meer grip."},
+
+{q:"Hoe rijdt u het veiligst bij gladheid?",
+ opts:["Zo snel mogelijk rijden om snel thuis te zijn","Snelheid halveren, afstand verdubbelen en soepel sturen en remmen","Hard remmen voor obstakel zodat u snel stopt","Airco aanzetten voor de veiligheid"],correct:1,
+ exp:"Bij gladheid: <strong>halveer uw snelheid, verdubbel uw volgafstand</strong> en vermijd abrupte stuur- en rembewegingen. De remweg op glad wegdek is veel langer dan op droog asfalt."},
+
+// ===== BELADING =====
+{q:"Hoever mag lading maximaal achter een personenauto uitsteken?",
+ opts:["50 centimeter","1 meter","2 meter","5 meter"],correct:1,
+ exp:"Lading op of achter een personenauto mag aan de achterzijde <strong>maximaal 1 meter uitsteken</strong> voorbij de achterbumper. Meer is bij een personenauto niet toegestaan, ook niet met een markeringsbord."},
+
+{q:"Hoever mag lading aan de zijkant van een personenauto uitsteken?",
+ opts:["10 centimeter","20 centimeter","30 centimeter","50 centimeter"],correct:1,
+ exp:"Lading mag aan beide zijkanten van een personenauto <strong>maximaal 20 centimeter uitsteken</strong>. De totale breedte mag nooit meer dan 2,55 meter bedragen."},
+
+{q:"U vervoert 's nachts lading die aan de achterkant uitsteekt. Wat bent u verplicht te voeren?",
+ opts:[
+   "Alleen achterlichten, die zijn al rood",
+   "Een rood-wit gestreept markeringsbord en tenminste één wit licht voor en rood licht achter aan de lading",
+   "Alleen een rode lap aan de lading",
+   "Een gevarendriehoek achter de auto"
+ ],correct:1,
+ exp:"Bij uitstekende lading bent u verplicht een <strong>rood-wit gestreept markeringsbord</strong> te voeren. 's Nachts geldt aanvullend: tenminste <strong>één wit licht voor en één rood licht achter</strong> aan de uitstekende lading."},
+ 
+// ===== VERPLICHTINGEN BIJ EEN ONGELUK =====
+{q:"U bent betrokken bij een aanrijding waarbij iemand gewond is geraakt. Wat is uw eerste plicht?",
+ opts:["Foto's maken voor de verzekering","Stoppen, hulp verlenen en 112 bellen","Doorrijden als de schade klein lijkt","Gegevens achterlaten en doorrijden"],correct:1,
+ exp:"Bij een aanrijding met gewonden bent u verplicht te <strong>stoppen, hulp te verlenen en 112 te bellen</strong>. Doorrijden na een aanrijding met letsel is een misdrijf (vluchtmisdrijf)."},
+
+{q:"Wat is vluchtmisdrijf?",
+ opts:["Te hard rijden en wegrijden voor de politie","Doorrijden na een aanrijding zonder uw gegevens achter te laten","Rijden zonder rijbewijs en vluchten","Wegrijden bij een politiecontrole"],correct:1,
+ exp:"<strong>Vluchtmisdrijf</strong> is het doorrijden na een aanrijding zonder te stoppen en uw gegevens achter te laten. Dit is strafbaar, ook als u geen schuld had aan het ongeluk."},
+
+{q:"Bij welke situatie bent u verplicht de politie te bellen na een aanrijding?",
+ opts:["Altijd, ook bij kleine schade","Nooit, u regelt het altijd onderling","Als er gewonden zijn of als de tegenpartij weigert gegevens te geven","Alleen als de schade meer dan €1.000 bedraagt"],correct:2,
+ exp:"U bent verplicht de politie te bellen als er <strong>gewonden zijn of als de tegenpartij weigert mee te werken</strong> (geen gegevens wil geven). Bij alleen materiële schade en medewerking van alle partijen is de politie niet verplicht."},
+
+// ===== INHALEN =====
+{q:"Binnen hoeveel meter voor een voetgangersoversteekplaats (zebrapad) is inhalen verboden?",
+ opts:["5 meter","10 meter","20 meter","30 meter"],correct:1,
+ exp:"Inhalen is verboden binnen <strong>10 meter voor een voetgangersoversteekplaats</strong>. Dit om voetgangers die willen oversteken niet in gevaar te brengen."},
+
+{q:"Op een tweebaansweg wilt u inhalen. U ziet een gestippelde witte streep op de weg. Wat betekent dit?",
+ opts:["Inhalen verboden","Inhalen toegestaan mits het veilig is","U moet voorrang verlenen","Dit is een fietsstrook"],correct:1,
+ exp:"Een <strong>gestippelde witte streep</strong> op de rijbaan scheidt rijrichtingen maar geeft géén inhalverbod. Inhalen is toegestaan mits u voldoende zicht heeft en het veilig is."},
+
+{q:"Wanneer is inhalen op een tweebaansweg verboden? (meerdere antwoorden mogelijk)",
+ opts:["Bij een ononderbroken witte streep op de weg","Op of vlak voor een kruispunt zonder goede zichtbaarheid","Bij een inhaalverbodsbord","Als de zon schijnt en het droog is"],
+ correct:[0,1,2],
+ exp:"Inhalen is verboden bij een <strong>doorgetrokken witte streep, op of vlak voor een onoverzichtelijk kruispunt en bij een inhaalverbodsbord</strong>. Droog zonnig weer is juist een gunstige inhaalsituatie."},
+
+// ===== RIJHULPSYSTEMEN (ADAS) =====
+{q:"Wat doet een rijstrookassistent (lane-assist)?",
+ opts:["Remt automatisch voor obstakels","Waarschuwt of corrigeert als u onbedoeld van rijstrook afwijkt","Regelt automatisch de afstand tot de voorganger","Parkeert de auto automatisch in"],correct:1,
+ exp:"Een <strong>rijstrookassistent (lane-assist)</strong> herkent de rijstrookmarkering en waarschuwt of corrigeert licht als u onbedoeld van de rijstrook afwijkt. De bestuurder blijft te allen tijde verantwoordelijk voor het rijgedrag."},
+
+{q:"U heeft een auto met adaptieve cruise control (ACC). U zet deze aan op de snelweg. Wat blijft uw verantwoordelijkheid als bestuurder?",
+ opts:["Niets meer, de auto rijdt zelfstandig","Alleen het sturen; de snelheid en afstand regelt de ACC volledig","U blijft altijd volledig verantwoordelijk en moet ingrijpen wanneer nodig","Alleen het in- en uitschakelen van de ACC"],correct:2,
+ exp:"Rijhulpsystemen zoals ACC zijn <strong>hulpmiddelen, geen vervanging voor de bestuurder</strong>. U blijft altijd volledig verantwoordelijk en moet de situatie bewaken en ingrijpen wanneer de situatie dat vereist."},
+
+{q:"Wat is het gevaar van overmatig vertrouwen op rijhulpsystemen (ADAS)?",
+ opts:["Rijhulpsystemen zijn volledig betrouwbaar, er is geen gevaar","De bestuurder raakt minder oplettend en reageert trager op gevaarlijke situaties","Rijhulpsystemen verhogen het brandstofverbruik sterk","Rijhulpsystemen zijn verboden op de openbare weg"],correct:1,
+ exp:"Overmatig vertrouwen op ADAS leidt tot <strong>verminderde aandacht en tragere reacties</strong>. Systemen kunnen falen of situaties verkeerd interpreteren. De bestuurder moet altijd waakzaam blijven."},
+
+// ===== VOORSORTEREN & RIJSTROOKKEUZE =====
+{q:"U wilt linksaf slaan op een kruispunt. Waar sorteert u voor?",
+ opts:["Zo dicht mogelijk bij de rechterkant van de weg","Zo ver mogelijk naar links op uw rijhelft","In het midden van de weg","Op de fietsstrook als die leeg is"],correct:1,
+ exp:"Voor linksaf slaan sorteert u <strong>zo ver mogelijk naar links op uw eigen rijhelft</strong>. Zo blokkeert u rechtdoorgaand verkeer zo min mogelijk en is uw intentie duidelijk voor andere weggebruikers."},
+
+{q:"U rijdt op een weg met twee rijstroken in uw richting en wilt rechtdoor. Welke rijstrook kiest u?",
+ opts:["De linkerstrook, want die is sneller","De rechterstrook, tenzij u wilt inhalen of afslaan","Midden tussen beide stroken","Dat maakt niet uit"],correct:1,
+ exp:"Op een weg met meerdere rijstroken in dezelfde richting rijdt u <strong>zo ver rechts mogelijk</strong>. De linkerstrook is voor inhalen of linksaf slaan, niet voor doorgaand verkeer."},
+
+// ===== MILITAIRE COLONNES =====
+{q:"U nadert een militaire colonne op een voorrangsweg. Mag u de colonne doorsnijden?",
+ opts:["Ja, want u rijdt op de voorrangsweg","Nee, militaire colonnes mogen niet worden doorgesneden","Ja, als er voldoende ruimte is","Alleen als u haast heeft"],correct:1,
+ exp:"<strong>Militaire colonnes mogen nooit worden doorgesneden</strong>, ook niet door verkeer op een voorrangsweg. Hetzelfde geldt voor uitvaartstoeten van motorvoertuigen."},
+
+{q:"Hoe herkent u het einde van een militaire colonne (sinds 1 januari 2025)?",
+ opts:["Het laatste voertuig heeft een rode vlag","Het laatste voertuig heeft een groene vlag","Het laatste voertuig heeft een witte vlag","Het laatste voertuig heeft een oranje zwaailicht"],correct:1,
+ exp:"Sinds 1 januari 2025 heeft het <strong>laatste voertuig van een militaire colonne een groene vlag</strong>. Het voorste voertuig heeft één blauwe vlag. Dit zijn de nieuwe herkenningstekens."},
+
+// ===== EXTRA MEERKEUZE =====
+{q:"Welke van de volgende handelingen zijn bijzondere manoeuvres waarbij u altijd voorrang moet verlenen? (meerdere antwoorden mogelijk)",
+ opts:["Keren op de openbare weg","Achteruitrijden","Rechtdoor rijden op een voorrangsweg","Invoegen vanaf een invoegstrook"],
+ correct:[0,1,3],
+ exp:"<strong>Keren, achteruitrijden en invoegen</strong> zijn bijzondere manoeuvres: u geeft altijd voorrang aan al het overige verkeer. Rechtdoor rijden op een voorrangsweg is juist een situatie waarbij u voorrang heeft."},
+
+{q:"Welke omstandigheden verhogen het risico op gladheid door bevriezing? (meerdere antwoorden mogelijk)",
+ opts:["Temperaturen rond het vriespunt (0°C)","Regen die bevriest zodra het de grond raakt (ijzel)","Droog, zonnig zomerweer","Een nat wegdek 's nachts bij lichte vorst"],
+ correct:[0,1,3],
+ exp:"Gladheid door bevriezing ontstaat bij <strong>temperaturen rond 0°C, bij ijzel (bevriezende regen) en bij een nat wegdek dat 's nachts bevriest</strong>. Droog zomerweer veroorzaakt geen gladheid."},
+
+{q:"Welke regels gelden voor lading op een personenauto? (meerdere antwoorden mogelijk)",
+ opts:["Lading mag aan de achterkant maximaal 1 meter uitsteken","Lading mag aan de zijkant maximaal 20 cm uitsteken","Lading mag aan de voorkant uitsteken mits goed gemarkeerd","Verlichting en kentekenplaat mogen niet worden afgedekt door de lading"],
+ correct:[0,1,3],
+ exp:"Voor een personenauto geldt: lading steekt aan de achterkant <strong>maximaal 1 meter</strong> uit, aan de zijkant <strong>maximaal 20 cm</strong>, en <strong>verlichting en kentekenplaat mogen nooit bedekt worden</strong>. Lading mag aan de voorkant van een personenauto niet uitsteken."},
+
+];
+
+const EXAM_SIZE = 50;
+const PASS_SCORE = 44;
+let examQuestions = [];
+let currentQ = 0;
+let score = 0;
+let answered = false;
+let selectedMulti = new Set();
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function startQuiz() {
+  examQuestions = shuffle(allQuestions).slice(0, EXAM_SIZE);
+  currentQ = 0; score = 0;
+  document.getElementById('startScreen').style.display = 'none';
+  document.getElementById('quizScreen').style.display = 'block';
+  loadQuestion();
+}
+
+function loadQuestion() {
+  answered = false;
+  selectedMulti = new Set();
+  const q = examQuestions[currentQ];
+  const isMulti = Array.isArray(q.correct);
+
+  document.getElementById('questionNum').textContent = `VRAAG ${String(currentQ+1).padStart(2,'0')}`;
+  document.getElementById('questionText').textContent = q.q;
+  document.getElementById('qLabel').textContent = `Vraag ${currentQ+1} van ${EXAM_SIZE}`;
+  document.getElementById('scoreLabel').textContent = `Score: ${score}`;
+  document.getElementById('progressFill').style.width = `${((currentQ)/EXAM_SIZE)*100+2}%`;
+  document.getElementById('multiHint').className = isMulti ? 'multi-hint show' : 'multi-hint';
+
+  const container = document.getElementById('optionsContainer');
+  container.innerHTML = '';
+  const letters = ['A','B','C','D'];
+
+  if (isMulti) {
+    q.opts.forEach((opt, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'option';
+      btn.dataset.idx = i;
+      btn.innerHTML = `<span class="letter">${letters[i]}</span><span>${opt}</span>`;
+      btn.onclick = () => toggleMulti(btn, i);
+      container.appendChild(btn);
+    });
+    document.getElementById('btnConfirm').className = 'btn-confirm show';
+  } else {
+    const shuf = shuffle([0,1,2,3]);
+    const newCorrect = shuf.indexOf(q.correct);
+    shuf.forEach((origIdx, newIdx) => {
+      const btn = document.createElement('button');
+      btn.className = 'option';
+      btn.innerHTML = `<span class="letter">${letters[newIdx]}</span><span>${q.opts[origIdx]}</span>`;
+      btn.onclick = () => selectSingle(newIdx, newCorrect);
+      container.appendChild(btn);
+    });
+    document.getElementById('btnConfirm').className = 'btn-confirm';
+  }
+
+  document.getElementById('explanation').className = 'explanation';
+  document.getElementById('explanation').innerHTML = '';
+  document.getElementById('btnNext').className = 'btn-next';
+  document.getElementById('btnNext').textContent = currentQ < EXAM_SIZE - 1 ? 'Volgende vraag →' : 'Bekijk resultaat →';
+}
+
+function toggleMulti(btn, idx) {
+  if (answered) return;
+  if (selectedMulti.has(idx)) { selectedMulti.delete(idx); btn.classList.remove('selected'); }
+  else { selectedMulti.add(idx); btn.classList.add('selected'); }
+}
+
+function confirmMulti() {
+  if (answered) return;
+  answered = true;
+  const q = examQuestions[currentQ];
+  const correctSet = new Set(q.correct);
+  const buttons = document.querySelectorAll('.option');
+  buttons.forEach(b => b.disabled = true);
+
+  const isCorrect = selectedMulti.size === correctSet.size && [...selectedMulti].every(i => correctSet.has(i));
+  if (isCorrect) score++;
+
+  buttons.forEach(btn => {
+    const i = parseInt(btn.dataset.idx);
+    if (correctSet.has(i) && selectedMulti.has(i)) btn.classList.add('correct');
+    else if (!correctSet.has(i) && selectedMulti.has(i)) btn.classList.add('wrong');
+    else if (correctSet.has(i) && !selectedMulti.has(i)) btn.classList.add('missed');
+  });
+
+  document.getElementById('btnConfirm').className = 'btn-confirm';
+  showExplanation();
+}
+
+function selectSingle(idx, correctIdx) {
+  if (answered) return;
+  answered = true;
+  const buttons = document.querySelectorAll('.option');
+  buttons.forEach(b => b.disabled = true);
+  if (idx === correctIdx) { buttons[idx].classList.add('correct'); score++; }
+  else { buttons[idx].classList.add('wrong'); buttons[correctIdx].classList.add('correct'); }
+  showExplanation();
+}
+
+function showExplanation() {
+  const exp = document.getElementById('explanation');
+  exp.innerHTML = `💡 ${examQuestions[currentQ].exp}`;
+  exp.className = 'explanation show';
+  document.getElementById('btnNext').className = 'btn-next show';
+}
+
+function nextQuestion() {
+  currentQ++;
+  if (currentQ >= EXAM_SIZE) showScore();
+  else loadQuestion();
+}
+
+function showScore() {
+  document.getElementById('quizScreen').style.display = 'none';
+  const ss = document.getElementById('scoreScreen');
+  ss.className = 'score-screen show';
+  const pct = Math.round((score/EXAM_SIZE)*100);
+  const passed = score >= PASS_SCORE;
+  document.getElementById('finalScore').textContent = score;
+  document.getElementById('statCorrect').textContent = score;
+  document.getElementById('statWrong').textContent = EXAM_SIZE - score;
+  document.getElementById('statPct').textContent = pct + '%';
+  const circle = document.getElementById('scoreCircle');
+  if (passed) {
+    circle.style.borderColor = 'var(--green)';
+    circle.querySelector('.score-num').style.color = 'var(--green)';
+    document.getElementById('resultTitle').textContent = '🎉 Geslaagd!';
+    document.getElementById('resultText').textContent = `Je had ${score} van de 50 goed (minimaal 44 nodig). Uitstekend!`;
+  } else {
+    circle.style.borderColor = 'var(--orange)';
+    circle.querySelector('.score-num').style.color = 'var(--orange)';
+    document.getElementById('resultTitle').textContent = '📚 Nog even oefenen';
+    document.getElementById('resultText').textContent = `Je had ${score} van de 50 goed. Je hebt minimaal 44 nodig (max. 6 fouten). Probeer het opnieuw!`;
+  }
+}
+
+function restartQuiz() {
+  document.getElementById('scoreScreen').className = 'score-screen';
+  startQuiz();
+}
+</script>
+</body>
+</html>

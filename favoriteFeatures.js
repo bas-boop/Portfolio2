@@ -1,6 +1,6 @@
 // Use existing constants if available, otherwise define them
 if (typeof languageTags === 'undefined') {
-    window.languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs"];
+    window.languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs", "blueprints"];
 }
 if (typeof engineTags === 'undefined') {
     window.engineTags = ["unity", "unity6", "unreal", "godot"];
@@ -13,11 +13,13 @@ if (typeof tagDisplayNames === 'undefined') {
         "play": "Play now",
         "unity6": "Unity 6",
         "unity": "Unity",
+        "unreal": "Unreal",
         "3d": "3D",
         "25d": "2.5D",
         "2d": "2D",
         "csharp": "C#",
         "cpp": "C++",
+        "blueprints": "Blueprints",
         "htmlcssjs": "HTML/CSS/JS",
         "gdscript": "GDScript"
     };
@@ -35,25 +37,25 @@ const features = [
     //     tags: []
     // },
     {
+        title: "Gyro Camera Controls",
+        description: "Third-person gyro camera controls for mobile. Made a prototype to test the controls and get a feel for how they work. Main mechanic of the game. The half-physical part of the game.",
+        descriptionShort: "Third-person gyro camera controls for mobile. Main mechanic of the game.",
+        image: "Projects/ShuttleFrogMedia/GyroInGame.gif",
+        link: "Projects/ShuttleFrog#Gyro-Controls",
+        showOnIndex: true,
+        external: false,
+        tags: ["unity6", "csharp", "Mobile"]
+    },
+    {
         title: "Photobook QoL Tool",
-        description: "This is my first custom Unity window, designed to simplify the process of creating new photobook pages. It provides an intuitive interface for developers, making the process faster and more efficient.",
-        descriptionShort: "This is my first custom Unity window, designed to simplify the process of creating new photobook pages.",
+        description: "This is my first QoL tool, designed to simplify the process of creating new photobook pages. It provides an intuitive interface for developers, making the process faster and more efficient.",
+        descriptionShort: "This is my first QoL tool, designed to simplify the process of creating new photobook pages.",
         image: "/Projects/CapturegraafsmeerMedia/PhotobookWindow.png",
         link: "Projects/CaptureGraafsmeer#Photobook-QoL-Tool",
         showOnIndex: true,
         external: false,
         tags: ["unity", "csharp", "Tooling", "Editor"]
     },
-    // {
-    //     title: "Unity as a framework",
-    //     description: "Using Unity as a framework, only for grahphics & physics. I explored how to make my own game systems, without relying on Unity's built-in game architecture, a pure code approach.",
-    //     descriptionShort: "I explored how to make my own game systems, without relying on Unity's built-in game architecture, a pure code approach.",
-    //     image: "/Covers/UnityAsFramework.png",
-    //     link: "https://github.com/bas-boop/IntegratedGameplaySystem/tree/main/Assets/Scripts/GameSystem",
-    //     showOnIndex: true,
-    //     external: true,
-    //     tags: ["csharp", "Design patterns"]
-    // },
     {
         title: "Performance",
         description: "Optimized the maze generation process by utilizing advanced data types available in C#. These improvements significantly boost performance, making the system more efficient, responsive, and larger.",
@@ -65,14 +67,24 @@ const features = [
         tags: ["unity", "csharp", "Algorithm"]
     },
     {
-        title: "2D Splines",
-        description: "I created my own system for 2D splines. Unity's built-in solution only supports 3D splines.",
-        descriptionShort: "I created my own system for 2D splines. Unity's built-in solution only supports 3D splines.",
-        image: "Covers/2dSplines.png",
-        link: "https://github.com/bas-boop/ModuleGitgud/tree/main/Scripts/Framework/Splines",
+        title: "Chomper",
+        description: "A melee enemy from Sparkleblast. It drives around and bites the player when they are close. This enemy was designed to provide a close-range threat to the player, adding variety and challenge to the gameplay. It uses simple AI to navigate the environment and engage the player effectively.",
+        descriptionShort: "A melee enemy from Sparkleblast. It drives around and bites the player when they are close.",
+        image: "/Projects/SparkleblastMedia/Chomper.png",
+        link: "Projects/Sparkleblast#Chomper-(Melee-Enemy)",
         showOnIndex: true,
-        external: true,
-        tags: ["unity6", "csharp", "Tooling", "Editor"]
+        external: false,
+        tags: ["unreal", "blueprints", "AI"]
+    },
+    {
+        title: "SpiderShooter",
+        description: "A ranged enemy from Sparkleblast. It shoots projectiles at the player from a distance, with burst shots. This enemy was designed to provide a distant threat to the player, adding variety and challenge to the gameplay.",
+        descriptionShort: "A ranged enemy from Sparkleblast. It shoots projectiles at the player from a distance.",
+        image: "/Projects/SparkleblastMedia/SpiderShooter.png",
+        link: "Projects/Sparkleblast#SpiderShooter-(Ranged-Enemy)",
+        showOnIndex: false,
+        external: false,
+        tags: ["unreal", "blueprints", "AI"]
     },
     {
         title: "Force System",
@@ -80,9 +92,19 @@ const features = [
         descriptionShort: "A custom collision detection system, enhancing object interactions and physical responses.",
         image: "/Projects/OperationStarfallMedia/VisualSheet-Forcesystem-Postion-small.png",
         link: "/Projects/OperationStarfall#Force-System",
-        showOnIndex: true,
+        showOnIndex: false,
         external: false,
         tags: ["unity", "csharp", "Physics"]
+    },
+    {
+        title: "Volumetric Lighting",
+        description: "A simple volumetric lighting that could be supported in VR. Made with models and decals.",
+        descriptionShort: "A simple volumetric lighting that could be supported in VR. Made with models and decals.",
+        image: "/Projects/Kara-okéMedia/Lamps.png",
+        link: "/Projects/Kara-oke#Volumetric-Lighting",
+        showOnIndex: false,
+        external: false,
+        tags: ["unity", "XR"]
     },
     {
         title: "AR Shader",
@@ -123,16 +145,6 @@ const features = [
         showOnIndex: false,
         external: true,
         tags: ["unity", "csharp", "Design patterns"]
-    },
-    {
-        title: "Quick Time Events",
-        description: "A straightforward system for detecting specific key presses during gameplay. It uses custom enum extensions to improve flexibility and streamline the event detection process.",
-        descriptionShort: "A flexible input detection system using custom enum extensions.",
-        image: "/Covers/SKPH.jpg",
-        link: "https://github.com/bas-boop/Smoll_Knight_plus_Horse/tree/Develop/Assets/Scripts/Framework/QuickTimeEvents",
-        showOnIndex: false,
-        external: true,
-        tags: ["unity", "csharp", "Input"]
     },
 ];
 

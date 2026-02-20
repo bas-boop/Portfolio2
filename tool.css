@@ -11,20 +11,52 @@
 
 .tool-container {
     display: grid;
-    grid-template-columns: repeat(4, minmax(1px, 1fr));
-    gap: 16px;
-    justify-items: center;
-    max-width: 700px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 10px;
+}
+
+.tool-category {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+.tool-category:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.tool-category-header {
+    font-size: 24px;
+    color: #a68ab7;
+    font-weight: 600;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(166, 138, 183, 0.3);
+    text-align: center;
+    width: 100%;
+}
+
+.tool-category-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 16px;
+    justify-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .tool {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 100px;
+    width: 120px;
     background: rgba(255, 255, 255, 0.05);
     padding: 8px;
     border-radius: 10px;
@@ -62,6 +94,11 @@ body.retro-theme .tool-header {
     color: #f4a460; /* replace #a68ab7 light purple */
 }
 
+body.retro-theme .tool-category-header {
+    color: #d4a574; /* retro orange/brown for category headers */
+    border-bottom-color: rgba(212, 165, 116, 0.3);
+}
+
 body.retro-theme .tool {
     background: #e6d5bd;
 }
@@ -74,8 +111,15 @@ body.retro-theme .tool p {
     color: #333344;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
     .tool-container {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+  }
+
+@media (max-width: 600px) {
+    .tool-category-container {
       grid-template-columns: repeat(2, 1fr);
       max-width: 300px;
     }

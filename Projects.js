@@ -16,7 +16,7 @@ function createElement(tag, attributes = {}, textContent = "") {
 }
 
 // Arrays for language and engine tags
-const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs", "blueprint"];
+const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs", "blueprints"];
 const engineTags = ["unity", "unity6", "unreal", "godot"];
 const hiddenTags = ["engine", "lang", "nah"];
 
@@ -83,21 +83,25 @@ function renderFilterOptions(filterId, projectsArray, filterOptionsArray) {
 }
 
 // Function to render project cards with the correct tags
-function renderProjects(filter = "all", containerId, projectsArray) {
+function renderProjects(filter = "all", containerId, projectsArray, limit = null) {
   const projectContainer = document.getElementById(containerId);
   if (!projectContainer) return; // Element doesn't exist
   
   projectContainer.innerHTML = ""; // Clear previous projects
 
-  projectsArray
+  const filteredProjects = projectsArray
     .filter(project => {
       if (filter === "exclude-nah") return !project.tags.includes("nah");
       if (filter === "unity") {
         return ["unity", "unity6"].some(tag => project.tags.includes(tag));
       }
       return filter === "all" || project.tags.includes(filter);
-    })
-    .forEach(project => {
+    });
+
+  // Apply limit if specified
+  const projectsToRender = limit ? filteredProjects.slice(0, limit) : filteredProjects;
+
+  projectsToRender.forEach(project => {
       const projectElement = createElement("a", {
         href: project.gitHub ? `${project.href}?github=${encodeURIComponent(project.gitHub)}` : project.href,
         class: "project-link",
@@ -124,6 +128,17 @@ function renderProjects(filter = "all", containerId, projectsArray) {
         </div>`;
       projectContainer.appendChild(projectElement);
     });
+
+  // Add "See more projects" button if on home page and limit was applied
+  if (limit && filteredProjects.length > limit && !isMiscellaneous) {
+    const buttonContainer = createElement("div", { class: "see-more-container" });
+    const button = createElement("a", {
+      href: "Project",
+      class: "see-more-button"
+    }, "See more projects");
+    buttonContainer.appendChild(button);
+    projectContainer.appendChild(buttonContainer);
+  }
 }
 
 // Function to create a highlight project card
@@ -195,14 +210,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   } else {
-    // Regular page - single filter and container
+    // Home page - render only 3 projects with "See more" button
     renderFilterOptions("tag-filter", projects, filterOptions);
-    renderProjects("all", "project-container", projects);
+    renderProjects("all", "project-container", projects, 3); // Limit to 3 projects on home page
     
     const filterSelect = document.getElementById("tag-filter");
     if (filterSelect) {
       filterSelect.addEventListener("change", function () {
-        renderProjects(this.value, "project-container", projects);
+        renderProjects(this.value, "project-container", projects, 3); // Keep limit when filtering
       });
     }
     

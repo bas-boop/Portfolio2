@@ -22,7 +22,7 @@ const project = {
     features: [
         {
             title: "Photobook QoL Tool",
-            description: "Why did I create a custom window for the photobook? Simple, I wanted to streamline the process of adding new pages and connecting them with interactable elements. Previously, this involved multiple manual steps: copying a template page, adding it to the photobook class, including the interactable’s icon (a circular image), writing text for the interactable, linking it to the correct page, positioning it using GEO location, placing a 3D model on the interactable, and testing for any errors during the process.<br><br>After developing the custom window, the workflow became much more efficient. Now, all I need to do is fill in the necessary data (text, icon, and position) and press the 'Create' button. This has made the process significantly faster and easier for other developers or even artists to use.",
+            description: "Why did I create a QoL tool for the photobook? Simple, I wanted to streamline the process of adding new pages and connecting them with interactable elements. Previously, this involved multiple manual steps: copying a template page, adding it to the photobook class, including the interactable’s icon (a circular image), writing text for the interactable, linking it to the correct page, positioning it using GEO location, placing a 3D model on the interactable, and testing for any errors during the process.<br><br>After developing the QoL tool, the workflow became much more efficient. Now, all I need to do is fill in the necessary data (text, icon, and position) and press the 'Create' button. This has made the process significantly faster and easier for other developers or even artists to use.",
             wide: false,
             hasQuickMenu: true,
             elements: [
@@ -60,7 +60,7 @@ const project = {
                 },
                 {
                     type: "text", 
-                    content: "This custom window is currently the only one I’ve built for any Unity project. It did come with an odd behavior, when switching to a different window, all the text and fields would disappear. Despite investigating the issue, I couldn’t pinpoint the cause, so I decided to create a basic version with just the essential fields and data.<br><br>I tried fixing this using the repaint window functionality, but that didn’t work out. Ultimately, I left it as is because the primary focus was to build a working game without major issues.",
+                    content: "This QoL tool is currently the only one I’ve built for any Unity project. It did come with an odd behavior, when switching to a different window, all the text and fields would disappear. Despite investigating the issue, I couldn’t pinpoint the cause, so I decided to create a basic version with just the essential fields and data.<br><br>I tried fixing this using the repaint window functionality, but that didn’t work out. Ultimately, I left it as is because the primary focus was to build a working game without major issues.",
                     breakRow: false
                 },
                 { 
@@ -81,7 +81,7 @@ const project = {
                 },
                 {
                     type: "text",
-                    content: "<highlight-text>How do you use the photobook window?</highlight-text> In Figure 4, you can see how to use the photobook window. First, fill in the required data and press the 'Make new page!' button. This action generates three things: a new page in the photobook UI game object, a new photo interactable at the bottom of the hierarchy window, and a scriptable object containing all the data.<br><br>Some connections are made automatically, but two links need to be done manually by the developer: the interactable must be linked to the photobook page, and the page must be added to the photobook’s list of pages. Once these steps are completed, the photobook is fully functional with the new page.<br><br>Why not fully automated? While I could have fully automated the process, I opted for more control. Instead of spawning one game object at a time, I generate all the necessary game objects at once.",
+                    content: "<highlight-text>How do you use the photobook tool?</highlight-text> In Figure 4, you can see how to use the photobook tool. First, fill in the required data and press the 'Make new page!' button. This action generates three things: a new page in the photobook UI game object, a new photo interactable at the bottom of the hierarchy window, and a scriptable object containing all the data.<br><br>Some connections are made automatically, but two links need to be done manually by the developer: the interactable must be linked to the photobook page, and the page must be added to the photobook’s list of pages. Once these steps are completed, the photobook is fully functional with the new page.<br><br>Why not fully automated? While I could have fully automated the process, I opted for more control. Instead of spawning one game object at a time, I generate all the necessary game objects at once.",
                     breakRow: false
                 },
                 { 

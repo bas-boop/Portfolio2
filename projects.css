@@ -3,13 +3,15 @@
 /* Adjust container spacing */
 .project-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
     gap: 30px; /* Space between projects */
     padding: 0 50px;
     /* align-items: center; */
     align-content: center;
     justify-content: center;
     justify-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
 }
 
 /*Style for project cards */
@@ -417,4 +419,56 @@ body.retro-theme .project-link:hover .project {
 body.retro-theme .highlight-container img,
 body.retro-theme .project img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* subtle shadow for depth */
+}
+
+/* "See more projects" button styling */
+.see-more-container {
+    grid-column: 1 / -1; /* Span across all columns */
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.see-more-button {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: #a68ab7;
+    color: #1e1e2e;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 16px rgba(166, 138, 183, 0.3);
+    cursor: pointer;
+}
+
+.see-more-button:hover {
+    background-color: #c092f5;
+    box-shadow: 0 12px 24px rgba(192, 146, 245, 0.4);
+    transform: translateY(-4px);
+}
+
+.see-more-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(166, 138, 183, 0.3);
+}
+
+/* Retro theme styling for "See more projects" button */
+body.retro-theme .see-more-button {
+    background-color: #f4a460;
+    color: #333344;
+    box-shadow: 0 8px 16px rgba(244, 164, 96, 0.2);
+}
+
+body.retro-theme .see-more-button:hover {
+    background-color: #d4a574;
+    box-shadow: 0 12px 24px rgba(212, 165, 116, 0.3);
+    transform: translateY(-4px);
+}
+
+body.retro-theme .see-more-button:active {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(244, 164, 96, 0.2);
 }

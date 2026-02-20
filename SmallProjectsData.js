@@ -10,6 +10,7 @@ const filterOptions2 = [
     { value: "cpp", label: "C++" },
     { value: "htmlcssjs", label: "HTML/CSS/JS" },
     // { value: "xr", label: "XR" },
+    { value: "tooling", label: "Tooling" },
     { value: "console", label: "Console" },
     { value: "mobile", label: "Mobile" },
     { value: "gamejam", label: "Game Jam" }
@@ -17,28 +18,20 @@ const filterOptions2 = [
   
 const smallProjects = [
     {
-        title: "This website you are on now.",
-        image: "Covers/Portifolo.png",
-        description: "My portifolo website, second version.",
-        tags: ["new", "2d", "lang", "htmlcssjs"],
+        title: "TowerDefence LevelEditor",
+        description: "A level editor tool made for quick and easy level design. Uses json files to export and import levels.",
+        image: "Covers/TDLE.png",
         blankTarget: true,
-        href: "https://github.com/bas-boop/Portfolio2"
+        tags: ["new", "unity6", "csharp", "tooling", "desgin patterns"],
+        href: "https://github.com/bas-boop/TowerDefenceLevelEditor",
     },
     {
-        title: "Plantbug",
-        image: "https://img.itch.zone/aW1nLzIyMjMxNzY1LnBuZw==/315x250%23c/SOMfqg.png",
-        description: "A small platformer game with wall climing and shooting, for a theme of `Not what you expected`",
-        tags: ["new", "2d", "engine", "unity6", "csharp", "gamejam"],
+        title: "2D Splines",
+        description: "I created my own system for 2D splines. Unity's built-in solution only supports 3D splines.",
+        image: "Covers/2dSplines.png",
         blankTarget: true,
-        href: "https://baz-geluk9.itch.io/plantbug"
-    },
-    {
-        title: "Meine Liebe Gestalt",
-        image: "Covers/MeineLiebeGestalt.png",
-        description: "It's a psychological horror game based on our experience in Berlin. The story explores the city's haunting atmosphere.",
-        tags: ["new", "3d", "engine", "unity6", "csharp"],
-        blankTarget: true,
-        href: "https://github.com/bas-boop/ProjectImagine"
+        tags: ["unity6", "csharp", "tooling", "Editor"],
+        href: "https://github.com/bas-boop/ModuleGitgud/tree/main/Scripts/Framework/Splines",
     },
     {
         title: "Catch Space Trash",
@@ -65,20 +58,28 @@ const smallProjects = [
         href: "https://github.com/bas-boop/FpsManager"     
     },
     {
+        title: "This website you are on now.",
+        image: "Covers/Portifolo.png",
+        description: "My portifolo website, second version.",
+        tags: ["2d", "lang", "htmlcssjs"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/Portfolio2"
+    },
+    {
+        title: "Meine Liebe Gestalt",
+        image: "Covers/MeineLiebeGestalt.png",
+        description: "It's a psychological horror game based on our experience in Berlin. The story explores the city's haunting atmosphere.",
+        tags: ["3d", "engine", "unity6", "csharp"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/ProjectImagine"
+    },
+    {
         title: "Kat-astrofe",
         image: "Covers/Kat-astrofe.png",
         description: "Make a protest safer and friendlier by disarming and destroying weapons that other cats have brought.",
         tags: ["2d", "engine", "unity", "csharp"],
         blankTarget: true,
         href: "https://github.com/bas-boop/ProjectIgnite"
-    },
-    {
-        title: "Macroplastics",
-        image: "Covers/Schilpad.png",
-        description: "This was a 6 hour game jam at HKU made with 4 people, a developer, designer and 2 artists and a small group of musicians. Move turtle and kill brain via shooting the canon.",
-        tags: ["2d", "engine", "unity", "csharp", "gamejam"],
-        blankTarget: true,
-        href: "https://baz-geluk9.itch.io/schildpad"
     },
     {
         title: "Ice Bites",
@@ -95,6 +96,22 @@ const smallProjects = [
         tags: ["2d", "lang", "cpp", "console"],
         blankTarget: true,
         href: "https://github.com/bas-boop/tictactoe"
+    },
+    {
+        title: "Plantbug",
+        image: "https://img.itch.zone/aW1nLzIyMjMxNzY1LnBuZw==/315x250%23c/SOMfqg.png",
+        description: "A small platformer game with wall climing and shooting, for a theme of `Not what you expected`",
+        tags: ["2d", "engine", "unity6", "csharp", "gamejam"],
+        blankTarget: true,
+        href: "https://baz-geluk9.itch.io/plantbug"
+    },
+    {
+        title: "Macroplastics",
+        image: "Covers/Schilpad.png",
+        description: "This was a 6 hour game jam at HKU made with 4 people, a developer, designer and 2 artists and a small group of musicians. Move turtle and kill brain via shooting the canon.",
+        tags: ["2d", "engine", "unity", "csharp", "gamejam"],
+        blankTarget: true,
+        href: "https://baz-geluk9.itch.io/schildpad"
     },
     {
         title: "The Lost Reel",

@@ -96,39 +96,82 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const tools = [
-    { name: "Unity", icon: "unity", experience: "5+ years", useGh: true },
-    { name: "C#", icon: "csharp", experience: "5+ years", useGh: false },
-    { name: "Unreal", icon: "unrealengine", experience: "0.5 years", useGh: false },
-    { name: "C++", icon: "cplusplus", experience: "2+ years", useGh: true },
-    // { name: "Godot", icon: "godotengine", experience: "0.5 years", useGh: true },
-    { name: "Git", icon: "git", experience: "5+ years", useGh: true },
-    { name: "VS Code", icon: "visualstudiocode", experience: "3+ years", useGh: false },
-    { name: "Visual Studio", icon: "visualstudio", experience: "4 years", useGh: false },
-    { name: "Rider", icon: "rider", experience: "4+ years", useGh: true },
-    { name: "Trello", icon: "trello", experience: "5+ years", useGh: true },
-    { name: "Miro", icon: "miro", experience: "2 years", useGh: true },
-    { name: "Notion", icon: "notion", experience: "1+ year", useGh: true },
-    { name: "Blender", icon: "blender", experience: "0.5 years", useGh: true },
-    { name: "Krita", icon: "krita", experience: "0.5 years", useGh: true },
+    // Game Engines
+    { name: "Unity", icon: "unity", category: "Engine", experience: "5+ years", useGh: true },
+    { name: "Unreal", icon: "unrealengine", category: "Engine", experience: "0.5 years", useGh: false },
+    // { name: "Godot", icon: "godotengine", category: "Engine", experience: "0.5 years", useGh: true },
+    
+    // Programming Languages
+    { name: "C#", icon: "csharp", category: "Language", experience: "5+ years", useGh: false },
+    { name: "C++", icon: "cplusplus", category: "Language", experience: "2+ years", useGh: true },
+    
+    // Development Tools
+    { name: "Git", icon: "git", category: "Tools", experience: "5+ years", useGh: true },
+    { name: "VS Code", icon: "visualstudiocode", category: "Tools", experience: "3+ years", useGh: false },
+    { name: "Visual Studio", icon: "visualstudio", category: "Tools", experience: "4 years", useGh: false },
+    { name: "Rider", icon: "rider", category: "Tools", experience: "4+ years", useGh: true },
+    
+    // Productivity & Collaboration
+    { name: "Trello", icon: "trello", category: "Productivity", experience: "5+ years", useGh: true },
+    { name: "Miro", icon: "miro", category: "Productivity", experience: "2 years", useGh: true },
+    { name: "Notion", icon: "notion", category: "Productivity", experience: "1+ year", useGh: true },
+    
+    // Creative Tools
+    { name: "Blender", icon: "blender", category: "Creative", experience: "0.5 years", useGh: true },
+    { name: "Krita", icon: "krita", category: "Creative", experience: "0.5 years", useGh: true },
   ];
   
   const container = document.getElementById("toolList");
   
-  tools.forEach(tool => {
-    const div = document.createElement("div");
-    div.className = "tool";
+  // Group tools by category
+  const toolsByCategory = tools.reduce((acc, tool) => {
+    if (!acc[tool.category]) {
+      acc[tool.category] = [];
+    }
+    acc[tool.category].push(tool);
+    return acc;
+  }, {});
   
-    const iconURL = tool.useGh
-      ? `https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/${tool.icon}.svg`
-      : `https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/${tool.icon}.svg`;
+  // Define category order
+  const categoryOrder = ["Engine", "Language", "Tools", "Productivity", "Creative"];
   
-    div.innerHTML = `
-      <img src="${iconURL}" alt="${tool.name}" />
-      <h2>${tool.name}</h2>
-      <p>${tool.experience}</p>
-    `;
-  
-    container.appendChild(div);
+  // Render tools grouped by category
+  categoryOrder.forEach(category => {
+    if (toolsByCategory[category]) {
+      // Create category header
+      const categorySection = document.createElement("div");
+      categorySection.className = "tool-category";
+      
+      const categoryHeader = document.createElement("h3");
+      categoryHeader.className = "tool-category-header";
+      categoryHeader.textContent = category;
+      categorySection.appendChild(categoryHeader);
+      
+      // Create category tools container
+      const categoryToolsContainer = document.createElement("div");
+      categoryToolsContainer.className = "tool-category-container";
+      
+      // Add tools to category
+      toolsByCategory[category].forEach(tool => {
+        const div = document.createElement("div");
+        div.className = "tool";
+        
+        const iconURL = tool.useGh
+          ? `https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/${tool.icon}.svg`
+          : `https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/${tool.icon}.svg`;
+        
+        div.innerHTML = `
+          <img src="${iconURL}" alt="${tool.name}" />
+          <h2>${tool.name}</h2>
+          <p>${tool.experience}</p>
+        `;
+        
+        categoryToolsContainer.appendChild(div);
+      });
+      
+      categorySection.appendChild(categoryToolsContainer);
+      container.appendChild(categorySection);
+    }
   });
   
   

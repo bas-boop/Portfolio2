@@ -248,6 +248,14 @@ protected override IEnumerator GenerateMazeCoroutine(bool isSlowly = true)
                     content: "To address this issue, I have used the <highlight-text>Stack data structure</highlight-text>, which offers <highlight-text>better performance than a standard array or list</highlight-text>. Additionally, the stack is stored on the heap, avoiding the limitations of stack memory.<br><br>If the current cell has all its neighboring cells visited, the program removes (or 'pops') the current cell from the stack and backtracks to the previous cell. However, if there is any neighboring cell that has not been visited, the algorithm moves to that cell and checks its neighbors.<br><br>By implementing this method, I have resolved the performance issues and <highlight-text>successfully achieved the minimum maze size</highlight-text> of 250 by 250 cells. However, the actual limit is significantly larger. While I haven’t tested the absolute maximum size, it largely depends on the capabilities of your machine. The largest maze I’ve generated so far was <highlight-text>10,000 by 10,000 cells</highlight-text>, which took several hours to complete.",
                     breakRow: false
                 },
+                { 
+                    type: "image", 
+                    src: "MazeGenMedia/Profiler.png", 
+                    size: "75", 
+                    alt: "Profiler when generating",
+                    caption: "Figure 3: Profiler showing performance improvements after using Stack data structure.",
+                    breakRow: true
+                },
             ]
         },
         {
@@ -260,7 +268,7 @@ protected override IEnumerator GenerateMazeCoroutine(bool isSlowly = true)
                     src: "MazeGenMedia/Recursive.gif", 
                     size: "100", 
                     alt: "Recursive gif",
-                    caption: "Figure 3: Recursive backtracking algorithm im action, generating the maze.",
+                    caption: "Figure 4: Recursive backtracking algorithm im action, generating the maze.",
                     breakRow: false
                 },
                 { 
@@ -328,7 +336,7 @@ protected override IEnumerator GenerateMazeCoroutine(bool isSlowly = true)
                     src: "MazeGenMedia/Prims.gif", 
                     size: "100", 
                     alt: "Prims gif",
-                    caption: "Figure 4: Prim's algorithm im action, generating the maze.",
+                    caption: "Figure 5: Prim's algorithm im action, generating the maze.",
                     breakRow: false
                 },
                 { 

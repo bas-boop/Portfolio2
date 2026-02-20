@@ -31,25 +31,13 @@ const projects = [
     // },
 
     {
-        title: "SparkleBlast",
-        image: "Covers/Sparkeblast.png",
-        description: "Magical girl boomer shooter.",
-        tags: ["new", "3d", "engine", "unreal", "cpp", "blueprint", "nah"],
-        blankTarget: false,
-        href: "projects/Sparkleblast",
-        //href: "underconstruction"
-    },
-    // project to add:
-    {
         title: "ShuttleFrog",
         image: "Covers/ShuttleFrog.png",
         description: "Co-op gyro mobile arcadestick item delevery game.",
         tags: ["new", "3d", "engine", "unity6", "csharp", "mobile"],
         blankTarget: false,
-        highlight: true,
-        href: "/Projects/ShuttleFrog",
-        //href: "underconstruction",
-        gitHub: "https://github.com/bas-boop/ShuttleFrog"
+        highlight: false,
+        href: "/Projects/ShuttleFrog"
     },
     {
         title: "Capture Graafsmaar",
@@ -59,20 +47,28 @@ const projects = [
         blankTarget: false,
         href: "/Projects/CaptureGraafsmeer"
     },
-    // project to add:
     {
         title: "Unity as a framework",
         image: "Covers/UnityAsFramework.png",
         description: "I explored how to make my own game systems, without relying on Unity's built-in game architecture.",
-        tags: ["play", "new", "2d", "engine", "csharp", "desgin patterns"],
+        tags: ["play", "2d", "engine", "csharp", "desgin patterns"],
         blankTarget: false,
         href: "/Projects/UnityAsFramework",
+    },
+    {
+        title: "SparkleBlast",
+        image: "Covers/Sparkeblast.png",
+        description: "A 3D magical girl boomer shooter made game in<br>Unreal Engine 5.",
+        tags: ["new", "3d", "engine", "unreal", "cpp", "blueprints", "nah"],
+        blankTarget: false,
+        href: "/Projects/Sparkleblast",
+        //href: "underconstruction"
     },
     {
         title: "Codename-C",
         image: "Covers/Codename-C.png",
         description: "A released narritive OS & platformer game about overthrowing a corrupt regime.",
-        tags: ["play", "new", "2d", "engine", "unity6", "csharp"],
+        tags: ["play", "2d", "engine", "unity6", "csharp"],
         blankTarget: false,
         href: "/Projects/Codename-C"
     },

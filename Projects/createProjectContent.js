@@ -99,8 +99,9 @@ function renderElement(element) {
         return `<div class="description" ${oneElementOneRow}><p>${element.content}</p></div>`;
     }
     else if (element.type === 'imageSlider') {
+        const initialPos = element.initialPosition || 50;
         return `<div class="imageSlider-container${element.size}">
-                    <div class="imageSlider${element.size}" ${oneElementOneRow}>
+                    <div class="imageSlider${element.size}" ${oneElementOneRow} data-initial-position="${initialPos}">
                         <div class="imageSlider-wrapper${element.size} img-left">
                             <img src="${element.rightImage}" alt="Left Image">
                         </div>
@@ -272,13 +273,20 @@ function scrollToTop() {
     }
 }
 
-const sliders = document.querySelectorAll('.imageSlider, .imageSlider-1');
+const sliders = document.querySelectorAll('.imageSlider, .imageSlider-1, .imageSlider-2');
 
 sliders.forEach(sliderContainer => {
     const slider = sliderContainer.querySelector('.slider');
     const imgOverlay = sliderContainer.querySelector('.img-right');
+    const initialPosition = parseInt(sliderContainer.getAttribute('data-initial-position') || '50');
 
     let isDragging = false;
+    
+    // Set initial position
+    const initialPosPixels = (sliderContainer.offsetWidth * initialPosition) / 100;
+    slider.style.left = `${initialPosPixels}px`;
+    const initialPercentage = initialPosition;
+    imgOverlay.style.clipPath = `inset(0 ${100 - initialPercentage}% 0 0)`;
 
     slider.addEventListener('mousedown', function(e) {
         isDragging = true;
