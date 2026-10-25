@@ -9,9 +9,10 @@ const filterOptions = [
     { value: "unreal", label: "Unreal" },
     // { value: "godot", label: "Godot" },
     { value: "csharp", label: "C#" },
+    { value: "hlsl", label: "HLSL" },
     { value: "cpp", label: "C++" },
     { value: "blueprint", label: "Blueprint" },
-    // { value: "gdscript", label: "GDscript" },
+    { value: "gdscript", label: "GDscript" },
     // { value: "htmlcssjs", label: "HTML/CSS/JS" }
 ];
 
@@ -31,10 +32,18 @@ const projects = [
     // },
 
     {
+        title: "Mars Rover Opportunity:<br>The Arcade Game",
+        image: "Covers/Rover.png",
+        description: "A fast-paced arcade style game about the Mars Rover Opportunity.",
+        tags: ["new", "play", "2d", "engine", "unity6", "csharp", "hlsl"],
+        blankTarget: false,
+        href: "/Projects/Rover"
+    },
+    {
         title: "ShuttleFrog",
         image: "Covers/ShuttleFrog.png",
-        description: "Co-op gyro mobile arcadestick item delevery game.",
-        tags: ["new", "3d", "engine", "unity6", "csharp", "mobile"],
+        description: "A chaotic fun arcade style game. Co-op gyro mobile arcade stick item delivery game.",
+        tags: ["play", "3d", "engine", "unity6", "csharp", "mobile"],
         blankTarget: false,
         highlight: false,
         href: "/Projects/ShuttleFrog"
@@ -62,7 +71,6 @@ const projects = [
         tags: ["new", "3d", "engine", "unreal", "cpp", "blueprints", "nah"],
         blankTarget: false,
         href: "/Projects/Sparkleblast",
-        //href: "underconstruction"
     },
     {
         title: "Codename-C",

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="projects.css">
     <link rel="stylesheet" href="tags.css">
     <link rel="stylesheet" href="tool.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <header>
@@ -61,7 +61,7 @@
                 </p>
             </div>
             <div class="hero-image">
-                <img src="MijnFoto.jpg" alt="Profile photo of Bas de Reus">
+                <img src="MijnFoto.jpg" alt="Profile photo of Bas de Reus" loading="lazy">
             </div>
         </div>
     </section>
@@ -114,13 +114,13 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="TagFilter.js"></script>
-    <script src="theme-toggle.js"></script>
-    <script src="DateCalculator.js"></script>
-    <script src="favoriteFeatures.js"></script>
-    <script src="ProjectsData.js"></script>
-    <script src="Projects.js"></script>
-    <script src="Index.js"></script>
-    <script src="HtmlFetcher.js"></script>
+    <script src="TagFilter.js" defer></script>
+    <script src="theme-toggle.js" defer></script>
+    <script src="DateCalculator.js" defer></script>
+    <script src="favoriteFeatures.js" defer></script>
+    <script src="ProjectsData.js" defer></script>
+    <script src="Projects.js" defer></script>
+    <script src="Index.js" defer></script>
+    <script src="HtmlFetcher.js" defer></script>
 </body>
 </html>

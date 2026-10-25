@@ -1,6 +1,6 @@
 const facts = [
     "The only game I'm competitively extremely good at is 'Bloons TD Battles 2'.",
-    "I have participated in 11 game jams.",
+    "I have participated in 16 game jams.",
     "I was part of each season of 'Smash NL Ultimate League (aka SNUL)'.",
     "In the game Bongo Cat I have already 500+ hours.",
     "On Discord calls, I'm almost always eating.",
@@ -24,11 +24,32 @@ const facts = [
 ];
 
 const timelineData = [
+  {
+      year: "2026",
+      items: [
+        {
+          title: "South-Korea Game Jam",
+          description: `Through HKU, I traveled to South Korea to take part in a game jam at Jeonju University, teaming up with students from Korea, Japan, and the Netherlands. Over three days, our team of five built a same-keyboard co-op puzzle platformer themed around "The 100 Year Era," where players cook traditional Korean, Japanese, and Dutch dishes together by gathering ingredients.<br><br>It was an incredible experience with a great team, and I'm grateful for the opportunity at Jeonju University. I spent the following two weeks exploring Seoul, discovering its culture, history, and food, and was struck by how kind and welcoming everyone was. I'm already looking forward to going back, ideally with a bit more Korean under my belt.`,
+          links: [
+            { text: "LinkedIn Post", url: "" },
+            { text: "Play game", url: "https://baz-geluk9.itch.io" },
+          ]
+        },
+        {
+          title: "Learning Unreal Engine",
+          description: `In 2026, I embarked on a journey to learn Unreal Engine, a powerful game development platform. This was done in a team of 17 people, and we made SparkeBlast, a 3D magical girl boomer shooter. I have learned a lot about Unreal Engine, including both C++ and Blueprints, and I have also gained experience in project management and teamwork. I have overcome a fear that I had, only knowing Unity, and I have learned to adapt to a new engine and workflow.`,
+          links: [
+            { text: "See project", url: "https://www.bas-de-reus.nl/Projects/Sparkleblast" },
+            { text: "LinkedIn Post", url: "https://www.linkedin.com/posts/nathan-stroomberg_this-week-team-portomaxx-held-a-christmas-ugcPost-7409783944163926016-guGF?utm_source=share&utm_medium=member_desktop&rcm=ACoAADyXW_QBYnnhUpYqZHkEpCUWg_gEMk7DUus" },
+          ]
+        },
+      ]
+    },
     {
       year: "2025",
       items: [
         {
-          title: "Dutch Game Week - showing game",
+          title: "Dutch Game Week - game showcase",
           description: `During Dutch Game Week 2025, I had the exciting opportunity to showcase my game, ShuttleFrog, to a diverse audience. It was thrilling to see players engage with the game and provide feedback. This event allowed me to connect with fellow game developers and enthusiasts, further fueling my passion for game development.`,
           links: [
             { text: "LinkedIn Post", url: "https://www.linkedin.com/feed/update/urn:li:activity:7403502611678523393/" },
@@ -99,11 +120,18 @@ const timelineData = [
         },
         {
           title: "Game jam trilogy",
-          description: `Game jams are an absolute favorite of mine, and I might have joined a few too many during the summer of 2023! I participated in three, in this order: GMTK 2023 (the biggest jam of the year), Do You WANNA Jam?! 2023, and Brackeys Game Jam 2023.2. Each of these jams was a collaborative effort with many of my friends—some joined me for multiple jams, and a few were there for all three. Here's what we created: a small blacksmith simulator, a horror game featuring a monster, and a roguelike about eyes and the mind.`,
+          description: `Game jams are an absolute favorite of mine, and I might have joined a few too many during the summer of 2023! I participated in three, in this order: GMTK 2023 (the biggest jam of the year), Do You WANNA Jam?! 2023, and Brackeys Game Jam 2023.2. Each of these jams was a collaborative effort with many of my friends joined me for multiple jams, and a few were there for all three. Here's what we created: a small blacksmith simulator, a horror game featuring a monster, and a roguelike about eyes and the mind.`,
           links: [
             { text: "Play Blacksmith Simulator", url: "https://baz-geluk9.itch.io/blacksmith-simulator" },
             { text: "Play The Lost Reel", url: "https://baz-geluk9.itch.io/the-lost-reel" },
             { text: "Play Inner Thoughts", url: "https://baz-geluk9.itch.io/inner-thoughts" }
+          ]
+        },
+        {
+          title: "KeokeN Interactive & Paladin Studios Portfolio day",
+          description: `I was selected to present my portfolio at a portfolio day hosted by KeokeN Interactive and Paladin Studios, two game studios based in the Netherlands. This was a fantastic opportunity to showcase my work to industry professionals, including key figures from both companies. I had great conversations, received valuable feedback, and made meaningful connections with people in the Dutch game development scene.`,
+          links: [
+            { text: "KeokeN Interactive Linkedin Post", url: "https://www.linkedin.com/posts/keokeninteractive_gamedev-indiedev-activity-7088141080658948097-GUrY" },
           ]
         },
         {
@@ -129,7 +157,7 @@ const timelineData = [
         },
         {
           title: "Neon origins",
-          description: `Neon origns is an <custom-tooltip tooltip="Hybrid learning environment is a fusion of school and real work, similar to internship. Here students get the chance to make quality. HLO stand for the dutch translation: Hybride leeromgeving.">hybrid learning environment (HLO)</custom-tooltip>, this is where I truly honed my skills in game development. During this experience, I began to fully understand the tools and techniques I was using. Previously, my approach was to make things work and move on; here, I learned to make things work and improve them—whether through cleaner code, better gameplay, or enhanced visuals. Much of what I do today stems from what I learned during this time.`,
+          description: `Neon origns is an <custom-tooltip tooltip="Hybrid learning environment is a fusion of school and real work, similar to internship. Here students get the chance to make quality. HLO stand for the dutch translation: Hybride leeromgeving.">hybrid learning environment (HLO)</custom-tooltip>, this is where I truly honed my skills in game development. During this experience, I began to fully understand the tools and techniques I was using. Previously, my approach was to make things work and move on; here, I learned to make things work and improve them, whether through cleaner code, better gameplay, or enhanced visuals. Much of what I do today stems from what I learned during this time.`,
           links: [
             { text: "Neon Origins website", url: "https://www.neonorigins.com/" },
             { text: "My contributions", url: "https://www.bas-de-reus.nl/Projects/OperationStarfall" }
@@ -201,11 +229,11 @@ document.getElementById("fact-button").addEventListener("click", () => {
 
 function renderTimeline(data) {
     const container = document.querySelector('.timeline-container');
-    container.innerHTML = '<h2>My history</h2>'; // clear + title
+    let html = '<h2>My history</h2>'; // Start with title
   
     data.forEach(({ year, items }) => {
       // Add year header
-      container.innerHTML += `
+      html += `
         <div class="timeline-year">
           <h2>${year}</h2>
         </div>
@@ -216,7 +244,7 @@ function renderTimeline(data) {
           `<a href="${link.url}" target="_blank" class="link">${link.text}</a>`
         ).join(" | ") || '';
   
-        container.innerHTML += `
+        html += `
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
@@ -228,6 +256,9 @@ function renderTimeline(data) {
         `;
       });
     });
+    
+    // Set innerHTML once after building complete HTML
+    container.innerHTML = html;
   }
   
   document.addEventListener('DOMContentLoaded', () => renderTimeline(timelineData));

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="about.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 <body>
     <header>
@@ -41,13 +41,13 @@
                 </p>
             </section>
             
-            <!-- <section class="Internship background-section">
+            <!--<section class="Internship background-section">
                 <h2>Looking for an Internship</h2>
-                <p>As I continue my Bachelor of Creative Media and Game Technologies at HKU, <highlight-text>I’m seeking an internship</highlight-text> with a game development company where I can further develop my skills in building gameplay and developer features, just like my <a href="/Projects/CaptureGraafsmeer#Photobook-Custom-Window" class="link">custom window</a>. With a strong foundation in Unity and C# from my MBO diploma and 2 additional years at HKU, I’m excited to bring my experience to a professional team focused on creating engaging, high-quality games.
+                <p>As I continue my Bachelor of Creative Media and Game Technologies at HKU, <highlight-text>I’m seeking an internship</highlight-text> with a game development company where I can further develop my skills in building gameplay and developer features, just like my <a href="features" class="link">highlighted features</a>. With a strong foundation in Unity and C# from 2 years at HKU and additional MBO diploma, I’m excited to bring my experience to a professional team focused on creating engaging, high-quality games.
                     <br><br>I am especially interested in gaining hands-on experience with development deadlines. While I have extensive experience in programming and project development, I’m eager to grow my skills in navigating the fast-paced, deadline-driven environments of the industry. <highlight-text>Working with real timelines and milestones</highlight-text> will be an invaluable learning experience, and I am excited to adapt and meet the expectations that come with professional game development.
                     <br><br>While Unity is my primary tool, I am open to working with other engines and frameworks like Godot, Unreal, or MonoGame to broaden my expertise and learn new technologies. If you’re looking for an <highlight-text>intern who is dedicated, passionate, and ready to grow</highlight-text>, I’d love to <a href="contact" class="link">connect</a>!
                 </p>
-            </section> -->
+            </section>-->
 
             <section class="gaming background-section">
                 <h2>Gaming</h2>
@@ -67,10 +67,10 @@ I tend to gravitate towards building and simulation games, like <highlight-text>
         </div>
         
         <div class="image-content">
-            <!-- <img src="MijnFoto.jpg" alt="Photo of me" class="profile-photo"> --> <!-- replace with good photo --->
-            <img src="Projects/ShuttleFrogMedia/PlayingGame.jpg" alt="Photo of me on stage" class="profile-photo-stage">
-            <img src="Covers/DevsVoorIngang.jpg" alt="Photo of me on stage" class="profile-photo-stage">
-            <img src="Podium.png" alt="Photo of me on stage" class="profile-photo-stage">
+            <img src="Wijzen.jpg" alt="Photo of me on stage" class="profile-photo-stage" loading="lazy">
+            <img src="Projects/ShuttleFrogMedia/PlayingGame.jpg" alt="Photo of me on stage" class="profile-photo-stage" loading="lazy">
+            <img src="Covers/DevsVoorIngang.jpg" alt="Photo of me on stage" class="profile-photo-stage" loading="lazy">
+            <img src="Podium.png" alt="Photo of me on stage" class="profile-photo-stage" loading="lazy">
         </div>
     </div>
 
@@ -85,11 +85,11 @@ I tend to gravitate towards building and simulation games, like <highlight-text>
 
     <div id="footer-placeholder"></div>
 
-    <script src="theme-toggle.js"></script>
-    <script src="ProjectsData.js"></script>
-    <script src="HtmlFetcher.js"></script>
-    <script src="Tooltip.js"></script>
-    <script src="DateCalculator.js"></script>
-    <script src="about.js"></script>
+    <script src="theme-toggle.js" defer></script>
+    <script src="ProjectsData.js" defer></script>
+    <script src="HtmlFetcher.js" defer></script>
+    <script src="Tooltip.js" defer></script>
+    <script src="DateCalculator.js" defer></script>
+    <script src="about.js" defer></script>
 </body>
 </html>

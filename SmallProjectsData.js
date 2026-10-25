@@ -5,24 +5,34 @@ const filterOptions2 = [
     { value: "lang", label: "Pure code (with framework)" },
     { value: "unity", label: "Unity" },
     // { value: "unreal", label: "Unreal" },
-    // { value: "godot", label: "Godot" },
+    { value: "godot", label: "Godot" },
     { value: "csharp", label: "C#" },
     { value: "cpp", label: "C++" },
+    { value: "gdscript", label: "GDscript" },
     { value: "htmlcssjs", label: "HTML/CSS/JS" },
     // { value: "xr", label: "XR" },
     { value: "tooling", label: "Tooling" },
     { value: "console", label: "Console" },
     { value: "mobile", label: "Mobile" },
-    { value: "gamejam", label: "Game Jam" }
+    { value: "gamejam", label: "Game Jam" },
+    { value: "designpattern", label: "Design Pattern" },
 ];
   
-const smallProjects = [
+const smallProjects = [    
+    {
+        title: "Sing/Instrument",
+        image: "https://www.thomann.de/blog/app/uploads/sites/3/2024/10/singerheader.jpg",
+        description: "A pitch chaning game for a gamejam.",
+        tags: ["2d", "engine", "godot", "gdscript", "gamejam"],
+        blankTarget: true,
+        href: "https://baz-geluk9.itch.io/plantbug"
+    },
     {
         title: "TowerDefence LevelEditor",
         description: "A level editor tool made for quick and easy level design. Uses json files to export and import levels.",
         image: "Covers/TDLE.png",
         blankTarget: true,
-        tags: ["new", "unity6", "csharp", "tooling", "desgin patterns"],
+        tags: ["new", "unity6", "csharp", "tooling", "designpattern"],
         href: "https://github.com/bas-boop/TowerDefenceLevelEditor",
     },
     {
@@ -37,9 +47,17 @@ const smallProjects = [
         title: "Catch Space Trash",
         image: "Covers/CatchSpaceTrash.png",
         description: "Save the mother ship by shooting space trash or crashing into it with your small spacecraft.",
-        tags: ["2d", "engine", "unity", "csharp"],
+        tags: ["2d", "engine", "unity", "csharp", "designpattern"],
         blankTarget: true,
         href: "https://github.com/bas-boop/CathSpaceTrash"
+    },
+    {
+        title: "Game of Life",
+        image: "Covers/GameOfLife.png",
+        description: "A game of life simulation that is multithreaded and uses VertexArrays for rendering. Made in C++ with SFML.",
+        tags: ["2d", "lang", "cpp", "console"],
+        blankTarget: true,
+        href: "https://github.com/bas-boop/LowLevelTheProject/tree/main/src/GameOfLife"     
     },
     {
         title: "Smoll Knight + Horse",
@@ -116,8 +134,8 @@ const smallProjects = [
     {
         title: "The Lost Reel",
         image: "Covers/TheLostReel.png",
-        description: "This is a horro game made for the gamejam 'Wanna Jam? 2023'. Monster AI with a statemachine.",
-        tags: ["3d", "engine", "unity", "csharp", "gamejam"],
+        description: "This is a horror game made for the gamejam 'Wanna Jam? 2023'. Monster AI with a statemachine.",
+        tags: ["3d", "engine", "unity", "csharp", "gamejam", "designpattern"],
         blankTarget: true,
         href: "https://github.com/Team-Swamp/The-Lost-Reel"
     },

@@ -52,6 +52,11 @@
     margin: 0 auto;
 }
 
+.tool-category:last-child .tool-category-container {
+    justify-content: flex-start;
+    padding-left: 24px;
+}
+
 .tool {
     display: flex;
     flex-direction: column;

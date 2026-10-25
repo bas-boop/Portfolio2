@@ -5,6 +5,15 @@ function renderHeader(project) {
     `;
 }
 
+// Renders the link list into project-links element
+function renderLinkList(project) {
+    const linksHtml = project.links?.length ? project.links.map(link => `
+        <li><a href="${link.url}" target="_blank">${createIcon(link.icon)} ${link.name}</a></li>
+    `).join('') : '';
+
+    document.getElementById('project-links').innerHTML = `<ul class="link-list">${linksHtml}</ul>`;
+}
+
 // Renders the project description and details
 function renderProjectInfo(project) {
     const detailsHtml = project.details.map(detail => `
@@ -13,10 +22,6 @@ function renderProjectInfo(project) {
             <span><strong>${detail.label}: </strong>${detail.value}</span>
         </div>`).join('');
 
-    const linksHtml = project.links?.length ? project.links.map(link => `
-        <li><a href="${link.url}" target="_blank">${createIcon(link.icon)} ${link.name}</a></li>
-    `).join('') : '';
-
     document.getElementById('project-info').innerHTML = `
         <div class="code-container">
             <div class="description">
@@ -24,7 +29,7 @@ function renderProjectInfo(project) {
                 <p>${safeGet(project.description)}</p>
             </div>
             <div class="project-details">${detailsHtml}</div>
-            <ul class="link-list">${linksHtml}</ul>
+            
         </div>
     `;
 }
@@ -175,6 +180,7 @@ function createIcon(iconClass) {
 renderHeader(project);
 renderProjectInfo(project);
 renderProjectFeatures(project);
+renderLinkList(project);
 renderQuickMenu(project);
 
 function copyFeatureLink(featureId, iconElement) {

@@ -248,7 +248,7 @@ private void AddListeners()
                 },
                 {
                     type: "text", 
-                    content: "When developing a game, the focus is usually on making it playable and fun. But as the developer, I also want a smooth workflow. The OS levels weren’t fun to build and were time-consuming. Linking locked documents with the correct text files and pins involved too much manual referencing.<br><br>That’s why, if I have time, I’d like to create a level editor tool to streamline the process. Maybe a custom Unity window like I built for my <a href=\"CaptureGraafsmeer\">Capture Graafsmeer</a> exam project.",
+                    content: "When developing a game, the focus is usually on making it playable and fun. But as the developer, I also want a smooth workflow. The OS levels weren’t fun to build and were time-consuming. Linking locked documents with the correct text files and pins involved too much manual referencing.<br><br>That’s why, if I have time, I’d like to create a level editor tool to streamline the process. Maybe a QoL feature like I built for my <a href=\"CaptureGraafsmeer\">Capture Graafsmeer</a> exam project.",
                     breakRow: false
                 },
             ]

@@ -165,28 +165,30 @@ function generateFeatureList() {
         const targetAttribute = feature.external ? 'target="_blank"' : '';
         const descriptionToUse = isIndexPage ? feature.descriptionShort : feature.description;
 
-        if (isIndexPage) {
+        // For external links on features page, create button instead of wrapping link
+        // For internal links or index page, wrap entire card in anchor
+        if (!isIndexPage && feature.external) {
+            // External link on features page - no outer wrapper, button only
+            featureItem.innerHTML = `
+                <img src="${feature.image}" alt="${feature.title}" loading="lazy">
+                <div>
+                    <h3>${feature.title}</h3>
+                    <p>${descriptionToUse}</p>
+                    <a href="${feature.link}" class="feature-btn" target="_blank">View Feature on GitHub
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            `;
+        } else {
+            // Internal links or index page - wrap entire card in anchor
             featureItem.innerHTML = `
                 <a href="${feature.link}" ${targetAttribute}>
-                    <img src="${feature.image}" alt="${feature.title}">
+                    <img src="${feature.image}" alt="${feature.title}" loading="lazy">
                     <div>
                         <h3>${feature.title}</h3>
                         <p>${descriptionToUse}</p>
                     </div>
                 </a>
-            `;
-        } else {
-            featureItem.innerHTML = `
-                <img src="${feature.image}" alt="${feature.title}">
-                <div>
-                    <h3>${feature.title}</h3>
-                    <p>${descriptionToUse}</p>
-                    <a href="${feature.link}" ${targetAttribute} class="feature-btn">View Feature
-                        <span class="copy-icon" title="Copy link to this section">
-                            <i class="fas fa-link"></i>
-                        </span>
-                    </a>
-                </div>
             `;
         }
 
@@ -194,7 +196,12 @@ function generateFeatureList() {
         const featureDiv = featureItem.querySelector("div");
         if (feature.tags && feature.tags.length > 0) {
             const tagsDiv = renderFeatureTags(feature.tags);
-            featureDiv.insertBefore(tagsDiv, featureDiv.querySelector(".feature-btn"));
+            const buttonElement = featureDiv.querySelector(".feature-btn");
+            if (buttonElement) {
+                featureDiv.insertBefore(tagsDiv, buttonElement);
+            } else {
+                featureDiv.appendChild(tagsDiv);
+            }
         }
 
         featureListContainer.appendChild(featureItem);

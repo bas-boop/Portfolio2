@@ -1,6 +1,6 @@
 const project = {
     name: "ShuttleFrog",
-    description: "ShuttleFrog is a co-op gyro mobile arcade stick item delivery game. This was made as a school project for HKU; the assignment was a half-physical, half-digital game. We had a lot of fun designing and testing different technologies.<br><br>This game has been <highlight-text>showcased at Dutch Game Week 2025</highlight-text>, where it was played by a large and diverse audience. Showcasing ShuttleFrog provided valuable player feedback and was a great opportunity to connect with other game developers and industry professionals.",
+    description: "ShuttleFrog is a chaotic fun arcade style, co-op gyro mobile arcade stick, item delivery game. This was made as a school project for HKU; the assignment was a half-physical, half-digital game. We had a lot of fun designing and testing different technologies.<br><br>This game has been <highlight-text>showcased at Dutch Game Week 2025</highlight-text>, where it was played by a large and diverse audience. Showcasing ShuttleFrog provided valuable player feedback and was a great opportunity to connect with other game developers and industry professionals.",
     hasQuickMenu: true,
     details: [
         { icon: "fas fa-calendar-alt", label: "Year", value: "2025" },
@@ -15,6 +15,7 @@ const project = {
         { icon: "fab fa-github", name: "GitHub Repository", url: "https://github.com/bas-boop/ShuttleFrog" },
         { icon: "fab fa-github", name: "Gyro Prototype GitRepo", url: "https://github.com/bas-boop/Gyro" },
         { icon: "fas fa-tasks", name: "Miro board", url: "https://miro.com/app/board/uXjVJJDDxpc=/" },
+        { icon: "fas fa-gamepad", name: "Download game", url: "https://github.com/bas-boop/ShuttleFrog/releases/tag/1.1" },
         { icon: "fas fa-file", name: "Game Design Document", url: "ShuttleFrogMedia/Shuttlefrog-GDD.pdf" },
         { icon: "fab fa-youtube", name: "Watch Old Gameplay", url: "https://youtu.be/Alik5d1Vi-k" },
         { icon: "fab fa-youtube", name: "Watch AB testing", url: "https://youtu.be/Asj_nkJd900" },
@@ -103,9 +104,16 @@ private void UpdateRotation()
         },
         {
             title: "Delivery System",
-            description: "Delivering plushies is the main mechanic of the game, so I had to make a delivery system that was fun and easy to use. It is split into two parts: the first part is picking up the plushies, and the second part is delivering them to the correct location.<br><br>This feature did go through <highlight-text>many design iterations</highlight-text>, so some parts of the systems I made were not used or are a bit messy. This was a fun challenge for me because I had not had a designer before who pushed me to make such quick iterations.",
-            wide: true,
+            description: "Delivering plushies is the main mechanic of the game, so I had to make a delivery system that was fun and easy to use. It is split into two parts: the first part is picking up the plushies, and the second part is delivering them to the correct location.<br><br>This feature did go through <highlight-text>many design iterations</highlight-text>, so some parts of the systems I made were not used or are a bit messy. This was a fun challenge for me because I had not such great of a designer (<a href=\"https://gurt.uk/shuttlefrog/\" target=\"_blank\">Mike Weller</a>) before who pushed me to make such quick iterations.",
+            wide: false,
             elements: [
+                { 
+                    type: "image", 
+                    src: "ShuttleFrogMedia/Controls.png",
+                    size: "80", 
+                    alt: "Control scheme",
+                    caption: "Figure 4: Control scheme for ShuttleFrog on controller."
+                },
                 { 
                     type: "image", 
                     src: "ShuttleFrogMedia/GrabPlushie.gif",
@@ -125,7 +133,7 @@ private void UpdateRotation()
                     src: "ShuttleFrogMedia/IconSystem.gif",
                     size: "110", 
                     alt: "Hiding and showing icons gif",
-                    caption: "Figure 8: Hiding and showing icons."
+                    caption: "Figure 7: Hiding and showing icons."
                 },
                 { 
                     type: "text", 
@@ -163,7 +171,7 @@ public void SetAllDemanding()
                     type: "imageSlider",
                     leftImage: "ShuttleFrogMedia/ColliderYes.png",
                     rightImage: "ShuttleFrogMedia/ColliderNo.png",
-                    caption: "Figure 7: Collider stuff.",
+                    caption: "Figure 8: ShuttleFrog's trigger collider.",
                     size: "-2",
                     initialPosition: 60,
                     breakRow: false
@@ -214,7 +222,7 @@ public void SetAllDemanding()
             elements: [
                 { 
                     type: "text", 
-                    content: "I did not expect to be proud of this project for a few reasons. All team projects in year 1 at HKU were not fun or good. They were just projects that I made for a grade. ShuttleFrog started that way as well, but then the random team selection happened. I got a great artist (Sophie Groot) and designer (Mike Weller). With the three of us, we had a strong core on the team. We did have some conflicts in team dynamics, and someone left the group. After this, we had the room for our freedom and had a <highlight-text>rapid production tempo</highlight-text>.",
+                    content: "I did not expect to be proud of this project for a few reasons. All team projects in year 1 at HKU were not fun or good. They were just projects that I made for a grade. ShuttleFrog started that way as well, but then the random team selection happened. I got a great artist (Sophie Groot) and designer (<a href=\"https://gurt.uk/shuttlefrog/\" target=\"_blank\">Mike Weller</a>). With the three of us, we had a strong core on the team. We did have some conflicts in team dynamics, and someone left the group. After this, we had the room for our freedom and had a <highlight-text>rapid production tempo</highlight-text>.",
                     breakRow: false
                 },
                 { 
@@ -240,7 +248,7 @@ public void SetAllDemanding()
                 },
                 { 
                     type: "text", 
-                    content: "The project was at some points a challenge for me. The designer made so many iterations; sometimes I was developing a feature and then in the middle of that, I got a redesign of that feature. This made every piece of code potentially obsolete when I wrote it. Therefore, I made systems to be very changeable with <custom-tooltip tooltip=\"Single Responsibility Principle - A module should be responsible to one, and only one, actor.\">SRP</custom-tooltip> & <custom-tooltip tooltip=\"Open–Closed Principle - States that software entities should be open for extension, but closed for modification.\">OCP</custom-tooltip> (the S and O of SOLID). At the end of the development cycle, there was also some commented-out code for good measure.<br><br>A great project, fun to develop, fun playing the game, and a great learning opportunity.",
+                    content: "The project was at some points a challenge for me. <a href=\"https://gurt.uk/shuttlefrog/\" target=\"_blank\">Mike</a> made so many iterations; sometimes I was developing a feature and then in the middle of that, I got a redesign of that feature. This made every piece of code potentially obsolete when I wrote it. Therefore, I made systems to be very changeable with <custom-tooltip tooltip=\"Single Responsibility Principle - A module should be responsible to one, and only one, actor.\">SRP</custom-tooltip> & <custom-tooltip tooltip=\"Open–Closed Principle - States that software entities should be open for extension, but closed for modification.\">OCP</custom-tooltip> (the S and O of SOLID). At the end of the development cycle, there was also some commented-out code for good measure.<br><br>A great project, fun to develop, fun playing the game, and a great learning opportunity.",
                     breakRow: true
                 },
             ]

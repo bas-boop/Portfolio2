@@ -97,28 +97,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const tools = [
     // Game Engines
-    { name: "Unity", icon: "unity", category: "Engine", experience: "5+ years", useGh: true },
-    { name: "Unreal", icon: "unrealengine", category: "Engine", experience: "0.5 years", useGh: false },
-    // { name: "Godot", icon: "godotengine", category: "Engine", experience: "0.5 years", useGh: true },
+    { name: "Unity", icon: "unity", category: "Engine", experience: "6 years", useGh: true },
+    { name: "Unreal", icon: "unrealengine", category: "Engine", experience: "0.5 year", useGh: false },
+    //{ name: "Godot", icon: "godotengine", category: "Engine", experience: "0.5 year", useGh: true },
     
     // Programming Languages
-    { name: "C#", icon: "csharp", category: "Language", experience: "5+ years", useGh: false },
-    { name: "C++", icon: "cplusplus", category: "Language", experience: "2+ years", useGh: true },
+    { name: "C#", icon: "csharp", category: "Language", experience: "6 years", useGh: false },
+    { name: "C++", icon: "cplusplus", category: "Language", experience: "2 years", useGh: true },
+    { name: "JavaScript", icon: "javascript", category: "Language", experience: "2 years", useGh: false },
     
     // Development Tools
-    { name: "Git", icon: "git", category: "Tools", experience: "5+ years", useGh: true },
-    { name: "VS Code", icon: "visualstudiocode", category: "Tools", experience: "3+ years", useGh: false },
+    { name: "Git", icon: "git", category: "Tools", experience: "6 years", useGh: true },
+    { name: "VS Code", icon: "visualstudiocode", category: "Tools", experience: "3 years", useGh: false },
     { name: "Visual Studio", icon: "visualstudio", category: "Tools", experience: "4 years", useGh: false },
-    { name: "Rider", icon: "rider", category: "Tools", experience: "4+ years", useGh: true },
+    { name: "Rider", icon: "rider", category: "Tools", experience: "5 years", useGh: true },
     
     // Productivity & Collaboration
-    { name: "Trello", icon: "trello", category: "Productivity", experience: "5+ years", useGh: true },
+    { name: "Trello", icon: "trello", category: "Productivity", experience: "5 years", useGh: true },
+    { name: "Notion", icon: "notion", category: "Productivity", experience: "2 years", useGh: true },
     { name: "Miro", icon: "miro", category: "Productivity", experience: "2 years", useGh: true },
-    { name: "Notion", icon: "notion", category: "Productivity", experience: "1+ year", useGh: true },
     
     // Creative Tools
-    { name: "Blender", icon: "blender", category: "Creative", experience: "0.5 years", useGh: true },
-    { name: "Krita", icon: "krita", category: "Creative", experience: "0.5 years", useGh: true },
+    { name: "Blender", icon: "blender", category: "Creative", experience: "0.5 year", useGh: true },
+    { name: "Krita", icon: "krita", category: "Creative", experience: "0.5 year", useGh: true },
   ];
   
   const container = document.getElementById("toolList");

@@ -16,7 +16,7 @@ function createElement(tag, attributes = {}, textContent = "") {
 }
 
 // Arrays for language and engine tags
-const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs", "blueprints"];
+const languageTags = ["csharp", "cpp", "gdscript", "htmlcssjs", "blueprints", "hlsl"];
 const engineTags = ["unity", "unity6", "unreal", "godot"];
 const hiddenTags = ["engine", "lang", "nah"];
 
@@ -32,7 +32,8 @@ const tagDisplayNames = {
   "gdscript": "GDscript",
   "htmlcssjs": "HTML CSS JS",
   "xr": "XR",
-  "nah": "Under Construction"
+  "nah": "Under Construction",
+  "hlsl": "HLSL"
 };
 
 // Function to determine the appropriate class for a tag
@@ -116,7 +117,7 @@ function renderProjects(filter = "all", containerId, projectsArray, limit = null
       const highlightClass = project.highlight ? 'project project-highlight' : 'project';
       projectElement.innerHTML = `
         <div class="${highlightClass}">
-          <img src="${project.image}" alt="${project.title}" class="${imgClass}">
+          <img src="${project.image}" alt="${project.title}" class="${imgClass}" loading="lazy">
           <h2>${project.title}</h2>
           <p>${project.description}</p>
           <div class="tags">
@@ -212,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     // Home page - render only 3 projects with "See more" button
     renderFilterOptions("tag-filter", projects, filterOptions);
-    renderProjects("all", "project-container", projects, 3); // Limit to 3 projects on home page
+    renderProjects("all", "project-container", projects, 2); // Limit to 3 projects on home page
     
     const filterSelect = document.getElementById("tag-filter");
     if (filterSelect) {
