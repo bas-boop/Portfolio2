@@ -31,7 +31,7 @@ const timelineData = [
           title: "South-Korea Game Jam",
           description: `Through HKU, I traveled to South Korea to take part in a game jam at Jeonju University, teaming up with students from Korea, Japan, and the Netherlands. Over three days, our team of five built a same-keyboard co-op puzzle platformer themed around "The 100 Year Era," where players cook traditional Korean, Japanese, and Dutch dishes together by gathering ingredients.<br><br>It was an incredible experience with a great team, and I'm grateful for the opportunity at Jeonju University. I spent the following two weeks exploring Seoul, discovering its culture, history, and food, and was struck by how kind and welcoming everyone was. I'm already looking forward to going back, ideally with a bit more Korean under my belt.`,
           links: [
-            { text: "LinkedIn Post", url: "" },
+            { text: "LinkedIn Post", url: "https://lnkd.in/p/e9ffy28z" },
             { text: "Play game", url: "https://baz-geluk9.itch.io" },
           ]
         },
